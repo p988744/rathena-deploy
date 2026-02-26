@@ -1,0 +1,62 @@
+# ============================================================
+# docker-compose.yml — 部署到 Linux VPS (AWS Lightsail 等)
+# ============================================================
+
+services:
+  db:
+    image: mariadb:10.11
+    container_name: rathena-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASS:-ragnarok_root}
+      MYSQL_DATABASE: ${DB_NAME:-ragnarok}
+      MYSQL_USER: ${DB_USER:-ragnarok}
+      MYSQL_PASSWORD: ${DB_PASS:-ragnarok}
+      TZ: Asia/Taipei
+    ports:
+      - "${DB_PORT_EXPOSE:-3306}:3306"
+    volumes:
+      - rathena-db-data:/var/lib/mysql
+    networks:
+      - rathena-net
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
+
+  rathena:
+    image: rathena-server:latest
+    container_name: rathena-server
+    restart: unless-stopped
+    network_mode: host
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: 127.0.0.1
+      DB_PORT: "3306"
+      DB_USER: ${DB_USER:-ragnarok}
+      DB_PASS: ${DB_PASS:-ragnarok}
+      DB_NAME: ${DB_NAME:-ragnarok}
+      SERVER_NAME: ${SERVER_NAME:-MyRO}
+      CHAR_PUBLIC_IP: ${SERVER_IP:-127.0.0.1}
+      MAP_PUBLIC_IP: ${SERVER_IP:-127.0.0.1}
+      BASE_EXP_RATE: ${BASE_EXP_RATE:-500}
+      JOB_EXP_RATE: ${JOB_EXP_RATE:-500}
+      DROP_RATE: ${DROP_RATE:-300}
+      CARD_DROP_RATE: ${CARD_DROP_RATE:-1000}
+      LOGIN_PORT: ${LOGIN_PORT:-6900}
+      CHAR_PORT: ${CHAR_PORT:-6121}
+      MAP_PORT: ${MAP_PORT:-5121}
+    volumes:
+      - ./custom:/rathena-custom:ro
+      - ./scripts/entrypoint.sh:/entrypoint.sh:ro
+
+networks:
+  rathena-net:
+    driver: bridge
+
+volumes:
+  rathena-db-data:

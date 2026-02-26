@@ -1,0 +1,12 @@
+9 Disable 1rag1 type parameters (Recommended)
+13 Disable Ragexe Filename Check (Recommended)
+35 Read Data Folder First
+38 Remove Gravity Ads (Recommended)
+39 Remove Gravity Logo (Recommended)
+90 Enable DNS Support (Recommended)
+231 Remove hardcoded address/port (Recommended)
+232 Restore old login packet (Recommended)
+326 Disable OTP Login Packet (Recommended)
+417 Disable password encryption for lang types 4, 7
+432 Disable Game Guard (NProtect) (Recommended)
+436 Disable packets id encryption

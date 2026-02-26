@@ -1,0 +1,55 @@
+# === Package / Archive ===
+*.tar
+*.tar.gz
+*.zip
+*.grf
+
+# === kRO Client (large binaries) ===
+client/*.dll
+client/*.exe
+client/*.dat
+client/*.des
+client/*.inf
+client/*.ini
+client/*.ico
+client/*.asi
+client/*.m3d
+client/*.sys
+client/*.vxd
+client/*.log
+client/*.json
+client/*.txt
+!client/data/**
+client/BGM/
+client/AI/
+client/AI_sakray/
+client/AuthModuleCache/
+client/HShield/
+client/PatchClient/
+client/Navigationdata/
+client/System/
+client/client/
+client/db/
+client/savedata/
+client/server/
+client/skin/
+
+# Keep only patched exe
+!client/Ragexe_patched.exe
+
+# === NEMO Patcher ===
+# Only track: NEMO.exe, original exes, patch log
+nemo/*
+!nemo/NEMO.exe
+!nemo/2022-04-06_Ragexe_1648707856.exe
+!nemo/2021-11-03_Ragexe_1635415878.exe
+!nemo/2022-04-06_Ragexe_1648707856_patched.exe
+!nemo/2022-04-06_Ragexe_1648707856_patched.exe.log
+
+# === Server ===
+server/rathena-server.tar
+server/{conf,scripts}
+
+# === Temp ===
+.DS_Store
+*.megatmp*
