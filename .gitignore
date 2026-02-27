@@ -28,6 +28,11 @@ client/HShield/
 client/PatchClient/
 client/Navigationdata/
 client/System/
+!client/System/font/
+!client/System/font/**
+!client/System/itemInfo_true.lub
+!client/System/itemInfo_true_org.lub
+client/_kro_original_launchers/
 client/client/
 client/db/
 client/savedata/
@@ -50,6 +55,10 @@ nemo/*
 server/rathena-server.tar
 server/{conf,scripts}
 
+# === Build scripts (not needed in repo) ===
+client/data/convert_to_big5.py
+
 # === Temp ===
 .DS_Store
 *.megatmp*
+__pycache__/

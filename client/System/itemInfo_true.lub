@@ -1,0 +1,117 @@
+-- Custom item info wrapper
+-- Load original item database first (renamed to _org)
+local success, err = pcall(dofile, "System/itemInfo_true_org.lub")
+if not success then
+	-- Try alternate path formats
+	success, err = pcall(dofile, "System\\itemInfo_true_org.lub")
+end
+if not success then
+	success, err = pcall(dofile, ".\\System\\itemInfo_true_org.lub")
+end
+
+----------------------------------------------
+-- Override custom items (server-side modified)
+-- Only modify if the item exists in original db
+----------------------------------------------
+
+-- Helper: safely override fields
+local function patch(id, name, desc)
+	if tbl and tbl[id] then
+		tbl[id].identifiedDisplayName = name
+		tbl[id].unidentifiedDisplayName = name
+		tbl[id].identifiedDescriptionName = desc
+	end
+end
+
+-- 601: Fly Wing (Non-consumable)
+patch(601, "Fly Wing (Infinite)", {
+	"Teleport to a random spot",
+	"on the current map.",
+	"",
+	"^0000CCNon-consumable.^000000",
+	"",
+	"Weight: ^7777771^000000",
+})
+
+-- 602: Butterfly Wing (Non-consumable)
+patch(602, "Butterfly Wing (Infinite)", {
+	"Teleport to your save point.",
+	"",
+	"^0000CCNon-consumable.^000000",
+	"",
+	"Weight: ^7777771^000000",
+})
+
+-- 14533: Super Boost Scroll (was Field Manual 100%)
+patch(14533, "Super Boost Scroll", {
+	"Grants powerful buffs",
+	"for ^FF000030 minutes^000000:",
+	"",
+	"^0000FF[EXP & Drop]^000000",
+	"- 500x Base & Job EXP",
+	"- 500x Item Drop Rate",
+	"",
+	"^0000FF[Offense]^000000",
+	"- ATK +100%, MATK +100%",
+	"- Critical Rate UP",
+	"- Max ASPD, Instant Cast",
+	"",
+	"^0000FF[Defense]^000000",
+	"- DEF +100%, MDEF +100%",
+	"- Assumptio, Benedictio",
+	"",
+	"^0000FF[Stats]^000000",
+	"- All Stats +100",
+	"- Movement Speed UP",
+	"",
+	"^0000CCNon-consumable.^000000",
+	"",
+	"Weight: ^7777771^000000",
+})
+
+-- 12411: Instant Level Up (was HE Battle Manual)
+patch(12411, "Instant Level Up", {
+	"Instantly grants",
+	"^FF000050,000,000 Base EXP^000000 and",
+	"^FF000020,000,000 Job EXP^000000.",
+	"",
+	"Use multiple times to",
+	"reach higher levels.",
+	"",
+	"^0000CCNon-consumable.^000000",
+	"",
+	"Weight: ^7777771^000000",
+})
+
+-- 22996: Stat & Skill Reset (was Comp Neuralizer)
+patch(22996, "Stat & Skill Reset", {
+	"Resets all ^FF0000Status Points^000000",
+	"and ^FF0000Skill Points^000000.",
+	"",
+	"All invested points will",
+	"be returned to you.",
+	"",
+	"^0000CCNon-consumable.^000000",
+	"",
+	"Weight: ^7777771^000000",
+})
+
+-- 25464: World Map Teleport (was Tour Ticket)
+patch(25464, "World Map Teleport", {
+	"Teleport to any major",
+	"town in the world.",
+	"",
+	"^0000FF[Available Towns]^000000",
+	"Prontera, Geffen, Payon,",
+	"Alberta, Morroc, Izlude,",
+	"Aldebaran, Comodo, Hugel,",
+	"Lighthalzen, Juno, Einbroch,",
+	"Rachel, Veins, Moscovia,",
+	"Brasilis, Dewata, Malaya,",
+	"Eclage, Lasagna, Niflheim,",
+	"Amatsu",
+	"",
+	"^0000CCNon-consumable.^000000",
+	"",
+	"Weight: ^7777771^000000",
+})
