@@ -153,6 +153,14 @@ fi
 sed -i 's|//npc: npc/custom/warper.txt|npc: npc/custom/warper.txt|' /rathena/npc/scripts_custom.conf
 echo "   已啟用自訂 Warper NPC"
 
+# 啟用幻影地下城開放世界怪物 spawn
+if [ -f "/rathena/npc/custom/illu_mobs.txt" ]; then
+    if ! grep -q 'illu_mobs.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/illu_mobs.txt' >> /rathena/npc/scripts_custom.conf
+    fi
+    echo "   已啟用幻影地下城怪物 spawn"
+fi
+
 echo "✅ 設定檔生成完成！"
 
 # ------ 啟動伺服器 ------

@@ -1,0 +1,96 @@
+//===== Custom Script =========================================
+//= Illusion Dungeon Open-World Monster Spawns
+//= 最粗的感動 private server
+//===== Description ===========================================
+//= Provides open-world monster spawns for illusion dungeon
+//= maps accessible via the custom warper NPC.
+//= These maps are normally instance-only; this script makes
+//= them behave as open-world hunting grounds.
+//=============================================================
+
+//==================================================
+// gef_d01_i — Illusion of Vampire
+//==================================================
+gef_d01_i,0,0	monster	Illusion Drainliar	3750,40,5000
+gef_d01_i,0,0	monster	Illusion Zombie Corps	3751,20,5000
+gef_d01_i,0,0	monster	Illusion Zombie	3752,30,5000
+gef_d01_i,0,0	monster	Illusion Ghoul	3753,30,5000
+gef_d01_i,0,0	monster	Illusion Nightmare	3754,20,5000
+gef_d01_i,0,0	monster	Illusion Black Mushroom	3755,20,5000
+gef_d01_i,0,0	monster	Illusion Bomi	3756,15,5000
+gef_d01_i,0,0,0,0	boss_monster	Illusion Dracula	3757,1,7200000,600000,1
+
+//==================================================
+// pay_d03_i — Illusion of Moonlight
+//==================================================
+pay_d03_i,0,0	monster	Illusion Nine Tail	3759,40,5000
+pay_d03_i,0,0	monster	Illusion Munak	3760,30,5000
+pay_d03_i,0,0	monster	Illusion Bon Gun	3761,30,5000
+pay_d03_i,0,0	monster	Illusion Sohee	3762,25,5000
+pay_d03_i,0,0	monster	Illusion Archer Skeleton	3763,25,5000
+pay_d03_i,0,0	monster	Illusion High Wizard	3764,10,5000
+pay_d03_i,0,0,0,0	boss_monster	Illusion Moonlight	3758,1,7200000,600000,1
+
+//==================================================
+// ice_d03_i — Illusion of Frozen
+//==================================================
+ice_d03_i,0,0	monster	Illusion Gazeti	3792,50,5000
+ice_d03_i,0,0	monster	Illusion Snowier	3793,40,5000
+ice_d03_i,0,0	monster	Illusion Ice Titan	3794,40,5000
+ice_d03_i,0,0	monster	Illusion Icicle	3795,30,5000
+ice_d03_i,0,0	monster	Illusion Frozen Knight	3797,20,5000
+ice_d03_i,0,0	monster	Illusion Frozen Guard	3798,15,5000
+ice_d03_i,0,0,0,0	boss_monster	Illusion Ktullanux	3796,1,7200000,600000,1
+
+//==================================================
+// tur_d03_i — Illusion of Abyss (Floor 1)
+//==================================================
+tur_d03_i,0,0	monster	Illusion Assulter	3799,50,5000
+tur_d03_i,0,0	monster	Illusion Permeter	3800,50,5000
+tur_d03_i,0,0	monster	Illusion Freezer	3801,40,5000
+tur_d03_i,0,0	monster	Illusion Solider	3802,40,5000
+
+//==================================================
+// tur_d04_i — Illusion of Abyss (Floor 2)
+//==================================================
+tur_d04_i,0,0	monster	Illusion Heater	3803,80,5000
+tur_d04_i,0,0,0,0	boss_monster	Illusion Turtle General	3804,1,7200000,600000,1
+
+//==================================================
+// ein_d02_i — Illusion of Teddy Bear
+//==================================================
+ein_d02_i,0,0	monster	Illusion Teddy Bear (Red)	20255,20,5000
+ein_d02_i,0,0	monster	Illusion Teddy Bear (Yellow)	20256,20,5000
+ein_d02_i,0,0	monster	Illusion Teddy Bear (Green)	20257,20,5000
+ein_d02_i,0,0	monster	Illusion Teddy Bear (White)	20258,20,5000
+ein_d02_i,0,0	monster	Illusion Teddy Bear (Blue)	20259,20,5000
+ein_d02_i,0,0	monster	Illusion Teddy Bear (Silver)	20260,10,5000
+ein_d02_i,0,0	monster	Illusion Pitman	20261,30,5000
+ein_d02_i,0,0	monster	Illusion Mineral	20262,30,5000
+ein_d02_i,0,0	monster	Illusion Obsidian	20263,20,5000
+
+//==================================================
+// com_d02_i — Illusion of Luanda
+//==================================================
+com_d02_i,0,0	monster	Illusion Tri-Joint	20270,40,5000
+com_d02_i,0,0	monster	Illusion Stalactic Golem	20271,30,5000
+com_d02_i,0,0	monster	Illusion Megalith	20272,30,5000
+com_d02_i,0,0	monster	Illusion Tao Gunka	20273,20,5000
+com_d02_i,0,0	monster	Illusion Stone Shooter	20274,25,5000
+com_d02_i,0,0	monster	Illusion Wootan Shooter	20275,20,5000
+com_d02_i,0,0	monster	Illusion Wootan Fighter	20276,20,5000
+com_d02_i,0,0	monster	Illusion Wootan Defender	20277,20,5000
+
+//==================================================
+// prt_mz03_i — Illusion of Labyrinth (幻影迷藏森林)
+// Note: No specific illusion mobs in this rAthena version.
+//       Using prt_maze03 mobs as open-world placeholder.
+//==================================================
+prt_mz03_i,0,0	monster	Poporing	1031,52,5000
+prt_mz03_i,0,0	monster	Hunter Fly	1035,30,5000
+prt_mz03_i,0,0	monster	Mantis	1139,30,60000,30000
+prt_mz03_i,0,0	monster	Baphomet Jr.	1101,25,5000
+prt_mz03_i,0,0	monster	Side Winder	1037,30,5000
+prt_mz03_i,0,0	monster	Stem Worm	1215,20,300000,150000
+prt_mz03_i,0,0	monster	Killer Mantis	1294,10,5000
+prt_mz03_i,0,0,0,0	boss_monster	Baphomet	1039,1,7200000,600000,1
