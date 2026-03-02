@@ -11,9 +11,10 @@ Ragnarok Online private server ("最粗的感動") based on rAthena, deployed to
 ```
 ro/
 ├── server/          # Docker-based rAthena server (shell scripts)
-├── client/          # kRO game client + English localization + patched exe
+├── client/          # kRO game client + localization + patched exe
 ├── nemo/            # NEMO Patcher tool + original/patched Ragexe binaries
 ├── admin/           # Python TUI admin panel (Textual framework)
+├── tools/           # GRF extraction + lua translation scripts (Python)
 └── docs/            # Planning documents
 ```
 
@@ -30,9 +31,15 @@ ro/
 ```bash
 # Server build & deploy (run from server/)
 cd server/
-./build.sh              # Build Docker image (~5-15 min, needs Docker Desktop)
-./deploy.sh             # Deploy to VPS
-./update.sh             # Rebuild + redeploy in one step
+./build.sh              # 本機 build Docker image（OrbStack，~10-20 min）
+./deploy.sh             # SCP tar 到 VPS，載入並重啟
+./update.sh             # build + deploy 一步完成
+
+# 強制更新到最新 rAthena master（破壞 Docker build cache）
+cd server/
+./build.sh              # build.sh 已有 CACHEBUST，每次都會重新 git clone
+# 實際上 build.sh 用 --build-arg CACHEBUST 需手動加，或直接：
+docker buildx build --build-arg CACHEBUST=$(date +%s) --build-arg RATHENA_BRANCH=master ...
 
 # Local testing
 cd server/
@@ -53,10 +60,17 @@ ssh ubuntu@52.196.22.227 "cd /opt/rathena && sudo docker compose restart rathena
 cd nemo/
 wine NEMO.exe
 
+# Launch client (macOS, Wine)
+cd client/
+wine Ragexe_patched.exe
+
 # Admin panel
 cd admin/
 uv run python -m ro_admin.app
 ```
+
+> **⚠️ 不要在 VPS 上 build：** Lightsail 2GB RAM 在編譯 `script.cpp` 時會 OOM 當機。
+> 永遠用本機（OrbStack）build → SCP 上傳。
 
 ## Critical Version Bindings
 
@@ -84,7 +98,27 @@ PACKETVER, Ragexe, and kRO client versions are tightly coupled. Mismatches cause
 
 - `client/data/clientinfo.xml` — Server connection IP/port (EUC-KR encoded XML)
 - `client/data/msgstringtable.txt` — English UI translations (from ROenglishRE)
+- `client/data/luafiles514/` — Client-side Lua data files (job names, NPC IDs, skill info, etc.)
 - `client/Ragexe_patched.exe` — The only tracked exe; all other binaries are gitignored
+
+## Lightsail Firewall 必要開放 Ports
+
+| Port | 用途 |
+|------|------|
+| 22   | SSH |
+| 6900 | Login Server |
+| 6121 | Char Server |
+| 5121 | Map Server ← 容易漏開！ |
+| 3306 | MariaDB（可選，管理用）|
+
+> 每次在 Lightsail 控制台 Networking → Firewall 確認以上 TCP ports 全部開放。
+
+## Known Issues
+
+- **VPS build OOM**：在 Lightsail 2GB 上跑 `docker build` 編譯 rAthena 時，`script.cpp` 階段會吃爆記憶體導致 VPS 當機。永遠在本機（OrbStack）build。
+- **幻影地圖 warper**：rAthena 預設 `scripts_custom.conf` 裡 `warper.txt` 是 comment 掉的。已在 `entrypoint.sh` 加 `sed` 自動啟用。
+- **Docker build cache**：Dockerfile 在 git clone 前有 `ARG CACHEBUST=1`。每次想拉最新 master，build 時要加 `--build-arg CACHEBUST=$(date +%s)`，否則會用舊的 cache。
+- **Wine on Apple Silicon**：DirectDraw 不穩定，曾成功一次（Wine Stable 11.0），不保證每次可重現。
 
 ## Admin Panel (admin/)
 

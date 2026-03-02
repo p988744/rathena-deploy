@@ -1,0 +1,87 @@
+MaxLevelTable = {
+    BaseLevel = 99,
+    BaseLevel3rd = 175,
+    BaseLevel4th = 250,
+    BaseLevelExtend2 = 160,
+    BaseLevelUpperJob = 175,
+    BaseLevelHomun = 175,
+    BaseLevelDoram = 175,
+    JobLevelNovice = 10,
+    JobLevelSuperNovice = 99,
+    JobLevelBase = 50,
+    JobLevel2nd = 70,
+    JobLevel3rd = 60,
+    JobLevel4th = 50,
+    JobLevelExtend2 = 50,
+    JobLevelUpperJob = 60,
+    JobLevelDoram = 50
+}
+
+MakeableRace = {
+    Doram = false
+}
+
+AssistAddr = ""
+
+LEVELAURA = {
+    EF_NONE = -1,
+    EF_LEVEL99 = 200,
+    EF_LEVEL99_ORB1 = 976,
+    EF_LEVEL99_ORB2 = 977,
+    EF_LEVEL150 = 978,
+    EF_LEVEL150_SUB = 979,
+    EF_LEVEL160 = 1022,
+    EF_LEVEL160_SUB = 1023,
+    EF_LEVEL185 = 1226,
+    EF_LEVEL185_SUB = 1227,
+    EF_LEVEL4TH = 2275,
+    EF_LEVEL4TH_SUB = 2276
+}
+
+Level99AuraTable = {
+    Default99LvAura = LEVELAURA.EF_LEVEL99,
+    Default99LvAura_sub = LEVELAURA.EF_LEVEL99_ORB1,
+    Baby99LvAura = LEVELAURA.EF_LEVEL99,
+    Baby99LvAura_sub = LEVELAURA.EF_LEVEL99_ORB2,
+    SecondHigh99LvAura = 0,
+    SecondHigh99LvAura_sub = 0,
+    Homun99LvAura = 0,
+    Homun99LvAura_sub = 0,
+    Boss99LvAura_sub = LEVELAURA.EF_LEVEL99_ORB1
+}
+
+MaxLevelAuraTable = {
+    Default150LvAura = LEVELAURA.EF_LEVEL150,
+    Default150LvAura_sub = LEVELAURA.EF_LEVEL150_SUB,
+    Default160LvAura = LEVELAURA.EF_LEVEL185,
+    Default160LvAura_sub = LEVELAURA.EF_LEVEL185_SUB,
+    Default185LvAura = LEVELAURA.EF_LEVEL185,
+    Default185LvAura_sub = LEVELAURA.EF_LEVEL185_SUB,
+    MaxLevelEffect4th = LEVELAURA.EF_LEVEL4TH,
+    MaxLevelEffect4th_sub = LEVELAURA.EF_LEVEL4TH_SUB,
+    UpperJobMaxLvAura = LEVELAURA.EF_LEVEL185,
+    UpperJobMaxLvAura_sub = LEVELAURA.EF_LEVEL185_SUB,
+    HomunMaxLvAura = LEVELAURA.EF_LEVEL4TH,
+    HomunMaxLvAura_sub = LEVELAURA.EF_LEVEL4TH_SUB
+}
+
+function GetTableIntValueForC(tableName, keyName)
+    local t = _G[tableName]
+    if nil == t then return -1 end
+    local v = t[keyName]
+    if nil == v then return -1 else return v end
+end
+
+function GetTableStringValueForC(tableName, keyName)
+    local t = _G[tableName]
+    if nil == t then return "" end
+    local v = t[keyName]
+    if nil == v then return "" else return v end
+end
+
+function GetTableBoolValueForC(tableName, keyName)
+    local t = _G[tableName]
+    if nil == t then return false end
+    local v = t[keyName]
+    if nil == v then return false else return v end
+end

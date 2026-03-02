@@ -58,6 +58,9 @@ server/{conf,scripts}
 # === Build scripts (not needed in repo) ===
 client/data/convert_to_big5.py
 
+# === Tools (extracted GRF files) ===
+tools/extracted/
+
 # === Temp ===
 .DS_Store
 *.megatmp*

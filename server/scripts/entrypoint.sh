@@ -149,6 +149,10 @@ if [ -d "/rathena-custom/npc" ]; then
     cp -rf /rathena-custom/npc/* /rathena/npc/custom/ 2>/dev/null || true
 fi
 
+# 啟用 custom warper（含幻影地圖傳送）
+sed -i 's|//npc: npc/custom/warper.txt|npc: npc/custom/warper.txt|' /rathena/npc/scripts_custom.conf
+echo "   已啟用自訂 Warper NPC"
+
 echo "✅ 設定檔生成完成！"
 
 # ------ 啟動伺服器 ------

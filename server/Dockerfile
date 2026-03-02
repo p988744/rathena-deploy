@@ -18,7 +18,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     zlib1g-dev libpcre3-dev ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
-# 下載 rAthena 原始碼
+# 下載 rAthena 原始碼（CACHEBUST 用來強制重新 clone，傳 $(date +%s) 即可）
+ARG CACHEBUST=1
 RUN git clone --depth 1 --branch ${RATHENA_BRANCH} \
     https://github.com/rathena/rathena.git /build/rathena
 
