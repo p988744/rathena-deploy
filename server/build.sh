@@ -21,6 +21,7 @@ fi
 
 # 預設值
 RATHENA_BRANCH="${RATHENA_BRANCH:-master}"
+RATHENA_COMMIT="${RATHENA_COMMIT:-}"
 PACKETVER="${PACKETVER:-20220406}"
 BUILD_MODE="${BUILD_MODE:-re}"
 IMAGE_NAME="rathena-server"
@@ -31,6 +32,7 @@ echo "============================================"
 echo "  🔨 rAthena Docker Image Builder"
 echo "============================================"
 echo "  Branch    : ${RATHENA_BRANCH}"
+echo "  Commit    : ${RATHENA_COMMIT:-latest}"
 echo "  PacketVer : ${PACKETVER}"
 echo "  Mode      : ${BUILD_MODE}"
 echo "  Platform  : linux/amd64 (for Linux VPS)"
@@ -54,8 +56,10 @@ echo ""
 docker buildx build \
     --platform linux/amd64 \
     --build-arg RATHENA_BRANCH="${RATHENA_BRANCH}" \
+    --build-arg RATHENA_COMMIT="${RATHENA_COMMIT}" \
     --build-arg PACKETVER="${PACKETVER}" \
     --build-arg BUILD_MODE="${BUILD_MODE}" \
+    --build-arg CACHEBUST="$(date +%s)" \
     --tag "${IMAGE_NAME}:${IMAGE_TAG}" \
     --load \
     .
