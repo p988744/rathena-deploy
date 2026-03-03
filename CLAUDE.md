@@ -10,12 +10,50 @@ Ragnarok Online private server ("最粗的感動") based on rAthena, deployed to
 
 ```
 ro/
-├── server/          # Docker-based rAthena server (shell scripts)
-├── client/          # kRO game client + localization + patched exe
-├── nemo/            # NEMO Patcher tool + original/patched Ragexe binaries
-├── admin/           # Python TUI admin panel (Textual framework)
-├── tools/           # GRF extraction + lua translation scripts (Python)
-└── docs/            # Planning documents
+├── server/                        # Docker-based rAthena server
+│   ├── Dockerfile                 # 多階段建置：git clone + compile + 精簡 runtime
+│   ├── docker-compose.yml         # VPS 部署用（rathena + db 兩個 container）
+│   ├── docker-compose.local.yml   # 本地測試用
+│   ├── .env                       # 所有設定（IP、版本、倍率）← 主要改這裡
+│   ├── build.sh                   # 本機 OrbStack build → rathena-server.tar
+│   ├── deploy.sh                  # SCP tar 到 VPS + 重啟
+│   ├── update.sh                  # build + deploy 一步完成
+│   ├── setup-vps.sh               # VPS 首次設定（Docker + swap + 防火牆）
+│   ├── scripts/
+│   │   └── entrypoint.sh          # 容器啟動腳本（生成 conf + 啟用 NPC + 啟動伺服器）
+│   └── custom-npc/                # 自訂 NPC 腳本（volume mount 進容器）
+│       ├── ep_shops.txt           # EP1-19 裝備商店（7 個，prontera 北側）
+│       ├── healer.txt             # 自訂 Healer NPC（全城市複製）
+│       └── illu_mobs.txt          # 幻影地下城開放世界怪物 spawn
+│
+├── client/                        # kRO 遊戲客戶端
+│   ├── Ragexe_patched.exe         # 唯一追蹤的執行檔（NEMO 12 個 patch）
+│   └── data/                      # 客戶端資料（中英文翻譯）
+│       ├── clientinfo.xml         # 伺服器連線設定（IP/port，EUC-KR 編碼）
+│       ├── msgstringtable.txt     # UI 文字翻譯（英文）
+│       ├── mapnametable.txt       # 地圖名稱（繁體中文）
+│       ├── cardprefixnametable.txt # 卡片前綴（繁體中文）
+│       └── luafiles514/           # Lua 資料（職業名、NPC ID、技能資訊等）
+│
+├── nemo/                          # NEMO Patcher 工具
+│   ├── NEMO.exe                   # Patcher 主程式
+│   ├── 2022-04-06_Ragexe_*.exe    # 原始 Ragexe（未 patch）
+│   └── profiles/                  # 已儲存的 patch 設定
+│
+├── admin/                         # Python TUI 管理面板
+│   ├── ro_admin/
+│   │   ├── app.py                 # 入口點（Textual TUI）
+│   │   ├── config.py              # 讀取 server/.env
+│   │   ├── ssh.py                 # SSH tunnel + VPS 連線
+│   │   └── screens/               # 各功能畫面（帳號、角色、伺服器操作等）
+│   └── pyproject.toml             # 依賴（textual, paramiko, pymysql, sshtunnel）
+│
+├── tools/                         # 輔助腳本（Python）
+│   ├── grf_extract.py             # GRF 解包工具
+│   ├── translate_skills.py        # 技能翻譯
+│   └── gen_skill_info_list.py     # 技能資訊產生器
+│
+└── docs/planning/                 # 規劃文件
 ```
 
 **Server deployment is a two-phase workflow:**
@@ -25,6 +63,8 @@ ro/
 **Configuration flow:** `server/.env` → `docker-compose.yml` env vars → `entrypoint.sh` generates `conf/import/*.txt` at container startup.
 
 **Docker stack:** Two containers — `rathena` (login/char/map servers on ports 6900/6121/5121, network_mode: host) and `db` (MariaDB 10.11).
+
+**Custom NPC flow:** `server/custom-npc/*.txt` → volume mount → `/opt/rathena/custom/npc/` (VPS) → `entrypoint.sh` copies to `/rathena/npc/custom/` + appends to `scripts_custom.conf`.
 
 ## Commands
 
@@ -119,6 +159,28 @@ PACKETVER, Ragexe, and kRO client versions are tightly coupled. Mismatches cause
 - **幻影地圖 warper**：rAthena 預設 `scripts_custom.conf` 裡 `warper.txt` 是 comment 掉的。已在 `entrypoint.sh` 加 `sed` 自動啟用。
 - **Docker build cache**：Dockerfile 在 git clone 前有 `ARG CACHEBUST=1`。每次想拉最新 master，build 時要加 `--build-arg CACHEBUST=$(date +%s)`，否則會用舊的 cache。
 - **Wine on Apple Silicon**：DirectDraw 不穩定，曾成功一次（Wine Stable 11.0），不保證每次可重現。
+
+## Custom NPC 說明（server/custom-npc/）
+
+新增或修改自訂 NPC 的流程（**不需 rebuild**，只需 restart）：
+
+```bash
+# 修改完本地檔案後：
+scp server/custom-npc/<file>.txt ubuntu@52.196.22.227:/opt/rathena/custom/npc/<file>.txt
+ssh ubuntu@52.196.22.227 "cd /opt/rathena && sudo docker compose restart rathena"
+# 驗證載入（看 NPC 數量有無增加）：
+ssh ubuntu@52.196.22.227 "sudo docker logs rathena-server 2>&1 | grep 'Done loading.*NPC'"
+```
+
+| 檔案 | 說明 | 位置 |
+|------|------|------|
+| `ep_shops.txt` | EP1-19 裝備商店 7 個 | prontera 北側 135-147, 280 |
+| `healer.txt` | 補血 + Buff NPC | 全城市（Healer#xxx duplicate）|
+| `illu_mobs.txt` | 幻影地下城開放世界怪物 | gef_d01_i 等 instance 地圖 |
+
+**NPC 格式提醒：**
+- Shop NPC：`map,x,y,dir  shop  名稱  sprite,itemid:price,...`（是 `itemid:price`，不是反過來）
+- 新增 NPC 後要在 `entrypoint.sh` 加上對應的啟用邏輯（append 到 `scripts_custom.conf`）
 
 ## Admin Panel (admin/)
 
