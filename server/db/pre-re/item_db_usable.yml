@@ -1049,6 +1049,7 @@ Body:
     Weight: 50
     Flags:
       BuyingStore: true
+      NoConsume: true
     Script: |
       itemskill "AL_TELEPORT",3;
   - Id: 603
