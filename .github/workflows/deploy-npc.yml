@@ -1,0 +1,38 @@
+# NPC 熱更新 — push custom-npc 變更到 main 時自動部署
+name: Deploy NPC
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'server/custom-npc/**'
+
+jobs:
+  deploy-npc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Upload NPC files to VPS
+        run: |
+          scp server/custom-npc/*.txt \
+            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/opt/rathena/custom/npc/
+
+      - name: Restart rathena and verify
+        run: |
+          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+          cd /opt/rathena
+          sudo docker compose restart rathena
+          echo "Waiting 30s for server to reload..."
+          sleep 30
+          sudo docker logs rathena-server --tail=30 2>&1 | grep -E 'Done loading|NPC|custom'
+          echo "✅ NPC deploy complete"
+          EOF

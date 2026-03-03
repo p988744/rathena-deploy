@@ -1,0 +1,88 @@
+# 完整 rebuild + deploy — 推送 v* tag 時觸發
+name: Full Deploy
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Load build config from .env
+        run: |
+          # Extract build-related vars from .env
+          source server/.env
+          echo "RATHENA_BRANCH=${RATHENA_BRANCH}" >> $GITHUB_ENV
+          echo "RATHENA_COMMIT=${RATHENA_COMMIT}" >> $GITHUB_ENV
+          echo "PACKETVER=${PACKETVER}" >> $GITHUB_ENV
+          echo "BUILD_MODE=${BUILD_MODE}" >> $GITHUB_ENV
+
+      - name: Build Docker image
+        run: |
+          cd server
+          docker buildx build \
+            --platform linux/amd64 \
+            --build-arg RATHENA_BRANCH="${RATHENA_BRANCH}" \
+            --build-arg RATHENA_COMMIT="${RATHENA_COMMIT}" \
+            --build-arg PACKETVER="${PACKETVER}" \
+            --build-arg BUILD_MODE="${BUILD_MODE}" \
+            --build-arg CACHEBUST=$(date +%s) \
+            --tag rathena-server:latest \
+            --load \
+            .
+
+      - name: Export and compress image
+        run: |
+          docker save rathena-server:latest | gzip > /tmp/rathena-server.tar.gz
+          ls -lh /tmp/rathena-server.tar.gz
+
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Upload image to VPS
+        run: |
+          scp /tmp/rathena-server.tar.gz \
+            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/tmp/rathena-server.tar.gz
+
+      - name: Upload config files to VPS
+        run: |
+          scp server/docker-compose.yml server/.env \
+            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/opt/rathena/
+
+      - name: Deploy on VPS
+        run: |
+          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+          set -e
+
+          # Load image
+          echo "Loading Docker image..."
+          gunzip -c /tmp/rathena-server.tar.gz | docker load
+          rm /tmp/rathena-server.tar.gz
+
+          # Restart stack
+          cd /opt/rathena
+          docker compose down
+          docker compose up -d
+
+          # Wait for startup
+          echo "Waiting 30s for server to start..."
+          sleep 30
+
+          # Verify
+          docker compose ps
+          docker compose logs --tail=20 rathena
+          echo "✅ Full deploy complete"
+          EOF
