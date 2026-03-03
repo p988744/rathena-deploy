@@ -16,12 +16,32 @@
 	specialeffect2 EF_HEAL2;
 	percentheal 100,100;
 
+	specialeffect2 EF_POTION_BERSERK;
+	sc_start2 SC_S_LIFEPOTION,3600000,-5,5;
+	sc_start2 SC_L_LIFEPOTION,3600000,-7,4;
+	sc_start2 SC_M_LIFEPOTION,3600000,-4,3;
+	sc_start2 SC_M_DEFSCROLL,3600000,500,200;
+	sc_start2 SC_S_MANAPOTION,3600000,-5,5;
+	sc_start SC_ALMIGHTY,3600000,30;
+	sc_start SC_INFINITY_DRINK,3600000,0;
+	sc_start SC_FOOD_STR_CASH,3600000,20;
+	sc_start SC_FOOD_AGI_CASH,3600000,20;
+	sc_start SC_FOOD_VIT_CASH,3600000,20;
+	sc_start SC_FOOD_INT_CASH,3600000,20;
+	sc_start SC_FOOD_DEX_CASH,3600000,20;
+	sc_start SC_FOOD_LUK_CASH,3600000,20;
+	sc_start SC_FLEEFOOD,3600000,30;
+	sc_start SC_HITFOOD,3600000,30;
+	sc_start SC_ATKPOTION,3600000,20;
+	sc_start SC_MATKPOTION,3600000,20;
+	sc_start4 SC_LIMIT_POWER_BOOSTER,3600000,30,1,5,0;
+	sc_start SC_SPEEDUP0,3600000,25;
 	// === 神官 Buff ===
 	specialeffect2 EF_BLESSING;
-	sc_start SC_BLESSING,3600000,10;		// Blessing Lv10（STR/INT/DEX +10）
+	sc_start SC_BLESSING,3600000,20;		// Blessing Lv10（STR/INT/DEX +10）
 
 	specialeffect2 EF_INCAGILITY;
-	sc_start SC_INCREASEAGI,3600000,10;		// Increase Agility Lv10（AGI+、ASPD+）
+	sc_start SC_INCREASEAGI,3600000,20;		// Increase Agility Lv10（AGI+、ASPD+）
 
 	sc_start SC_ANGELUS,3600000,10;			// Angelus Lv10（VIT DEF 大幅提升）
 	sc_start SC_GLORIA,3600000,5;			// Gloria Lv5（LUK +30，暴擊/卡片掉落）
@@ -30,14 +50,6 @@
 	sc_start SC_IMPOSITIO,3600000,5;		// Impositio Manus Lv5（ATK +25）
 	sc_start SC_ASSUMPTIO,3600000,5;		// Assumptio Lv5（物理/魔法傷害 -50%）
 	sc_start SC_SUFFRAGIUM,3600000,3;		// Suffragium Lv3（詠唱時間 -15%）
-
-	// === 料理效果（全屬性 +10，1 小時）===
-	sc_start SC_FOOD_STR,3600000,20;		// STR +20
-	sc_start SC_FOOD_AGI,3600000,20;		// AGI +20
-	sc_start SC_FOOD_VIT,3600000,20;		// VIT +20
-	sc_start SC_FOOD_INT,3600000,20;		// INT +20
-	sc_start SC_FOOD_DEX,3600000,20;		// DEX +20
-	sc_start SC_FOOD_LUK,3600000,20;		// LUK +20
 
 	if (.@Delay)
 		@HD = gettimetick(2) + .@Delay;
