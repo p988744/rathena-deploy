@@ -54,6 +54,10 @@
 	if (.@Delay)
 		@HD = gettimetick(2) + .@Delay;
 	end;
+
+	OnInit:
+	questinfo( QTYPE_QUEST, QMARK_YELLOW, "!isbegin_quest(7712)" );
+	end;
 }
 
 
