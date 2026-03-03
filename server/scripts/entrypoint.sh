@@ -103,6 +103,10 @@ char_port: ${CHAR_PORT:-6121}
 new_account: yes
 // 關閉安全密碼（PIN碼）
 pincode_enabled: no
+// 新角色出生點：伊斯魯得島
+start_point: izlude,128,114
+start_point_pre: izlude,128,114
+start_point_doram: izlude,128,114
 EOF
 
 # Map Server
@@ -160,6 +164,33 @@ if [ -f "/rathena/npc/custom/illu_mobs.txt" ]; then
     fi
     echo "   已啟用幻影地下城怪物 spawn"
 fi
+
+# 啟用 EP 裝備商店 NPC（EP1-13 到 EP19，共 7 個商店）
+if [ -f "/rathena/npc/custom/ep_shops.txt" ]; then
+    if ! grep -q 'ep_shops.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/ep_shops.txt' >> /rathena/npc/scripts_custom.conf
+    fi
+    echo "   已啟用 EP 裝備商店 NPC"
+fi
+
+# 啟用基本服務 NPC（轉職、重置、補血等）
+for npc in jobmaster resetnpc platinum_skills healer breeder card_seller itemmall stylist card_remover item_signer; do
+    sed -i "s|//npc: npc/custom/${npc}.txt|npc: npc/custom/${npc}.txt|" /rathena/npc/scripts_custom.conf
+done
+echo "   已啟用轉職、重置、基本服務 NPC"
+
+# 自訂：重置免費
+sed -i 's|setarray .@Reset, 5000, 5000, 9000, 0;|setarray .@Reset, 0, 0, 0, 0;|' /rathena/npc/custom/resetnpc.txt
+
+# 自訂：降低轉職等級要求
+sed -i 's|setarray .Req_First\[0\],1,10;|setarray .Req_First[0],1,1;|' /rathena/npc/custom/jobmaster.txt
+sed -i 's|setarray .Req_Second\[0\],1,40;|setarray .Req_Second[0],1,1;|' /rathena/npc/custom/jobmaster.txt
+sed -i 's|setarray .Req_Rebirth\[0\],99,50;|setarray .Req_Rebirth[0],80,40;|' /rathena/npc/custom/jobmaster.txt
+sed -i 's|setarray .Req_Third\[0\],99,50;|setarray .Req_Third[0],80,40;|' /rathena/npc/custom/jobmaster.txt
+sed -i 's|setarray .Req_Fourth\[0\],200,70;|setarray .Req_Fourth[0],180,60;|' /rathena/npc/custom/jobmaster.txt
+sed -i 's|setarray .Req_Exp_NJ_GS\[0\],99,70;|setarray .Req_Exp_NJ_GS[0],80,40;|' /rathena/npc/custom/jobmaster.txt
+sed -i 's|setarray .Req_Exp_SNOVI\[0\],99,99;|setarray .Req_Exp_SNOVI[0],80,80;|' /rathena/npc/custom/jobmaster.txt
+sed -i 's|.SkillPointCheck = true;|.SkillPointCheck = false;|' /rathena/npc/custom/jobmaster.txt
 
 echo "✅ 設定檔生成完成！"
 
