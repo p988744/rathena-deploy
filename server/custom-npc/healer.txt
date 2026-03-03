@@ -1,0 +1,88 @@
+//===== rAthena Script =======================================
+//= Healer (Custom — 最粗的感動)
+//===== Description: =========================================
+//= 回滿血 SP，並施加常用神官 Buff + 料理效果（全屬性 +10）
+//= Buff 持續 1 小時
+//============================================================
+
+-	script	Healer	-1,{
+
+	.@Delay = 0;	// 冷卻秒數（0 = 無限制）
+
+	if (@HD > gettimetick(2))
+		end;
+
+	// 回血回 SP
+	specialeffect2 EF_HEAL2;
+	percentheal 100,100;
+
+	// === 神官 Buff ===
+	specialeffect2 EF_BLESSING;
+	sc_start SC_BLESSING,3600000,10;		// Blessing Lv10（STR/INT/DEX +10）
+
+	specialeffect2 EF_INCAGILITY;
+	sc_start SC_INCREASEAGI,3600000,10;		// Increase Agility Lv10（AGI+、ASPD+）
+
+	sc_start SC_ANGELUS,3600000,10;			// Angelus Lv10（VIT DEF 大幅提升）
+	sc_start SC_GLORIA,3600000,5;			// Gloria Lv5（LUK +30，暴擊/卡片掉落）
+	sc_start SC_MAGNIFICAT,3600000,5;		// Magnificat Lv5（SP 回復速度 x2）
+	sc_start SC_KYRIE,3600000,10;			// Kyrie Eleison Lv10（吸收傷害護盾）
+	sc_start SC_IMPOSITIO,3600000,5;		// Impositio Manus Lv5（ATK +25）
+	sc_start SC_ASSUMPTIO,3600000,5;		// Assumptio Lv5（物理/魔法傷害 -50%）
+	sc_start SC_SUFFRAGIUM,3600000,3;		// Suffragium Lv3（詠唱時間 -15%）
+
+	// === 料理效果（全屬性 +10，1 小時）===
+	sc_start SC_FOOD_STR,3600000,20;		// STR +20
+	sc_start SC_FOOD_AGI,3600000,20;		// AGI +20
+	sc_start SC_FOOD_VIT,3600000,20;		// VIT +20
+	sc_start SC_FOOD_INT,3600000,20;		// INT +20
+	sc_start SC_FOOD_DEX,3600000,20;		// DEX +20
+	sc_start SC_FOOD_LUK,3600000,20;		// LUK +20
+
+	if (.@Delay)
+		@HD = gettimetick(2) + .@Delay;
+	end;
+}
+
+
+// Duplicates
+//============================================================
+alberta,25,240,6	duplicate(Healer)	Healer#alb	909
+aldebaran,135,118,6	duplicate(Healer)	Healer#alde	909
+amatsu,200,79,4	duplicate(Healer)	Healer#ama	909
+ayothaya,207,169,6	duplicate(Healer)	Healer#ayo	909
+comodo,184,158,6	duplicate(Healer)	Healer#com	909
+einbech,57,36,6	duplicate(Healer)	Healer#einbe	909
+einbroch,57,202,6	duplicate(Healer)	Healer#einbr	909
+geffen,115,72,6	duplicate(Healer)	Healer#gef	909
+gonryun,156,122,6	duplicate(Healer)	Healer#gon	909
+hugel,89,150,6	duplicate(Healer)	Healer#hug	909
+izlude,121,150,6	duplicate(Healer)	Healer#izl	909
+jawaii,250,139,4	duplicate(Healer)	Healer#jaw	909
+lighthalzen,152,100,6	duplicate(Healer)	Healer#lhz	909
+louyang,226,103,4	duplicate(Healer)	Healer#lou	909
+manuk,272,144,6	duplicate(Healer)	Healer#man	909
+mid_camp,203,289,6	duplicate(Healer)	Healer#mid	909
+moc_ruins,72,164,4	duplicate(Healer)	Healer#moc	909
+morocc,153,97,6	duplicate(Healer)	Healer#mor	909
+moscovia,220,191,4	duplicate(Healer)	Healer#mos	909
+niflheim,212,182,5	duplicate(Healer)	Healer#nif	909
+payon,179,106,4	duplicate(Healer)	Healer#pay	909
+prontera,162,193,4	duplicate(Healer)	Healer#prt	909
+rachel,125,116,6	duplicate(Healer)	Healer#rac	909
+splendide,201,153,4	duplicate(Healer)	Healer#spl	909
+thor_camp,249,74,4	duplicate(Healer)	Healer#thor	909
+umbala,105,148,3	duplicate(Healer)	Healer#umb	909
+veins,217,121,4	duplicate(Healer)	Healer#ve	909
+xmas,143,136,4	duplicate(Healer)	Healer#xmas	909
+yuno,164,45,4	duplicate(Healer)	Healer#yuno	909
+
+// Duplicates (Renewal)
+//============================================================
+brasilis,194,221,6	duplicate(Healer)	Healer#bra	909
+dewata,195,187,4	duplicate(Healer)	Healer#dew	909
+dicastes01,201,194,4	duplicate(Healer)	Healer#dic	909
+ecl_in01,45,60,4	duplicate(Healer)	Healer#ecl	909
+malangdo,132,114,6	duplicate(Healer)	Healer#mal	909
+malaya,227,204,6	duplicate(Healer)	Healer#ma	909
+mora,55,152,4	duplicate(Healer)	Healer#mora	909
