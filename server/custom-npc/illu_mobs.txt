@@ -94,3 +94,35 @@ prt_mz03_i,0,0	monster	Side Winder	1037,30,5000
 prt_mz03_i,0,0	monster	Stem Worm	1215,20,300000,150000
 prt_mz03_i,0,0	monster	Killer Mantis	1294,10,5000
 prt_mz03_i,0,0,0,0	boss_monster	Baphomet	1039,1,7200000,600000,1
+
+//==================================================
+// odin_past — Odin Past (奧丁神殿過去)
+// Note: No official spawns in rAthena. Using high-density
+//       Odin elite mobs — harder than odin_tem03.
+//==================================================
+odin_past,0,0	monster	Skeggiold	1754,30,5000
+odin_past,0,0	monster	Skeggiold	1755,30,5000
+odin_past,0,0	monster	Skogul	1761,20,5000
+odin_past,0,0	monster	Frus	1762,20,5000
+odin_past,0,0	monster	Skogul	1752,10,5000
+odin_past,0,0	monster	Frus	1753,10,5000
+odin_past,0,0	monster	Plasma	1693,15,5000
+odin_past,0,0	monster	Valkyrie	1765,3,1800000,900000
+odin_past,0,0,0,0	boss_monster	Valkyrie Randgris	1751,1,7200000,600000,1
+
+//==================================================
+// clock_01 — Unknown Basement (神秘的地下室)
+// Note: No official spawns in rAthena. Deep Clock Tower
+//       basement — uses Nightmare CT mobs at high density.
+//==================================================
+clock_01,0,0	monster	Big Ben	2916,60,5000
+clock_01,0,0	monster	Big Bell	2917,60,5000
+clock_01,0,0	monster	Neo Punk	2919,50,5000
+clock_01,0,0	monster	Time Keeper	2918,3,5000
+clock_01,0,0	monster	Mimic (Nightmare)	2479,8,5000
+clock_01,0,0	monster	Rideword (Nightmare)	2478,8,5000
+clock_01,0,0	monster	Arc Elder	2920,4,3600000
+clock_01,0,0	monster	Owl Viscount	2921,4,5000,1800000
+clock_01,0,0	monster	Owl Marquis	2923,3,5000,5000
+clock_01,0,0	monster	Owl Baron	1295,2,5000
+clock_01,0,0,0,0	boss_monster	Time Holder	3074,1,7200000,0,0
