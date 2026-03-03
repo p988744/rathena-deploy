@@ -67,12 +67,12 @@ COPY --from=builder /build/rathena/login-server .
 COPY --from=builder /build/rathena/char-server .
 COPY --from=builder /build/rathena/map-server .
 
-# 複製設定檔與遊戲資料
-COPY --from=builder /build/rathena/conf/ ./conf/
-COPY --from=builder /build/rathena/db/ ./db/
-COPY --from=builder /build/rathena/npc/ ./npc/
-COPY --from=builder /build/rathena/sql-files/ ./sql-files/
-COPY --from=builder /build/rathena/log/ ./log/
+# 複製設定檔與遊戲資料（從本地 repo，已釘定 rAthena commit f464a8b）
+COPY conf/ ./conf/
+COPY db/ ./db/
+COPY npc/ ./npc/
+COPY sql-files/ ./sql-files/
+RUN mkdir -p log
 
 # 複製啟動腳本
 COPY scripts/entrypoint.sh /entrypoint.sh
