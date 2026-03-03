@@ -61,6 +61,9 @@ client/data/convert_to_big5.py
 # === Tools (extracted GRF files) ===
 tools/extracted/
 
+# === Tools output (generated data, track zh_item_names) ===
+# tools/output/ is tracked (Chinese item name database)
+
 # === Temp ===
 .DS_Store
 *.megatmp*
