@@ -135,6 +135,91 @@ ssh ubuntu@52.196.22.227 "sudo docker logs rathena-server 2>&1 | grep '已啟用
 - 更改 `RATHENA_BRANCH`
 - 修改 Dockerfile 中的編譯選項
 
+## 發布流程
+
+### Server 發布
+
+Server 有三種更新方式，依變更範圍選擇：
+
+| 變更類型 | 方式 | 停機時間 | 指令 |
+|---------|------|---------|------|
+| NPC 腳本 | 熱更新 | ~30s 重啟 | `git push`（CI 自動部署）或手動 `scp` + `restart` |
+| 倍率/設定 | 改 .env + 重啟 | ~30s 重啟 | `scp .env` → `restart` |
+| rAthena 版本/編譯選項 | 完整重建 | ~20min build + ~5min deploy | `git tag v*` + `git push --tags`（CI）或手動 `update.sh` |
+
+```
+                        ┌─────────────────────────────┐
+                        │     改了什麼？               │
+                        └─────────┬───────────────────┘
+                ┌─────────────────┼─────────────────┐
+                ▼                 ▼                  ▼
+        NPC 腳本            .env 設定          Dockerfile/
+     custom-npc/*.txt    （倍率、名稱）     PACKETVER/分支
+                │                │                  │
+                ▼                ▼                  ▼
+          git push 到       scp .env →         git tag v* →
+          main 分支         restart             push tags
+                │                │                  │
+                ▼                ▼                  ▼
+        CI: deploy-npc      手動 SSH          CI: deploy-full
+        自動 scp+restart    重啟即可          build→scp→restart
+```
+
+#### 手動指令
+
+```bash
+# --- NPC 熱更新 ---
+scp server/custom-npc/*.txt ubuntu@52.196.22.227:/opt/rathena/custom/npc/
+ssh ubuntu@52.196.22.227 "cd /opt/rathena && sudo docker compose restart rathena"
+
+# --- 改設定 ---
+scp server/.env ubuntu@52.196.22.227:/opt/rathena/.env
+ssh ubuntu@52.196.22.227 "cd /opt/rathena && sudo docker compose restart rathena"
+
+# --- 完整重建部署 ---
+cd server/
+./update.sh              # = build.sh + deploy.sh
+```
+
+#### CI/CD（GitHub Actions）
+
+| Workflow | 觸發條件 | 做什麼 |
+|----------|---------|--------|
+| `deploy-npc.yml` | push main + `server/custom-npc/**` 有變更 | scp NPC → restart |
+| `deploy-full.yml` | push `v*` tag | build image → scp → deploy |
+
+```bash
+# 觸發 NPC 自動部署
+git add server/custom-npc/
+git commit -m "npc: ..."
+git push
+
+# 觸發完整部署
+git tag v1.5.0
+git push --tags
+```
+
+### Client 發布
+
+Client 透過 `gws`（Google Workspace CLI）上傳到 Google Drive 分享：
+
+```bash
+cd client/
+./release.sh 1.5.0
+```
+
+流程：打包 zip (~3.8GB) → 上傳 Google Drive「RO」資料夾 → 設定公開分享 → 輸出下載連結
+
+> 前提：已安裝 `gws`（`npm i -g @googleworkspace/cli`）並完成 `gws auth login`
+
+#### 已發布版本
+
+| 版本 | 大小 | 主要變更 |
+|------|------|---------|
+| v1.0 | 3.8GB | 基礎客戶端 |
+| v1.1 | 3.8GB | 繁體中文化 Phase 1 |
+| v1.4.1 | 3.8GB | 繁體中文道具+技能名稱 |
+
 ## 網路設定
 
 | Port | 服務 | 說明 |
