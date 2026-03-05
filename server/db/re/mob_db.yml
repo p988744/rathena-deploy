@@ -103697,57 +103697,6 @@ Body:
 #    AegisName: ILL_CECILIA
 #  - Id: 20525
 #    AegisName: ILL_BAPHOMET_J
-  - Id: 20525
-    AegisName: ILL_BAPHOMET_J
-    Name: Chaos Baphomet Jr.
-    Level: 177
-    Hp: 1057444
-    BaseExp: 38464
-    JobExp: 26917
-    MvpExp: 0
-    Attack: 0
-    Attack2: 0
-    Defense: 327
-    MagicDefense: 108
-    Str: 185
-    Agi: 178
-    Vit: 101
-    Int: 50
-    Dex: 158
-    Luk: 77
-    AttackRange: 1
-    SkillRange: 10
-    ChaseRange: 12
-    Size: Small
-    Race: Demon
-    Element: Shadow
-    ElementLevel: 1
-    WalkSpeed: 100
-    AttackDelay: 687
-    AttackMotion: 601
-    ClientAttackMotion: 481
-    DamageMotion: 0
-    DamageTaken: 100
-    Ai: 02
-    Class: Normal
-    Modes:
-      CanMove: true
-      CanAttack: true
-      Aggressive: true
-    Drops:
-      - Item: Evil_Horn
-        Rate: 1750
-      - Item: Yellow_Herb
-        Rate: 1500
-      - Item: Hunter_Short_Rope
-        Rate: 1500
-      - Item: Brigun
-        Rate: 2500
-      - Item: Oridecon
-        Rate: 50
-      - Item: Chaos_Baphomet_Jr_Card
-        Rate: 5
-        StealProtected: true
 #  - Id: 20526
 #    AegisName: ILL_SIDE_WINDER
 #  - Id: 20527
