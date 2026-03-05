@@ -52,6 +52,7 @@ services:
       MAP_PORT: ${MAP_PORT:-5121}
     volumes:
       - ./custom:/rathena-custom:ro
+      - ./custom-overlay:/rathena-custom/overlay:ro
       - ./scripts/entrypoint.sh:/entrypoint.sh:ro
 
 networks:

@@ -1,4 +1,4 @@
-# NPC 熱更新 — push custom-npc 變更到 main 時自動部署
+# 熱更新 — push custom-npc 或 custom-overlay 變更到 main 時自動部署
 name: Deploy NPC
 
 on:
@@ -6,6 +6,8 @@ on:
     branches: [main]
     paths:
       - 'server/custom-npc/**'
+      - 'server/custom-overlay/**'
+      - 'server/scripts/entrypoint.sh'
 
 jobs:
   deploy-npc:
@@ -26,6 +28,17 @@ jobs:
           scp server/custom-npc/*.txt \
             ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/opt/rathena/custom/npc/
 
+      - name: Upload overlay files to VPS
+        run: |
+          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "mkdir -p /opt/rathena/custom-overlay"
+          rsync -av --delete server/custom-overlay/ \
+            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/opt/rathena/custom-overlay/
+
+      - name: Upload entrypoint to VPS
+        run: |
+          scp server/scripts/entrypoint.sh \
+            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/opt/rathena/scripts/entrypoint.sh
+
       - name: Restart rathena and verify
         run: |
           ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
@@ -33,6 +46,6 @@ jobs:
           sudo docker compose restart rathena
           echo "Waiting 30s for server to reload..."
           sleep 30
-          sudo docker logs rathena-server --tail=30 2>&1 | grep -E 'Done loading|NPC|custom'
-          echo "✅ NPC deploy complete"
+          sudo docker logs rathena-server --tail=30 2>&1 | grep -E 'Done loading|NPC|custom|overlay'
+          echo "✅ Deploy complete"
           EOF

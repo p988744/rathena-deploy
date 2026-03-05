@@ -153,6 +153,17 @@ if [ -d "/rathena-custom/npc" ]; then
     cp -rf /rathena-custom/npc/* /rathena/npc/custom/ 2>/dev/null || true
 fi
 
+# overlay: 直接覆蓋 rAthena 原始檔案（conf/battle、conf/groups、db/re 等）
+# 目錄結構對應 /rathena/，例：
+#   custom/overlay/conf/battle/battle.conf → /rathena/conf/battle/battle.conf
+#   custom/overlay/conf/groups.yml         → /rathena/conf/groups.yml
+#   custom/overlay/db/re/item_db_usable.yml → /rathena/db/re/item_db_usable.yml
+if [ -d "/rathena-custom/overlay" ]; then
+    echo "   發現 overlay 檔案，正在覆蓋..."
+    cp -rf /rathena-custom/overlay/* /rathena/ 2>/dev/null || true
+    echo "   overlay 套用完成"
+fi
+
 # 啟用 custom warper（含幻影地圖傳送）
 sed -i 's|//npc: npc/custom/warper.txt|npc: npc/custom/warper.txt|' /rathena/npc/scripts_custom.conf
 echo "   已啟用自訂 Warper NPC"

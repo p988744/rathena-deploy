@@ -53,7 +53,7 @@ TAR_SIZE=$(du -h "${TAR_FILE}" | cut -f1)
 # ------ Step 1: 在 VPS 上建立目錄結構 ------
 echo "📁 Step 1: 在 VPS 上建立目錄結構..."
 ssh -p "${SERVER_SSH_PORT}" "${SERVER_USER}@${SERVER_IP}" \
-    "sudo mkdir -p ${REMOTE_DIR}/{custom/conf,custom/npc}"
+    "sudo mkdir -p ${REMOTE_DIR}/{custom/conf,custom/npc,custom-overlay}"
 echo "✅ 目錄已建立"
 
 # ------ Step 2: 上傳映像檔 ------
