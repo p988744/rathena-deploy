@@ -1044,7 +1044,7 @@ Body:
   - Id: 602
     AegisName: Wing_Of_Butterfly
     Name: Butterfly Wing
-    Type: Delayconsume
+    Type: Usable
     Buy: 300
     Weight: 50
     Flags:
