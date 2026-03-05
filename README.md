@@ -105,6 +105,29 @@ sudo docker compose up -d
 2. 上傳：`scp server/.env ubuntu@52.196.22.227:/opt/rathena/.env`
 3. 重啟：`ssh ubuntu@52.196.22.227 "cd /opt/rathena && sudo docker compose restart rathena"`
 
+### 更新自訂 NPC（不需重新編譯）
+
+修改 `server/custom-npc/` 下的 NPC 檔案後，上傳並重啟即可生效：
+
+```bash
+# 上傳指定 NPC 檔案（以 ep_shops.txt 為例）
+scp server/custom-npc/ep_shops.txt ubuntu@52.196.22.227:/opt/rathena/custom/npc/ep_shops.txt
+
+# 重啟伺服器
+ssh ubuntu@52.196.22.227 "cd /opt/rathena && sudo docker compose restart rathena"
+
+# 驗證 NPC 載入
+ssh ubuntu@52.196.22.227 "sudo docker logs rathena-server 2>&1 | grep '已啟用'"
+```
+
+| 檔案 | 說明 | 部署指令 |
+|------|------|----------|
+| `ep_shops.txt` | EP 裝備商店（izlude） | `scp server/custom-npc/ep_shops.txt ubuntu@52.196.22.227:/opt/rathena/custom/npc/ep_shops.txt` |
+| `healer.txt` | 補血 + Buff NPC | `scp server/custom-npc/healer.txt ubuntu@52.196.22.227:/opt/rathena/custom/npc/healer.txt` |
+| `illu_mobs.txt` | 幻影地下城怪物 spawn | `scp server/custom-npc/illu_mobs.txt ubuntu@52.196.22.227:/opt/rathena/custom/npc/illu_mobs.txt` |
+
+> 上傳任何檔案後都需要 `docker compose restart rathena` 才會生效。
+
 ### 需要重新編譯的修改
 
 - 更改 `PACKETVER`
