@@ -1,3 +1,6 @@
+# Shell scripts must use LF on all platforms
+*.sh text eol=lf
+
 # RO client data files are Big5-encoded with CRLF - treat as binary to preserve encoding
 client/data/*.txt binary
 client/data/*.xml binary

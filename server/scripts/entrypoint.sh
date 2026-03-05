@@ -158,9 +158,9 @@ fi
 #   custom/overlay/conf/battle/battle.conf → /rathena/conf/battle/battle.conf
 #   custom/overlay/conf/groups.yml         → /rathena/conf/groups.yml
 #   custom/overlay/db/re/item_db_usable.yml → /rathena/db/re/item_db_usable.yml
-if [ -d "/rathena-custom/overlay" ]; then
+if [ -d "/rathena-overlay" ]; then
     echo "   發現 overlay 檔案，正在覆蓋..."
-    cp -rf /rathena-custom/overlay/* /rathena/ 2>/dev/null || true
+    cp -rf /rathena-overlay/* /rathena/ 2>/dev/null || true
     echo "   overlay 套用完成"
 fi
 
