@@ -17,37 +17,37 @@ izlude,108,144,4	script	Safe Refiner	4_M_DWARF,{
 
 	if (getequipisequiped(EQI_HEAD_TOP)) {
 		if (.@count > 0) .@menu$ += ":";
-		.@menu$ += "Head Top: " + getequipname(EQI_HEAD_TOP) + " [+" + getequiprefinerycnt(EQI_HEAD_TOP) + "]";
+		.@menu$ += "[Head Top] " + getequipname(EQI_HEAD_TOP) + " (+" + getequiprefinerycnt(EQI_HEAD_TOP) + ")";
 		.@equipped_slot[.@count] = EQI_HEAD_TOP;
 		.@count++;
 	}
 	if (getequipisequiped(EQI_ARMOR)) {
 		if (.@count > 0) .@menu$ += ":";
-		.@menu$ += "Armor: " + getequipname(EQI_ARMOR) + " [+" + getequiprefinerycnt(EQI_ARMOR) + "]";
+		.@menu$ += "[Armor] " + getequipname(EQI_ARMOR) + " (+" + getequiprefinerycnt(EQI_ARMOR) + ")";
 		.@equipped_slot[.@count] = EQI_ARMOR;
 		.@count++;
 	}
 	if (getequipisequiped(EQI_HAND_R)) {
 		if (.@count > 0) .@menu$ += ":";
-		.@menu$ += "Right Hand: " + getequipname(EQI_HAND_R) + " [+" + getequiprefinerycnt(EQI_HAND_R) + "]";
+		.@menu$ += "[Right Hand] " + getequipname(EQI_HAND_R) + " (+" + getequiprefinerycnt(EQI_HAND_R) + ")";
 		.@equipped_slot[.@count] = EQI_HAND_R;
 		.@count++;
 	}
 	if (getequipisequiped(EQI_HAND_L)) {
 		if (.@count > 0) .@menu$ += ":";
-		.@menu$ += "Left Hand: " + getequipname(EQI_HAND_L) + " [+" + getequiprefinerycnt(EQI_HAND_L) + "]";
+		.@menu$ += "[Left Hand] " + getequipname(EQI_HAND_L) + " (+" + getequiprefinerycnt(EQI_HAND_L) + ")";
 		.@equipped_slot[.@count] = EQI_HAND_L;
 		.@count++;
 	}
 	if (getequipisequiped(EQI_GARMENT)) {
 		if (.@count > 0) .@menu$ += ":";
-		.@menu$ += "Garment: " + getequipname(EQI_GARMENT) + " [+" + getequiprefinerycnt(EQI_GARMENT) + "]";
+		.@menu$ += "[Garment] " + getequipname(EQI_GARMENT) + " (+" + getequiprefinerycnt(EQI_GARMENT) + ")";
 		.@equipped_slot[.@count] = EQI_GARMENT;
 		.@count++;
 	}
 	if (getequipisequiped(EQI_SHOES)) {
 		if (.@count > 0) .@menu$ += ":";
-		.@menu$ += "Shoes: " + getequipname(EQI_SHOES) + " [+" + getequiprefinerycnt(EQI_SHOES) + "]";
+		.@menu$ += "[Shoes] " + getequipname(EQI_SHOES) + " (+" + getequiprefinerycnt(EQI_SHOES) + ")";
 		.@equipped_slot[.@count] = EQI_SHOES;
 		.@count++;
 	}
