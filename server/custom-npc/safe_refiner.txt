@@ -11,47 +11,66 @@ izlude,108,144,4	script	Safe Refiner	4_M_DWARF,{
 	mes "I can refine your equipment to ^FF0000+9^000000 or ^FF0000+13^000000 with 100% success!";
 	next;
 
-	setarray .@position$[0],
-		"Head Top","Head Mid","Head Low",
-		"Armor","Left Hand","Right Hand",
-		"Garment","Shoes","Accessory 1","Accessory 2";
-
-	setarray .@all_slots[0],
-		EQI_HEAD_TOP, EQI_HEAD_MID, EQI_HEAD_LOW,
-		EQI_ARMOR, EQI_HAND_L, EQI_HAND_R,
-		EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R;
-
-	// Build menu of only equipped items, tracking real slot index separately
-	.@menu$ = "";
+	// Check each slot individually to avoid array-constant resolution issues
 	.@count = 0;
-	for (.@i = 0; .@i < 10; .@i++) {
-		if (getequipisequiped(.@all_slots[.@i])) {
-			.@name$ = getequipname(.@all_slots[.@i]);
-			.@ref = getequiprefinerycnt(.@all_slots[.@i]);
-			if (.@count > 0) .@menu$ = .@menu$ + ":";
-			.@menu$ = .@menu$ + .@position$[.@i] + ": " + .@name$ + " [+" + .@ref + "]";
-			.@equipped_slot[.@count] = .@all_slots[.@i];
-			.@count++;
-		}
-	}
+	.@menu$ = "";
 
+	if (getequipisequiped(EQI_HEAD_TOP)) {
+		if (.@count > 0) .@menu$ += ":";
+		.@menu$ += "Head Top: " + getequipname(EQI_HEAD_TOP) + " [+" + getequiprefinerycnt(EQI_HEAD_TOP) + "]";
+		.@equipped_slot[.@count] = EQI_HEAD_TOP;
+		.@count++;
+	}
+	if (getequipisequiped(EQI_ARMOR)) {
+		if (.@count > 0) .@menu$ += ":";
+		.@menu$ += "Armor: " + getequipname(EQI_ARMOR) + " [+" + getequiprefinerycnt(EQI_ARMOR) + "]";
+		.@equipped_slot[.@count] = EQI_ARMOR;
+		.@count++;
+	}
+	if (getequipisequiped(EQI_HAND_R)) {
+		if (.@count > 0) .@menu$ += ":";
+		.@menu$ += "Right Hand: " + getequipname(EQI_HAND_R) + " [+" + getequiprefinerycnt(EQI_HAND_R) + "]";
+		.@equipped_slot[.@count] = EQI_HAND_R;
+		.@count++;
+	}
+	if (getequipisequiped(EQI_HAND_L)) {
+		if (.@count > 0) .@menu$ += ":";
+		.@menu$ += "Left Hand: " + getequipname(EQI_HAND_L) + " [+" + getequiprefinerycnt(EQI_HAND_L) + "]";
+		.@equipped_slot[.@count] = EQI_HAND_L;
+		.@count++;
+	}
+	if (getequipisequiped(EQI_GARMENT)) {
+		if (.@count > 0) .@menu$ += ":";
+		.@menu$ += "Garment: " + getequipname(EQI_GARMENT) + " [+" + getequiprefinerycnt(EQI_GARMENT) + "]";
+		.@equipped_slot[.@count] = EQI_GARMENT;
+		.@count++;
+	}
+	if (getequipisequiped(EQI_SHOES)) {
+		if (.@count > 0) .@menu$ += ":";
+		.@menu$ += "Shoes: " + getequipname(EQI_SHOES) + " [+" + getequiprefinerycnt(EQI_SHOES) + "]";
+		.@equipped_slot[.@count] = EQI_SHOES;
+		.@count++;
+	}
 	if (.@count == 0) {
 		mes "[Safe Refiner]";
 		mes "You don't have any equipment on!";
 		close;
 	}
 
+	mes "[Safe Refiner]";
 	mes "Select the slot to refine:";
-	.@select = select(.@menu$) - 1;  // 0-based index into .@equipped_slot
+	.@select = select(.@menu$) - 1;
 
-	if (!getequipisenableref(.@equipped_slot[.@select])) {
+	.@slot = .@equipped_slot[.@select];
+
+	if (!getequipisenableref(.@slot)) {
 		mes "[Safe Refiner]";
 		mes "This equipment cannot be refined.";
 		close;
 	}
 
-	.@current_ref = getequiprefinerycnt(.@equipped_slot[.@select]);
-	.@equip_name$ = getequipname(.@equipped_slot[.@select]);
+	.@current_ref = getequiprefinerycnt(.@slot);
+	.@equip_name$ = getequipname(.@slot);
 
 	mes "[Safe Refiner]";
 	mes "^0000FF" + .@equip_name$ + "^000000";
@@ -60,9 +79,7 @@ izlude,108,144,4	script	Safe Refiner	4_M_DWARF,{
 
 	mes "[Safe Refiner]";
 	mes "What level would you like?";
-	.@choice = select(
-		"Refine to +9:Refine to +13:Cancel"
-	);
+	.@choice = select("Refine to +9:Refine to +13:Cancel");
 
 	if (.@choice == 3) {
 		mes "[Safe Refiner]";
@@ -90,8 +107,8 @@ izlude,108,144,4	script	Safe Refiner	4_M_DWARF,{
 	}
 
 	// Refine one level at a time
-	while (getequiprefinerycnt(.@equipped_slot[.@select]) < .@target) {
-		successrefitem .@equipped_slot[.@select];
+	while (getequiprefinerycnt(.@slot) < .@target) {
+		successrefitem .@slot;
 	}
 
 	mes "[Safe Refiner]";
