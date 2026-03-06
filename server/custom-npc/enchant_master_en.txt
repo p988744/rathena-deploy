@@ -59,7 +59,7 @@
 -	shop	mat_shop_circlet	-1,25867:10000,25865:100000,25866:50000,6417:200000
 
 // --- Vendor Script NPC ---
-izlude,121,150,4	script	Enchant Material Vendor	4_F_KAFRA1,{
+izlude,117,150,4	script	Enchant Material Vendor	4_F_KAFRA1,{
 	mes "[Enchant Material Vendor]";
 	mes "I sell enchant materials for the latest episodes.";
 	mes "No quests required — just buy and enchant!";

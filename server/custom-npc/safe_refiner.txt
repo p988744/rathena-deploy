@@ -6,7 +6,7 @@
 //= without any failure chance. Free of charge.
 //=============================================================
 
-izlude,123,148,4	script	Safe Refiner	4_M_DWARF,{
+izlude,108,144,4	script	Safe Refiner	4_M_DWARF,{
 	mes "[Safe Refiner]";
 	mes "I can refine your equipment to ^FF0000+9^000000 or ^FF0000+13^000000 with 100% success!";
 	next;
