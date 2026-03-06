@@ -59,7 +59,7 @@
 -	shop	mat_shop_circlet	-1,25867:10000,25865:100000,25866:50000
 
 // --- Costume Item Giver NPC ---
-izlude,113,150,4	script	Costume Keeper	4_F_KAFRA3,{
+izlude,113,150,4	script	Costume Keeper	718,{
 	mes "[Costume Keeper]";
 	mes "Tell me the ^0000FFCostume Item ID^000000 and I'll give it to you!";
 	next;
