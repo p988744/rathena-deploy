@@ -29,6 +29,7 @@ pay_d03_i,0,0	monster	Illusion Bon Gun	3761,30,5000
 pay_d03_i,0,0	monster	Illusion Sohee	3762,25,5000
 pay_d03_i,0,0	monster	Illusion Archer Skeleton	3763,25,5000
 pay_d03_i,0,0	monster	Illusion High Wizard	3764,10,5000
+pay_d03_i,0,0	monster	Deranged Adventurer	3765,5,15000
 pay_d03_i,0,0,0,0	boss_monster	Illusion Moonlight	3758,1,7200000,600000,1
 
 //==================================================
@@ -93,6 +94,7 @@ prt_mz03_i,0,0	monster	Baphomet Jr.	1101,25,5000
 prt_mz03_i,0,0	monster	Side Winder	1037,30,5000
 prt_mz03_i,0,0	monster	Stem Worm	1215,20,300000,150000
 prt_mz03_i,0,0	monster	Killer Mantis	1294,10,5000
+prt_mz03_i,0,0	monster	Chaos Baphomet Jr.	20525,4,300000
 prt_mz03_i,0,0,0,0	boss_monster	Baphomet	1039,1,7200000,600000,1
 
 //==================================================
@@ -126,3 +128,37 @@ clock_01,0,0	monster	Owl Viscount	2921,4,5000,1800000
 clock_01,0,0	monster	Owl Marquis	2923,3,5000,5000
 clock_01,0,0	monster	Owl Baron	1295,2,5000
 clock_01,0,0,0,0	boss_monster	Time Holder	3074,1,7200000,0,0
+
+//==================================================
+// ant_d02_i — Illusion of Ant Hell (幻影蟻洞)
+//==================================================
+ant_d02_i,0,0	monster	Diligent Andre	21386,30,5000
+ant_d02_i,0,0	monster	Diligent Deniro	21389,30,5000
+ant_d02_i,0,0	monster	Diligent Piere	21390,30,5000
+ant_d02_i,0,0	monster	Gutsy Familiar	21393,25,5000
+ant_d02_i,0,0	monster	Diligent Andre Larva	21388,20,5000
+ant_d02_i,0,0	monster	Mushy Ant Egg	21391,20,5000
+ant_d02_i,0,0	monster	Diligent Soldier Andre	21387,15,5000
+ant_d02_i,0,0	monster	Gutsy Giearth	21392,15,5000
+ant_d02_i,0,0	monster	Diligent Vitata	21394,15,5000
+ant_d02_i,0,0,0,0	boss_monster	Silent Maya	21395,1,7200000,600000,1
+
+//==================================================
+// iz_d04_i — Illusion of Underwater (Floor 1)
+//==================================================
+iz_d04_i,0,0	monster	Deep Sea Sropho	20801,45,5000
+iz_d04_i,0,0	monster	Deep Sea Obeaune	20802,45,5000
+iz_d04_i,0,0	monster	Deep Sea Deviace	20803,45,5000
+iz_d04_i,0,0	monster	Deep Sea Marse	20804,45,5000
+iz_d04_i,0,0	monster	Deep Sea Merman	20805,45,5000
+iz_d04_i,0,0,0,0	boss_monster	Deep Sea Kraken	20811,1,7200000,600000,1
+
+//==================================================
+// iz_d05_i — Illusion of Underwater (Floor 2)
+//==================================================
+iz_d05_i,0,0	monster	Deep Sea Strouf	20808,45,5000
+iz_d05_i,0,0	monster	Deep Sea Swordfish	20807,45,5000
+iz_d05_i,0,0	monster	Deep Sea Phen	20809,45,5000
+iz_d05_i,0,0	monster	Deep Sea Sedora	20806,45,5000
+iz_d05_i,0,0	monster	Deep Sea King Dramoh	20810,45,5000
+iz_d05_i,0,0,0,0	boss_monster	Deep Sea Witch	20843,1,7200000,600000,1
