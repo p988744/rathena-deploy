@@ -43,13 +43,9 @@
 // Amethyst Fragment (1000405)
 -	shop	mat_shop_ep18	-1,1000405:5000
 
-// --- EP19 Snowflower + Glacier shop ---
-// Ice_F_Stone_* (1000711-1000810) + Snow_F_Stone 1/2/3 (1000812-1000814)
--	shop	mat_shop_ep19	-1,1000711:10000,1000712:10000,1000713:10000,1000714:10000,1000715:10000,1000716:10000,1000717:10000,1000718:10000,1000719:10000,1000720:10000,1000721:10000,1000722:10000,1000723:10000,1000724:10000,1000725:10000,1000726:10000,1000727:10000,1000728:10000,1000729:10000,1000730:10000,1000731:10000,1000732:10000,1000733:10000,1000734:10000,1000735:10000,1000736:10000,1000737:10000,1000738:10000,1000739:10000,1000740:10000,1000741:10000,1000742:10000,1000743:10000,1000744:10000,1000745:10000,1000746:10000,1000747:10000,1000748:10000,1000749:10000,1000750:10000,1000751:10000,1000752:10000,1000753:10000,1000754:10000,1000755:10000,1000756:10000,1000757:10000,1000758:10000,1000759:10000,1000760:10000,1000761:10000,1000762:10000,1000763:10000,1000764:10000,1000765:10000,1000766:10000,1000767:10000,1000768:10000,1000769:10000,1000770:10000,1000771:10000,1000772:10000,1000773:10000,1000774:10000,1000775:10000,1000776:10000,1000777:10000,1000778:10000,1000779:10000,1000780:10000,1000781:10000,1000782:10000,1000783:10000,1000784:10000,1000785:10000,1000786:10000,1000787:10000,1000788:10000,1000789:10000,1000790:10000,1000791:10000,1000792:10000,1000793:10000,1000794:10000,1000795:10000,1000796:10000,1000797:10000,1000798:10000,1000799:10000,1000800:10000,1000801:10000,1000802:10000,1000803:10000,1000804:10000,1000805:10000,1000806:10000,1000807:10000,1000808:10000,1000809:10000,1000810:10000,1000812:10000,1000813:10000,1000814:10000
-
-// --- EP19 Dim Glacier shop ---
-// Snow Flower Magic Stone Extracts (1001034-1001036)
--	shop	mat_shop_ep19_dim	-1,1001034:50000,1001035:50000,1001036:50000
+// --- EP19 Snowflower + Glacier + Dim Glacier shop ---
+// Ice_F_Stone_* (1000711-1000810) + Snow_F_Stone 1/2/3 (1000812-1000814) + Extracts (1001034-1001036)
+-	shop	mat_shop_ep19	-1,1000812:10000,1000813:10000,1000814:10000,1001034:50000,1001035:50000,1001036:50000,1001037:50000,1001031:50000,1001032:50000,1001033:50000
 
 // --- Temporal Circlet materials shop ---
 // Fragment_Of_Time(25867) 10,000z — Slot 4 (x10) / Slot 3 Normal (x20)
@@ -107,7 +103,7 @@ izlude,117,150,4	script	Enchant Material Vendor	4_F_KAFRA1,{
 	mes "I sell enchant materials for the latest episodes.";
 	mes "No quests required — just buy and enchant!";
 	next;
-	switch( select( "EP17.2 Auto Modules (1,000z ea)", "EP18 Gray Wolf — Amethyst Fragment (5,000z ea)", "EP19 Snowflower & Glacier Stones (10,000z ea)", "EP19 Dim Glacier Extracts (50,000z ea)", "Temporal Circlet Materials", "Close" ) ) {
+	switch( select( "EP17.2 Auto Modules (1,000z ea)", "EP18 Gray Wolf — Amethyst Fragment (5,000z ea)", "EP19 Snowflower / Glacier / Dim Glacier Stones", "Temporal Circlet Materials", "Close" ) ) {
 	case 1:
 		mes "[Enchant Material Vendor]";
 		mes "Selling all ^0000CDAutomatic Modification Modules^000000.";
@@ -123,25 +119,19 @@ izlude,117,150,4	script	Enchant Material Vendor	4_F_KAFRA1,{
 		end;
 	case 3:
 		mes "[Enchant Material Vendor]";
-		mes "Selling ^0000CDIce Magic Stones^000000 (Snowflower armor enchants)";
-		mes "and ^0000CDSnowflower Gems^000000 (Glacier weapon enchants).";
+		mes "Selling ^0000CDIce Magic Stones^000000 (Snowflower / Glacier, 10,000z ea)";
+		mes "and ^0000CDSnow Flower Magic Stone Extracts^000000 (Dim Glacier, 50,000z ea).";
 		close2;
 		callshop "mat_shop_ep19";
 		end;
 	case 4:
-		mes "[Enchant Material Vendor]";
-		mes "Selling ^0000CDSnow Flower Magic Stone Extracts^000000 for Dim Glacier weapon enchants.";
-		close2;
-		callshop "mat_shop_ep19_dim";
-		end;
-	case 5:
 		mes "[Enchant Material Vendor]";
 		mes "Selling ^0000CDTemporal Circlet^000000 enchant materials:";
 		mes "Fragment (10,000z) · Gemstone (100,000z) · Spell (50,000z) · Kiwi Fruit (200,000z)";
 		close2;
 		callshop "mat_shop_circlet";
 		end;
-	case 6:
+	case 5:
 		mes "[Enchant Material Vendor]";
 		mes "Come back anytime!";
 		close;
