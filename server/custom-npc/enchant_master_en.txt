@@ -51,13 +51,20 @@
 // Snow Flower Magic Stone Extracts (1001034-1001036)
 -	shop	mat_shop_ep19_dim	-1,1001034:50000,1001035:50000,1001036:50000
 
+// --- Temporal Circlet materials shop ---
+// Fragment_Of_Time(25867) 10,000z — Slot 4 (x10) / Slot 3 Normal (x20)
+// Jewel_Of_Time_Ore(25865) 100,000z — Slot 3 Special (x2)
+// Spell_Of_Time(25866) 50,000z — Slot 2 enchant (x2) + upgrades (x4~40)
+// Kiwi_Fruit(6417) 200,000z — 100% reset (x7)
+-	shop	mat_shop_circlet	-1,25867:10000,25865:100000,25866:50000,6417:200000
+
 // --- Vendor Script NPC ---
 izlude,121,150,4	script	Enchant Material Vendor	4_F_KAFRA1,{
 	mes "[Enchant Material Vendor]";
 	mes "I sell enchant materials for the latest episodes.";
 	mes "No quests required — just buy and enchant!";
 	next;
-	switch( select( "EP17.2 Auto Modules (1,000z ea)", "EP18 Gray Wolf — Amethyst Fragment (5,000z ea)", "EP19 Snowflower & Glacier Stones (10,000z ea)", "EP19 Dim Glacier Extracts (50,000z ea)", "Close" ) ) {
+	switch( select( "EP17.2 Auto Modules (1,000z ea)", "EP18 Gray Wolf — Amethyst Fragment (5,000z ea)", "EP19 Snowflower & Glacier Stones (10,000z ea)", "EP19 Dim Glacier Extracts (50,000z ea)", "Temporal Circlet Materials", "Close" ) ) {
 	case 1:
 		mes "[Enchant Material Vendor]";
 		mes "Selling all ^0000CDAutomatic Modification Modules^000000.";
@@ -86,6 +93,13 @@ izlude,121,150,4	script	Enchant Material Vendor	4_F_KAFRA1,{
 		end;
 	case 5:
 		mes "[Enchant Material Vendor]";
+		mes "Selling ^0000CDTemporal Circlet^000000 enchant materials:";
+		mes "Fragment (10,000z) · Gemstone (100,000z) · Spell (50,000z) · Kiwi Fruit (200,000z)";
+		close2;
+		callshop "mat_shop_circlet";
+		end;
+	case 6:
+		mes "[Enchant Material Vendor]";
 		mes "Come back anytime!";
 		close;
 	}
@@ -103,7 +117,7 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	mes "Welcome! I can enchant your equipment from EP17.2 through EP19.";
 	mes "No quests or prerequisites required.";
 	next;
-	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Leave" ) ) {
+	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "Leave" ) ) {
 	case 1: callsub L_Auto; end;
 	case 2: callsub L_GrayWolf; end;
 	case 3: callsub L_Snowflower; end;
@@ -119,7 +133,8 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 		close2;
 		item_enchant(47);
 		end;
-	case 6:
+	case 6: callsub L_Circlet; end;
+	case 7:
 		mes "[Enchant Master]";
 		mes "Come back anytime!";
 		close;
@@ -170,7 +185,7 @@ L_Auto:
 	mes "Please ^FF0000equip^000000 the Automatic gear piece you want to enchant, then select its slot.";
 	mes "Make sure you have the desired module in your inventory.";
 	next;
-	switch( select( "Engine Wing (Garment: 480020 / 480021)", "Armor (480020 / 450128)", "Leg (Shoes: 470022 / 470023)", "Accessory Right (490024 / 490026)", "Accessory Left (490025 / 490027)", "Back" ) ) {
+	switch( select( "Engine Wing (Garment: 480020 / 480021)", "Armor (450127 / 450128)", "Leg (Shoes: 470022 / 470023)", "Accessory Right (490024 / 490026)", "Accessory Left (490025 / 490027)", "Back" ) ) {
 	case 1:
 		.@part = EQI_GARMENT;
 		setarray .@equip_required[0], 480020, 480021;
@@ -347,4 +362,382 @@ L_Auto:
 	mes "Success! ^0000CD" + getitemname(.@module_id) + "^000000 has been applied.";
 	mes "Make the most of your Automatic equipment!";
 	close;
+
+// ============================================================
+// Temporal Circlet Enchant
+// Items: 19474-19492 (job-specific Temporal Circlets)
+// Slot layout (getitem2 card params):
+//   card[0] = actual card socket
+//   card[1] = 2nd slot (第二洞) — high enchant
+//   card[2] = 3rd slot (第三洞) — mid enchant
+//   card[3] = 4th slot (第四洞) — base enchant (first applied)
+//
+// Slot 4 Normal  : 10x Fragment_Of_Time (25867) — random stat/jewel
+// Slot 3 Normal  : 20x Fragment_Of_Time (25867) — same pool as slot 4
+// Slot 3 Special : 2x  Jewel_Of_Time_Ore (25865) — Temporal Jewels only
+// Slot 2 Enchant : 2x  Spell_Of_Time (25866) — Sharp/ExpertArcher/Delay/Spell/upgradeables
+// Slot 2 Upgrade : variable Spell_Of_Time; success rate decreases; fail drops 1 level
+// Reset (70%)    : 500,000z — item destroyed on failure
+// Reset (100%)   : 7x Kiwi_Fruit (6417)
+// ============================================================
+L_Circlet:
+	.@part = EQI_HEAD_TOP;
+	.@equip_id = getequipid(.@part);
+
+	if (.@equip_id < 19474 || .@equip_id > 19492) {
+		mes "[Enchant Master]";
+		mes "Please ^FF0000equip^000000 a ^4d4dffTemporal Circlet^000000 on your head first.";
+		close;
+	}
+
+	.@equip_name$ = getequipname(.@part);
+	.@refine = getequiprefinerycnt(.@part);
+	.@card[0] = getequipcardid(.@part, 0);
+	.@card[1] = getequipcardid(.@part, 1);
+	.@card[2] = getequipcardid(.@part, 2);
+	.@card[3] = getequipcardid(.@part, 3);
+
+	mes "[Enchant Master]";
+	mes "^4d4dff" + .@equip_name$ + "^000000";
+	mes "4th Slot: " + (.@card[3] > 0 ? "^0000CD" + getitemname(.@card[3]) + "^000000" : "^808080Empty^000000");
+	mes "3rd Slot: " + (.@card[2] > 0 ? "^0000CD" + getitemname(.@card[2]) + "^000000" : "^808080Empty^000000");
+	mes "2nd Slot: " + (.@card[1] > 0 ? "^0000CD" + getitemname(.@card[1]) + "^000000" : "^808080Empty^000000");
+	next;
+
+	.@action = select(
+		"4th Slot (10x ^0000CDTemporal Fragment^000000)",
+		"3rd Slot — Normal (20x ^0000CDTemporal Fragment^000000)",
+		"3rd Slot — Special (2x ^0000CDTemporal Gemstone^000000)",
+		"2nd Slot (2x ^0000CDTemporal Spell^000000)",
+		"Upgrade 2nd Slot (^FF0000 fail = drop 1 level^000000)",
+		"Reset All Enchants",
+		"Back"
+	);
+
+	if (.@action == 7) return;
+
+	// ── Slot 4 (card index 3) ────────────────────────────────
+	if (.@action == 1) {
+		if (.@card[3] > 0) {
+			mes "[Enchant Master]";
+			mes "4th slot is already enchanted. Reset first to re-enchant.";
+			close;
+		}
+		if (countitem(25867) < 10) {
+			mes "[Enchant Master]";
+			mes "Need ^0000CD10x Temporal Fragment^000000. You have: " + countitem(25867);
+			close;
+		}
+		// pool: STR/VIT/INT/LUK +1~4 + Jewel(STR/AGI/INT/DEX/VIT/LUK) Lv1~3
+		setarray .@pool[0],
+			4700,4701,4702,4703,       // STR+1~4
+			4740,4741,4742,4743,       // VIT+1~4
+			4710,4711,4712,4713,       // INT+1~4
+			4750,4751,4752,4753,       // LUK+1~4
+			29672,29673,29674,         // Jewel STR Lv1~3
+			29675,29676,29677,         // Jewel AGI Lv1~3
+			29681,29682,29683,         // Jewel INT Lv1~3
+			29684,29685,29686,         // Jewel DEX Lv1~3
+			29678,29679,29680,         // Jewel VIT Lv1~3
+			29687,29688,29689;         // Jewel LUK Lv1~3
+		mes "[Enchant Master]";
+		mes "Apply a random enchant to the ^FF00004th slot^000000?";
+		mes "Cost: ^0000CD10x Temporal Fragment^000000";
+		next;
+		if (select("Proceed!", "Cancel") == 2) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+		if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+		    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+		    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+			end;
+		delitem 25867, 10;
+		specialeffect2 EF_REPAIRWEAPON;
+		.@card[3] = .@pool[rand(getarraysize(.@pool))];
+		delequip .@part;
+		getitem2 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+		mes "[Enchant Master]";
+		mes "4th slot enchanted: ^0000CD" + getitemname(.@card[3]) + "^000000";
+		close;
+	}
+
+	// ── Slot 3 Normal (card index 2) ─────────────────────────
+	if (.@action == 2) {
+		if (.@card[3] == 0) {
+			mes "[Enchant Master]";
+			mes "Please enchant the ^FF00004th slot^000000 first.";
+			close;
+		}
+		if (.@card[2] > 0) {
+			mes "[Enchant Master]";
+			mes "3rd slot is already enchanted. Reset first to re-enchant.";
+			close;
+		}
+		if (countitem(25867) < 20) {
+			mes "[Enchant Master]";
+			mes "Need ^0000CD20x Temporal Fragment^000000. You have: " + countitem(25867);
+			close;
+		}
+		setarray .@pool[0],
+			4700,4701,4702,4703,
+			4740,4741,4742,4743,
+			4710,4711,4712,4713,
+			4750,4751,4752,4753,
+			29672,29673,29674,
+			29675,29676,29677,
+			29681,29682,29683,
+			29684,29685,29686,
+			29678,29679,29680,
+			29687,29688,29689;
+		mes "[Enchant Master]";
+		mes "Apply a random enchant to the ^FF00003rd slot^000000 (Normal)?";
+		mes "Cost: ^0000CD20x Temporal Fragment^000000";
+		next;
+		if (select("Proceed!", "Cancel") == 2) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+		if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+		    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+		    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+			end;
+		delitem 25867, 20;
+		specialeffect2 EF_REPAIRWEAPON;
+		.@card[2] = .@pool[rand(getarraysize(.@pool))];
+		delequip .@part;
+		getitem2 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+		mes "[Enchant Master]";
+		mes "3rd slot enchanted: ^0000CD" + getitemname(.@card[2]) + "^000000";
+		close;
+	}
+
+	// ── Slot 3 Special (card index 2) ────────────────────────
+	if (.@action == 3) {
+		if (.@card[3] == 0) {
+			mes "[Enchant Master]";
+			mes "Please enchant the ^FF00004th slot^000000 first.";
+			close;
+		}
+		if (.@card[2] > 0) {
+			mes "[Enchant Master]";
+			mes "3rd slot is already enchanted. Reset first to re-enchant.";
+			close;
+		}
+		if (countitem(25865) < 2) {
+			mes "[Enchant Master]";
+			mes "Need ^0000CD2x Temporal Gemstone^000000. You have: " + countitem(25865);
+			close;
+		}
+		// pool: Temporal Jewels only (STR/AGI/INT/DEX/VIT/LUK Lv1~3)
+		setarray .@pool[0],
+			29672,29673,29674,
+			29675,29676,29677,
+			29681,29682,29683,
+			29684,29685,29686,
+			29678,29679,29680,
+			29687,29688,29689;
+		mes "[Enchant Master]";
+		mes "Apply a random ^0000CDTemporal Jewel^000000 to the ^FF00003rd slot^000000 (Special)?";
+		mes "Cost: ^0000CD2x Temporal Gemstone^000000";
+		next;
+		if (select("Proceed!", "Cancel") == 2) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+		if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+		    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+		    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+			end;
+		delitem 25865, 2;
+		specialeffect2 EF_REPAIRWEAPON;
+		.@card[2] = .@pool[rand(getarraysize(.@pool))];
+		delequip .@part;
+		getitem2 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+		mes "[Enchant Master]";
+		mes "3rd slot enchanted: ^0000CD" + getitemname(.@card[2]) + "^000000";
+		close;
+	}
+
+	// ── Slot 2 Enchant (card index 1) ────────────────────────
+	if (.@action == 4) {
+		if (.@card[2] == 0) {
+			mes "[Enchant Master]";
+			mes "Please enchant the ^FF00003rd slot^000000 first.";
+			close;
+		}
+		if (.@card[1] > 0) {
+			mes "[Enchant Master]";
+			mes "2nd slot is already enchanted. Reset first to re-enchant.";
+			close;
+		}
+		if (countitem(25866) < 2) {
+			mes "[Enchant Master]";
+			mes "Need ^0000CD2x Temporal Spell^000000. You have: " + countitem(25866);
+			close;
+		}
+		// pool: Sharp(29135-29138) + ExpertArcher(4832-4835) + AtkDelay + Spell + upgradeables Lv1
+		setarray .@pool[0],
+			29135,29136,29137,29138,   // 尖銳 Sharp Lv1~4
+			4832,4833,4834,4835,       // 名弓 Expert Archer Lv1~4
+			4869,4872,4873,4881,       // 攻擊後延遲 Attack Delay Lv1~4
+			4815,4814,4813,4812,       // 魔力 Spell Lv1~4
+			29706,                     // 霸氣 Tenacity Lv1
+			29071,                     // 魔精 Magic Essence Lv1
+			29081,                     // 銳氣 Acute Lv1
+			29091,                     // 精弓 Master Archer Lv1
+			29101,                     // 金鋼 Adamantine Lv1
+			29111;                     // 博愛 Affection Lv1
+		mes "[Enchant Master]";
+		mes "Apply a random enchant to the ^FF00002nd slot^000000?";
+		mes "Cost: ^0000CD2x Temporal Spell^000000";
+		mes "^808080Upgradeable enchants (霸氣/魔精/銳氣/精弓/金鋼/博愛) can be upgraded to Lv.10.^000000";
+		next;
+		if (select("Proceed!", "Cancel") == 2) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+		if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+		    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+		    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+			end;
+		delitem 25866, 2;
+		specialeffect2 EF_REPAIRWEAPON;
+		.@card[1] = .@pool[rand(getarraysize(.@pool))];
+		delequip .@part;
+		getitem2 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+		mes "[Enchant Master]";
+		mes "2nd slot enchanted: ^0000CD" + getitemname(.@card[1]) + "^000000";
+		close;
+	}
+
+	// ── Upgrade Slot 2 ────────────────────────────────────────
+	// Upgradeable types and their card ID base:
+	//   霸氣 Tenacity    : 29706 (Lv1) ~ 29715 (Lv10)
+	//   魔精 MagicEssence: 29071 (Lv1) ~ 29080 (Lv10)
+	//   銳氣 Acute       : 29081 (Lv1) ~ 29090 (Lv10)
+	//   精弓 MasterArcher: 29091 (Lv1) ~ 29100 (Lv10)
+	//   金鋼 Adamantine  : 29101 (Lv1) ~ 29110 (Lv10)
+	//   博愛 Affection   : 29111 (Lv1) ~ 29120 (Lv10)
+	// Success rates: Lv1→2:80% 2→3:70% 3→4:65% 4→5:60% 5→6:55% 6→7:50% 7→8:45% 8→9:40% 9→10:35%
+	// Fail: drop 1 level (min Lv1)
+	if (.@action == 5) {
+		.@cur = .@card[1];
+		if      (.@cur >= 29706 && .@cur <= 29715) { .@up_base = 29706; .@up_name$ = "霸氣 (Tenacity)"; }
+		else if (.@cur >= 29071 && .@cur <= 29080) { .@up_base = 29071; .@up_name$ = "魔精 (Magic Essence)"; }
+		else if (.@cur >= 29081 && .@cur <= 29090) { .@up_base = 29081; .@up_name$ = "銳氣 (Acute)"; }
+		else if (.@cur >= 29091 && .@cur <= 29100) { .@up_base = 29091; .@up_name$ = "精弓 (Master Archer)"; }
+		else if (.@cur >= 29101 && .@cur <= 29110) { .@up_base = 29101; .@up_name$ = "金鋼 (Adamantine)"; }
+		else if (.@cur >= 29111 && .@cur <= 29120) { .@up_base = 29111; .@up_name$ = "博愛 (Affection)"; }
+		else {
+			mes "[Enchant Master]";
+			mes "The 2nd slot enchant cannot be upgraded.";
+			close;
+		}
+		.@up_lv = .@cur - .@up_base + 1;
+		if (.@up_lv >= 10) {
+			mes "[Enchant Master]";
+			mes "^0000CD" + .@up_name$ + "^000000 is already at the maximum level 10.";
+			close;
+		}
+		// cost[0]=Lv1→2, cost[8]=Lv9→10
+		setarray .@up_cost[0], 4, 6, 8, 10, 12, 16, 20, 28, 40;
+		// rate[0]=Lv1→2 success%, rate[8]=Lv9→10 success%
+		setarray .@up_rate[0], 80, 70, 65, 60, 55, 50, 45, 40, 35;
+		.@needed = .@up_cost[.@up_lv - 1];
+		.@rate   = .@up_rate[.@up_lv - 1];
+		mes "[Enchant Master]";
+		mes "Current: ^0000CD" + .@up_name$ + " Lv." + .@up_lv + "^000000";
+		mes "Upgrade to ^0000CDLv." + (.@up_lv + 1) + "^000000";
+		mes "Cost: ^0000CD" + .@needed + "x Temporal Spell^000000  |  Success: ^00CC00" + .@rate + "%^000000";
+		mes "^FF0000Fail = drop 1 level (min Lv.1)^000000";
+		next;
+		if (select("Upgrade!", "Cancel") == 2) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+		if (countitem(25866) < .@needed) {
+			mes "[Enchant Master]";
+			mes "Not enough Temporal Spell. Need " + .@needed + ", have " + countitem(25866) + ".";
+			close;
+		}
+		if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+		    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+		    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+			end;
+		delitem 25866, .@needed;
+		specialeffect2 EF_REPAIRWEAPON;
+		if (rand(100) < .@rate) {
+			.@card[1] = .@up_base + .@up_lv;   // upgrade: base + new_lv - 1 = base + up_lv
+			mes "[Enchant Master]";
+			mes "^00CC00Success!^000000 ^0000CD" + .@up_name$ + " Lv." + (.@up_lv + 1) + "^000000";
+		} else {
+			if (.@up_lv > 1) {
+				.@card[1] = .@up_base + .@up_lv - 2;  // drop: base + (up_lv - 1) - 1
+				mes "[Enchant Master]";
+				mes "^FF0000Failed!^000000 Dropped to ^0000CD" + .@up_name$ + " Lv." + (.@up_lv - 1) + "^000000.";
+			} else {
+				mes "[Enchant Master]";
+				mes "^FF0000Failed!^000000 Remains at ^0000CD" + .@up_name$ + " Lv.1^000000.";
+				close;
+			}
+		}
+		delequip .@part;
+		getitem2 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+		close;
+	}
+
+	// ── Reset All Enchants ────────────────────────────────────
+	if (.@action == 6) {
+		if (.@card[1] == 0 && .@card[2] == 0 && .@card[3] == 0) {
+			mes "[Enchant Master]";
+			mes "No enchants found on this item.";
+			close;
+		}
+		mes "[Enchant Master]";
+		mes "Reset ALL enchants on ^FF0000" + .@equip_name$ + "^000000?";
+		mes "(Card slot 1 is kept; only enchant slots 2~4 are cleared.)";
+		next;
+		switch( select(
+			"^FF000050萬z (70% success — item destroyed on fail)^000000",
+			"^00CC007x Kiwi Fruit (100% success)^000000",
+			"Cancel"
+		) ) {
+		case 1:
+			if (Zeny < 500000) {
+				mes "[Enchant Master]";
+				mes "Need 500,000z. You have: " + Zeny + "z.";
+				close;
+			}
+			mes "[Enchant Master]";
+			mes "^FF0000WARNING: On failure the item will be DESTROYED!^000000";
+			next;
+			if (select("Yes, reset it!", "Cancel") == 2) {
+				mes "[Enchant Master]"; mes "Cancelled."; close;
+			}
+			if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+			    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+			    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+				end;
+			Zeny -= 500000;
+			specialeffect2 EF_REPAIRWEAPON;
+			delequip .@part;
+			if (rand(100) < 70) {
+				getitem2 .@equip_id, 1, 1, .@refine, 0, .@card[0], 0, 0, 0;
+				mes "[Enchant Master]";
+				mes "^00CC00Reset successful!^000000 All enchants cleared.";
+			} else {
+				mes "[Enchant Master]";
+				mes "^FF0000Reset FAILED! The item has been destroyed.^000000";
+			}
+			close;
+		case 2:
+			if (countitem(6417) < 7) {
+				mes "[Enchant Master]";
+				mes "Need 7x Kiwi Fruit. You have: " + countitem(6417);
+				close;
+			}
+			if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+			    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+			    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+				end;
+			delitem 6417, 7;
+			specialeffect2 EF_REPAIRWEAPON;
+			delequip .@part;
+			getitem2 .@equip_id, 1, 1, .@refine, 0, .@card[0], 0, 0, 0;
+			mes "[Enchant Master]";
+			mes "^00CC00Reset successful!^000000 All enchants cleared.";
+			close;
+		case 3:
+			mes "[Enchant Master]"; mes "Cancelled."; close;
+		}
+		close;
+	}
+
+	return;
 }
