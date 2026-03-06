@@ -184,6 +184,14 @@ if [ -f "/rathena/npc/custom/ep_shops.txt" ]; then
     echo "   已啟用 EP 裝備商店 NPC"
 fi
 
+# 啟用安全精煉師 NPC（+9 / +13）
+if [ -f "/rathena/npc/custom/safe_refiner.txt" ]; then
+    if ! grep -q 'safe_refiner.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/safe_refiner.txt' >> /rathena/npc/scripts_custom.conf
+    fi
+    echo "   已啟用安全精煉師 NPC"
+fi
+
 # 啟用基本服務 NPC（轉職、重置、補血等）
 for npc in jobmaster resetnpc platinum_skills healer breeder card_seller itemmall stylist card_remover item_signer; do
     sed -i "s|//npc: npc/custom/${npc}.txt|npc: npc/custom/${npc}.txt|" /rathena/npc/scripts_custom.conf

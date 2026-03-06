@@ -1,0 +1,107 @@
+//===== Custom Script =========================================
+//= Safe Refiner NPC — 100% success to +9 or +13
+//= 最粗的感動 private server
+//===== Description ===========================================
+//= Allows players to directly refine equipment to +9 or +13
+//= without any failure chance. Free of charge.
+//=============================================================
+
+izlude,123,148,4	script	Safe Refiner	4_M_DWARF,{
+	mes "[Safe Refiner]";
+	mes "I can refine your equipment to ^FF0000+9^000000 or ^FF0000+13^000000 with 100% success!";
+	next;
+
+	setarray .@position$[1],
+		"Head Top","Head Mid","Head Low",
+		"Armor","Left Hand","Right Hand",
+		"Garment","Shoes","Accessory 1","Accessory 2";
+
+	setarray .@slot[1],
+		EQI_HEAD_TOP, EQI_HEAD_MID, EQI_HEAD_LOW,
+		EQI_ARMOR, EQI_HAND_L, EQI_HAND_R,
+		EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R;
+
+	// Build menu of equipped items
+	.@menu$ = "";
+	.@count = 0;
+	for (.@i = 1; .@i <= 10; .@i++) {
+		if (getequipisequiped(.@slot[.@i])) {
+			.@name$ = getequipname(.@slot[.@i]);
+			.@ref = getequiprefinerycnt(.@slot[.@i]);
+			.@menu$ = .@menu$ + .@position$[.@i] + ": " + .@name$ + " [+" + .@ref + "]";
+			.@count++;
+		}
+		.@menu$ = .@menu$ + ":";
+	}
+
+	if (.@count == 0) {
+		mes "[Safe Refiner]";
+		mes "You don't have any equipment on!";
+		close;
+	}
+
+	mes "Select the slot to refine:";
+	.@select = select(.@menu$);
+
+	if (!getequipisequiped(.@slot[.@select])) {
+		mes "[Safe Refiner]";
+		mes "Nothing is equipped in that slot.";
+		close;
+	}
+
+	if (!getequipisenableref(.@slot[.@select])) {
+		mes "[Safe Refiner]";
+		mes "This equipment cannot be refined.";
+		close;
+	}
+
+	.@current_ref = getequiprefinerycnt(.@slot[.@select]);
+	.@equip_name$ = getequipname(.@slot[.@select]);
+
+	mes "[Safe Refiner]";
+	mes "^0000FF" + .@equip_name$ + "^000000";
+	mes "Current refine level: ^FF0000+" + .@current_ref + "^000000";
+	next;
+
+	mes "[Safe Refiner]";
+	mes "What level would you like?";
+	.@choice = select(
+		"Refine to +9:Refine to +13:Cancel"
+	);
+
+	if (.@choice == 3) {
+		mes "[Safe Refiner]";
+		mes "See you next time!";
+		close;
+	}
+
+	.@target = 9;
+	if (.@choice == 2) .@target = 13;
+
+	if (.@current_ref >= .@target) {
+		mes "[Safe Refiner]";
+		mes "This equipment is already +" + .@current_ref + ", no refinement needed.";
+		close;
+	}
+
+	mes "[Safe Refiner]";
+	mes "Refine ^0000FF" + .@equip_name$ + "^000000 from +" + .@current_ref + " to ^FF0000+" + .@target + "^000000?";
+	next;
+
+	if (select("Confirm:Cancel") == 2) {
+		mes "[Safe Refiner]";
+		mes "See you next time!";
+		close;
+	}
+
+	// Refine one level at a time
+	while (getequiprefinerycnt(.@slot[.@select]) < .@target) {
+		successrefitem .@slot[.@select];
+	}
+
+	mes "[Safe Refiner]";
+	mes "Refinement complete!";
+	mes "^0000FF" + .@equip_name$ + "^000000 is now ^FF0000+" + .@target + "^000000!";
+	emotion e_no1;
+	close;
+}
