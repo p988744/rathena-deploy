@@ -107,6 +107,8 @@ pincode_enabled: no
 start_point: izlude,128,114
 start_point_pre: izlude,128,114
 start_point_doram: izlude,128,114
+// 新角色初始金額：2億
+start_zeny: 200000000
 EOF
 
 # Map Server
