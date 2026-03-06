@@ -569,15 +569,15 @@ L_Circlet:
 		}
 		// pool: Sharp(29135-29138) + ExpertArcher(4832-4835) + AtkDelay + Spell + upgradeables Lv1
 		setarray .@pool[0],
-			29135,29136,29137,29138,   // 尖銳 Sharp Lv1~4
+			4818,4817,4816,4843,   // 尖銳 Sharp Lv1~4
 			4832,4833,4834,4835,       // 名弓 Expert Archer Lv1~4
 			4869,4872,4873,4881,       // 攻擊後延遲 Attack Delay Lv1~4
 			4815,4814,4813,4812,       // 魔力 Spell Lv1~4
-			29706,                     // 霸氣 Tenacity Lv1
+			29061,                     // 霸氣 Tenacity Lv1
 			29071,                     // 魔精 Magic Essence Lv1
 			29081,                     // 銳氣 Acute Lv1
 			29091,                     // 精弓 Master Archer Lv1
-			29101,                     // 金鋼 Adamantine Lv1
+			29101,                     // 金剛 Adamantine Lv1
 			29111;                     // 博愛 Affection Lv1
 		mes "[Enchant Master]";
 		mes "Apply a random enchant to the ^FF00002nd slot^000000?";
@@ -611,7 +611,7 @@ L_Circlet:
 	// Fail: drop 1 level (min Lv1)
 	if (.@action == 5) {
 		.@cur = .@card[1];
-		if      (.@cur >= 29706 && .@cur <= 29715) { .@up_base = 29706; .@up_name$ = "霸氣 (Tenacity)"; }
+		if      (.@cur >= 29061 && .@cur <= 29070) { .@up_base = 29061; .@up_name$ = "霸氣 (Tenacity)"; }
 		else if (.@cur >= 29071 && .@cur <= 29080) { .@up_base = 29071; .@up_name$ = "魔精 (Magic Essence)"; }
 		else if (.@cur >= 29081 && .@cur <= 29090) { .@up_base = 29081; .@up_name$ = "銳氣 (Acute)"; }
 		else if (.@cur >= 29091 && .@cur <= 29100) { .@up_base = 29091; .@up_name$ = "精弓 (Master Archer)"; }
