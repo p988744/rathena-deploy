@@ -1,0 +1,273 @@
+//===== Custom Script ==========================================
+//= 統合附魔 NPC
+//= 最粗的感動 private server
+//===== Description ============================================
+//= 整合 EP17.2 全自動 / EP18 灰狼 / EP19 雪花・冰晶・黯淡冰晶
+//= 的附魔功能於單一 NPC，無任何前置任務要求。
+//=
+//= 位置：izlude 130,153（EP 商店群東側）
+//=
+//= 附魔 ID 對應（item_enchant.yml）：
+//=   EP18 灰狼   : 1(上衣) 2(披風) 3(鞋) 4(飾品R) 5(飾品L)
+//=   EP19 雪花   : 26(上衣) 27(披風) 28(鞋) 29(垂飾/項鍊) 30(戒指/耳環)
+//=   EP19 冰晶   : 31（全武器）
+//=   EP19 黯淡冰晶: 47（全武器）
+//=   EP17.2 全自動: 自訂模組系統（同官方 Lisa NPC 邏輯）
+//==============================================================
+
+izlude,130,153,4	script	附魔大師	4_TOWER_14,{
+	if (checkweight(1201,3) == 0) {
+		mes "[附魔大師]";
+		mes "你的背包太重了，請整理後再來。";
+		close;
+	}
+	disable_items;
+	mes "[附魔大師]";
+	mes "歡迎！我可以為你的裝備進行各種附魔。";
+	mes "不需要任何任務或前置條件。";
+	next;
+	switch( select( "EP17.2 全自動裝備附魔", "EP18 灰狼裝備附魔", "EP19 雪花裝備附魔", "EP19 冰晶武器附魔", "EP19 黯淡冰晶武器附魔", "離開" ) ) {
+	case 1: callsub L_Auto; end;
+	case 2: callsub L_GrayWolf; end;
+	case 3: callsub L_Snowflower; end;
+	case 4:
+		mes "[附魔大師]";
+		mes "請確認你的冰晶武器在裝備欄中。";
+		close2;
+		item_enchant(31);
+		end;
+	case 5:
+		mes "[附魔大師]";
+		mes "請確認你的黯淡冰晶武器在裝備欄中。";
+		close2;
+		item_enchant(47);
+		end;
+	case 6:
+		mes "[附魔大師]";
+		mes "再見！";
+		close;
+	}
+	end;
+
+// ============================================================
+// EP18 灰狼裝備附魔
+// ============================================================
+L_GrayWolf:
+	mes "[附魔大師]";
+	mes "請確認你的^4d4dff灰狼裝備^000000已^FF0000穿戴^000000，然後選擇部位：";
+	mes "（需要最低精煉 +7，消耗紫水晶碎片）";
+	next;
+	switch( select( "上衣（Gray Wolf Suits/Robe）", "披風（Gray Wolf Manteau）", "鞋子（Gray Wolf Boots/Shoes）", "飾品（右）", "飾品（左）", "返回" ) ) {
+	case 1: close2; item_enchant(1); end;
+	case 2: close2; item_enchant(2); end;
+	case 3: close2; item_enchant(3); end;
+	case 4: close2; item_enchant(4); end;
+	case 5: close2; item_enchant(5); end;
+	case 6: end;
+	}
+	return;
+
+// ============================================================
+// EP19 雪花裝備附魔
+// ============================================================
+L_Snowflower:
+	mes "[附魔大師]";
+	mes "請確認你的^4d4dff雪花裝備^000000已^FF0000穿戴^000000，然後選擇部位：";
+	mes "（消耗對應的冰晶附魔石）";
+	next;
+	switch( select( "上衣（Snowflower Armor/Robe）", "披風（Snowflower Manteau/Muffler）", "鞋子（Snowflower Boots/Shoes）", "飾品（垂飾/項鍊型）", "飾品（戒指/耳環型）", "返回" ) ) {
+	case 1: close2; item_enchant(26); end;
+	case 2: close2; item_enchant(27); end;
+	case 3: close2; item_enchant(28); end;
+	case 4: close2; item_enchant(29); end;
+	case 5: close2; item_enchant(30); end;
+	case 6: end;
+	}
+	return;
+
+// ============================================================
+// EP17.2 全自動裝備附魔（模組系統）
+// ============================================================
+L_Auto:
+	mes "[附魔大師]";
+	mes "請^FF0000穿戴^000000你的全自動裝備，然後選擇部位。";
+	mes "準備好要使用的模組放入背包即可。";
+	next;
+	switch( select( "引擎翼（披風 480020/480021）", "裝甲（上衣 450127/450128）", "腿部裝置（鞋子 470022/470023）", "飾品（右 490024/490026）", "飾品（左 490025/490027）", "返回" ) ) {
+	case 1:
+		.@part = EQI_GARMENT;
+		setarray .@equip_required[0], 480020, 480021;
+		break;
+	case 2:
+		.@part = EQI_ARMOR;
+		setarray .@equip_required[0], 450127, 450128;
+		break;
+	case 3:
+		.@part = EQI_SHOES;
+		setarray .@equip_required[0], 470022, 470023;
+		break;
+	case 4:
+		.@part = EQI_ACC_R;
+		setarray .@equip_required[0], 490024, 490026;
+		break;
+	case 5:
+		.@part = EQI_ACC_L;
+		setarray .@equip_required[0], 490025, 490027;
+		break;
+	case 6:
+		return;
+	}
+
+	.@equip_id   = getequipid(.@part);
+	.@equip_name$ = getequipname(.@part);
+	.@refine     = getequiprefinerycnt(.@part);
+	for (.@i = 0; .@i < 4; ++.@i)
+		.@card[.@i] = getequipcardid(.@part, .@i);
+
+	// 裝備欄位驗證
+	if (.@equip_required[0] != .@equip_id && .@equip_required[1] != .@equip_id) {
+		mes "[附魔大師]";
+		mes "請先穿戴對應的全自動裝備再來找我。";
+		close;
+	}
+	if (.@card[1] > 0) {
+		mes "[附魔大師]";
+		mes "這件裝備的模組已滿，無法再附加更多模組。";
+		close;
+	}
+
+	mes "[附魔大師]";
+	mes "好的，正在處理：^FF0000" + .@equip_name$ + "^000000";
+	mes "請選擇模組等級：";
+	next;
+	switch( select( "一般（Normal）", "稀有（Rare）", "特殊（Unique）", "傳說（Legendary）", "史詩 Grade 1（Epic 1）", "史詩 Grade 2（Epic 2）", "史詩 Grade 3（Epic 3）", "取消" ) ) {
+	case 1: setarray .@module_etc[0], 1000105,1000106,1000107,1000108,1000109,1000110,1000111,1000112; break;
+	case 2: setarray .@module_etc[0], 1000113,1000114,1000115,1000116,1000117,1000118,1000119,1000120,1000121,1000122,1000123,1000124,1000125,1000126,1000127; break;
+	case 3: setarray .@module_etc[0], 1000128,1000129,1000130,1000131,1000132,1000133,1000134,1000135,1000136,1000137,1000138,1000139,1000140,1000141,1000142,1000143,1000207,1000208; break;
+	case 4: setarray .@module_etc[0], 1000144,1000145,1000146,1000147,1000148,1000149; break;
+	case 5: setarray .@module_etc[0], 1000152,1000153,1000154,1000155,1000156,1000157,1000158,1000159,1000160,1000161,1000162,1000163,1000164,1000165,1000166,1000167,1000168; break;
+	case 6: setarray .@module_etc[0], 1000169,1000170,1000171,1000172,1000173,1000174,1000175,1000176,1000177,1000178,1000179,1000180,1000181,1000182,1000183,1000184,1000185; break;
+	case 7: setarray .@module_etc[0], 1000186,1000187,1000188,1000189,1000190,1000191,1000192,1000193,1000194,1000195,1000196,1000197,1000198,1000199,1000200,1000201,1000202; break;
+	case 8:
+		mes "[附魔大師]";
+		mes "已取消。";
+		close;
+	}
+
+	// 依背包中持有量動態建構選單
+	.@size = getarraysize(.@module_etc);
+	.@menu$ = "取消:";
+	for (.@i = 0; .@i < .@size; ++.@i) {
+		if (countitem(.@module_etc[.@i]) < 1) {
+			.@menu$ += "^808080（背包中沒有此模組）^000000:";
+		} else {
+			.@item_name$ = getitemname(.@module_etc[.@i]);
+			.@item_name$ = replacestr(.@item_name$, "Automatic Modification Module(", "");
+			.@item_name$ = replacestr(.@item_name$, ")", "");
+			.@menu$ += .@item_name$ + ":";
+		}
+	}
+	.@s = select(.@menu$) - 2;
+	if (.@s == -1) {
+		mes "[附魔大師]";
+		mes "已取消。";
+		close;
+	}
+	.@module_id = .@module_etc[.@s];
+
+	if (countitem(.@module_id) < 1) {
+		mes "[附魔大師]";
+		mes "你的背包中沒有該模組，請先取得後再來。";
+		close;
+	}
+	if (.@module_id < 1000105 || .@module_id == 1000150 || .@module_id == 1000151 || (.@module_id >= 1000203 && .@module_id != 1000207 && .@module_id != 1000208)) {
+		mes "[附魔大師]";
+		mes "未知的模組 ID，請回報伺服器管理員。";
+		close;
+	}
+
+	// 各部位允許的模組及最大數量
+	switch (.@part) {
+	case EQI_GARMENT:
+		setarray .@module_etc_data[0], 1000105,3, 1000106,3, 1000125,2, 1000126,2, 1000127,2, 1000135,1, 1000142,1, 1000208,1;
+		break;
+	case EQI_ARMOR:
+		setarray .@module_etc_data[0], 1000105,3, 1000106,3, 1000122,2, 1000123,2, 1000124,2, 1000128,1, 1000129,1, 1000130,1, 1000131,1, 1000132,1, 1000133,1, 1000207,1, 1000140,1;
+		.@size = getarraysize(.@module_etc_data);
+		for (.@i = 1000152; .@i < 1000203; .@i++) {
+			setarray .@module_etc_data[.@size], .@i, 2;
+			.@size += 2;
+		}
+		break;
+	case EQI_SHOES:
+		setarray .@module_etc_data[0],
+			1000105,3, 1000106,3, 1000119,2, 1000120,2, 1000121,2, 1000134,1, 1000141,1,
+			1000144,1, 1000145,1, 1000146,1, 1000147,1, 1000148,1, 1000149,1;
+		break;
+	case EQI_ACC_L:
+	case EQI_ACC_R:
+		setarray .@module_etc_data[0], 1000107,3, 1000108,3, 1000109,3, 1000110,3, 1000111,3, 1000112,3, 1000113,2, 1000114,2, 1000115,1, 1000116,1, 1000117,1, 1000118,1, 1000136,1, 1000137,1, 1000138,1, 1000139,1, 1000143,1;
+		break;
+	}
+
+	.@data_index = inarray(.@module_etc_data, .@module_id);
+	if (.@data_index == -1) {
+		mes "[附魔大師]";
+		mes "^FF0000此模組無法用於這個部位的裝備。^000000";
+		close;
+	}
+	.@max_module = .@module_etc_data[.@data_index + 1];
+
+	// 建立 module_id -> enchant_id 映射
+	.@size_auto_module = 0;
+	for (.@i = 1000105; .@i < 1000203; ++.@i) {
+		if (.@i == 1000150 || .@i == 1000151) continue;
+		.@auto_module[.@i] = 310082 + .@size_auto_module;
+		.@size_auto_module++;
+	}
+	.@auto_module[1000207] = 310178;
+	.@auto_module[1000208] = 310179;
+
+	.@enchant_id = .@auto_module[.@module_id];
+	if (.@enchant_id == 0) {
+		mes "[附魔大師]";
+		mes "未知的附魔 ID，請回報伺服器管理員。";
+		close;
+	}
+	if (countinarray(.@card[0], .@enchant_id) >= .@max_module) {
+		mes "[附魔大師]";
+		mes "^FF0000此模組在這件裝備上已達到上限，請換其他模組。^000000";
+		close;
+	}
+
+	mes "[附魔大師]";
+	mes "確定要將 ^0000CD" + getitemname(.@module_id) + "^000000 附加到 ^FF0000" + .@equip_name$ + "^000000 嗎？";
+	mes "^808080（此操作無法還原）^000000";
+	next;
+	if (select( "確定，執行附魔", "取消" ) == 2) {
+		mes "[附魔大師]";
+		mes "已取消。";
+		close;
+	}
+
+	delitem .@module_id, 1;
+
+	if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+	    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+	    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+		end;
+
+	for (.@i = 3; .@i > 0; .@i--) {
+		if (.@card[.@i] == 0) {
+			.@card[.@i] = .@enchant_id;
+			break;
+		}
+	}
+	delequip .@part;
+	getitem2 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+
+	mes "[附魔大師]";
+	mes "附魔成功！^0000CD" + getitemname(.@module_id) + "^000000 已附加到裝備上。";
+	mes "好好利用你的全自動裝備吧！";
+	close;
+}

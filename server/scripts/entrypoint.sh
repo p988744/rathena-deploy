@@ -192,6 +192,15 @@ if [ -f "/rathena/npc/custom/safe_refiner.txt" ]; then
     echo "   已啟用安全精煉師 NPC"
 fi
 
+# 統合附魔師 NPC（英文版，EP17.2 全自動 / EP18 灰狼 / EP19 雪花・冰晶）
+# enchant_master.txt 為繁體中文備用版，不載入
+if [ -f "/rathena/npc/custom/enchant_master_en.txt" ]; then
+    if ! grep -q 'enchant_master_en.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/enchant_master_en.txt' >> /rathena/npc/scripts_custom.conf
+    fi
+    echo "   已啟用統合附魔師 NPC (EN)"
+fi
+
 # 啟用基本服務 NPC（轉職、重置、補血等）
 for npc in jobmaster resetnpc platinum_skills healer breeder card_seller itemmall stylist card_remover item_signer; do
     sed -i "s|//npc: npc/custom/${npc}.txt|npc: npc/custom/${npc}.txt|" /rathena/npc/scripts_custom.conf

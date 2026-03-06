@@ -1,0 +1,274 @@
+//===== Custom Script ==========================================
+//= Unified Enchant Master NPC
+//= "The Roughest Emotion" private server
+//===== Description ============================================
+//= Combines EP17.2 Automatic / EP18 Gray Wolf /
+//= EP19 Snowflower / EP19 Glacier / EP19 Dim Glacier enchants
+//= into a single NPC with no prerequisite quest requirements.
+//=
+//= Location: izlude 130,153 (east of EP gear shops)
+//=
+//= item_enchant.yml ID reference:
+//=   EP18 Gray Wolf    : 1(Armor) 2(Garment) 3(Shoes) 4(Acc R) 5(Acc L)
+//=   EP19 Snowflower   : 26(Armor) 27(Garment) 28(Shoes) 29(Acc pendant) 30(Acc ring)
+//=   EP19 Glacier      : 31 (all weapons)
+//=   EP19 Dim Glacier  : 47 (all weapons)
+//=   EP17.2 Automatic  : custom module system (mirrors official Lisa NPC logic)
+//==============================================================
+
+izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
+	if (checkweight(1201,3) == 0) {
+		mes "[Enchant Master]";
+		mes "^ff0000Your inventory is too heavy. Please reduce your weight and come back.^000000";
+		close;
+	}
+	disable_items;
+	mes "[Enchant Master]";
+	mes "Welcome! I can enchant your equipment from EP17.2 through EP19.";
+	mes "No quests or prerequisites required.";
+	next;
+	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Leave" ) ) {
+	case 1: callsub L_Auto; end;
+	case 2: callsub L_GrayWolf; end;
+	case 3: callsub L_Snowflower; end;
+	case 4:
+		mes "[Enchant Master]";
+		mes "Please make sure your Glacier weapon is equipped.";
+		close2;
+		item_enchant(31);
+		end;
+	case 5:
+		mes "[Enchant Master]";
+		mes "Please make sure your Dim Glacier weapon is equipped.";
+		close2;
+		item_enchant(47);
+		end;
+	case 6:
+		mes "[Enchant Master]";
+		mes "Come back anytime!";
+		close;
+	}
+	end;
+
+// ============================================================
+// EP18 Gray Wolf Enchant
+// ============================================================
+L_GrayWolf:
+	mes "[Enchant Master]";
+	mes "Please ^FF0000equip^000000 the ^4d4dffGray Wolf^000000 piece you want to enchant, then select its slot.";
+	mes "(Minimum refine +7 required. Consumes Amethyst Fragments.)";
+	next;
+	switch( select( "Armor (Gray Wolf Suits / Robe)", "Garment (Gray Wolf Manteau)", "Shoes (Gray Wolf Boots / Shoes)", "Accessory (Right)", "Accessory (Left)", "Back" ) ) {
+	case 1: close2; item_enchant(1); end;
+	case 2: close2; item_enchant(2); end;
+	case 3: close2; item_enchant(3); end;
+	case 4: close2; item_enchant(4); end;
+	case 5: close2; item_enchant(5); end;
+	case 6: end;
+	}
+	return;
+
+// ============================================================
+// EP19 Snowflower Enchant
+// ============================================================
+L_Snowflower:
+	mes "[Enchant Master]";
+	mes "Please ^FF0000equip^000000 the ^4d4dffSnowflower^000000 piece you want to enchant, then select its slot.";
+	mes "(Consumes the corresponding Ice Flower Enchant Stone.)";
+	next;
+	switch( select( "Armor (Snowflower Armor / Robe)", "Garment (Snowflower Manteau / Muffler)", "Shoes (Snowflower Boots / Shoes)", "Accessory (Pendant / Necklace type)", "Accessory (Ring / Earring type)", "Back" ) ) {
+	case 1: close2; item_enchant(26); end;
+	case 2: close2; item_enchant(27); end;
+	case 3: close2; item_enchant(28); end;
+	case 4: close2; item_enchant(29); end;
+	case 5: close2; item_enchant(30); end;
+	case 6: end;
+	}
+	return;
+
+// ============================================================
+// EP17.2 Automatic Equipment Enchant (Module System)
+// ============================================================
+L_Auto:
+	mes "[Enchant Master]";
+	mes "Please ^FF0000equip^000000 the Automatic gear piece you want to enchant, then select its slot.";
+	mes "Make sure you have the desired module in your inventory.";
+	next;
+	switch( select( "Engine Wing (Garment: 480020 / 480021)", "Armor (480020 / 450128)", "Leg (Shoes: 470022 / 470023)", "Accessory Right (490024 / 490026)", "Accessory Left (490025 / 490027)", "Back" ) ) {
+	case 1:
+		.@part = EQI_GARMENT;
+		setarray .@equip_required[0], 480020, 480021;
+		break;
+	case 2:
+		.@part = EQI_ARMOR;
+		setarray .@equip_required[0], 450127, 450128;
+		break;
+	case 3:
+		.@part = EQI_SHOES;
+		setarray .@equip_required[0], 470022, 470023;
+		break;
+	case 4:
+		.@part = EQI_ACC_R;
+		setarray .@equip_required[0], 490024, 490026;
+		break;
+	case 5:
+		.@part = EQI_ACC_L;
+		setarray .@equip_required[0], 490025, 490027;
+		break;
+	case 6:
+		return;
+	}
+
+	.@equip_id    = getequipid(.@part);
+	.@equip_name$ = getequipname(.@part);
+	.@refine      = getequiprefinerycnt(.@part);
+	for (.@i = 0; .@i < 4; ++.@i)
+		.@card[.@i] = getequipcardid(.@part, .@i);
+
+	if (.@equip_required[0] != .@equip_id && .@equip_required[1] != .@equip_id) {
+		mes "[Enchant Master]";
+		mes "You don't have the correct Automatic equipment equipped for that slot.";
+		close;
+	}
+	if (.@card[1] > 0) {
+		mes "[Enchant Master]";
+		mes "This equipment's module slots are already full.";
+		close;
+	}
+
+	mes "[Enchant Master]";
+	mes "Enchanting: ^FF0000" + .@equip_name$ + "^000000";
+	mes "Select the module grade:";
+	next;
+	switch( select( "Normal", "Rare", "Unique", "Legendary", "Epic Grade 1", "Epic Grade 2", "Epic Grade 3", "Cancel" ) ) {
+	case 1: setarray .@module_etc[0], 1000105,1000106,1000107,1000108,1000109,1000110,1000111,1000112; break;
+	case 2: setarray .@module_etc[0], 1000113,1000114,1000115,1000116,1000117,1000118,1000119,1000120,1000121,1000122,1000123,1000124,1000125,1000126,1000127; break;
+	case 3: setarray .@module_etc[0], 1000128,1000129,1000130,1000131,1000132,1000133,1000134,1000135,1000136,1000137,1000138,1000139,1000140,1000141,1000142,1000143,1000207,1000208; break;
+	case 4: setarray .@module_etc[0], 1000144,1000145,1000146,1000147,1000148,1000149; break;
+	case 5: setarray .@module_etc[0], 1000152,1000153,1000154,1000155,1000156,1000157,1000158,1000159,1000160,1000161,1000162,1000163,1000164,1000165,1000166,1000167,1000168; break;
+	case 6: setarray .@module_etc[0], 1000169,1000170,1000171,1000172,1000173,1000174,1000175,1000176,1000177,1000178,1000179,1000180,1000181,1000182,1000183,1000184,1000185; break;
+	case 7: setarray .@module_etc[0], 1000186,1000187,1000188,1000189,1000190,1000191,1000192,1000193,1000194,1000195,1000196,1000197,1000198,1000199,1000200,1000201,1000202; break;
+	case 8:
+		mes "[Enchant Master]";
+		mes "Cancelled.";
+		close;
+	}
+
+	// Build module selection menu from inventory
+	.@size = getarraysize(.@module_etc);
+	.@menu$ = "Cancel:";
+	for (.@i = 0; .@i < .@size; ++.@i) {
+		if (countitem(.@module_etc[.@i]) < 1) {
+			.@menu$ += "^808080(Not in inventory)^000000:";
+		} else {
+			.@item_name$ = getitemname(.@module_etc[.@i]);
+			.@item_name$ = replacestr(.@item_name$, "Automatic Modification Module(", "");
+			.@item_name$ = replacestr(.@item_name$, ")", "");
+			.@menu$ += .@item_name$ + ":";
+		}
+	}
+	.@s = select(.@menu$) - 2;
+	if (.@s == -1) {
+		mes "[Enchant Master]";
+		mes "Cancelled.";
+		close;
+	}
+	.@module_id = .@module_etc[.@s];
+
+	if (countitem(.@module_id) < 1) {
+		mes "[Enchant Master]";
+		mes "You don't have that module in your inventory.";
+		close;
+	}
+	if (.@module_id < 1000105 || .@module_id == 1000150 || .@module_id == 1000151 || (.@module_id >= 1000203 && .@module_id != 1000207 && .@module_id != 1000208)) {
+		mes "[Enchant Master]";
+		mes "Unknown module ID. Please report to the server admin.";
+		close;
+	}
+
+	// Per-slot allowed modules with max stack counts
+	switch (.@part) {
+	case EQI_GARMENT:
+		setarray .@module_etc_data[0], 1000105,3, 1000106,3, 1000125,2, 1000126,2, 1000127,2, 1000135,1, 1000142,1, 1000208,1;
+		break;
+	case EQI_ARMOR:
+		setarray .@module_etc_data[0], 1000105,3, 1000106,3, 1000122,2, 1000123,2, 1000124,2, 1000128,1, 1000129,1, 1000130,1, 1000131,1, 1000132,1, 1000133,1, 1000207,1, 1000140,1;
+		.@size = getarraysize(.@module_etc_data);
+		for (.@i = 1000152; .@i < 1000203; .@i++) {
+			setarray .@module_etc_data[.@size], .@i, 2;
+			.@size += 2;
+		}
+		break;
+	case EQI_SHOES:
+		setarray .@module_etc_data[0],
+			1000105,3, 1000106,3, 1000119,2, 1000120,2, 1000121,2, 1000134,1, 1000141,1,
+			1000144,1, 1000145,1, 1000146,1, 1000147,1, 1000148,1, 1000149,1;
+		break;
+	case EQI_ACC_L:
+	case EQI_ACC_R:
+		setarray .@module_etc_data[0], 1000107,3, 1000108,3, 1000109,3, 1000110,3, 1000111,3, 1000112,3, 1000113,2, 1000114,2, 1000115,1, 1000116,1, 1000117,1, 1000118,1, 1000136,1, 1000137,1, 1000138,1, 1000139,1, 1000143,1;
+		break;
+	}
+
+	.@data_index = inarray(.@module_etc_data, .@module_id);
+	if (.@data_index == -1) {
+		mes "[Enchant Master]";
+		mes "^FF0000This module cannot be applied to that equipment slot.^000000";
+		close;
+	}
+	.@max_module = .@module_etc_data[.@data_index + 1];
+
+	// Build module_id -> enchant_id map
+	.@size_auto_module = 0;
+	for (.@i = 1000105; .@i < 1000203; ++.@i) {
+		if (.@i == 1000150 || .@i == 1000151) continue;
+		.@auto_module[.@i] = 310082 + .@size_auto_module;
+		.@size_auto_module++;
+	}
+	.@auto_module[1000207] = 310178;
+	.@auto_module[1000208] = 310179;
+
+	.@enchant_id = .@auto_module[.@module_id];
+	if (.@enchant_id == 0) {
+		mes "[Enchant Master]";
+		mes "Unknown enchant ID. Please report to the server admin.";
+		close;
+	}
+	if (countinarray(.@card[0], .@enchant_id) >= .@max_module) {
+		mes "[Enchant Master]";
+		mes "^FF0000This module has already reached its maximum count on this equipment.^000000";
+		mes "Please choose a different module.";
+		close;
+	}
+
+	mes "[Enchant Master]";
+	mes "Apply ^0000CD" + getitemname(.@module_id) + "^000000 to ^FF0000" + .@equip_name$ + "^000000?";
+	mes "^808080This cannot be undone.^000000";
+	next;
+	if (select( "Yes, enchant it!", "Cancel" ) == 2) {
+		mes "[Enchant Master]";
+		mes "Cancelled.";
+		close;
+	}
+
+	delitem .@module_id, 1;
+
+	if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+	    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+	    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+		end;
+
+	for (.@i = 3; .@i > 0; .@i--) {
+		if (.@card[.@i] == 0) {
+			.@card[.@i] = .@enchant_id;
+			break;
+		}
+	}
+	delequip .@part;
+	getitem2 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+
+	mes "[Enchant Master]";
+	mes "Success! ^0000CD" + getitemname(.@module_id) + "^000000 has been applied.";
+	mes "Make the most of your Automatic equipment!";
+	close;
+}
