@@ -1519,7 +1519,6 @@ S_IllEnchant:
 			break;
 	}
 	return .@item[.@i];
-}
 
 // ============================================================
 // Mad Bunny-LT (460020) Enchant
@@ -1613,3 +1612,4 @@ L_MadBunnyLT:
 		end;
 	}
 	return;
+}
