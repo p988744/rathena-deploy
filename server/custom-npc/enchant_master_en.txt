@@ -1526,17 +1526,12 @@ S_IllEnchant:
 // Reset: 10,000,000z. No material items required.
 // ============================================================
 L_MadBunnyLT:
-	// Locate Mad_Bunny_K_LT (460020) across all equipment slots
+	// Locate Mad_Bunny_K_LT (460020) — scan all slot indices 0~22
 	.@target_id = 460020;
-	setarray .@check_parts[0],
-		EQI_HEAD_TOP, EQI_HEAD_MID, EQI_HEAD_LOW,
-		EQI_COSTUME_HEAD_TOP, EQI_COSTUME_HEAD_MID, EQI_COSTUME_HEAD_LOW,
-		EQI_COSTUME_GARMENT, EQI_ARMOR, EQI_GARMENT, EQI_SHOES,
-		EQI_ACC_L, EQI_ACC_R;
 	.@part = -1;
-	for (.@i = 0; .@i < getarraysize(.@check_parts); .@i++) {
-		if (getequipid(.@check_parts[.@i]) == .@target_id) {
-			.@part = .@check_parts[.@i];
+	for (.@i = 0; .@i <= 22; .@i++) {
+		if (getequipid(.@i) == .@target_id) {
+			.@part = .@i;
 			break;
 		}
 	}
