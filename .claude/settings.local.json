@@ -5,7 +5,9 @@
       "Bash(grep:*)",
       "Bash(python3:*)",
       "Bash(do grep:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(grep -n \"460006\\\\|MD_Geffen_Shield2\" /d/rathena-deploy/server/db/re/enchantgrade.yml 2>/dev/null | head -10\ngrep -rn \"460006\\\\|MD_Geffen_Shield2\" /d/rathena-deploy/server/db/re/item_enchant.yml 2>/dev/null | head -10)",
+      "Bash(head:*)"
     ]
   }
 }

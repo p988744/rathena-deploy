@@ -98,14 +98,18 @@ izlude,113,150,4	script	Costume Keeper	718,{
 -	shop	enchant_stone_shop1	-1,6636:1000000,6637:1000000,6638:1000000,6639:1000000,6640:1000000,6641:1000000,6642:1000000,6643:1000000,6644:1000000,6645:1000000,6716:1000000,6717:1000000,6718:1000000,6740:1000000,6741:1000000,6742:1000000,6743:1000000,6744:1000000,6745:1000000,6790:1000000,6791:1000000,6792:1000000,6908:1000000,6943:1000000,6944:1000000,6945:1000000,6946:1000000,6947:1000000,6948:1000000,6949:1000000,6950:1000000,6951:1000000,6963:1000000,6964:1000000,6999:1000000,25000:1000000,25001:1000000,25002:1000000,25003:1000000,25004:1000000,25005:1000000,25006:1000000,25007:1000000,25008:1000000,25009:1000000,25010:1000000,25011:1000000,25012:1000000,25013:1000000,25014:1000000,25015:1000000,25016:1000000,25017:1000000,25060:1000000,25061:1000000,25062:1000000,25063:1000000,25064:1000000,25065:1000000,25066:1000000,25067:1000000,25068:1000000,25069:1000000,25070:1000000,25071:1000000,25072:1000000,25139:1000000,25141:1000000,25170:1000000,25171:1000000,25172:1000000,25173:1000000,25174:1000000,25175:1000000,25227:1000000,25228:1000000,25229:1000000,25302:1000000,25303:1000000,25304:1000000,25305:1000000,25306:1000000,25409:1000000,25410:1000000,25411:1000000,25412:1000000,25413:1000000,25414:1000000,25415:1000000,25416:1000000,25417:1000000,25418:1000000,25419:1000000,25420:1000000,25445:1000000,25446:1000000,25447:1000000,25448:1000000,25449:1000000,25450:1000000
 -	shop	enchant_stone_shop2	-1,25451:1000000,25452:1000000,25453:1000000,25454:1000000,25455:1000000,25456:1000000,25490:1000000,25491:1000000,25492:1000000,25493:1000000,25494:1000000,25495:1000000,25496:1000000,25497:1000000,25498:1000000,25499:1000000,25500:1000000,25501:1000000,25706:1000000,25707:1000000,25708:1000000,25709:1000000,25710:1000000,25711:1000000,25712:1000000,25713:1000000,25714:1000000,25715:1000000,25716:1000000,25717:1000000,25797:1000000,25798:1000000,25799:1000000,25800:1000000,25801:1000000,25802:1000000,25803:1000000,25804:1000000,25805:1000000,25806:1000000,25807:1000000,25808:1000000,25842:1000000,25843:1000000,25844:1000000,25845:1000000,25846:1000000,25847:1000000,25848:1000000,25849:1000000,25850:1000000,25851:1000000,25852:1000000,25853:1000000,25854:1000000,25855:1000000,25856:1000000,25857:1000000,25858:1000000,25859:1000000,25860:1000000,25861:1000000,25862:1000000,1000008:1000000,1000009:1000000,1000010:1000000,1000011:1000000,1000012:1000000,1000013:1000000,1000014:1000000,1000015:1000000,1000016:1000000,1000017:1000000,1000018:1000000,1000019:1000000,1000213:1000000,1000214:1000000,1000215:1000000,1000216:1000000,1000217:1000000,1000218:1000000,1000219:1000000,1000220:1000000,1000221:1000000,1000222:1000000,1000223:1000000,1000224:1000000,1000296:1000000,1000297:1000000,1000298:1000000,1000299:1000000,1000300:1000000,1000301:1000000,1000302:1000000,1000303:1000000,1000304:1000000,1000305:1000000,1000306:1000000,1000307:1000000,1001050:1000000,1001051:1000000,1001052:1000000,1000863:1000000,1000864:1000000,1000865:1000000
 
+// --- Costume Garment Slot 2 Enchant Stones ---
+-	shop	enchant_stone_shop3	-1,1000520:1000000,1000521:1000000,1000522:1000000,1000523:1000000,1000524:1000000,1000525:1000000,1000526:1000000,1000527:1000000,1000675:1000000,1000676:1000000,1000855:1000000,1000856:1000000,1000921:1000000,1001055:1000000,1001172:1000000
+
 izlude,115,150,4	script	Costume Enchant Stone Vendor	4_F_KAFRA2,{
 	mes "[Costume Enchant Stone Vendor]";
 	mes "Which stones would you like to browse?";
 	next;
-	switch (select("Basic & Stat Stones (1~100):Job-specific Stones (101~205):Leave")) {
+	switch (select("Basic & Stat Stones (1~100):Job-specific Stones (101~205):Garment Slot 2 Stones:Leave")) {
 	case 1: callshop "enchant_stone_shop1"; end;
 	case 2: callshop "enchant_stone_shop2"; end;
-	case 3: close;
+	case 3: callshop "enchant_stone_shop3"; end;
+	case 4: close;
 	}
 }
 
@@ -162,7 +166,7 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	mes "Welcome! I can enchant your equipment from EP17.2 through EP19.";
 	mes "No quests or prerequisites required.";
 	next;
-	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Leave" ) ) {
+	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Costume Garment Slot 2 Enchant", "Leave" ) ) {
 	case 1: callsub L_Auto; end;
 	case 2: callsub L_GrayWolf; end;
 	case 3: callsub L_Snowflower; end;
@@ -182,7 +186,8 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	case 7: callsub L_LevelUpWeapon; end;
 	case 8: callsub L_AverDeDosh; end;
 	case 9: callsub L_LaceLaZard; end;
-	case 10:
+	case 10: callsub L_LaceLaZardSlot2; end;
+	case 11:
 		mes "[Enchant Master]";
 		mes "Come back anytime!";
 		close;
@@ -1084,6 +1089,88 @@ L_AverDeDosh:
 	return;
 
 // ============================================================
+// Costume Garment Slot 2 Enchant (Lace La Zard Slot 2 logic)
+// Enchants costume garment slot 2 (card[1]). Does NOT affect slot 1 enchant.
+// 100% success rate.
+// ============================================================
+L_LaceLaZardSlot2:
+	if (checkweight(1119,3) == 0) {
+		mes "[Enchant Master]";
+		mes "You are carrying too many items. Please reduce your weight first.";
+		close;
+	}
+	.@part = EQI_COSTUME_GARMENT;
+	.@equip_id = getequipid(.@part);
+	if (.@equip_id == -1) {
+		mes "[Enchant Master]";
+		mes "Please ^FF0000equip^000000 the costume garment you want to enchant first.";
+		close;
+	}
+	.@equip_refine = getequiprefinerycnt(.@part);
+	setarray .@card[0], getequipcardid(.@part, 0), getequipcardid(.@part, 1), getequipcardid(.@part, 2), getequipcardid(.@part, 3);
+
+	mes "[Enchant Master]";
+	mes "^0000FF" + getequipname(.@part) + "^000000";
+	mes "Select the ^FF8C00Slot 2^000000 enchant stone to use:";
+	next;
+
+	setarray .@data$[0],
+		"1000520","310654",
+		"1000521","310658",
+		"1000522","310659",
+		"1000523","310660",
+		"1000524","310661",
+		"1000525","310663",
+		"1000526","310662",
+		"1000527","310667",
+		"1000675","311014",
+		"1000676","311015",
+		"1000855","311354",
+		"1000856","311355",
+		"1000921","311425",
+		"1001055","311471",
+		"1001172","311925";
+
+	.@size = getarraysize(.@data$);
+	.@menu$ = "";
+	for (.@i = 0; .@i < .@size; .@i += 2) {
+		.@id = atoi(.@data$[.@i]);
+		.@menu$ += sprintf("%d. %s [%d]:", (.@i/2)+1, getitemname(.@id), countitem(.@id));
+	}
+	.@menu$ += "Cancel";
+	.@s = (select(.@menu$) - 1) * 2;
+	if (.@s >= .@size) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+
+	.@id      = atoi(.@data$[.@s]);
+	.@enchant = atoi(.@data$[.@s+1]);
+
+	if (getequipid(.@part) < 0 || countitem(.@id) < 1) {
+		mes "[Enchant Master]";
+		mes "You need the costume equipped and at least 1 enchant stone in your inventory.";
+		close;
+	}
+	mes "[Enchant Master]";
+	mes "Apply ^0000CD" + getitemname(.@id) + "^000000 to ^FF8C00Slot 2^000000?";
+	mes "Effect: ^00AA00" + getitemname(.@enchant) + "^000000";
+	mes "^888888(Slot 1 enchant will not be affected.)^000000";
+	next;
+	if (select("Yes, enchant it!", "Cancel") == 2) {
+		mes "[Enchant Master]"; mes "Come back anytime!"; close;
+	}
+	delitem .@id, 1;
+	if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+	    callfunc("F_IsEquipRefineHack", .@part, .@equip_refine) ||
+	    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+		end;
+	delequip .@part;
+	.@card[1] = .@enchant;
+	mes "[Enchant Master]";
+	mes "^00CC00Success!^000000 ^0000CD" + getitemname(.@enchant) + "^000000 applied to Slot 2!";
+	getitem2 .@equip_id, 1, 1, .@equip_refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+	close;
+
+	return;
+
 // Costume Garment Enchant (Lace La Zard logic)
 // Enchants costume garment. 50% success; fail resets enchant.
 // ============================================================

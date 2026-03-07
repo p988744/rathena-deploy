@@ -1,0 +1,12 @@
+Header:
+  Type: LAPHINE_UPGRADE_DB
+  Version: 1
+
+Body:
+  # MD Geffen Shield enchant: use item 100368 (MD_Geffen_Rsheild) on 460005/460006
+  - Item: MD_Geffen_Rsheild
+    RandomOptionGroup: MD_GEFFEN_SHIELD
+    CardsAllowed: true
+    TargetItems:
+      - Item: MD_Geffen_Shield
+      - Item: MD_Geffen_Shield2
