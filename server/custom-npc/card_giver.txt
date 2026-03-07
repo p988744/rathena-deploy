@@ -14,7 +14,7 @@ izlude,111,150,4	script	Card Giver	718,{
 	input .@item_id;
 
 	// Must be a valid item
-	if (getiteminfo(.@item_id, ITEMINFO_NAME_ENGLISH) == "") {
+	if (getitemname(.@item_id) == "null") {
 		mes "[Card Giver]";
 		mes "Item ID ^FF0000" + .@item_id + "^000000 does not exist.";
 		close;
@@ -48,7 +48,7 @@ izlude,111,150,4	script	Card Giver	718,{
 		300007, 300078, 300079, 300080, 300099, 300100, 300107, 300145,
 		300151, 300217, 300227, 300228, 300239, 300248, 300262, 300281;
 
-	if (inarray(.@mvp[0], getarraysize(.@mvp), .@item_id) >= 0) {
+	if (inarray(.@mvp, .@item_id) >= 0) {
 		mes "[Card Giver]";
 		mes "^FF0000" + getitemname(.@item_id) + "^000000 is an MVP card and cannot be obtained here.";
 		close;
