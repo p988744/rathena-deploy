@@ -4,7 +4,7 @@ Header:
 
 Body:
   # MD Geffen Shield enchant group (used by MD_Geffen_Rsheild / item 100368)
-  # Slot 1 & 2: guaranteed | Slot 3: ~50% chance to appear (MaxRandom: 1, Chance: 150 each)
+  # All 3 slots are guaranteed. Slot 3 always appears with a randomly chosen option.
   - Id: 174
     Group: MD_GEFFEN_SHIELD
     Slots:
@@ -300,189 +300,189 @@ Body:
             MinValue: 1
             MaxValue: 5
             Chance: 278
-    MaxRandom: 1
-    Random:
-      - Option: VAR_PLUSASPD
-        MinValue: 1
-        MaxValue: 1
-        Chance: 150
-      - Option: RACE_DAMAGE_NOTHING
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_DAMAGE_UNDEAD
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_DAMAGE_ANIMAL
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_DAMAGE_PLANT
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_DAMAGE_INSECT
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_DAMAGE_FISHS
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_DAMAGE_DEVIL
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_DAMAGE_HUMAN
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_DAMAGE_ANGEL
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_DAMAGE_DRAGON
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_IGNORE_DEF_PERCENT_NOTHING
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_DEF_PERCENT_UNDEAD
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_DEF_PERCENT_ANIMAL
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_DEF_PERCENT_PLANT
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_DEF_PERCENT_INSECT
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_DEF_PERCENT_FISHS
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_DEF_PERCENT_DEVIL
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_DEF_PERCENT_HUMAN
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_DEF_PERCENT_ANGEL
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_DEF_PERCENT_DRAGON
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_MDAMAGE_NOTHING
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_MDAMAGE_UNDEAD
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_MDAMAGE_ANIMAL
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_MDAMAGE_PLANT
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_MDAMAGE_INSECT
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_MDAMAGE_FISHS
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_MDAMAGE_DEVIL
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_MDAMAGE_HUMAN
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_MDAMAGE_ANGEL
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_MDAMAGE_DRAGON
-        MinValue: 5
-        MaxValue: 10
-        Chance: 150
-      - Option: RACE_IGNORE_MDEF_PERCENT_NOTHING
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_MDEF_PERCENT_UNDEAD
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_MDEF_PERCENT_ANIMAL
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_MDEF_PERCENT_PLANT
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_MDEF_PERCENT_INSECT
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_MDEF_PERCENT_FISHS
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_MDEF_PERCENT_DEVIL
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_MDEF_PERCENT_HUMAN
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_MDEF_PERCENT_ANGEL
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: RACE_IGNORE_MDEF_PERCENT_DRAGON
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: CLASS_IGNORE_DEF_PERCENT_NORMAL
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: CLASS_IGNORE_DEF_PERCENT_BOSS
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: CLASS_IGNORE_MDEF_PERCENT_NORMAL
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: CLASS_IGNORE_MDEF_PERCENT_BOSS
-        MinValue: 30
-        MaxValue: 60
-        Chance: 150
-      - Option: DEC_SPELL_DELAY_TIME
-        MinValue: 1
-        MaxValue: 3
-        Chance: 150
+      - Slot: 3
+        Options:
+          - Option: VAR_PLUSASPD
+            MinValue: 1
+            MaxValue: 1
+            Chance: 217
+          - Option: RACE_DAMAGE_NOTHING
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_DAMAGE_UNDEAD
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_DAMAGE_ANIMAL
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_DAMAGE_PLANT
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_DAMAGE_INSECT
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_DAMAGE_FISHS
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_DAMAGE_DEVIL
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_DAMAGE_HUMAN
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_DAMAGE_ANGEL
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_DAMAGE_DRAGON
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_IGNORE_DEF_PERCENT_NOTHING
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_DEF_PERCENT_UNDEAD
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_DEF_PERCENT_ANIMAL
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_DEF_PERCENT_PLANT
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_DEF_PERCENT_INSECT
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_DEF_PERCENT_FISHS
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_DEF_PERCENT_DEVIL
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_DEF_PERCENT_HUMAN
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_DEF_PERCENT_ANGEL
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_DEF_PERCENT_DRAGON
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_MDAMAGE_NOTHING
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_MDAMAGE_UNDEAD
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_MDAMAGE_ANIMAL
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_MDAMAGE_PLANT
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_MDAMAGE_INSECT
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_MDAMAGE_FISHS
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_MDAMAGE_DEVIL
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_MDAMAGE_HUMAN
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_MDAMAGE_ANGEL
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_MDAMAGE_DRAGON
+            MinValue: 5
+            MaxValue: 10
+            Chance: 217
+          - Option: RACE_IGNORE_MDEF_PERCENT_NOTHING
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_MDEF_PERCENT_UNDEAD
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_MDEF_PERCENT_ANIMAL
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_MDEF_PERCENT_PLANT
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_MDEF_PERCENT_INSECT
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_MDEF_PERCENT_FISHS
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_MDEF_PERCENT_DEVIL
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_MDEF_PERCENT_HUMAN
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_MDEF_PERCENT_ANGEL
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: RACE_IGNORE_MDEF_PERCENT_DRAGON
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: CLASS_IGNORE_DEF_PERCENT_NORMAL
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: CLASS_IGNORE_DEF_PERCENT_BOSS
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: CLASS_IGNORE_MDEF_PERCENT_NORMAL
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: CLASS_IGNORE_MDEF_PERCENT_BOSS
+            MinValue: 30
+            MaxValue: 60
+            Chance: 217
+          - Option: DEC_SPELL_DELAY_TIME
+            MinValue: 1
+            MaxValue: 3
+            Chance: 217

@@ -99,7 +99,7 @@ izlude,113,150,4	script	Costume Keeper	718,{
 -	shop	enchant_stone_shop2	-1,25451:1000000,25452:1000000,25453:1000000,25454:1000000,25455:1000000,25456:1000000,25490:1000000,25491:1000000,25492:1000000,25493:1000000,25494:1000000,25495:1000000,25496:1000000,25497:1000000,25498:1000000,25499:1000000,25500:1000000,25501:1000000,25706:1000000,25707:1000000,25708:1000000,25709:1000000,25710:1000000,25711:1000000,25712:1000000,25713:1000000,25714:1000000,25715:1000000,25716:1000000,25717:1000000,25797:1000000,25798:1000000,25799:1000000,25800:1000000,25801:1000000,25802:1000000,25803:1000000,25804:1000000,25805:1000000,25806:1000000,25807:1000000,25808:1000000,25842:1000000,25843:1000000,25844:1000000,25845:1000000,25846:1000000,25847:1000000,25848:1000000,25849:1000000,25850:1000000,25851:1000000,25852:1000000,25853:1000000,25854:1000000,25855:1000000,25856:1000000,25857:1000000,25858:1000000,25859:1000000,25860:1000000,25861:1000000,25862:1000000,1000008:1000000,1000009:1000000,1000010:1000000,1000011:1000000,1000012:1000000,1000013:1000000,1000014:1000000,1000015:1000000,1000016:1000000,1000017:1000000,1000018:1000000,1000019:1000000,1000213:1000000,1000214:1000000,1000215:1000000,1000216:1000000,1000217:1000000,1000218:1000000,1000219:1000000,1000220:1000000,1000221:1000000,1000222:1000000,1000223:1000000,1000224:1000000,1000296:1000000,1000297:1000000,1000298:1000000,1000299:1000000,1000300:1000000,1000301:1000000,1000302:1000000,1000303:1000000,1000304:1000000,1000305:1000000,1000306:1000000,1000307:1000000,1001050:1000000,1001051:1000000,1001052:1000000,1000863:1000000,1000864:1000000,1000865:1000000
 
 // --- Costume Garment Slot 2 Enchant Stones ---
--	shop	enchant_stone_shop3	-1,1000520:1000000,1000521:1000000,1000522:1000000,1000523:1000000,1000524:1000000,1000525:1000000,1000526:1000000,1000527:1000000,1000675:1000000,1000676:1000000,1000855:1000000,1000856:1000000,1000921:1000000,1001055:1000000,1001172:1000000
+-	shop	enchant_stone_shop3	-1,1000520:1000000,1000521:1000000,1000522:1000000,1000523:1000000,1000524:1000000,1000525:1000000,1000526:1000000,1000527:1000000,1000675:1000000,1000676:1000000,1000855:1000000,1000856:1000000,1000921:1000000,1001055:1000000
 
 izlude,115,150,4	script	Costume Enchant Stone Vendor	4_F_KAFRA2,{
 	mes "[Costume Enchant Stone Vendor]";
@@ -166,7 +166,7 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	mes "Welcome! I can enchant your equipment from EP17.2 through EP19.";
 	mes "No quests or prerequisites required.";
 	next;
-	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Costume Garment Slot 2 Enchant", "Leave" ) ) {
+	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Costume Garment Slot 2 Enchant", "Illusion Equipment Enchant", "Mad Bunny-LT Enchant", "Leave" ) ) {
 	case 1: callsub L_Auto; end;
 	case 2: callsub L_GrayWolf; end;
 	case 3: callsub L_Snowflower; end;
@@ -187,7 +187,9 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	case 8: callsub L_AverDeDosh; end;
 	case 9: callsub L_LaceLaZard; end;
 	case 10: callsub L_LaceLaZardSlot2; end;
-	case 11:
+	case 11: callsub L_Illusion; end;
+	case 12: callsub L_MadBunnyLT; end;
+	case 13:
 		mes "[Enchant Master]";
 		mes "Come back anytime!";
 		close;
@@ -1273,4 +1275,341 @@ L_LaceLaZard:
 	close;
 
 	return;
+
+// ============================================================
+// Illusion Equipment Enchant (from official Illusion Enchanter)
+// No quest requirement. Reset is always 100% free.
+// ============================================================
+L_Illusion:
+	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 2000) {
+		mes "[Enchant Master]";
+		mes "You are carrying too many items. Please reduce your weight first.";
+		close;
+	}
+	mes "[Enchant Master]";
+	mes "I can enchant Illusion equipment.";
+	mes "Enchanting costs ^0000FF100,000 Zeny^000000. Resetting is ^00CC00free and always succeeds^000000.";
+	next;
+	switch( select( "Add stats to Illusion equipment.", "Reset enchanted Illusion equipment.", "Cancel" ) ) {
+	case 1: .@reset = false; break;
+	case 2: .@reset = true;  break;
+	case 3:
+		mes "[Enchant Master]";
+		mes "Come back anytime!";
+		close;
+	}
+
+	setarray .@location[0], EQI_HAND_R, EQI_ARMOR, EQI_SHOES, EQI_GARMENT, EQI_ACC_R, EQI_ACC_L, EQI_HEAD_TOP, EQI_HAND_L;
+	.@s = select( "Right-handed Weapon", "Armor", "Shoes", "Garment", "Right Accessory", "Left Accessory", "Helm (Upper)", "Left-handed Weapon/Shield" ) - 1;
+	.@loc = .@location[.@s];
+	.@eq_id = getequipid(.@loc);
+
+	switch(.@eq_id) {
+	case 15195: case 16063: case 19209: case 20838: case 19210: case 22133:
+	case 26007: case 26109: case 28725:
+	case 28022: case 28023: case 2039:  case 18149: case 28612: case 20840:
+	case 28508: case 28509:
+	case 1846:  case 13337: case 19223: case 28922: case 20847:
+	case 28745: case 28244: case 2051:  case 22190: case 19344:
+	case 13469: case 1326:  case 32005: case 13338: case 16065: case 19247:
+	case 450182: case 470066: case 490120: case 490121: case 550030: case 550031:
+	case 530015: case 500030: case 620010: case 510034: case 460017: case 460018:
+	case 28626: case 18174: case 19366: case 15348: case 20923: case 22192:
+	case 19428: case 20948: case 32238: case 32239: case 28254: case 21050:
+	case 32301: case 28762:
+	case 570008: case 580008: case 630006: case 610012: case 600011: case 630007:
+	case 450144: case 450145: case 450146: case 400053: case 480054: case 490069: case 490070:
+		break;
+	case -1:
+		mes "[Enchant Master]";
+		mes "You must be equipped with an item in the selected slot to enchant it.";
+		close;
+	default:
+		mes "[Enchant Master]";
+		mes "This equipment is not Illusion equipment and cannot be enchanted here.";
+		close;
+	}
+
+	for ( .@i = 0; .@i < MAX_ITEM_RDM_OPT-1; ++.@i ) {
+		if (getequiprandomoption(.@loc, .@i, ROA_ID) > 0) {
+			mes "[Enchant Master]";
+			mes "^FF0000This equipment has Random Options and cannot be enchanted.^000000";
+			close;
+		}
+	}
+
+	.@weapon_lvl = getequipweaponlv(.@loc);
+	.@loc_enchant = .@loc;
+
+	switch(.@weapon_lvl) {
+	case 0: break;
+	case 1: case 2: case 3:
+		if (.@loc_enchant == EQI_HAND_L)
+			.@loc_enchant = EQI_HAND_R;
+		break;
+	default:
+		mes "[Enchant Master]";
+		mes "This Illusion weapon is level 4 and cannot be enchanted further.";
+		close;
+	}
+
+	.@refine  = getequiprefinerycnt(.@loc);
+	.@card[0] = getequipcardid(.@loc, 0);
+	.@card[1] = getequipcardid(.@loc, 1);
+	.@card[2] = getequipcardid(.@loc, 2);
+	.@card[3] = getequipcardid(.@loc, 3);
+
+	switch(.@reset) {
+	case false:
+		if (.@card[2] > 0 && .@card[3] > 0) {
+			mes "[Enchant Master]";
+			mes "This equipment is already enchanted to the maximum limit.";
+			close;
+		}
+		if (.@weapon_lvl > 0) {
+			mes "[Enchant Master]";
+			mes "What kind of effect would you like to add?";
+			next;
+			.@weapon_enchant_type = select( "Melee", "Ranged", "Magic" );
+		}
+		if (.@card[3] > 0) {
+			.@slot = 2;
+			.@string$ = "second";
+		} else {
+			.@slot = 3;
+			.@string$ = "first";
+		}
+		mes "[Enchant Master]";
+		mes "I'll enchant the ^0000FF" + .@string$ + " slot^000000 on your equipment.";
+		mes "Cost: ^0000FF100,000 Zeny^000000.";
+		mes "^00AA00Refine level and cards will not be affected.^000000";
+		next;
+		if (select( "Enchant it!", "Cancel" ) == 2) {
+			mes "[Enchant Master]";
+			mes "Come back anytime!";
+			close;
+		}
+		if (Zeny < 100000) {
+			mes "[Enchant Master]";
+			mes "You need at least 100,000 Zeny.";
+			close;
+		}
+		if (callfunc("F_IsEquipIDHack", .@loc, .@eq_id) ||
+		    callfunc("F_IsEquipCardHack", .@loc, .@card[0], .@card[1], .@card[2], .@card[3]) ||
+		    callfunc("F_IsEquipRefineHack", .@loc, .@refine))
+			end;
+		.@card[.@slot] = callsub( S_IllEnchant, .@loc_enchant, .@slot, .@weapon_enchant_type );
+		Zeny -= 100000;
+		delequip .@loc;
+		getitem2 .@eq_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+		mes "[Enchant Master]";
+		mes "^00CC00Done!^000000 Please check your equipment.";
+		specialeffect2 EF_REPAIRWEAPON;
+		close;
+
+	case true:
+		if (!F_IsCharm(.@card[2]) || !F_IsCharm(.@card[3])) {
+			mes "[Enchant Master]";
+			mes "Only fully enchanted items (both slots filled) can be reset.";
+			close;
+		}
+		mes "[Enchant Master]";
+		mes "Reset enchantments on ^0000FF" + getequipname(.@loc) + "^000000?";
+		mes "Cost: ^0000FF100,000 Zeny^000000. ^00CC00100% success.^000000";
+		next;
+		if (select( "Reset!", "Cancel" ) == 2) {
+			mes "[Enchant Master]";
+			mes "Come back anytime!";
+			close;
+		}
+		if (Zeny < 100000) {
+			mes "[Enchant Master]";
+			mes "You need at least 100,000 Zeny.";
+			close;
+		}
+		if (callfunc("F_IsEquipIDHack", .@loc, .@eq_id) ||
+		    callfunc("F_IsEquipCardHack", .@loc, .@card[0], .@card[1], .@card[2], .@card[3]) ||
+		    callfunc("F_IsEquipRefineHack", .@loc, .@refine))
+			end;
+		Zeny -= 100000;
+		delequip .@loc;
+		getitem2 .@eq_id, 1, 1, .@refine, 0, .@card[0], .@card[1], 0, 0;
+		mes "[Enchant Master]";
+		mes "^00CC00Done!^000000 Enchantments have been reset.";
+		specialeffect2 EF_REPAIRWEAPON;
+		close;
+	}
+	end;
+
+S_IllEnchant:
+	.@slot = getarg(1);
+	switch( getarg(0) ) {
+	case EQI_HAND_R:
+		switch( getarg(2) ) {
+		case 1: // Melee
+			setarray .@item[0],
+				4700, 1, 4701, 1, 4702, 1, 4703, 1,
+				4720, 1, 4721, 1, 4722, 1, 4723, 1,
+				4750, 1, 4751, 1, 4752, 1, 4753, 1,
+				4808, 1, 4809, 1, 4810, 1, 4811, 1, 4820, 1,
+				29081, 1, 29082, 1, 29083, 1, 29084, 1, 29085, 1,
+				29061, 1, 29062, 1, 29063, 1, 29064, 1, 29065, 1,
+				4807, 1, 4842, 1;
+			break;
+		case 2: // Ranged
+			setarray .@item[0],
+				4730, 1, 4731, 1, 4732, 1, 4733, 1,
+				4720, 1, 4721, 1, 4722, 1, 4723, 1,
+				4750, 1, 4751, 1, 4752, 1, 4753, 1,
+				4807, 1, 4842, 1,
+				4832, 1, 4833, 1, 4834, 1, 4835, 1, 4836, 1,
+				29091, 1, 29092, 1, 29093, 1, 29094, 1, 29095, 1,
+				29071, 1, 29072, 1, 29073, 1, 29074, 1, 29075, 1;
+			break;
+		case 3: // Magic
+			setarray .@item[0],
+				4710, 1, 4711, 1, 4712, 1, 4713, 1,
+				4720, 1, 4721, 1, 4722, 1, 4723, 1,
+				4750, 1, 4751, 1, 4752, 1, 4753, 1,
+				4812, 1, 4813, 1, 4814, 1, 4815, 1, 4826, 1,
+				4805, 1, 4850, 1;
+			break;
+		default:
+			return 0;
+		}
+		break;
+	case EQI_ARMOR:
+	case EQI_SHOES:
+	case EQI_GARMENT:
+	case EQI_HAND_L:
+	case EQI_HEAD_TOP:
+		setarray .@item[0],
+			4700, 700, 4701, 600, 4702, 500, 4703, 200,
+			4740, 700, 4741, 600, 4742, 500, 4743, 200,
+			4710, 700, 4711, 600, 4712, 500, 4713, 200,
+			4750, 700, 4751, 600, 4752, 500, 4753, 200,
+			4994, 10, 4995, 10, 4997, 10, 4998, 10,
+			29009, 10, 29010, 10, 29000, 10, 29001, 10,
+			29003, 10, 29004, 10, 29006, 10, 29007, 10,
+			4861, 700, 4862, 600, 4867, 440, 4868, 100,
+			4992, 10, 4993, 10, 29208, 10, 29210, 10;
+		break;
+	case EQI_ACC_L:
+	case EQI_ACC_R:
+		setarray .@item[0],
+			4700, 576, 4701, 460, 4702, 115, 4703, 11,
+			4730, 576, 4731, 460, 4732, 115, 4733, 11,
+			4740, 576, 4741, 460, 4742, 115, 4743, 11,
+			4710, 576, 4711, 460, 4712, 115, 4713, 11,
+			4720, 576, 4721, 460, 4722, 115, 4723, 11,
+			4750, 576, 4751, 460, 4752, 115, 4753, 11,
+			4928, 576, 4870, 460, 4800, 345, 4871, 115, 4801, 11,
+			4795, 576, 4796, 460, 4797, 345, 4798, 115, 4799, 11;
+		break;
+	default:
+		return 0;
+	}
+	.@size = getarraysize(.@item);
+	for ( .@i = 0; .@i < .@size; .@i += 2 )
+		.@total_rate += .@item[.@i+1];
+	.@r = rand(.@total_rate);
+	for ( .@i = 0; .@i < .@size; .@i += 2 ) {
+		.@rate_tmp += .@item[.@i+1];
+		if (.@r < .@rate_tmp)
+			break;
+	}
+	return .@item[.@i];
 }
+
+// ============================================================
+// Mad Bunny-LT (460020) Enchant
+// Writes randomly to card[3] (4th slot). Cost: 10,000,000z.
+// Reset: 10,000,000z. No material items required.
+// ============================================================
+L_MadBunnyLT:
+	// Locate Mad_Bunny_K_LT (460020) across all equipment slots
+	.@target_id = 460020;
+	setarray .@check_parts[0],
+		EQI_HEAD_TOP, EQI_HEAD_MID, EQI_HEAD_LOW,
+		EQI_COSTUME_HEAD_TOP, EQI_COSTUME_HEAD_MID, EQI_COSTUME_HEAD_LOW,
+		EQI_COSTUME_GARMENT, EQI_ARMOR, EQI_GARMENT, EQI_SHOES,
+		EQI_ACC_L, EQI_ACC_R;
+	.@part = -1;
+	for (.@i = 0; .@i < getarraysize(.@check_parts); .@i++) {
+		if (getequipid(.@check_parts[.@i]) == .@target_id) {
+			.@part = .@check_parts[.@i];
+			break;
+		}
+	}
+	if (.@part == -1) {
+		mes "[Enchant Master]";
+		mes "Please ^FF0000equip^000000 ^0000FFMad Bunny-LT^000000 first.";
+		close;
+	}
+	.@equip_id     = .@target_id;
+	.@equip_refine = getequiprefinerycnt(.@part);
+	setarray .@card[0],
+		getequipcardid(.@part, 0), getequipcardid(.@part, 1),
+		getequipcardid(.@part, 2), getequipcardid(.@part, 3);
+
+	mes "[Enchant Master]";
+	mes "^0000FF" + getequipname(.@part) + "^000000";
+	mes "4th Slot: " + (.@card[3] > 0 ? "^0000CD" + getitemname(.@card[3]) + "^000000" : "^808080Empty^000000");
+	next;
+	switch (select("Enchant (10,000,000z)", "Reset (10,000,000z)", "Back")) {
+	case 1:
+		setarray .@pool[0], 310853, 310856, 310859, 310860, 310863, 310866, 310869, 310872, 310875, 310878;
+		.@enchant = .@pool[rand(10)];
+		mes "[Enchant Master]";
+		mes "Randomly enchant Slot 4 of ^0000FFMad Bunny-LT^000000?";
+		mes "Cost: ^FF000010,000,000 Zeny^000000";
+		next;
+		if (select("Yes, enchant!", "Cancel") == 2) {
+			mes "[Enchant Master]"; mes "Come back anytime!"; close;
+		}
+		if (Zeny < 10000000) {
+			mes "[Enchant Master]"; mes "Not enough Zeny."; close;
+		}
+		if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+		    callfunc("F_IsEquipRefineHack", .@part, .@equip_refine) ||
+		    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+			end;
+		Zeny -= 10000000;
+		delequip .@part;
+		.@card[3] = .@enchant;
+		mes "[Enchant Master]";
+		mes "^00CC00Success!^000000 ^0000CD" + getitemname(.@enchant) + "^000000 applied to Slot 4!";
+		getitem2 .@equip_id, 1, 1, .@equip_refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+		close;
+	case 2:
+		if (.@card[3] == 0) {
+			mes "[Enchant Master]"; mes "Slot 4 is already empty."; close;
+		}
+		if (Zeny < 10000000) {
+			mes "[Enchant Master]"; mes "You need ^FF000010,000,000 Zeny^000000 to reset."; close;
+		}
+		mes "[Enchant Master]";
+		mes "Reset Slot 4 (^0000CD" + getitemname(.@card[3]) + "^000000)?";
+		mes "Cost: ^FF000010,000,000 Zeny^000000";
+		next;
+		if (select("Yes, reset!", "Cancel") == 2) {
+			mes "[Enchant Master]"; mes "Come back anytime!"; close;
+		}
+		if (Zeny < 10000000) {
+			mes "[Enchant Master]"; mes "Not enough Zeny."; close;
+		}
+		if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+		    callfunc("F_IsEquipRefineHack", .@part, .@equip_refine) ||
+		    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+			end;
+		Zeny -= 10000000;
+		delequip .@part;
+		.@card[3] = 0;
+		mes "[Enchant Master]";
+		mes "^00CC00Slot 4 has been reset.^000000";
+		getitem2 .@equip_id, 1, 1, .@equip_refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+		close;
+	case 3:
+		end;
+	}
+	return;
