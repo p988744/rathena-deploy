@@ -1,0 +1,72 @@
+//===== Custom Script =========================================
+//= Grade Enhancer NPC + Etel Materials Vendor
+//= izlude,110,142 / izlude,112,140
+//=============================================================
+
+// --- Etel Materials Shop ---
+-	shop	etel_mat_shop	-1,\
+	1000322:5000,\
+	1000337:50000,\
+	1000325:100000,\
+	1000326:100000,\
+	1000327:100000,\
+	1000328:100000
+
+// --- Grade Enhancer NPC ---
+izlude,110,142,4	script	Grade Enhancer	4_JP_GARM_H,{
+	mes "[Grade Enhancer]";
+	mes "I can enhance the grade of your equipment.";
+	mes "Grade goes: ^808080None^000000 → ^00AA00D^000000 → ^0055FF C^000000 → ^FF8C00B^000000 → ^FF0000A^000000";
+	next;
+	switch (select("Enhance Grade", "What is Grade Enhancement?", "Leave")) {
+	case 1:
+		mes "[Grade Enhancer]";
+		mes "Please make sure your equipment is equipped, then confirm.";
+		next;
+		if (select("Proceed", "Cancel") == 2) {
+			mes "[Grade Enhancer]";
+			mes "Come back anytime!";
+			close;
+		}
+		close2;
+		enchantgradeui();
+		end;
+	case 2:
+		mes "[Grade Enhancer]";
+		mes "Grade Enhancement upgrades the hidden potential of your equipment.";
+		next;
+		mes "[Grade Enhancer]";
+		mes "Each grade tier (D→C→B→A) improves the equipment's base stats.";
+		mes "Higher refine levels increase the success rate.";
+		next;
+		mes "[Grade Enhancer]";
+		mes "You'll need ^0000FFEtel jewels^000000 as catalyst materials.";
+		mes "Get them from the vendor next to me!";
+		close;
+	case 3:
+		mes "[Grade Enhancer]";
+		mes "Come back anytime!";
+		close;
+	}
+}
+
+// --- Etel Materials Vendor ---
+izlude,112,140,4	script	Etel Vendor	4_F_KAFRA1,{
+	mes "[Etel Vendor]";
+	mes "I sell Etel jewels for grade enhancement.";
+	next;
+	switch (select("Buy materials", "Leave")) {
+	case 1:
+		mes "[Etel Vendor]";
+		mes "^808080Etel Dust^000000 — basic catalyst (5,000z)";
+		mes "^0055FFBlessed Etel Dust^000000 — chance booster (50,000z)";
+		mes "^00AA00Etel Aquamarine / Topaz / Amethyst / Amber^000000 (100,000z ea)";
+		close2;
+		callshop "etel_mat_shop";
+		end;
+	case 2:
+		mes "[Etel Vendor]";
+		mes "Good luck with your enhancement!";
+		close;
+	}
+}

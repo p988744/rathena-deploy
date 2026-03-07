@@ -202,6 +202,14 @@ if [ -f "/rathena/npc/custom/card_giver.txt" ]; then
     echo "   已啟用卡片給予 NPC"
 fi
 
+# 啟用升階 NPC + Etel 材料商人
+if [ -f "/rathena/npc/custom/grade_enhancer.txt" ]; then
+    if ! grep -q 'grade_enhancer.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/grade_enhancer.txt' >> /rathena/npc/scripts_custom.conf
+    fi
+    echo "   已啟用升階 NPC + Etel 材料商人"
+fi
+
 # 統合附魔師 NPC（英文版，EP17.2 全自動 / EP18 灰狼 / EP19 雪花・冰晶）
 # enchant_master.txt 為繁體中文備用版，不載入
 if [ -f "/rathena/npc/custom/enchant_master_en.txt" ]; then
