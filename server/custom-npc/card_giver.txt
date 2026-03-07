@@ -1,0 +1,84 @@
+//===== Custom Script =========================================
+//= Card Giver NPC — Give any non-MVP card by ID
+//= 最粗的感動 private server
+//===== Description ===========================================
+//= Player inputs a card ID and quantity.
+//= MVP cards and non-card items are rejected.
+//=============================================================
+
+izlude,111,150,4	script	Card Giver	718,{
+	mes "[Card Giver]";
+	mes "Enter the card ID you want to receive.";
+	next;
+
+	input .@item_id;
+
+	// Must be a valid item
+	if (getiteminfo(.@item_id, ITEMINFO_NAME_ENGLISH) == "") {
+		mes "[Card Giver]";
+		mes "Item ID ^FF0000" + .@item_id + "^000000 does not exist.";
+		close;
+	}
+
+	// Must be a card (Type: Card = IT_CARD = 6)
+	if (getiteminfo(.@item_id, ITEMINFO_TYPE) != IT_CARD) {
+		mes "[Card Giver]";
+		mes "^FF0000" + getitemname(.@item_id) + "^000000 is not a card.";
+		close;
+	}
+
+	// MVP card check
+	setarray .@mvp[0],
+		4005, 4074, 4121, 4123, 4127, 4128, 4131, 4132, 4134, 4135,
+		4137, 4142, 4143, 4144, 4145, 4146, 4147, 4148, 4168, 4169,
+		4210, 4236, 4246, 4263, 4276, 4302, 4305, 4318, 4324, 4330,
+		4342, 4352, 4357, 4359, 4361, 4363, 4365, 4367, 4370, 4372,
+		4374, 4376, 4386, 4399, 4403, 4407, 4408, 4410, 4419, 4425,
+		4430, 4441, 4451, 4456, 4507, 4509, 4520, 4525, 4526, 4527,
+		4528, 4529, 4534, 4556, 4560, 4561, 4562, 4563, 4564, 4565,
+		4566, 4574, 4576, 4578, 4580, 4592, 4601, 4603, 4610, 4625,
+		4636, 4647, 4648, 4649, 4650, 4651, 4652, 4662, 4671, 4672,
+		4673, 4674, 4675, 4676, 4677, 4678, 4679, 4680, 4681, 4682,
+		4683, 4697,
+		27020, 27025, 27081, 27104, 27106, 27113, 27119, 27126, 27150,
+		27151, 27152, 27162, 27164, 27180, 27182, 27265, 27294, 27298,
+		27305, 27318, 27319, 27321, 27323, 27326, 27327, 27346, 27362,
+		27363,
+		31023, 31026,
+		300007, 300078, 300079, 300080, 300099, 300100, 300107, 300145,
+		300151, 300217, 300227, 300228, 300239, 300248, 300262, 300281;
+
+	if (inarray(.@mvp[0], getarraysize(.@mvp), .@item_id) >= 0) {
+		mes "[Card Giver]";
+		mes "^FF0000" + getitemname(.@item_id) + "^000000 is an MVP card and cannot be obtained here.";
+		close;
+	}
+
+	mes "[Card Giver]";
+	mes "How many ^0000FF" + getitemname(.@item_id) + "^000000 do you want?";
+	next;
+
+	input .@qty, 1, 100;
+
+	if (.@qty < 1) {
+		mes "[Card Giver]";
+		mes "Invalid quantity.";
+		close;
+	}
+
+	mes "[Card Giver]";
+	mes "Give ^FF0000" + .@qty + "x ^0000FF" + getitemname(.@item_id) + "^000000?";
+	next;
+
+	if (select("Confirm:Cancel") == 2) {
+		mes "[Card Giver]";
+		mes "See you next time!";
+		close;
+	}
+
+	getitem .@item_id, .@qty;
+
+	mes "[Card Giver]";
+	mes "Here you go! Enjoy your ^0000FF" + getitemname(.@item_id) + "^000000.";
+	close;
+}
