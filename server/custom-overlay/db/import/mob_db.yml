@@ -135,6 +135,43 @@ Body:
         Rate: 5
         StealProtected: true
 
+  - Id: 20601
+    AegisName: ZENY_SPIRIT
+    Name: 金幣精靈
+    Level: 100
+    Hp: 300000
+    BaseExp: 0
+    JobExp: 0
+    Attack: 1
+    Attack2: 1
+    Defense: 30
+    MagicDefense: 30
+    Str: 1
+    Agi: 60
+    Vit: 40
+    Int: 1
+    Dex: 60
+    Luk: 100
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Angel
+    Element: Holy
+    ElementLevel: 3
+    WalkSpeed: 200
+    AttackDelay: 1872
+    AttackMotion: 672
+    DamageMotion: 480
+    DamageTaken: 100
+    Ai: 02
+    Class: Normal
+    ViewData:
+      SpriteId: 1096
+    Modes:
+      CanMove: true
+      CanAttack: false
+
 #Body:
 # eAthena Dev Team
 #=============================================================

@@ -166,6 +166,17 @@ if [ -d "/rathena-overlay" ]; then
     echo "   overlay 套用完成"
 fi
 
+# 修正 Napeo (20922) 的 NPC_ 技能 — 替換為相容的玩家技能避免 crash
+# NPC_WINDATTACK  → WZ_JUPITEL (84)  單體風屬性
+# NPC_COMBOATTACK → MO_COMBOFINISH (273) 多段物理連擊
+# NPC_SPLASHATTACK → KN_BOWLINGBASH (62) 範圍物理
+# NPC_DARKTHUNDER → MG_THUNDERSTORM (21) 範圍雷電
+sed -i 's/20922,CHIMERA_NAPEO@NPC_WINDATTACK,attack,187,5/20922,CHIMERA_NAPEO@WZ_JUPITEL,attack,84,5/' /rathena/db/re/mob_skill_db.txt
+sed -i 's/20922,CHIMERA_NAPEO@NPC_COMBOATTACK,attack,171,3/20922,CHIMERA_NAPEO@MO_COMBOFINISH,attack,273,3/' /rathena/db/re/mob_skill_db.txt
+sed -i 's/20922,CHIMERA_NAPEO@NPC_SPLASHATTACK,attack,174,1/20922,CHIMERA_NAPEO@KN_BOWLINGBASH,attack,62,1/' /rathena/db/re/mob_skill_db.txt
+sed -i 's/20922,CHIMERA_NAPEO@NPC_DARKTHUNDER,attack,341,5/20922,CHIMERA_NAPEO@MG_THUNDERSTORM,attack,21,5/' /rathena/db/re/mob_skill_db.txt
+echo "   已替換 Napeo NPC_ 技能為相容版本"
+
 # 啟用 custom warper（含幻影地圖傳送）
 sed -i 's|//npc: npc/custom/warper.txt|npc: npc/custom/warper.txt|' /rathena/npc/scripts_custom.conf
 echo "   已啟用自訂 Warper NPC"
@@ -176,6 +187,14 @@ if [ -f "/rathena/npc/custom/illu_mobs.txt" ]; then
         echo 'npc: npc/custom/illu_mobs.txt' >> /rathena/npc/scripts_custom.conf
     fi
     echo "   已啟用幻影地下城怪物 spawn"
+fi
+
+# 啟用金幣精靈（全野外 + 地穴，擊殺給 Zeny）
+if [ -f "/rathena/npc/custom/zeny_mob.txt" ]; then
+    if ! grep -q 'zeny_mob.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/zeny_mob.txt' >> /rathena/npc/scripts_custom.conf
+    fi
+    echo "   已啟用金幣精靈 spawn"
 fi
 
 # 啟用 EP 裝備商店 NPC（EP1-13 到 EP19，共 7 個商店）
