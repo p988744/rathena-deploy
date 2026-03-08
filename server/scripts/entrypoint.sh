@@ -166,23 +166,50 @@ if [ -d "/rathena-overlay" ]; then
     echo "   overlay 套用完成"
 fi
 
-# Replace ALL NPC_ skills globally with compatible player skills to prevent map server crashes.
+# Replace NPC_ skills with compatible player skills to prevent map server crashes.
+# Applied to both db/re/ (built-in) and db/import/ (custom overlay).
 # Pattern: @NPC_SKILLNAME,<state>,<skill_id>, → @REPLACEMENT,<state>,<new_id>,
 # Any remaining NPC_ lines are deleted as a catch-all.
-sed -i 's|@NPC_FIREATTACK,\([^,]*\),186,|@MG_FIREBALL,\1,17,|g'      /rathena/db/re/mob_skill_db.txt
-sed -i 's|@NPC_WINDATTACK,\([^,]*\),187,|@WZ_JUPITEL,\1,84,|g'       /rathena/db/re/mob_skill_db.txt
-sed -i 's|@NPC_POISONATTACK,\([^,]*\),188,|@MG_NAPALMBEAT,\1,11,|g'  /rathena/db/re/mob_skill_db.txt
-sed -i 's|@NPC_HOLYATTACK,\([^,]*\),189,|@AL_HOLYLIGHT,\1,156,|g'    /rathena/db/re/mob_skill_db.txt
-sed -i 's|@NPC_COMBOATTACK,\([^,]*\),171,|@MO_COMBOFINISH,\1,273,|g' /rathena/db/re/mob_skill_db.txt
-sed -i 's|@NPC_SPLASHATTACK,\([^,]*\),174,|@KN_BOWLINGBASH,\1,62,|g' /rathena/db/re/mob_skill_db.txt
-sed -i 's|@NPC_CRITICALSLASH,\([^,]*\),170,|@KN_BOWLINGBASH,\1,62,|g' /rathena/db/re/mob_skill_db.txt
-sed -i 's|@NPC_PIERCINGATT,\([^,]*\),158,|@KN_PIERCE,\1,56,|g'       /rathena/db/re/mob_skill_db.txt
-sed -i 's|@NPC_RANGEATTACK,\([^,]*\),160,|@WZ_JUPITEL,\1,84,|g'      /rathena/db/re/mob_skill_db.txt
-sed -i 's|@NPC_DARKTHUNDER,\([^,]*\),341,|@MG_THUNDERSTORM,\1,21,|g' /rathena/db/re/mob_skill_db.txt
-sed -i 's|@NPC_EARTHQUAKE,\([^,]*\),653,|@KN_BOWLINGBASH,\1,62,|g'   /rathena/db/re/mob_skill_db.txt
-sed -i 's|@NPC_HELLJUDGEMENT,\([^,]*\),662,|@WZ_METEOR,\1,83,|g'     /rathena/db/re/mob_skill_db.txt
-# Delete any remaining NPC_ skill lines not matched above
-sed -i '/@NPC_/d' /rathena/db/re/mob_skill_db.txt
+_replace_npc_skills() {
+  local f="$1"
+  [ -f "$f" ] || return
+  # ── Elemental attacks ────────────────────────────────────────────────────
+  sed -i 's|@NPC_FIREATTACK,\([^,]*\),186,|@MG_FIREBALL,\1,17,|g'           "$f"
+  sed -i 's|@NPC_WINDATTACK,\([^,]*\),187,|@WZ_JUPITEL,\1,84,|g'            "$f"
+  sed -i 's|@NPC_POISONATTACK,\([^,]*\),188,|@MG_NAPALMBEAT,\1,11,|g'       "$f"
+  sed -i 's|@NPC_HOLYATTACK,\([^,]*\),189,|@AL_HOLYLIGHT,\1,156,|g'         "$f"
+  sed -i 's|@NPC_DARKNESSATTACK,\([^,]*\),190,|@WZ_JUPITEL,\1,84,|g'        "$f"
+  sed -i 's|@NPC_TELEKINESISATTACK,\([^,]*\),191,|@MG_SOULSTRIKE,\1,13,|g'  "$f"
+  sed -i 's|@NPC_POISON,\([^,]*\),176,|@MG_NAPALMBEAT,\1,11,|g'             "$f"
+  sed -i 's|@NPC_CURSEATTACK,\([^,]*\),181,|@MG_NAPALMBEAT,\1,11,|g'        "$f"
+  sed -i 's|@NPC_VENOMIMPRESS,\([^,]*\),738,|@MG_NAPALMBEAT,\1,11,|g'       "$f"
+  # ── Physical attacks ─────────────────────────────────────────────────────
+  sed -i 's|@NPC_COMBOATTACK,\([^,]*\),171,|@MO_COMBOFINISH,\1,273,|g'      "$f"
+  sed -i 's|@NPC_SPLASHATTACK,\([^,]*\),174,|@KN_BOWLINGBASH,\1,62,|g'      "$f"
+  sed -i 's|@NPC_CRITICALSLASH,\([^,]*\),170,|@KN_BOWLINGBASH,\1,62,|g'     "$f"
+  sed -i 's|@NPC_GROUNDATTACK,\([^,]*\),185,|@KN_BOWLINGBASH,\1,62,|g'      "$f"
+  sed -i 's|@NPC_ARMORBRAKE,\([^,]*\),344,|@KN_BOWLINGBASH,\1,62,|g'        "$f"
+  sed -i 's|@NPC_DARKCROSS,\([^,]*\),338,|@KN_BOWLINGBASH,\1,62,|g'         "$f"
+  sed -i 's|@NPC_PIERCINGATT,\([^,]*\),158,|@KN_PIERCE,\1,56,|g'            "$f"
+  sed -i 's|@NPC_DARKSTRIKE,\([^,]*\),340,|@KN_PIERCE,\1,56,|g'             "$f"
+  sed -i 's|@NPC_GUIDEDATTACK,\([^,]*\),172,|@MG_SOULSTRIKE,\1,13,|g'       "$f"
+  sed -i 's|@NPC_BLOODDRAIN,\([^,]*\),199,|@AS_GRIMTOOTH,\1,124,|g'         "$f"
+  sed -i 's|@NPC_BLEEDING2,\([^,]*\),764,|@LK_SPIRALPIERCE,\1,368,|g'       "$f"
+  # ── Magic / AoE ──────────────────────────────────────────────────────────
+  sed -i 's|@NPC_RANGEATTACK,\([^,]*\),160,|@WZ_JUPITEL,\1,84,|g'           "$f"
+  sed -i 's|@NPC_DARKTHUNDER,\([^,]*\),341,|@MG_THUNDERSTORM,\1,21,|g'      "$f"
+  sed -i 's|@NPC_DARKBREATH,\([^,]*\),202,|@WZ_METEOR,\1,83,|g'             "$f"
+  sed -i 's|@NPC_EARTHQUAKE,\([^,]*\),653,|@KN_BOWLINGBASH,\1,62,|g'        "$f"
+  sed -i 's|@NPC_HELLJUDGEMENT,\([^,]*\),662,|@WZ_METEOR,\1,83,|g'          "$f"
+  sed -i 's|@NPC_GRADUAL_GRAVITY,\([^,]*\),752,|@WZ_HEAVENDRIVE,\1,91,|g'   "$f"
+  # ── Utility / keep ───────────────────────────────────────────────────────
+  sed -i 's|@NPC_CHEAL,\([^,]*\),729,|@AL_HEAL,\1,28,|g'                    "$f"
+  sed -i 's|@NPC_INVISIBLE,\([^,]*\),353,|@AS_CLOAKING,\1,246,|g'           "$f"
+  # ── Delete remaining unhandled NPC_ lines ────────────────────────────────
+  sed -i '/@NPC_/d' "$f"
+}
+_replace_npc_skills /rathena/db/re/mob_skill_db.txt
+_replace_npc_skills /rathena/db/import/mob_skill_db.txt
 echo "   Replaced all NPC_ skills with compatible player skills"
 
 # 啟用 custom warper（含幻影地圖傳送）

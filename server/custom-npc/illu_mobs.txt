@@ -87,15 +87,15 @@ com_d02_i,0,0	monster	Illusion Wootan Defender	20277,20,5000
 // Note: No specific illusion mobs in this rAthena version.
 //       Using prt_maze03 mobs as open-world placeholder.
 //==================================================
-prt_mz03_i,0,0	monster	Poporing	1031,52,5000
-prt_mz03_i,0,0	monster	Hunter Fly	1035,30,5000
-prt_mz03_i,0,0	monster	Mantis	1139,30,60000,30000
-prt_mz03_i,0,0	monster	Baphomet Jr.	1101,25,5000
-prt_mz03_i,0,0	monster	Side Winder	1037,30,5000
-prt_mz03_i,0,0	monster	Stem Worm	1215,20,300000,150000
-prt_mz03_i,0,0	monster	Killer Mantis	1294,10,5000
-prt_mz03_i,0,0	monster	Chaos Baphomet Jr.	20525,4,300000
-prt_mz03_i,0,0,0,0	boss_monster	Baphomet	1039,1,7200000,600000,1
+prt_mz03_i,0,0	monster	Chaotic Poporing	20531,10,5000
+prt_mz03_i,0,0	monster	Chaotic Hunter Fly	20527,50,5000
+prt_mz03_i,0,0	monster	Chaotic Mantis	20528,50,60000,30000
+prt_mz03_i,0,0	monster	Chaotic Ghostring	20529,10,5000
+prt_mz03_i,0,0	monster	Chaotic Side Winder	20526,50,5000
+prt_mz03_i,0,0	monster	Chaotic Stem Worm	20532,10,300000,150000
+prt_mz03_i,0,0	monster	Chaotic Killer Mantis	20530,50,5000
+prt_mz03_i,0,0	monster	Chaos Baphomet Jr.	20525,50,300000
+prt_mz03_i,0,0,0,0	boss_monster	Chaos Baphomet	20520,1,7200000,600000,1
 
 //==================================================
 // odin_past — Odin Past (奧丁神殿過去)
