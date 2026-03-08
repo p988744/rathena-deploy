@@ -1075,6 +1075,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Zargon
         Rate: 5000
@@ -1128,6 +1129,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Zelunium_Ore
         Rate: 150
@@ -1181,6 +1183,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Coral_Reef
         Rate: 7500
@@ -1234,6 +1237,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Steel
         Rate: 225
@@ -1287,6 +1291,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Round_Shell
         Rate: 8750
@@ -1340,6 +1345,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Shadowdecon
         Rate: 1000

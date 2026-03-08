@@ -204,6 +204,8 @@ _replace_npc_skills() {
   sed -i 's|@NPC_GRADUAL_GRAVITY,\([^,]*\),752,|@WZ_HEAVENDRIVE,\1,91,|g'   "$f"
   # ── Utility / keep ───────────────────────────────────────────────────────
   sed -i 's|@NPC_CHEAL,\([^,]*\),729,|@AL_HEAL,\1,28,|g'                    "$f"
+  # Fix AL_HEAL target: monsters should heal self, not the player
+  sed -i '/@AL_HEAL,/ s|,target,|,self,|g'                                  "$f"
   sed -i 's|@NPC_INVISIBLE,\([^,]*\),353,|@AS_CLOAKING,\1,246,|g'           "$f"
   # ── Status / debuff attacks ──────────────────────────────────────────────
   sed -i 's|@NPC_BLINDATTACK,\([^,]*\),177,|@MG_NAPALMBEAT,\1,11,|g'        "$f"
