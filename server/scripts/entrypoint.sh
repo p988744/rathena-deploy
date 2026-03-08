@@ -207,7 +207,8 @@ _replace_npc_skills() {
   sed -i 's|@NPC_INVISIBLE,\([^,]*\),353,|@AS_CLOAKING,\1,246,|g'           "$f"
   # ── Fix buff skills: change target→self so monsters don't buff players ───
   # Skill IDs: 28=Heal, 60=TwoHandQuicken, 249=Guard, 361=Assumptio, 687=FullHeal
-  for _sid in 28 60 249 361 687; do
+  # 28=Heal 34=Blessing 60=TwoHandQuicken 249=Guard 361=Assumptio 687=FullHeal
+  for _sid in 28 34 60 249 361 687; do
     sed -i "/,${_sid},/ s/,target,/,self,/g" "$f"
   done
   # ── Status / debuff attacks ──────────────────────────────────────────────
