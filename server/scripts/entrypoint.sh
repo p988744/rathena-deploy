@@ -215,7 +215,7 @@ _replace_npc_skills() {
   sed -i 's|@NPC_BLINDATTACK,\([^,]*\),177,|@MG_NAPALMBEAT,\1,11,|g'        "$f"
   sed -i 's|@NPC_SILENCEATTACK,\([^,]*\),178,|@MG_NAPALMBEAT,\1,11,|g'      "$f"
   sed -i 's|@NPC_RANDOMATTACK,\([^,]*\),183,|@MG_FIREBOLT,\1,19,|g'         "$f"
-  sed -i 's|@NPC_WATERATTACK,\([^,]*\),184,|@WZ_WATERBALL,\1,34,|g'         "$f"
+  sed -i 's|@NPC_WATERATTACK,\([^,]*\),184,|@WZ_WATERBALL,\1,86,|g'         "$f"
   sed -i 's|@NPC_MAGICALATTACK,\([^,]*\),192,|@MG_SOULSTRIKE,\1,13,|g'      "$f"
   sed -i 's|@NPC_ENERGYDRAIN,\([^,]*\),200,|@MG_SOULSTRIKE,\1,13,|g'        "$f"
   # ── Delete remaining unhandled NPC_ lines ────────────────────────────────

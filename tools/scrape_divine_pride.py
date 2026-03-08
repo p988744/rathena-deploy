@@ -699,7 +699,7 @@ def generate_mob_skill_lines(monster_id, data):
         249,  # KN_GUARD / Guard
         361,  # PR_ASSUMPTIO / Assumptio
         687,  # Full Heal
-        34,   # PR_BLESSING / Blessing
+        86,   # PR_BLESSING / Blessing
         26,   # AL_TELEPORT — keep as self (monster teleports itself)
     }
 
