@@ -11,14 +11,16 @@
 //==================================================
 // gef_d01_i — Illusion of Vampire
 //==================================================
-gef_d01_i,0,0	monster	Illusion Drainliar	3750,40,5000
-gef_d01_i,0,0	monster	Illusion Zombie Corps	3751,20,5000
-gef_d01_i,0,0	monster	Illusion Zombie	3752,30,5000
-gef_d01_i,0,0	monster	Illusion Ghoul	3753,30,5000
-gef_d01_i,0,0	monster	Illusion Nightmare	3754,20,5000
-gef_d01_i,0,0	monster	Illusion Black Mushroom	3755,20,5000
-gef_d01_i,0,0	monster	Illusion Bomi	3756,15,5000
-gef_d01_i,0,0,0,0	boss_monster	Illusion Dracula	3757,1,7200000,600000,1
+gef_d01_i,0,0	monster	Matt Drainliar	3750,30,5000
+gef_d01_i,0,0	monster	Living Dead	3751,5,5000
+gef_d01_i,0,0	monster	Starving Living Dead	3752,30,5000
+gef_d01_i,0,0	monster	Living Dead	3753,30,5000
+gef_d01_i,0,0	monster	Sweet Nightmare	3754,30,5000
+gef_d01_i,0,0	monster	Black Mushroom	3755,10,5000
+gef_d01_i,0,0	monster	Blue Plant	1079,1,5000
+gef_d01_i,0,0	monster	White Plant	1082,10,5000
+gef_d01_i,0,0,0,0	boss_monster	Bomi	3756,5,7200000,600000,1
+gef_d01_i,0,0,0,0	boss_monster	Dracula of Rage	3757,1,7200000,600000,1
 
 //==================================================
 // pay_d03_i — Illusion of Moonlight
@@ -102,32 +104,28 @@ prt_mz03_i,0,0,0,0	boss_monster	Chaos Baphomet	20520,1,7200000,600000,1
 // Note: No official spawns in rAthena. Using high-density
 //       Odin elite mobs — harder than odin_tem03.
 //==================================================
-odin_past,0,0	monster	Skeggiold	1754,30,5000
-odin_past,0,0	monster	Skeggiold	1755,30,5000
-odin_past,0,0	monster	Skogul	1761,20,5000
-odin_past,0,0	monster	Frus	1762,20,5000
-odin_past,0,0	monster	Skogul	1752,10,5000
-odin_past,0,0	monster	Frus	1753,10,5000
-odin_past,0,0	monster	Plasma	1693,15,5000
-odin_past,0,0	monster	Valkyrie	1765,3,1800000,900000
-odin_past,0,0,0,0	boss_monster	Valkyrie Randgris	1751,1,7200000,600000,1
+odin_past,0,0	monster	Angelgolt	20604,70,5000
+odin_past,0,0	monster	Angelgolt	20605,70,5000
+odin_past,0,0	monster	Holy Frus	20606,75,5000
+odin_past,0,0	monster	Holy Skogul	20607,75,5000
+odin_past,0,0	monster	Arch Plasma	20608,5,5000
+odin_past,0,0	monster	Plasma Spectrum	20609,5,5000
+odin_past,0,0	monster	Shining plant	1083,5,5000
+odin_past,0,0	monster	Blue plant	1079,5,5000
+odin_past,0,0,0,0	boss_monster	Valkyrie Reginleif	20610,1,7200000,600000,1
+odin_past,0,0,0,0	boss_monster	Valkyrie Ingrid	20611,1,7200000,600000,1
 
 //==================================================
 // clock_01 — Unknown Basement (神秘的地下室)
 // Note: No official spawns in rAthena. Deep Clock Tower
 //       basement — uses Nightmare CT mobs at high density.
 //==================================================
-clock_01,0,0	monster	Big Ben	2916,60,5000
-clock_01,0,0	monster	Big Bell	2917,60,5000
-clock_01,0,0	monster	Neo Punk	2919,50,5000
-clock_01,0,0	monster	Time Keeper	2918,3,5000
-clock_01,0,0	monster	Mimic (Nightmare)	2479,8,5000
-clock_01,0,0	monster	Rideword (Nightmare)	2478,8,5000
-clock_01,0,0	monster	Arc Elder	2920,4,3600000
-clock_01,0,0	monster	Owl Viscount	2921,4,5000,1800000
-clock_01,0,0	monster	Owl Marquis	2923,3,5000,5000
-clock_01,0,0	monster	Owl Baron	1295,2,5000
-clock_01,0,0,0,0	boss_monster	Time Holder	3074,1,7200000,0,0
+clock_01,0,0	monster	Extra Joker	20175,15,5000
+clock_01,0,0	monster	Erzsebet	20176,55,5000
+clock_01,0,0	monster	Jennifer	20177,40,5000
+clock_01,0,0	monster	General Orc	20178,40,5000
+clock_01,0,0	monster	Sieglouse	20179,30,5000
+clock_01,0,0,0,0	boss_monster	Goblin King	20118,1,7200000,0,0
 
 //==================================================
 // ant_d02_i — Illusion of Ant Hell (幻影蟻洞)
