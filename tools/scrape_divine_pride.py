@@ -692,6 +692,17 @@ def generate_mob_skill_lines(monster_id, data):
     mob_id = monster_id
     mob_aegis = data["aegis_name"]
 
+    # Skill IDs that buff/heal the caster — should target self, not the player
+    SELF_BUFF_IDS = {
+        28,   # AL_HEAL / Heal
+        60,   # KN_TWOHANDQUICKEN / Two Hand Quicken
+        249,  # KN_GUARD / Guard
+        361,  # PR_ASSUMPTIO / Assumptio
+        687,  # Full Heal
+        34,   # PR_BLESSING / Blessing
+        26,   # AL_TELEPORT — keep as self (monster teleports itself)
+    }
+
     for skill in data["skills"]:
         skill_id   = skill["skill_id"]
         skill_lv   = skill["skill_lv"]
@@ -702,9 +713,11 @@ def generate_mob_skill_lines(monster_id, data):
         delay      = skill["delay"]
         cancelable = skill["cancelable"]
 
+        skill_target = "self" if skill_id in SELF_BUFF_IDS else "target"
+
         # Format: MobID,Dummy,State,SkillID,SkillLv,Rate,CastTime,Delay,Cancelable,Target,Condition,CondVal,v1,v2,v3,v4,v5,Emotion,Chat
         dummy = f"{mob_aegis}@{skill_name}"
-        line = f"{mob_id},{dummy},{state},{skill_id},{skill_lv},{rate},{cast_time},{delay},{cancelable},target,always,0,,,,,,,"
+        line = f"{mob_id},{dummy},{state},{skill_id},{skill_lv},{rate},{cast_time},{delay},{cancelable},{skill_target},always,0,,,,,,,"
         lines.append(line)
 
     return lines
