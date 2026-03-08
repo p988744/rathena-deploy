@@ -166,16 +166,24 @@ if [ -d "/rathena-overlay" ]; then
     echo "   overlay 套用完成"
 fi
 
-# 修正 Napeo (20922) 的 NPC_ 技能 — 替換為相容的玩家技能避免 crash
-# NPC_WINDATTACK  → WZ_JUPITEL (84)  單體風屬性
-# NPC_COMBOATTACK → MO_COMBOFINISH (273) 多段物理連擊
-# NPC_SPLASHATTACK → KN_BOWLINGBASH (62) 範圍物理
-# NPC_DARKTHUNDER → MG_THUNDERSTORM (21) 範圍雷電
-sed -i 's/20922,CHIMERA_NAPEO@NPC_WINDATTACK,attack,187,5/20922,CHIMERA_NAPEO@WZ_JUPITEL,attack,84,5/' /rathena/db/re/mob_skill_db.txt
-sed -i 's/20922,CHIMERA_NAPEO@NPC_COMBOATTACK,attack,171,3/20922,CHIMERA_NAPEO@MO_COMBOFINISH,attack,273,3/' /rathena/db/re/mob_skill_db.txt
-sed -i 's/20922,CHIMERA_NAPEO@NPC_SPLASHATTACK,attack,174,1/20922,CHIMERA_NAPEO@KN_BOWLINGBASH,attack,62,1/' /rathena/db/re/mob_skill_db.txt
-sed -i 's/20922,CHIMERA_NAPEO@NPC_DARKTHUNDER,attack,341,5/20922,CHIMERA_NAPEO@MG_THUNDERSTORM,attack,21,5/' /rathena/db/re/mob_skill_db.txt
-echo "   已替換 Napeo NPC_ 技能為相容版本"
+# Replace ALL NPC_ skills globally with compatible player skills to prevent map server crashes.
+# Pattern: @NPC_SKILLNAME,<state>,<skill_id>, → @REPLACEMENT,<state>,<new_id>,
+# Any remaining NPC_ lines are deleted as a catch-all.
+sed -i 's|@NPC_FIREATTACK,\([^,]*\),186,|@MG_FIREBALL,\1,17,|g'      /rathena/db/re/mob_skill_db.txt
+sed -i 's|@NPC_WINDATTACK,\([^,]*\),187,|@WZ_JUPITEL,\1,84,|g'       /rathena/db/re/mob_skill_db.txt
+sed -i 's|@NPC_POISONATTACK,\([^,]*\),188,|@MG_NAPALMBEAT,\1,11,|g'  /rathena/db/re/mob_skill_db.txt
+sed -i 's|@NPC_HOLYATTACK,\([^,]*\),189,|@AL_HOLYLIGHT,\1,156,|g'    /rathena/db/re/mob_skill_db.txt
+sed -i 's|@NPC_COMBOATTACK,\([^,]*\),171,|@MO_COMBOFINISH,\1,273,|g' /rathena/db/re/mob_skill_db.txt
+sed -i 's|@NPC_SPLASHATTACK,\([^,]*\),174,|@KN_BOWLINGBASH,\1,62,|g' /rathena/db/re/mob_skill_db.txt
+sed -i 's|@NPC_CRITICALSLASH,\([^,]*\),170,|@KN_BOWLINGBASH,\1,62,|g' /rathena/db/re/mob_skill_db.txt
+sed -i 's|@NPC_PIERCINGATT,\([^,]*\),158,|@KN_PIERCE,\1,56,|g'       /rathena/db/re/mob_skill_db.txt
+sed -i 's|@NPC_RANGEATTACK,\([^,]*\),160,|@WZ_JUPITEL,\1,84,|g'      /rathena/db/re/mob_skill_db.txt
+sed -i 's|@NPC_DARKTHUNDER,\([^,]*\),341,|@MG_THUNDERSTORM,\1,21,|g' /rathena/db/re/mob_skill_db.txt
+sed -i 's|@NPC_EARTHQUAKE,\([^,]*\),653,|@KN_BOWLINGBASH,\1,62,|g'   /rathena/db/re/mob_skill_db.txt
+sed -i 's|@NPC_HELLJUDGEMENT,\([^,]*\),662,|@WZ_METEOR,\1,83,|g'     /rathena/db/re/mob_skill_db.txt
+# Delete any remaining NPC_ skill lines not matched above
+sed -i '/@NPC_/d' /rathena/db/re/mob_skill_db.txt
+echo "   Replaced all NPC_ skills with compatible player skills"
 
 # 啟用 custom warper（含幻影地圖傳送）
 sed -i 's|//npc: npc/custom/warper.txt|npc: npc/custom/warper.txt|' /rathena/npc/scripts_custom.conf

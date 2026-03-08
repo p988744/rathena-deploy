@@ -136,8 +136,8 @@ Body:
         StealProtected: true
 
   - Id: 20601
-    AegisName: ZENY_SPIRIT
-    Name: 金幣精靈
+    AegisName: ZENY_ELF
+    Name: Zeny Elf
     Level: 100
     Hp: 300000
     BaseExp: 0
@@ -167,7 +167,7 @@ Body:
     Ai: 02
     Class: Normal
     ViewData:
-      SpriteId: 1096
+      SpriteId: 1002
     Modes:
       CanMove: true
       CanAttack: false

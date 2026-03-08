@@ -1,338 +1,605 @@
 //===== rAthena Script =======================================
-//= 金幣精靈（Zeny Spirit）
+//= Zeny Elf
 //===== Description: =========================================
-//= 擊殺後隨機給予 100萬～1000萬 Zeny
-//= 遍布全野外及地穴，每張地圖 50 隻
-//= Mob ID: 20601，外觀借用 Angeling (1096)
+//= On kill, randomly rewards 1M~10M Zeny to the killer.
+//= Spawns across all fields, dungeons, and guild dungeons.
+//= 50 per map, 60s respawn. Mob ID: 20601 (sprite: 1002)
 //============================================================
 
-// === 擊殺事件：給予隨機 Zeny ===
--	script	ZenySpirit_KillEvent	-1,{
+// === Kill event: award random Zeny ===
+-	script	ZenyElf_KillEvent	-1,{
 	end;
 
 	OnNPCKillEvent:
 		if (killedrid == 20601) {
 			.@zeny = rand(1000000, 10000000);
 			Zeny += .@zeny;
-			dispbottom "金幣精靈掉落了 " + .@zeny + " Zeny！";
+			dispbottom "Zeny Elf dropped " + .@zeny + " Zeny!";
 		}
 		end;
 }
 
 // ============================================================
-// === 出沒地圖：野外
+// Fields
 // ============================================================
 
-// --- Prontera 周邊 ---
-prt_fild00,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-prt_fild01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-prt_fild02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-prt_fild03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-prt_fild04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-prt_fild05,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-prt_fild06,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-prt_fild07,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-prt_fild08,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-prt_fild09,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-prt_fild10,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-prt_fild11,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
+// --- Amatsu ---
+ama_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
 
-// --- Geffen 周邊 ---
-gef_fild00,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_fild01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_fild02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_fild03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_fild04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_fild05,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_fild06,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_fild07,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_fild08,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_fild09,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_fild10,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_fild11,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_fild12,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_fild13,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_fild14,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
+// --- Ayothaya ---
+ayo_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ayo_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
 
-// --- Payon 周邊 ---
-pay_fild01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-pay_fild02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-pay_fild03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-pay_fild04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-pay_fild05,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-pay_fild06,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-pay_fild07,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-pay_fild08,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-pay_fild09,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-pay_fild10,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-pay_fild11,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
+// --- Bifrost ---
+bif_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+bif_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
 
-// --- Morocc 周邊 ---
-moc_fild01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild05,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild06,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild07,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild08,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild09,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild10,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild11,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild12,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild13,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild14,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild15,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild16,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild17,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild18,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild19,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild20,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild21,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_fild22,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
+// --- Brasilis ---
+bra_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
 
-// --- Mjolnir ---
-mjolnir01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mjolnir02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mjolnir03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mjolnir04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mjolnir05,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mjolnir06,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mjolnir07,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mjolnir08,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mjolnir09,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mjolnir10,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mjolnir11,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mjolnir12,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
+// --- Comodo ---
+cmd_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+cmd_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+cmd_fild03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+cmd_fild04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+cmd_fild05,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+cmd_fild06,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+cmd_fild07,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+cmd_fild08,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+cmd_fild09,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
 
-// --- Comodo 周邊 ---
-cmd_fild01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-cmd_fild02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-cmd_fild03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-cmd_fild04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-cmd_fild05,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-cmd_fild06,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-cmd_fild07,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-cmd_fild08,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-cmd_fild09,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Hugel 周邊 ---
-arug_fild01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-arug_fild02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-arug_fild03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-arug_fild04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-arug_fild05,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-arug_fild06,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-arug_fild07,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-arug_fild08,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-arug_fild09,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-arug_fild10,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Juno/Yuno 周邊 ---
-yuno_fild01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-yuno_fild02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-yuno_fild03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-yuno_fild04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-yuno_fild05,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-yuno_fild06,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-yuno_fild07,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-yuno_fild08,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-yuno_fild09,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-yuno_fild10,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-yuno_fild11,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Rachel 周邊 ---
-ra_fild01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ra_fild02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ra_fild03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ra_fild04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ra_fild05,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ra_fild06,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ra_fild07,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ra_fild08,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ra_fild09,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ra_fild10,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ra_fild11,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ra_fild12,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ra_fild13,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Veins 周邊 ---
-ve_fild01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ve_fild02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ve_fild03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ve_fild04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ve_fild05,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ve_fild06,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ve_fild07,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Lighthalzen 周邊 ---
-lhz_fild01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-lhz_fild02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-lhz_fild03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Manuk / Splendide ---
-man_fild01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-man_fild02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-man_fild03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-spl_fild01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-spl_fild02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-spl_fild03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// ============================================================
-// === 出沒地圖：地穴 / 迷宮
-// ============================================================
-
-// --- Prontera 地下城 ---
-prt_cas01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-prt_cas02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-prt_cas03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-prt_cas04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-prt_cas05,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Geffen 地穴 ---
-gef_dun00,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_dun03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gef_dun04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Payon 洞窟 ---
-pay_dun00,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-pay_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-pay_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-pay_dun03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-pay_dun04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Morocc 金字塔 ---
-moc_pryd01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_pryd02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_pryd03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_pryd04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_pryd05,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-moc_pryd06,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Glast Heim ---
-gl_cas01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gl_cas02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gl_chyard,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gl_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gl_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gl_kh01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gl_kh02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Izlude 地穴 ---
-iz_dun00,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-iz_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-iz_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-iz_dun03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-iz_dun04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-iz_dun05,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Ant Hell / Sphinx ---
-anthell01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-anthell02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-in_sphinx1,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-in_sphinx2,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-in_sphinx3,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-in_sphinx4,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-in_sphinx5,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Aldebaran 地穴（玩具廠）---
-alde_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-alde_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-alde_dun03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-alde_dun04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Orc Dungeon / Mjolnir 地穴 ---
-orc_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-orc_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mjo_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mjo_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mjo_dun03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Comodo 地穴（龜島）---
-tur_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-tur_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-tur_dun03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-tur_dun04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-tur_dun05,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Magma Dungeon ---
-mag_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mag_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Thanatos Tower ---
-tha_t01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-tha_t02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-tha_t03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-tha_t04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-tha_t05,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-tha_t06,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-tha_t07,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-tha_t08,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-tha_t09,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-tha_t10,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-tha_t11,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-tha_t12,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Nameless Island / Abbey ---
-nameless_n,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-abbey01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-abbey02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-abbey03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Rachel Sanctuary ---
-ra_san01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ra_san02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ra_san03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ra_san04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ra_san05,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Veins 地穴（Abyss Lake）---
-abyss_01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-abyss_02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-abyss_03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-
-// --- Lighthalzen 地穴 ---
-lhz_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-lhz_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-lhz_dun03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
+// --- Dewata ---
+dew_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
 
 // --- Eclage ---
-ecl_tdun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ecl_tdun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ecl_tdun03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ecl_tdun04,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ecl_tdun05,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
+ecl_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
 
-// --- Nidhoggur ---
-nyd_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-nyd_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
+// --- Einbroch ---
+ein_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ein_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ein_fild03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ein_fild04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ein_fild05,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ein_fild06,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ein_fild07,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ein_fild08,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ein_fild09,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ein_fild10,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
 
-// --- 東方地圖 ---
-kh_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-kh_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-lou_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-lou_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-lou_dun03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ama_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ama_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ama_dun03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gon_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gon_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-gon_dun03,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ayo_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ayo_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
+// --- El Dicastes ---
+dic_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+dic_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
 
-// --- Renewal 地區 ---
-dic_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-dic_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-bra_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-bra_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-dew_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-dew_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mal_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mal_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ma_dun01,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-ma_dun02,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
-mora_cave,0,0,0,0	monster	金幣精靈	20601,50,60000,0,0
+// --- Frozen Scale / Jor ---
+jor_back1,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+jor_back2,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+jor_back3,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+jor_tail,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Geffen ---
+gef_fild00,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_fild03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_fild04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_fild05,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_fild06,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_fild07,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_fild08,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_fild09,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_fild10,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_fild11,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_fild12,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_fild13,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_fild14,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Grey Wolf Forest ---
+gw_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gw_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Hugel ---
+hu_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+hu_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+hu_fild03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+hu_fild04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+hu_fild05,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+hu_fild06,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+hu_fild07,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Juno / Yuno ---
+yuno_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+yuno_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+yuno_fild03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+yuno_fild04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+yuno_fild05,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+yuno_fild06,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+yuno_fild07,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+yuno_fild08,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+yuno_fild09,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+yuno_fild10,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+yuno_fild11,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+yuno_fild12,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Kiwawa Desert ---
+rockrdg1,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+rockrdg2,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Kunlun ---
+gon_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Lasagna ---
+lasa_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+lasa_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Lighthalzen ---
+lhz_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+lhz_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+lhz_fild03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Luoyang ---
+lou_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Lutie ---
+xmas_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Malaya ---
+ma_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ma_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Manuk ---
+man_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+man_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+man_fild03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Mjolnir ---
+mjolnir01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mjolnir02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mjolnir03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mjolnir04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mjolnir05,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mjolnir06,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mjolnir07,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mjolnir08,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mjolnir09,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mjolnir10,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mjolnir11,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mjolnir12,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Moscovia ---
+mosk_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mosk_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Niflheim ---
+nif_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+nif_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Payon ---
+pay_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+pay_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+pay_fild03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+pay_fild04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+pay_fild05,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+pay_fild06,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+pay_fild07,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+pay_fild08,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+pay_fild09,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+pay_fild10,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+pay_fild11,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Prontera ---
+prt_fild00,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_fild03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_fild04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_fild05,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_fild06,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_fild07,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_fild08,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_fild09,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_fild10,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_fild11,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Rachel ---
+ra_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ra_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ra_fild03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ra_fild04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ra_fild05,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ra_fild06,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ra_fild07,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ra_fild08,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ra_fild09,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ra_fild10,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ra_fild11,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ra_fild12,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ra_fild13,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Sograt Desert ---
+moc_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_fild03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_fild07,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_fild11,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_fild12,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_fild13,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_fild16,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_fild17,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_fild18,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_fild19,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_fild20,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_fild21,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_fild22,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Splendide ---
+spl_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+spl_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+spl_fild03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Umbala ---
+um_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+um_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+um_fild03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+um_fild04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Veins ---
+ve_fild01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ve_fild02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ve_fild03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ve_fild04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ve_fild05,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ve_fild06,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ve_fild07,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// ============================================================
+// Dungeons
+// ============================================================
+
+// --- Amicitia ---
+amicitia1,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+amicitia2,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Abyss Lake ---
+abyss_01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+abyss_02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+abyss_03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+abyss_04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Amatsu Dungeon ---
+ama_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ama_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ama_dun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Anthell ---
+anthell01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+anthell02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Ayothaya Dungeon ---
+ayo_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ayo_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Beach Dungeon ---
+beach_dun,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+beach_dun2,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+beach_dun3,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Bifrost Tower ---
+ecl_tdun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ecl_tdun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ecl_tdun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ecl_tdun04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ecl_tdun05,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Bio Lab ---
+lhz_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+lhz_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+lhz_dun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+lhz_dun04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+lhz_dun_n,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Brasilis Dungeon ---
+bra_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+bra_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Byalan Dungeon ---
+iz_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+iz_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+iz_dun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+iz_dun04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+iz_dun05,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+iz_dun06,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Clock Tower ---
+c_tower1,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+c_tower2,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+c_tower3,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+c_tower4,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+alde_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+alde_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+alde_dun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+alde_dun04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+c_tower2_,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+c_tower3_,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+clock_01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Coal Mines ---
+mjo_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mjo_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mjo_dun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Culvert ---
+prt_sewb1,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_sewb2,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_sewb3,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_sewb4,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Cursed Abbey ---
+abbey01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+abbey02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+abbey03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Dewata Dungeon ---
+dew_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+dew_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Einbroch Dungeon ---
+ein_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ein_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ein_dun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Gefenia ---
+gefenia01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gefenia02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gefenia03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gefenia04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Geffen Dungeon ---
+gef_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_dun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_dun04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Glast Heim ---
+glast_01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_cas01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_cas02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_knt01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_knt02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_chyard,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_sew01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_sew02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_sew03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_sew04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_church,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_step,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_prison,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_prison1,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_cas02_,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_chyard_,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gl_cas01_,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Hidden Dungeon ---
+prt_maze01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_maze02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_maze03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Ice Dungeon ---
+ice_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ice_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ice_dun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ice_dun04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Instance Dungeons ---
+tur_d03_i,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+tur_d04_i,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ice_d03_i,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_mz03_i,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+com_d02_i,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+pay_d03_i,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ein_d02_i,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ant_d02_i,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+iz_d04_i,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+iz_d05_i,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gef_d01_i,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Jor Dungeon ---
+jor_ab01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+jor_ab02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+jor_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+jor_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Juperos ---
+jupe_cave,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+juperos_01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+juperos_02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+jupe_core,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ver_eju,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Kiel Dungeon ---
+kh_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+kh_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Kunlun Dungeon ---
+gon_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gon_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gon_dun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Lasagna Dungeon ---
+lasa_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+lasa_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+lasa_dun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Luoyang Dungeon ---
+lou_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+lou_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+lou_dun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Magma Dungeon ---
+mag_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mag_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mag_dun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Malangdo Dungeon ---
+mal_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mal_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Moscovia Dungeon ---
+mosk_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mosk_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+mosk_dun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Nidhogg's Dungeon ---
+nyd_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+nyd_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Niflheim Dungeon ---
+nif_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+nif_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Odin Temple ---
+odin_tem01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+odin_tem02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+odin_tem03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+odin_past,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Orc Dungeon ---
+orc_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+orc_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Oz Labyrinth ---
+oz_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+oz_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Payon Dungeon ---
+pay_dun00,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+pay_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+pay_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+pay_dun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+pay_dun04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+pay_dun05,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Prontera Prison / Invasion ---
+prt_prison,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+prt_q,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Pyramid ---
+moc_pryd01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_pryd02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_pryd03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_pryd04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_pryd05,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_pryd06,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_prydn1,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+moc_prydn2,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Rachel Sanctuary ---
+ra_san01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ra_san02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ra_san03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ra_san04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ra_san05,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Rock Ridge Mine ---
+rockmi1,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+harboro2,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Rudus Dungeon ---
+sp_rudus,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+sp_rudus2,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+sp_rudus3,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+sp_rudus4,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Scaraba Hole ---
+dic_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+dic_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+dic_dun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Sphinx ---
+in_sphinx1,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+in_sphinx2,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+in_sphinx3,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+in_sphinx4,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+in_sphinx5,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Sunken Ship ---
+treasure01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+treasure02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Thanatos Tower ---
+tha_t01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+tha_t02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+tha_t03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+tha_t04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+tha_t05,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+tha_t06,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+tha_t07,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+tha_t08,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+tha_t09,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+tha_t10,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+tha_t11,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+tha_t12,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Thor Volcano ---
+thor_v01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+thor_v02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+thor_v03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Toy Factory ---
+xmas_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+xmas_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Turtle Dungeon ---
+tur_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+tur_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+tur_dun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+tur_dun04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+tur_dun05,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Umbala / Yggdrasil ---
+um_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+um_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+yggdrasil01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Bakonawa / Buwaya ---
+ba_pw02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ba_pw01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ba_pw03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ba_bath,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ba_lost,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ba_lib,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ba_2whs01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+ba_2whs02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+bl_death,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+bl_lava,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+bl_grass,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+bl_ice,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Verus ---
+verus01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+verus02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+verus03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Mora Cave ---
+mora_cave,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// --- Nameless Island ---
+nameless_n,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+
+// ============================================================
+// Guild Dungeons
+// ============================================================
+
+gld_dun01,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gld_dun01_2,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gld2_pay,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gld_dun02,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gld_dun02_2,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gld2_ald,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gld_dun03,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gld_dun03_2,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gld2_prt,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gld_dun04,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gld_dun04_2,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
+gld2_gef,0,0,0,0	monster	Zeny Elf	20601,50,60000,0,0
