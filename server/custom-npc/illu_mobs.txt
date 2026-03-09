@@ -25,49 +25,54 @@ gef_d01_i,0,0,0,0	boss_monster	Dracula of Rage	3757,1,7200000,600000,1
 //==================================================
 // pay_d03_i — Illusion of Moonlight
 //==================================================
-pay_d03_i,0,0	monster	Illusion Nine Tail	3759,40,5000
-pay_d03_i,0,0	monster	Illusion Munak	3760,30,5000
-pay_d03_i,0,0	monster	Illusion Bon Gun	3761,30,5000
-pay_d03_i,0,0	monster	Illusion Sohee	3762,25,5000
-pay_d03_i,0,0	monster	Illusion Archer Skeleton	3763,25,5000
-pay_d03_i,0,0	monster	Illusion High Wizard	3764,10,5000
-pay_d03_i,0,0	monster	Deranged Adventurer	3765,5,15000
+pay_d03_i,0,0	monster	Illusion Nine Tail	3759,10,5000
+pay_d03_i,0,0	monster	Illusion Munak	3760,10,5000
+pay_d03_i,0,0	monster	Illusion Bon Gun	3761,10,5000
+pay_d03_i,0,0	monster	Illusion Sohee	3762,10,5000
+pay_d03_i,0,0	monster	Illusion Archer Skeleton	3763,10,5000
+pay_d03_i,0,0	monster	Illusion High Wizard	3764,5,5000
+pay_d03_i,0,0	monster	Deranged Adventurer	3765,10,15000
+pay_d03_i,0,0	monster	Blue plant	1079,1,5000
+pay_d03_i,0,0	monster	White Plant	1082,5,5000
+pay_d03_i,0,0	monster	Green Plant	1080,1,5000
+pay_d03_i,0,0	monster	Yello Plant	1081,1,5000
+pay_d03_i,0,0	monster	Whisper	1185,1,5000
 pay_d03_i,0,0,0,0	boss_monster	Illusion Moonlight	3758,1,7200000,600000,1
 
 //==================================================
 // ice_d03_i — Illusion of Frozen
 //==================================================
-ice_d03_i,0,0	monster	Illusion Gazeti	3792,50,5000
-ice_d03_i,0,0	monster	Illusion Snowier	3793,40,5000
-ice_d03_i,0,0	monster	Illusion Ice Titan	3794,40,5000
+ice_d03_i,0,0	monster	Illusion Gazeti	3792,30,5000
+ice_d03_i,0,0	monster	Illusion Snowier	3793,30,5000
+ice_d03_i,0,0	monster	Illusion Ice Titan	3794,30,5000
 ice_d03_i,0,0	monster	Illusion Icicle	3795,30,5000
-ice_d03_i,0,0	monster	Illusion Frozen Knight	3797,20,5000
-ice_d03_i,0,0	monster	Illusion Frozen Guard	3798,15,5000
 ice_d03_i,0,0,0,0	boss_monster	Illusion Ktullanux	3796,1,7200000,600000,1
 
 //==================================================
 // tur_d03_i — Illusion of Abyss (Floor 1)
 //==================================================
-tur_d03_i,0,0	monster	Illusion Assulter	3799,50,5000
-tur_d03_i,0,0	monster	Illusion Permeter	3800,50,5000
-tur_d03_i,0,0	monster	Illusion Freezer	3801,40,5000
-tur_d03_i,0,0	monster	Illusion Solider	3802,40,5000
+tur_d03_i,0,0	monster	Illusion Permeter	3800,70,5000
+tur_d03_i,0,0	monster	Illusion Solider	3802,30,5000
 
 //==================================================
 // tur_d04_i — Illusion of Abyss (Floor 2)
 //==================================================
-tur_d04_i,0,0	monster	Illusion Heater	3803,80,5000
+tur_d04_i,0,0	monster	Illusion Permeter	3800,30,5000
+tur_d04_i,0,0	monster	Illusion Solider	3802,30,5000
+tur_d04_i,0,0	monster	Illusion Heater	3803,30,5000
+tur_d04_i,0,0	monster	Illusion Assulter	3799,30,5000
+tur_d04_i,0,0	monster	Illusion Freezer	3801,30,5000
 tur_d04_i,0,0,0,0	boss_monster	Illusion Turtle General	3804,1,7200000,600000,1
 
 //==================================================
 // ein_d02_i — Illusion of Teddy Bear
 //==================================================
-ein_d02_i,0,0	monster	Illusion Teddy Bear (Red)	20255,20,5000
-ein_d02_i,0,0	monster	Illusion Teddy Bear (Yellow)	20256,20,5000
-ein_d02_i,0,0	monster	Illusion Teddy Bear (Green)	20257,20,5000
+ein_d02_i,0,0	monster	Illusion Teddy Bear (Red)	20255,70,5000
+ein_d02_i,0,0	monster	Illusion Teddy Bear (Yellow)	20256,70,5000
+ein_d02_i,0,0	monster	Illusion Teddy Bear (Green)	20257,70,5000
 ein_d02_i,0,0	monster	Illusion Teddy Bear (White)	20258,20,5000
 ein_d02_i,0,0	monster	Illusion Teddy Bear (Blue)	20259,20,5000
-ein_d02_i,0,0	monster	Illusion Teddy Bear (Silver)	20260,10,5000
+ein_d02_i,0,0,0,0	boss_monster	Illusion Teddy Bear (Silver)	20260,1,7200000,600000,1
 ein_d02_i,0,0	monster	Illusion Pitman	20261,30,5000
 ein_d02_i,0,0	monster	Illusion Mineral	20262,30,5000
 ein_d02_i,0,0	monster	Illusion Obsidian	20263,20,5000
@@ -75,21 +80,21 @@ ein_d02_i,0,0	monster	Illusion Obsidian	20263,20,5000
 //==================================================
 // com_d02_i — Illusion of Luanda
 //==================================================
-com_d02_i,0,0	monster	Illusion Tri-Joint	20270,40,5000
-com_d02_i,0,0	monster	Illusion Stalactic Golem	20271,30,5000
-com_d02_i,0,0	monster	Illusion Megalith	20272,30,5000
-com_d02_i,0,0	monster	Illusion Tao Gunka	20273,20,5000
-com_d02_i,0,0	monster	Illusion Stone Shooter	20274,25,5000
-com_d02_i,0,0	monster	Illusion Wootan Shooter	20275,20,5000
-com_d02_i,0,0	monster	Illusion Wootan Fighter	20276,20,5000
-com_d02_i,0,0	monster	Illusion Wootan Defender	20277,20,5000
+com_d02_i,0,0	monster	Illusion Tri-Joint	20270,70,5000
+com_d02_i,0,0	monster	Illusion Stalactic Golem	20271,70,5000
+com_d02_i,0,0	monster	Illusion Megalith	20272,70,5000
+com_d02_i,0,0	monster	Illusion Stone Shooter	20274,75,5000
+com_d02_i,0,0	monster	Illusion Wootan Shooter	20275,70,5000
+com_d02_i,0,0	monster	Illusion Wootan Fighter	20276,70,5000
+com_d02_i,0,0,0,0	boss_monster	Illusion Tao Gunka	20273,1,7200000,600000,1
+com_d02_i,0,0,0,0	boss_monster	Illusion Wootan Defender	20277,1,7200000,600000,1
 
 //==================================================
 // prt_mz03_i — Illusion of Labyrinth (幻影迷藏森林)
 // Note: No specific illusion mobs in this rAthena version.
 //       Using prt_maze03 mobs as open-world placeholder.
 //==================================================
-prt_mz03_i,0,0	monster	Chaotic Poporing	20531,10,5000
+prt_mz03_i,0,0	monster	Chaotic Poporing	20531,50,5000
 prt_mz03_i,0,0	monster	Chaotic Hunter Fly	20527,50,5000
 prt_mz03_i,0,0	monster	Chaotic Mantis	20528,50,60000,30000
 prt_mz03_i,0,0	monster	Chaotic Ghostring	20529,10,5000
@@ -110,7 +115,7 @@ odin_past,0,0	monster	Holy Frus	20606,75,5000
 odin_past,0,0	monster	Holy Skogul	20607,75,5000
 odin_past,0,0	monster	Arch Plasma	20608,5,5000
 odin_past,0,0	monster	Plasma Spectrum	20609,5,5000
-odin_past,0,0	monster	Shining plant	1083,5,5000
+odin_past,0,0	monster	Shining plant	1083,2,5000
 odin_past,0,0	monster	Blue plant	1079,5,5000
 odin_past,0,0,0,0	boss_monster	Valkyrie Reginleif	20610,1,7200000,600000,1
 odin_past,0,0,0,0	boss_monster	Valkyrie Ingrid	20611,1,7200000,600000,1
