@@ -1,0 +1,53 @@
+//===== Custom Script =========================================
+//= Custom Ecosystem Mobs Spawns
+//===== Description ===========================================
+//= 怪物資訊依照 (英文名稱 ID 數量 重生時間) 排序
+//=============================================================
+
+//==================================================
+// 地圖 bl_death 怪物如下:
+//==================================================
+bl_death,0,0	monster	Ancient Mummy of Death	21572,30,0
+bl_death,0,0	monster	Banshee of Death	21577,45,0
+bl_death,0,0	monster	Flame Skull of Fire	21576,35,0
+bl_death,0,0	monster	Knight of Abyss	21578,15,0
+bl_death,0,0	monster	Lord of Death	21579,1,0
+bl_death,0,0	monster	Lude of Death	21573,35,0
+bl_death,0,0	monster	Ragged Zombie of Death	21574,30,0
+bl_death,0,0	monster	Wraith of Death	21575,35,0
+
+//==================================================
+// 地圖 bl_grass 怪物如下:
+//==================================================
+bl_grass,0,0	monster	Cornus of Prairie	21548,40,0
+bl_grass,0,0	monster	Flora of Prairie	21553,25,0
+bl_grass,0,0	monster	Hill Wind of Prairie	21554,45,0
+bl_grass,0,0	monster	Hunter Fly of Prairie	21550,25,0
+bl_grass,0,0	monster	Mistress of Prairie	21555,1,0
+bl_grass,0,0	monster	Pinguicula of Prairie	21549,45,0
+bl_grass,0,0	monster	Rocker of Prairie	21551,40,0
+bl_grass,0,0	monster	Savage of Prairie	21552,40,0
+
+//==================================================
+// 地圖 bl_ice 怪物如下:
+//==================================================
+bl_ice,0,0	monster	Angelgolt of Iceberg	21569,25,0
+bl_ice,0,0	monster	Aqua Elemental	21568,45,0
+bl_ice,0,0	monster	Centipede of Iceberg	21567,35,0
+bl_ice,0,0	monster	Ice Titan of Iceberg	21564,35,0
+bl_ice,0,0	monster	Ktullanux of Iceberg	21571,1,0
+bl_ice,0,0	monster	Rhyncho of Prairie	21570,15,0
+bl_ice,0,0	monster	Siroma of Iceberg	21565,35,0
+bl_ice,0,0	monster	Snowier of Iceberg	21566,35,0
+
+//==================================================
+// 地圖 bl_lava 怪物如下:
+//==================================================
+bl_lava,0,0	monster	Acidus of Fire	21562,35,0
+bl_lava,0,0	monster	Deleter of Fire(Sky)	21557,40,0
+bl_lava,0,0	monster	Ditardeurs of Fire	21563,1,0
+bl_lava,0,0	monster	Explosion of Fire	21556,40,0
+bl_lava,0,0	monster	Hydrolancer of Fire	21561,15,0
+bl_lava,0,0	monster	Jakk of Fire	21558,30,0
+bl_lava,0,0	monster	Lava Golem of Fire	21559,35,0
+bl_lava,0,0	monster	Majoruros of Fire	21560,30,0

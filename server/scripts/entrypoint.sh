@@ -212,6 +212,22 @@ if [ -f "/rathena/npc/custom/illu_mobs.txt" ]; then
     echo "   已啟用幻影地下城怪物 spawn"
 fi
 
+# 啟用生態圈 spawn
+if [ -f "/rathena/npc/custom/eco_mobs.txt" ]; then
+    if ! grep -q 'eco_mobs.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/eco_mobs.txt' >> /rathena/npc/scripts_custom.conf
+    fi
+    echo "   已啟用生態圈怪物 spawn"
+fi
+
+# 啟用重置npc spawn
+if [ -f "/rathena/npc/custom/reset_npc.txt" ]; then
+    if ! grep -q 'reset_npc.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/reset_npc.txt' >> /rathena/npc/scripts_custom.conf
+    fi
+    echo "   已啟用重置npc spawn"
+fi
+
 # 啟用金幣精靈（全野外 + 地穴，擊殺給 Zeny）
 if [ -f "/rathena/npc/custom/zeny_mob.txt" ]; then
     if ! grep -q 'zeny_mob.txt' /rathena/npc/scripts_custom.conf; then

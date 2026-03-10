@@ -106,7 +106,7 @@ Body:
     ChaseRange: 12
     Size: Small
     Race: Demon
-    Element: Shadow
+    Element: Dark
     ElementLevel: 1
     WalkSpeed: 100
     AttackDelay: 687
@@ -137,43 +137,6 @@ Body:
         Rate: 1
         StealProtected: true
 
-  - Id: 20601
-    AegisName: ZENY_ELF
-    Name: Zeny Elf
-    Level: 100
-    Hp: 300000
-    BaseExp: 0
-    JobExp: 0
-    Attack: 1
-    Attack2: 1
-    Defense: 30
-    MagicDefense: 30
-    Str: 1
-    Agi: 60
-    Vit: 40
-    Int: 1
-    Dex: 60
-    Luk: 100
-    AttackRange: 1
-    SkillRange: 10
-    ChaseRange: 12
-    Size: Small
-    Race: Angel
-    Element: Holy
-    ElementLevel: 3
-    WalkSpeed: 200
-    AttackDelay: 1872
-    AttackMotion: 672
-    DamageMotion: 480
-    DamageTaken: 100
-    Ai: 02
-    Class: Normal
-    ViewData:
-      SpriteId: 1002
-    Modes:
-      CanMove: true
-      CanAttack: false
-
   - Id: 20520
     AegisName: ILL_BAPHOMET
     Name: Chaos Baphomet
@@ -197,7 +160,7 @@ Body:
     ChaseRange: 12
     Size: Large
     Race: Demon
-    Element: Shadow
+    Element: Dark
     ElementLevel: 3
     WalkSpeed: 100
     AttackDelay: 575
@@ -212,6 +175,7 @@ Body:
       Aggressive: true
       ChangeTargetMelee: true
       ChangeTargetChase: true
+      Mvp: true
     Drops:
       - Item: Bapho_Doll
         Rate: 1000
@@ -252,7 +216,7 @@ Body:
     SkillRange: 10
     ChaseRange: 12
     Size: Medium
-    Race: Beast
+    Race: Brute
     Element: Poison
     ElementLevel: 1
     WalkSpeed: 200
@@ -636,6 +600,7 @@ Body:
       Aggressive: true
       ChangeTargetMelee: true
       ChangeTargetChase: true
+      Mvp: true
     Drops:
       - Item: Angel_Dream
         Rate: 7000
@@ -692,6 +657,7 @@ Body:
       Aggressive: true
       ChangeTargetMelee: true
       ChangeTargetChase: true
+      Mvp: true
     Drops:
       - Item: Angel_Dream
         Rate: 7000
@@ -1117,7 +1083,7 @@ Body:
     ChaseRange: 12
     Size: Medium
     Race: Demon
-    Element: Shadow
+    Element: Dark
     ElementLevel: 1
     WalkSpeed: 100
     AttackDelay: 840
@@ -1171,7 +1137,7 @@ Body:
     ChaseRange: 12
     Size: Medium
     Race: Fish
-    Element: Shadow
+    Element: Dark
     ElementLevel: 1
     WalkSpeed: 300
     AttackDelay: 433
@@ -1346,6 +1312,7 @@ Body:
       CanMove: true
       CanAttack: true
       Aggressive: true
+      Mvp: true
     Drops:
       - Item: Shadowdecon
         Rate: 1000
@@ -1355,6 +1322,1547 @@ Body:
         Rate: 500
       - Item: Goblin_King_Card
         Rate: 1
+
+  - Id: 21554
+    AegisName: ECO_HILL_WIND
+    Name: Hill Wind of Prairie
+    Level: 252
+    Hp: 23931278
+    BaseExp: 1327922
+    JobExp: 927225
+    MvpExp: 0
+    Attack: 13676
+    Attack2: 20287
+    Defense: 305
+    MagicDefense: 166
+    Str: 203
+    Agi: 239
+    Vit: 133
+    Int: 171
+    Dex: 225
+    Luk: 209
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Brute
+    Element: Wind
+    ElementLevel: 3
+    WalkSpeed: 90
+    AttackDelay: 360
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Harpy's_Feather
+        Rate: 2000
+      - Item: Harpy's_Claw
+        Rate: 1500
+      - Item: Shining_Crystal
+        Rate: 2000
+      - Item: Shadowdecon
+        Rate: 17
+      - Item: Shadowdecon_Ore
+        Rate: 180
+
+  - Id: 21555
+    AegisName: ECO_MISTRESS
+    Name: Mistress of Prairie
+    Level: 260
+    Hp: 425100000
+    BaseExp: 6072857
+    JobExp: 4048571
+    MvpExp: 607285
+    Attack: 11771
+    Attack2: 17371
+    Defense: 397
+    MagicDefense: 320
+    Str: 311
+    Agi: 287
+    Vit: 109
+    Int: 187
+    Dex: 380
+    Luk: 97
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Insect
+    Element: Wind
+    ElementLevel: 4
+    WalkSpeed: 100
+    AttackDelay: 649
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Boss
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+      Mvp: true
+    Drops:
+      - Item: Old_Card_Album
+        Rate: 500
+      - Item: Honey
+        Rate: 5000
+      - Item: Royal_Jelly
+        Rate: 2500
+      - Item: Zelunium
+        Rate: 1800
+      - Item: Shadowdecon
+        Rate: 1800
+
+  - Id: 21549
+    AegisName: ECO_PINGUICULA
+    Name: Pinguicula of Prairie
+    Level: 252
+    Hp: 25130533
+    BaseExp: 1308495
+    JobExp: 911366
+    MvpExp: 0
+    Attack: 14953
+    Attack2: 22170
+    Defense: 513
+    MagicDefense: 198
+    Str: 267
+    Agi: 225
+    Vit: 212
+    Int: 171
+    Dex: 238
+    Luk: 223
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Plant
+    Element: Earth
+    ElementLevel: 1
+    WalkSpeed: 150
+    AttackDelay: 481
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Sharp_Leaf
+        Rate: 2500
+      - Item: Aromatic_Flower
+        Rate: 2000
+      - Item: Elder_Branch
+        Rate: 250
+      - Item: Zelunium
+        Rate: 17
+      - Item: Zelunium_Ore
+        Rate: 180
+
+  - Id: 21578
+    AegisName: ECO_KNIGHT_OF_ABYSS
+    Name: Knight of Abyss
+    Level: 255
+    Hp: 26602843
+    BaseExp: 1407874
+    JobExp: 980584
+    MvpExp: 140787
+    Attack: 17189
+    Attack2: 25548
+    Defense: 478
+    MagicDefense: 185
+    Str: 216
+    Agi: 182
+    Vit: 172
+    Int: 139
+    Dex: 193
+    Luk: 180
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Neutral
+    ElementLevel: 1
+    WalkSpeed: 240
+    AttackDelay: 671
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Boss
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+      Mvp: true
+    Drops:
+      - Item: Reins
+        Rate: 2668
+      - Item: Blade_Lost_In_Darkness
+        Rate: 15
+      - Item: Evil_Black_Bid
+        Rate: 2000
+      - Item: Zelunium
+        Rate: 17
+      - Item: Zelunium_Ore
+        Rate: 180
+
+  - Id: 21552
+    AegisName: ECO_SAVAGE
+    Name: Savage of Prairie
+    Level: 252
+    Hp: 30895777
+    BaseExp: 1336711
+    JobExp: 930111
+    MvpExp: 0
+    Attack: 9762
+    Attack2: 14447
+    Defense: 566
+    MagicDefense: 248
+    Str: 139
+    Agi: 135
+    Vit: 189
+    Int: 163
+    Dex: 174
+    Luk: 156
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Brute
+    Element: Earth
+    ElementLevel: 2
+    WalkSpeed: 150
+    AttackDelay: 481
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Wild_Boar's_Mane
+        Rate: 4500
+      - Item: Fresh_Pear
+        Rate: 2000
+      - Item: Savage_Meat
+        Rate: 25
+      - Item: Shadowdecon
+        Rate: 17
+      - Item: Shadowdecon_Ore
+        Rate: 180
+
+  - Id: 21571
+    AegisName: ECO_KTULLANUX
+    Name: Ktullanux of Iceberg
+    Level: 260
+    Hp: 585000000
+    BaseExp: 8357143
+    JobExp: 5571429
+    MvpExp: 835714
+    Attack: 11936
+    Attack2: 17619
+    Defense: 328
+    MagicDefense: 388
+    Str: 311
+    Agi: 287
+    Vit: 200
+    Int: 187
+    Dex: 380
+    Luk: 97
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Brute
+    Element: Water
+    ElementLevel: 4
+    WalkSpeed: 350
+    AttackDelay: 840
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Boss
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+      Mvp: true
+    Drops:
+      - Item: Old_Card_Album
+        Rate: 500
+      - Item: Ice_Scale
+        Rate: 5000
+      - Item: Old_Violet_Box
+        Rate: 2500
+      - Item: Zelunium
+        Rate: 1800
+      - Item: Shadowdecon
+        Rate: 1800
+
+  - Id: 21548
+    AegisName: ECO_CORNUS
+    Name: Cornus of Prairie
+    Level: 254
+    Hp: 27113233
+    BaseExp: 1380517
+    JobExp: 966362
+    MvpExp: 0
+    Attack: 12434
+    Attack2: 18435
+    Defense: 434
+    MagicDefense: 243
+    Str: 178
+    Agi: 146
+    Vit: 169
+    Int: 178
+    Dex: 178
+    Luk: 169
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Brute
+    Element: Holy
+    ElementLevel: 3
+    WalkSpeed: 120
+    AttackDelay: 625
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Mystic_Horn
+        Rate: 4000
+      - Item: Soft_Feather
+        Rate: 1500
+      - Item: Fresh_Pear
+        Rate: 2000
+      - Item: Shadowdecon
+        Rate: 17
+      - Item: Shadowdecon_Ore
+        Rate: 180
+
+  - Id: 21563
+    AegisName: ECO_DETALE
+    Name: Ditardeurs of Fire
+    Level: 260
+    Hp: 614250000
+    BaseExp: 8775000
+    JobExp: 5850000
+    MvpExp: 877500
+    Attack: 11931
+    Attack2: 17611
+    Defense: 503
+    MagicDefense: 289
+    Str: 311
+    Agi: 287
+    Vit: 210
+    Int: 187
+    Dex: 380
+    Luk: 97
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Dragon
+    Element: Dark
+    ElementLevel: 3
+    WalkSpeed: 250
+    AttackDelay: 336
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Boss
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+      Mvp: true
+    Drops:
+      - Item: Treasure_Box
+        Rate: 2500
+      - Item: Scale_Of_Red_Dragon
+        Rate: 1795
+      - Item: Tri_Headed_Dragon_Head
+        Rate: 5000
+      - Item: Zelunium
+        Rate: 1800
+      - Item: Shadowdecon
+        Rate: 1800
+
+  - Id: 21551
+    AegisName: ECO_ROCKER
+    Name: Rocker of Prairie
+    Level: 253
+    Hp: 29188380
+    BaseExp: 1347253
+    JobExp: 943077
+    MvpExp: 0
+    Attack: 10624
+    Attack2: 15723
+    Defense: 431
+    MagicDefense: 241
+    Str: 175
+    Agi: 144
+    Vit: 166
+    Int: 175
+    Dex: 175
+    Luk: 166
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Insect
+    Element: Earth
+    ElementLevel: 1
+    WalkSpeed: 150
+    AttackDelay: 433
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Pro_Instruments
+        Rate: 2000
+      - Item: Green_Feeler
+        Rate: 5
+      - Item: Grasshopper_Doll
+        Rate: 10
+      - Item: Zelunium
+        Rate: 17
+      - Item: Zelunium_Ore
+        Rate: 180
+
+  - Id: 21550
+    AegisName: ECO_HUNTER_FLY
+    Name: Hunter Fly of Prairie
+    Level: 255
+    Hp: 22902181
+    BaseExp: 1373213
+    JobExp: 960771
+    MvpExp: 0
+    Attack: 10306
+    Attack2: 15239
+    Defense: 339
+    MagicDefense: 368
+    Str: 187
+    Agi: 202
+    Vit: 210
+    Int: 284
+    Dex: 260
+    Luk: 284
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Insect
+    Element: Wind
+    ElementLevel: 2
+    WalkSpeed: 120
+    AttackDelay: 433
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Rough_Wind
+        Rate: 25
+      - Item: Steel
+        Rate: 50
+      - Item: Ectoplasmic_Stone
+        Rate: 2000
+      - Item: Shadowdecon
+        Rate: 17
+      - Item: Shadowdecon_Ore
+        Rate: 180
+
+  - Id: 21553
+    AegisName: ECO_FLORA
+    Name: Flora of Prairie
+    Level: 254
+    Hp: 26231246
+    BaseExp: 1352885
+    JobExp: 942285
+    MvpExp: 0
+    Attack: 13564
+    Attack2: 20109
+    Defense: 480
+    MagicDefense: 185
+    Str: 221
+    Agi: 185
+    Vit: 175
+    Int: 141
+    Dex: 253
+    Luk: 184
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Plant
+    Element: Earth
+    ElementLevel: 1
+    WalkSpeed: 1000
+    AttackDelay: 288
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Blossom_Of_Maneater
+        Rate: 4500
+      - Item: Aromatic_Flower
+        Rate: 2000
+      - Item: Leaflet_Of_Aloe
+        Rate: 25
+      - Item: Zelunium
+        Rate: 17
+      - Item: Zelunium_Ore
+        Rate: 180
+
+  - Id: 21577
+    AegisName: ECO_BANSHEE
+    Name: Banshee of Death
+    Level: 254
+    Hp: 24831628
+    BaseExp: 1380517
+    JobExp: 966362
+    MvpExp: 0
+    Attack: 12758
+    Attack2: 18916
+    Defense: 442
+    MagicDefense: 249
+    Str: 188
+    Agi: 155
+    Vit: 179
+    Int: 188
+    Dex: 188
+    Luk: 179
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Demon
+    Element: Dark
+    ElementLevel: 2
+    WalkSpeed: 150
+    AttackDelay: 420
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Old_White_Cloth
+        Rate: 1500
+      - Item: Mementos
+        Rate: 750
+      - Item: Evil_Minded_Ruby
+        Rate: 2000
+      - Item: Shadowdecon
+        Rate: 17
+      - Item: Shadowdecon_Ore
+        Rate: 180
+
+  - Id: 21576
+    AegisName: ECO_FLAME_SKULL
+    Name: Flame Skull of Fire
+    Level: 252
+    Hp: 21469657
+    BaseExp: 1327093
+    JobExp: 928502
+    MvpExp: 0
+    Attack: 11374
+    Attack2: 16855
+    Defense: 318
+    MagicDefense: 340
+    Str: 160
+    Agi: 172
+    Vit: 180
+    Int: 243
+    Dex: 223
+    Luk: 243
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Demon
+    Element: Ghost
+    ElementLevel: 3
+    WalkSpeed: 150
+    AttackDelay: 541
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Skull
+        Rate: 2500
+      - Item: Blaze_Stone
+        Rate: 2000
+      - Item: Mementos
+        Rate: 250
+      - Item: Zelunium
+        Rate: 17
+      - Item: Zelunium_Ore
+        Rate: 180
+
+  - Id: 21575
+    AegisName: ECO_WRAITH
+    Name: Wraith of Death
+    Level: 254
+    Hp: 29822370
+    BaseExp: 1359180
+    JobExp: 951426
+    MvpExp: 0
+    Attack: 10892
+    Attack2: 16123
+    Defense: 434
+    MagicDefense: 244
+    Str: 178
+    Agi: 147
+    Vit: 170
+    Int: 178
+    Dex: 178
+    Luk: 170
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Undead
+    Element: Undead
+    ElementLevel: 4
+    WalkSpeed: 220
+    AttackDelay: 813
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Transparent_Cloth
+        Rate: 2910
+      - Item: Red_Gemstone
+        Rate: 500
+      - Item: Black_Jewelry
+        Rate: 2000
+      - Item: Shadowdecon
+        Rate: 17
+      - Item: Shadowdecon_Ore
+        Rate: 180
+
+  - Id: 21573
+    AegisName: ECO_LUDE
+    Name: Lude of Death
+    Level: 252
+    Hp: 26320301
+    BaseExp: 1317588
+    JobExp: 920009
+    MvpExp: 0
+    Attack: 12569
+    Attack2: 18640
+    Defense: 294
+    MagicDefense: 158
+    Str: 176
+    Agi: 207
+    Vit: 115
+    Int: 148
+    Dex: 195
+    Luk: 181
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Undead
+    Element: Undead
+    ElementLevel: 1
+    WalkSpeed: 90
+    AttackDelay: 481
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Pumpkin_Bucket
+        Rate: 1600
+      - Item: Whittling
+        Rate: 2000
+      - Item: Transparent_Cloth
+        Rate: 500
+      - Item: Shadowdecon
+        Rate: 17
+      - Item: Shadowdecon_Ore
+        Rate: 180
+
+  - Id: 21572
+    AegisName: ECO_ANCIENT_MUMMY
+    Name: Ancient Mummy of Death
+    Level: 253
+    Hp: 28033464
+    BaseExp: 1428239
+    JobExp: 1059517
+    MvpExp: 0
+    Attack: 14486
+    Attack2: 21497
+    Defense: 472
+    MagicDefense: 182
+    Str: 210
+    Agi: 177
+    Vit: 167
+    Int: 135
+    Dex: 188
+    Luk: 175
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Undead
+    Element: Undead
+    ElementLevel: 2
+    WalkSpeed: 140
+    AttackDelay: 719
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Rotten_Bandage
+        Rate: 2207
+      - Item: Evil_Black_Bid
+        Rate: 2000
+      - Item: Silver_Ring
+        Rate: 50
+      - Item: Zelunium
+        Rate: 17
+      - Item: Zelunium_Ore
+        Rate: 180
+
+  - Id: 21574
+    AegisName: ECO_RAGGED_ZOMBIE
+    Name: Ragged Zombie of Death
+    Level: 252
+    Hp: 28560234
+    BaseExp: 1314582
+    JobExp: 920208
+    MvpExp: 0
+    Attack: 9569
+    Attack2: 14158
+    Defense: 400
+    MagicDefense: 222
+    Str: 138
+    Agi: 114
+    Vit: 131
+    Int: 138
+    Dex: 178
+    Luk: 131
+    AttackRange: 9
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Undead
+    Element: Undead
+    ElementLevel: 3
+    WalkSpeed: 150
+    AttackDelay: 575
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Clattering_Skull
+        Rate: 1500
+      - Item: Skel_Bone
+        Rate: 2250
+      - Item: Evil_Minded_Ruby
+        Rate: 2000
+      - Item: Zelunium
+        Rate: 17
+      - Item: Zelunium_Ore
+        Rate: 180
+
+  - Id: 21579
+    AegisName: ECO_LORD_OF_DEATH
+    Name: Lord of Death
+    Level: 260
+    Hp: 523575000
+    BaseExp: 7479643
+    JobExp: 4986429
+    MvpExp: 747964
+    Attack: 11842
+    Attack2: 17477
+    Defense: 503
+    MagicDefense: 388
+    Str: 311
+    Agi: 287
+    Vit: 179
+    Int: 187
+    Dex: 380
+    Luk: 97
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Demon
+    Element: Dark
+    ElementLevel: 3
+    WalkSpeed: 150
+    AttackDelay: 1299
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Boss
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+      Mvp: true
+    Drops:
+      - Item: Boroken_Shiled_Piece
+        Rate: 2668
+      - Item: Shine_Spear_Blade
+        Rate: 5
+      - Item: Oridecon
+        Rate: 500
+      - Item: Zelunium
+        Rate: 1800
+      - Item: Shadowdecon
+        Rate: 1800
+
+  - Id: 21568
+    AegisName: ECO_AQUA_ELEMENTAL
+    Name: Aqua Elemental
+    Level: 253
+    Hp: 25223418
+    BaseExp: 1338947
+    JobExp: 936796
+    MvpExp: 0
+    Attack: 9113
+    Attack2: 13468
+    Defense: 311
+    MagicDefense: 331
+    Str: 149
+    Agi: 161
+    Vit: 167
+    Int: 226
+    Dex: 208
+    Luk: 226
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Formless
+    Element: Water
+    ElementLevel: 4
+    WalkSpeed: 190
+    AttackDelay: 769
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Cool_Liquid
+        Rate: 2000
+      - Item: Fluorescent_Liquid
+        Rate: 2500
+      - Item: Starsand_Of_Witch
+        Rate: 1250
+      - Item: Shadowdecon
+        Rate: 17
+      - Item: Shadowdecon_Ore
+        Rate: 180
+
+  - Id: 21566
+    AegisName: ECO_SNOWIER
+    Name: Snowier of Iceberg
+    Level: 254
+    Hp: 28555443
+    BaseExp: 1359180
+    JobExp: 951426
+    MvpExp: 0
+    Attack: 10640
+    Attack2: 15729
+    Defense: 459
+    MagicDefense: 260
+    Str: 209
+    Agi: 172
+    Vit: 199
+    Int: 209
+    Dex: 209
+    Luk: 199
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Formless
+    Element: Water
+    ElementLevel: 2
+    WalkSpeed: 180
+    AttackDelay: 813
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Green_Crystal_Fragment
+        Rate: 2000
+      - Item: Ice_Piece
+        Rate: 500
+      - Item: Crystal_Blue
+        Rate: 150
+      - Item: Shadowdecon
+        Rate: 17
+      - Item: Shadowdecon_Ore
+        Rate: 180
+
+  - Id: 21565
+    AegisName: ECO_SIROMA
+    Name: Siroma of Iceberg
+    Level: 252
+    Hp: 25201125
+    BaseExp: 1317588
+    JobExp: 920009
+    MvpExp: 0
+    Attack: 12494
+    Attack2: 18512
+    Defense: 306
+    MagicDefense: 167
+    Str: 206
+    Agi: 243
+    Vit: 135
+    Int: 173
+    Dex: 229
+    Luk: 213
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Formless
+    Element: Water
+    ElementLevel: 3
+    WalkSpeed: 90
+    AttackDelay: 649
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Ice_Heart
+        Rate: 250
+      - Item: Green_Crystal_Fragment
+        Rate: 2000
+      - Item: Cold_Ice
+        Rate: 125
+      - Item: Zelunium
+        Rate: 17
+      - Item: Zelunium_Ore
+        Rate: 180
+
+  - Id: 21567
+    AegisName: ECO_CENTIPEDE
+    Name: Centipede of Iceberg
+    Level: 252
+    Hp: 21467484
+    BaseExp: 1316733
+    JobExp: 921254
+    MvpExp: 0
+    Attack: 10271
+    Attack2: 15208
+    Defense: 309
+    MagicDefense: 327
+    Str: 146
+    Agi: 157
+    Vit: 164
+    Int: 221
+    Dex: 203
+    Luk: 221
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Insect
+    Element: Poison
+    ElementLevel: 2
+    WalkSpeed: 150
+    AttackDelay: 794
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Congealed_Poison
+        Rate: 2000
+      - Item: Zargon
+        Rate: 2500
+      - Item: Solid_Shell
+        Rate: 1250
+      - Item: Zelunium
+        Rate: 17
+      - Item: Zelunium_Ore
+        Rate: 180
+
+  - Id: 21564
+    AegisName: ECO_ICE_TITAN
+    Name: Ice Titan of Iceberg
+    Level: 252
+    Hp: 29583419
+    BaseExp: 1326340
+    JobExp: 922895
+    MvpExp: 0
+    Attack: 9639
+    Attack2: 14250
+    Defense: 601
+    MagicDefense: 263
+    Str: 164
+    Agi: 158
+    Vit: 223
+    Int: 192
+    Dex: 204
+    Luk: 183
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Formless
+    Element: Water
+    ElementLevel: 3
+    WalkSpeed: 200
+    AttackDelay: 658
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Ice_Heart
+        Rate: 2500
+      - Item: Hard_Ice
+        Rate: 2000
+      - Item: Cold_Ice
+        Rate: 250
+      - Item: Shadowdecon
+        Rate: 17
+      - Item: Shadowdecon_Ore
+        Rate: 180
+
+  - Id: 21569
+    AegisName: ECO_ANGELGOLT
+    Name: Angelgolt of Iceberg
+    Level: 254
+    Hp: 24831628
+    BaseExp: 1380517
+    JobExp: 966362
+    MvpExp: 0
+    Attack: 12880
+    Attack2: 19099
+    Defense: 442
+    MagicDefense: 249
+    Str: 188
+    Agi: 155
+    Vit: 179
+    Int: 188
+    Dex: 188
+    Luk: 179
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Angel
+    Element: Holy
+    ElementLevel: 4
+    WalkSpeed: 220
+    AttackDelay: 781
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Hard_Ice
+        Rate: 2000
+      - Item: Rune_Of_Darkness
+        Rate: 2000
+      - Item: Stone_Of_Intelligence_
+        Rate: 15
+      - Item: Zelunium
+        Rate: 17
+      - Item: Zelunium_Ore
+        Rate: 180
+
+  - Id: 21570
+    AegisName: ECO_RHYNCHO
+    Name: Rhyncho of Prairie
+    Level: 255
+    Hp: 28018013
+    BaseExp: 1386181
+    JobExp: 965475
+    MvpExp: 0
+    Attack: 14751
+    Attack2: 21872
+    Defense: 506
+    MagicDefense: 195
+    Str: 255
+    Agi: 214
+    Vit: 202
+    Int: 163
+    Dex: 227
+    Luk: 212
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Water
+    ElementLevel: 3
+    WalkSpeed: 220
+    AttackDelay: 658
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Karvodailnirol
+        Rate: 10
+      - Item: Cool_Liquid
+        Rate: 2000
+      - Item: Starsand_Of_Witch
+        Rate: 1250
+      - Item: Shadowdecon
+        Rate: 17
+      - Item: Shadowdecon_Ore
+        Rate: 180
+
+  - Id: 21556
+    AegisName: ECO_EXPLOSION
+    Name: Explosion of Fire
+    Level: 252
+    Hp: 23438635
+    BaseExp: 1332273
+    JobExp: 932126
+    MvpExp: 0
+    Attack: 10254
+    Attack2: 15189
+    Defense: 298
+    MagicDefense: 313
+    Str: 131
+    Agi: 142
+    Vit: 147
+    Int: 199
+    Dex: 183
+    Luk: 199
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Brute
+    Element: Fire
+    ElementLevel: 3
+    WalkSpeed: 165
+    AttackDelay: 575
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Blaze_Stone
+        Rate: 2000
+      - Item: Burning_Heart
+        Rate: 1100
+      - Item: Hot_Hair
+        Rate: 1600
+      - Item: Zelunium
+        Rate: 17
+      - Item: Zelunium_Ore
+        Rate: 180
+
+  - Id: 21557
+    AegisName: ECO_DELETER
+    Name: Deleter of Fire(Sky)
+    Level: 252
+    Hp: 23785549
+    BaseExp: 1340379
+    JobExp: 938265
+    MvpExp: 0
+    Attack: 12818
+    Attack2: 19005
+    Defense: 443
+    MagicDefense: 250
+    Str: 192
+    Agi: 158
+    Vit: 183
+    Int: 192
+    Dex: 192
+    Luk: 183
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Dragon
+    Element: Fire
+    ElementLevel: 2
+    WalkSpeed: 175
+    AttackDelay: 541
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Dragon's_Skin
+        Rate: 1000
+      - Item: Dragon_Canine
+        Rate: 1300
+      - Item: Shining_Crystal
+        Rate: 2000
+      - Item: Shadowdecon
+        Rate: 17
+      - Item: Shadowdecon_Ore
+        Rate: 180
+
+  - Id: 21562
+    AegisName: ECO_ACIDUS
+    Name: Acidus of Fire
+    Level: 254
+    Hp: 22410484
+    BaseExp: 1393537
+    JobExp: 974990
+    MvpExp: 0
+    Attack: 11610
+    Attack2: 17220
+    Defense: 303
+    MagicDefense: 319
+    Str: 136
+    Agi: 147
+    Vit: 153
+    Int: 207
+    Dex: 190
+    Luk: 207
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Dragon
+    Element: Dark
+    ElementLevel: 4
+    WalkSpeed: 160
+    AttackDelay: 758
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Black_Jewelry
+        Rate: 2000
+      - Item: Dragon_Train
+        Rate: 500
+      - Item: Dragon_Scale
+        Rate: 750
+      - Item: Zelunium
+        Rate: 17
+      - Item: Zelunium_Ore
+        Rate: 180
+
+  - Id: 21559
+    AegisName: ECO_LAVA_GOLEM
+    Name: Lava Golem of Fire
+    Level: 254
+    Hp: 29549062
+    BaseExp: 1376698
+    JobExp: 957935
+    MvpExp: 0
+    Attack: 11805
+    Attack2: 17492
+    Defense: 624
+    MagicDefense: 273
+    Str: 178
+    Agi: 172
+    Vit: 242
+    Int: 209
+    Dex: 222
+    Luk: 199
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Formless
+    Element: Fire
+    ElementLevel: 4
+    WalkSpeed: 300
+    AttackDelay: 1220
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Cold_Magma
+        Rate: 2280
+      - Item: Burning_Heart
+        Rate: 1843
+      - Item: Blaze_Stone
+        Rate: 2000
+      - Item: Shadowdecon
+        Rate: 17
+      - Item: Shadowdecon_Ore
+        Rate: 180
+
+  - Id: 21560
+    AegisName: ECO_MAJORUROS
+    Name: Majoruros of Fire
+    Level: 253
+    Hp: 25488079
+    BaseExp: 1356696
+    JobExp: 944939
+    MvpExp: 0
+    Attack: 16357
+    Attack2: 24298
+    Defense: 480
+    MagicDefense: 185
+    Str: 221
+    Agi: 186
+    Vit: 175
+    Int: 142
+    Dex: 197
+    Luk: 184
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Brute
+    Element: Fire
+    ElementLevel: 2
+    WalkSpeed: 150
+    AttackDelay: 962
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Nose_Ring
+        Rate: 2207
+      - Item: Beef_Head_Meat
+        Rate: 500
+      - Item: Whittling
+        Rate: 2000
+      - Item: Zelunium
+        Rate: 17
+      - Item: Zelunium_Ore
+        Rate: 180
+
+  - Id: 21558
+    AegisName: ECO_JAKK
+    Name: Jakk of Fire
+    Level: 252
+    Hp: 21917288
+    BaseExp: 1322755
+    JobExp: 923617
+    MvpExp: 0
+    Attack: 14856
+    Attack2: 22049
+    Defense: 310
+    MagicDefense: 170
+    Str: 217
+    Agi: 256
+    Vit: 142
+    Int: 183
+    Dex: 241
+    Luk: 224
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Fire
+    ElementLevel: 2
+    WalkSpeed: 90
+    AttackDelay: 481
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Pumpkin_Head
+        Rate: 4500
+      - Item: Evil_Black_Bid
+        Rate: 2000
+      - Item: Pumpkin
+        Rate: 500
+      - Item: Zelunium
+        Rate: 17
+      - Item: Zelunium_Ore
+        Rate: 180
+
+  - Id: 21561
+    AegisName: ECO_HYDRO
+    Name: Hydrolancer of Fire
+    Level: 255
+    Hp: 25367918
+    BaseExp: 1414382
+    JobExp: 990068
+    MvpExp: 0
+    Attack: 13498
+    Attack2: 20025
+    Defense: 445
+    MagicDefense: 251
+    Str: 191
+    Agi: 157
+    Vit: 182
+    Int: 191
+    Dex: 191
+    Luk: 182
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Dragon
+    Element: Dark
+    ElementLevel: 2
+    WalkSpeed: 160
+    AttackDelay: 625
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+      Aggressive: true
+    Drops:
+      - Item: Dragon's_Skin
+        Rate: 2000
+      - Item: Reptile_Stone
+        Rate: 2000
+      - Item: Tri_Headed_Dragon_Head
+        Rate: 1940
+      - Item: Shadowdecon
+        Rate: 17
+      - Item: Shadowdecon_Ore
+        Rate: 180
 
 #Body:
 # eAthena Dev Team
