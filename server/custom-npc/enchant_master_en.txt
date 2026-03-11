@@ -59,44 +59,44 @@
 -	shop	mat_shop_circlet	-1,25867:10000,25865:100000,25866:50000
 
 // --- Costume Item Giver NPC ---
-izlude,113,150,4	script	Costume Keeper	718,{
-	mes "[Costume Keeper]";
-	mes "Tell me the ^0000FFCostume Item ID^000000 and I'll give it to you!";
-	next;
-	mes "[Costume Keeper]";
-	mes "Enter the costume item ID:";
-	input .@item_id;
-	if (.@item_id <= 0) {
-		mes "[Costume Keeper]";
-		mes "Invalid ID.";
-		close;
-	}
-	.@name$ = getitemname(.@item_id);
-	if (.@name$ == "null" || .@name$ == "") {
-		mes "[Costume Keeper]";
-		mes "Item ID " + .@item_id + " does not exist.";
-		close;
-	}
-	.@loc = getiteminfo(.@item_id, ITEMINFO_LOCATIONS);
-	if (!(.@loc & (EQP_COSTUME_HEAD_TOP | EQP_COSTUME_HEAD_MID | EQP_COSTUME_HEAD_LOW | EQP_COSTUME_GARMENT))) {
-		mes "[Costume Keeper]";
-		mes "^FF0000" + .@name$ + "^000000 is not a costume item.";
-		close;
-	}
-	mes "[Costume Keeper]";
-	mes "^0000FF" + .@name$ + "^000000";
-	mes "Give you 1x of this costume?";
-	next;
-	if (select("Yes", "Cancel") == 2) {
-		mes "[Costume Keeper]";
-		mes "Cancelled.";
-		close;
-	}
-	getitem .@item_id, 1;
-	mes "[Costume Keeper]";
-	mes "Here you go! ^0000FF" + .@name$ + "^000000";
-	close;
-}
+//izlude,113,150,4	script	Costume Keeper	718,{
+//	mes "[Costume Keeper]";
+//	mes "Tell me the ^0000FFCostume Item ID^000000 and I'll give it to you!";
+//	next;
+//	mes "[Costume Keeper]";
+//	mes "Enter the costume item ID:";
+//	input .@item_id;
+//	if (.@item_id <= 0) {
+//		mes "[Costume Keeper]";
+//		mes "Invalid ID.";
+//		close;
+//	}
+//	.@name$ = getitemname(.@item_id);
+//	if (.@name$ == "null" || .@name$ == "") {
+//		mes "[Costume Keeper]";
+//		mes "Item ID " + .@item_id + " does not exist.";
+//		close;
+//	}
+//	.@loc = getiteminfo(.@item_id, ITEMINFO_LOCATIONS);
+//	if (!(.@loc & (EQP_COSTUME_HEAD_TOP | EQP_COSTUME_HEAD_MID | EQP_COSTUME_HEAD_LOW | EQP_COSTUME_GARMENT))) {
+//		mes "[Costume Keeper]";
+//		mes "^FF0000" + .@name$ + "^000000 is not a costume item.";
+//		close;
+//	}
+//	mes "[Costume Keeper]";
+//	mes "^0000FF" + .@name$ + "^000000";
+//	mes "Give you 1x of this costume?";
+//	next;
+//	if (select("Yes", "Cancel") == 2) {
+//		mes "[Costume Keeper]";
+//		mes "Cancelled.";
+//		close;
+//	}
+//	getitem .@item_id, 1;
+//	mes "[Costume Keeper]";
+//	mes "Here you go! ^0000FF" + .@name$ + "^000000";
+//	close;
+//}
 
 // --- Costume Enchant Stone Shop (Aver De Dosh + Lace La Zard stones) ---
 -	shop	enchant_stone_shop1	-1,6636:1000000,6637:1000000,6638:1000000,6639:1000000,6640:1000000,6641:1000000,6642:1000000,6643:1000000,6644:1000000,6645:1000000,6716:1000000,6717:1000000,6718:1000000,6740:1000000,6741:1000000,6742:1000000,6743:1000000,6744:1000000,6745:1000000,6790:1000000,6791:1000000,6792:1000000,6908:1000000,6943:1000000,6944:1000000,6945:1000000,6946:1000000,6947:1000000,6948:1000000,6949:1000000,6950:1000000,6951:1000000,6963:1000000,6964:1000000,6999:1000000,25000:1000000,25001:1000000,25002:1000000,25003:1000000,25004:1000000,25005:1000000,25006:1000000,25007:1000000,25008:1000000,25009:1000000,25010:1000000,25011:1000000,25012:1000000,25013:1000000,25014:1000000,25015:1000000,25016:1000000,25017:1000000,25060:1000000,25061:1000000,25062:1000000,25063:1000000,25064:1000000,25065:1000000,25066:1000000,25067:1000000,25068:1000000,25069:1000000,25070:1000000,25071:1000000,25072:1000000,25139:1000000,25141:1000000,25170:1000000,25171:1000000,25172:1000000,25173:1000000,25174:1000000,25175:1000000,25227:1000000,25228:1000000,25229:1000000,25302:1000000,25303:1000000,25304:1000000,25305:1000000,25306:1000000,25409:1000000,25410:1000000,25411:1000000,25412:1000000,25413:1000000,25414:1000000,25415:1000000,25416:1000000,25417:1000000,25418:1000000,25419:1000000,25420:1000000,25445:1000000,25446:1000000,25447:1000000,25448:1000000,25449:1000000,25450:1000000
@@ -198,8 +198,74 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	case 5:
 		mes "[Enchant Master]";
 		mes "Please make sure your Dim Glacier weapon is equipped.";
-		close2;
-		item_enchant(47);
+		mes "What would you like to do?";
+		next;
+		switch( select("Normal Enchant & Upgrade (System)", "Force Upgrade to Lv5", "Cancel") ) {
+		case 1:
+			mes "[Enchant Master]";
+			mes "Opening normal enchant UI...";
+			close2;
+			item_enchant(47);
+			end;
+		case 2:
+			.@part = EQI_HAND_R; // Default to right hand for weapons
+			.@equip_id = getequipid(.@part);
+			if (.@equip_id <= 0) {
+				mes "[Enchant Master]";
+				mes "You don't have a weapon equipped!";
+				close;
+			}
+			.@card0 = getequipcardid(.@part, 0); // Actual card slot
+			.@card_grade = getequipcardid(.@part, 1); // item_enchant Slot 1 corresponds to card[1]
+			.@card_option = getequipcardid(.@part, 2); // item_enchant Slot 2
+			.@card_orb = getequipcardid(.@part, 3); // item_enchant Slot 3
+			
+			// Physical Grade: 311449 (Lv1) ~ 311453 (Lv5)
+			// Magical Grade: 311454 (Lv1) ~ 311458 (Lv5)
+			
+			if (.@card_grade >= 311449 && .@card_grade <= 311452) {
+				mes "[Enchant Master]";
+				mes "Detected Physical Grade Lv" + (.@card_grade - 311448) + " on your weapon.";
+				mes "Do you want to force upgrade it to Lv5?";
+				next;
+				if (select("Yes", "No") == 2) close;
+				
+				.@refine = getequiprefinerycnt(.@part);
+				delequip .@part;
+				getitem2 .@equip_id, 1, 1, .@refine, 0, .@card0, 311453, .@card_option, .@card_orb;
+				
+				mes "[Enchant Master]";
+				mes "Your weapon's enchant has been upgraded to ^0000CDPhysical Grade 5Lv^000000!";
+				close;
+				
+			} else if (.@card_grade >= 311454 && .@card_grade <= 311457) {
+				mes "[Enchant Master]";
+				mes "Detected Magical Grade Lv" + (.@card_grade - 311453) + " on your weapon.";
+				mes "Do you want to force upgrade it to Lv5?";
+				next;
+				if (select("Yes", "No") == 2) close;
+				
+				.@refine = getequiprefinerycnt(.@part);
+				delequip .@part;
+				getitem2 .@equip_id, 1, 1, .@refine, 0, .@card0, 311458, .@card_option, .@card_orb;
+				
+				mes "[Enchant Master]";
+				mes "Your weapon's enchant has been upgraded to ^0000CDMagical Grade 5Lv^000000!";
+				close;
+				
+			} else if (.@card_grade == 311453 || .@card_grade == 311458) {
+				mes "[Enchant Master]";
+				mes "Your weapon already has a Lv5 enchant in its Grade slot!";
+				close;
+			} else {
+				mes "[Enchant Master]";
+				mes "Your weapon does not have a Physical or Magical Grade Lv1~4 enchant in its Grade slot.";
+				mes "Please enchant it normally first.";
+				close;
+			}
+		case 3:
+			close;
+		}
 		end;
 	case 6: callsub L_Circlet; end;
 	case 7: callsub L_LevelUpWeapon; end;
@@ -259,7 +325,7 @@ L_Auto:
 	mes "Please ^FF0000equip^000000 the Automatic gear piece you want to enchant, then select its slot.";
 	mes "Make sure you have the desired module in your inventory.";
 	next;
-	switch( select( "Engine Wing (Garment: 480020 / 480021)", "Armor (450127 / 450128)", "Leg (Shoes: 470022 / 470023)", "Accessory Right (490024 / 490026)", "Accessory Left (490025 / 490027)", "Back" ) ) {
+	switch( select( "Engine Wing", "Armor", "Leg", "Accessory Right", "Accessory Left", "Back" ) ) {
 	case 1:
 		.@part = EQI_GARMENT;
 		setarray .@equip_required[0], 480020, 480021;

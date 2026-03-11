@@ -228,6 +228,22 @@ if [ -f "/rathena/npc/custom/reset_npc.txt" ]; then
     echo "   已啟用重置npc spawn"
 fi
 
+# 啟用健身房大師
+if [ -f "/rathena/npc/custom/gympass.txt" ]; then
+    if ! grep -q 'gympass.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/gympass.txt' >> /rathena/npc/scripts_custom.conf
+    fi
+    echo "   已啟用健身房大師"
+fi
+
+# 啟用野怪金幣及服飾（擊殺給 Zeny和機率掉服飾）
+if [ -f "/rathena/npc/custom/zeny_mob.txt" ]; then
+    if ! grep -q 'zeny_mob.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/zeny_mob.txt' >> /rathena/npc/scripts_custom.conf
+    fi
+    echo "   已啟用野怪金幣及服飾 spawn"
+fi
+
 # 啟用金幣精靈（全野外 + 地穴，擊殺給 Zeny）
 if [ -f "/rathena/npc/custom/zeny_mob.txt" ]; then
     if ! grep -q 'zeny_mob.txt' /rathena/npc/scripts_custom.conf; then

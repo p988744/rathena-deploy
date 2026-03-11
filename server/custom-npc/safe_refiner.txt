@@ -51,6 +51,42 @@ izlude,108,144,4	script	Safe Refiner	4_M_DWARF,{
 		.@equipped_slot[.@count] = EQI_SHOES;
 		.@count++;
 	}
+	if (getequipisequiped(EQI_SHADOW_ARMOR)) {
+		if (.@count > 0) .@menu$ += ":";
+		.@menu$ += "[Shadow Armor] " + getequipname(EQI_SHADOW_ARMOR) + " (+" + getequiprefinerycnt(EQI_SHADOW_ARMOR) + ")";
+		.@equipped_slot[.@count] = EQI_SHADOW_ARMOR;
+		.@count++;
+	}
+	if (getequipisequiped(EQI_SHADOW_WEAPON)) {
+		if (.@count > 0) .@menu$ += ":";
+		.@menu$ += "[Shadow Weapon] " + getequipname(EQI_SHADOW_WEAPON) + " (+" + getequiprefinerycnt(EQI_SHADOW_WEAPON) + ")";
+		.@equipped_slot[.@count] = EQI_SHADOW_WEAPON;
+		.@count++;
+	}
+	if (getequipisequiped(EQI_SHADOW_SHIELD)) {
+		if (.@count > 0) .@menu$ += ":";
+		.@menu$ += "[Shadow Shield] " + getequipname(EQI_SHADOW_SHIELD) + " (+" + getequiprefinerycnt(EQI_SHADOW_SHIELD) + ")";
+		.@equipped_slot[.@count] = EQI_SHADOW_SHIELD;
+		.@count++;
+	}
+	if (getequipisequiped(EQI_SHADOW_SHOES)) {
+		if (.@count > 0) .@menu$ += ":";
+		.@menu$ += "[Shadow Shoes] " + getequipname(EQI_SHADOW_SHOES) + " (+" + getequiprefinerycnt(EQI_SHADOW_SHOES) + ")";
+		.@equipped_slot[.@count] = EQI_SHADOW_SHOES;
+		.@count++;
+	}
+	if (getequipisequiped(EQI_SHADOW_ACC_R)) {
+		if (.@count > 0) .@menu$ += ":";
+		.@menu$ += "[Shadow Earring] " + getequipname(EQI_SHADOW_ACC_R) + " (+" + getequiprefinerycnt(EQI_SHADOW_ACC_R) + ")";
+		.@equipped_slot[.@count] = EQI_SHADOW_ACC_R;
+		.@count++;
+	}
+	if (getequipisequiped(EQI_SHADOW_ACC_L)) {
+		if (.@count > 0) .@menu$ += ":";
+		.@menu$ += "[Shadow Pendant] " + getequipname(EQI_SHADOW_ACC_L) + " (+" + getequiprefinerycnt(EQI_SHADOW_ACC_L) + ")";
+		.@equipped_slot[.@count] = EQI_SHADOW_ACC_L;
+		.@count++;
+	}
 	if (.@count == 0) {
 		mes "[Safe Refiner]";
 		mes "You don't have any equipment on!";
