@@ -501,15 +501,15 @@ Body:
             MinValue: 30
             MaxValue: 120
             Chance: 1429
-          - Option: VAR_CRITICALRATIO
+          - Option: VAR_CRITICALSUCCESSVALUE
             MinValue: 3
             MaxValue: 10
             Chance: 1429
-          - Option: VAR_PLUSFLEE
+          - Option: VAR_AVOIDSUCCESSVALUE
             MinValue: 10
             MaxValue: 30
             Chance: 1429
-          - Option: VAR_PLUSHIT
+          - Option: VAR_HITSUCCESSVALUE
             MinValue: 10
             MaxValue: 30
             Chance: 1429
@@ -517,65 +517,65 @@ Body:
             MinValue: 1
             MaxValue: 2
             Chance: 1429
-          - Option: VAR_PLUSATK
+          - Option: VAR_ATTPOWER
             MinValue: 20
             MaxValue: 70
             Chance: 1429
       - Slot: 2
         Options:
-          - Option: DEC_AFTER_SKILL_DELAY
+          - Option: DEC_SPELL_DELAY_TIME
             MinValue: 10
             MaxValue: 18
             Chance: 714
-          - Option: VAR_PLUSATKPERCENT
+          - Option: VAR_ATKPERCENT
             MinValue: 5
             MaxValue: 10
             Chance: 714
-          - Option: RANGE_DAMAGE_LONG
+          - Option: RANGE_ATTACK_DAMAGE_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: RANGE_DAMAGE_SHORT
+          - Option: MELEE_ATTACK_DAMAGE_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_DAMAGE_NOTHING
+          - Option: DAMAGE_PROPERTY_NOTHING_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_DAMAGE_WATER
+          - Option: DAMAGE_PROPERTY_WATER_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_DAMAGE_FIRE
+          - Option: DAMAGE_PROPERTY_FIRE_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_DAMAGE_EARTH
+          - Option: DAMAGE_PROPERTY_GROUND_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_DAMAGE_WIND
+          - Option: DAMAGE_PROPERTY_WIND_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_DAMAGE_POISON
+          - Option: DAMAGE_PROPERTY_POISON_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_DAMAGE_HOLY
+          - Option: DAMAGE_PROPERTY_SAINT_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_DAMAGE_DARK
+          - Option: DAMAGE_PROPERTY_DARKNESS_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_DAMAGE_UNDEAD
+          - Option: DAMAGE_PROPERTY_UNDEAD_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_DAMAGE_GHOST
+          - Option: DAMAGE_PROPERTY_TELEKINESIS_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
@@ -597,23 +597,23 @@ Body:
             MinValue: 1
             MaxValue: 5
             Chance: 1111
-          - Option: SIZE_DAMAGE_SMALL
+          - Option: DAMAGE_SIZE_SMALL_TARGET
             MinValue: 5
             MaxValue: 10
             Chance: 1111
-          - Option: SIZE_DAMAGE_MEDIUM
+          - Option: DAMAGE_SIZE_MIDIUM_TARGET
             MinValue: 5
             MaxValue: 10
             Chance: 1111
-          - Option: SIZE_DAMAGE_LARGE
+          - Option: DAMAGE_SIZE_LARGE_TARGET
             MinValue: 5
             MaxValue: 10
             Chance: 1111
-          - Option: CLASS_DAMAGE_NORMAL
+          - Option: CLASS_DAMAGE_NORMAL_TARGET
             MinValue: 5
             MaxValue: 10
             Chance: 1111
-          - Option: CLASS_DAMAGE_BOSS
+          - Option: CLASS_DAMAGE_BOSS_TARGET
             MinValue: 5
             MaxValue: 10
             Chance: 1111
@@ -636,7 +636,7 @@ Body:
             MinValue: 10
             MaxValue: 50
             Chance: 1429
-          - Option: VAR_PLUSFLEE
+          - Option: VAR_AVOIDSUCCESSVALUE
             MinValue: 10
             MaxValue: 30
             Chance: 1429
@@ -648,17 +648,17 @@ Body:
             MinValue: 1
             MaxValue: 2
             Chance: 1429
-          - Option: VAR_PLUSMATK
+          - Option: VAR_ATTMPOWER
             MinValue: 20
             MaxValue: 70
             Chance: 1429
       - Slot: 2
         Options:
-          - Option: DEC_AFTER_SKILL_DELAY
+          - Option: DEC_SPELL_DELAY_TIME
             MinValue: 10
             MaxValue: 18
             Chance: 714
-          - Option: VAR_PLUSMATKPERCENT
+          - Option: VAR_MAGICATKPERCENT
             MinValue: 5
             MaxValue: 10
             Chance: 714
@@ -666,47 +666,47 @@ Body:
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: DEC_SPELL_COST
+          - Option: DEC_SP_CONSUMPTION
             MinValue: 5
             MaxValue: 10
             Chance: 714
-          - Option: ELE_MDAMAGE_NOTHING
+          - Option: MDAMAGE_PROPERTY_NOTHING_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_MDAMAGE_WATER
+          - Option: MDAMAGE_PROPERTY_WATER_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_MDAMAGE_FIRE
+          - Option: MDAMAGE_PROPERTY_FIRE_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_MDAMAGE_EARTH
+          - Option: MDAMAGE_PROPERTY_GROUND_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_MDAMAGE_WIND
+          - Option: MDAMAGE_PROPERTY_WIND_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_MDAMAGE_POISON
+          - Option: MDAMAGE_PROPERTY_POISON_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_MDAMAGE_HOLY
+          - Option: MDAMAGE_PROPERTY_SAINT_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_MDAMAGE_DARK
+          - Option: MDAMAGE_PROPERTY_DARKNESS_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_MDAMAGE_UNDEAD
+          - Option: MDAMAGE_PROPERTY_UNDEAD_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
-          - Option: ELE_MDAMAGE_GHOST
+          - Option: MDAMAGE_PROPERTY_TELEKINESIS_TARGET
             MinValue: 5
             MaxValue: 15
             Chance: 714
@@ -728,15 +728,15 @@ Body:
             MinValue: 1
             MaxValue: 5
             Chance: 1111
-          - Option: SIZE_MDAMAGE_SMALL
+          - Option: MDAMAGE_SIZE_SMALL_TARGET
             MinValue: 5
             MaxValue: 10
             Chance: 1111
-          - Option: SIZE_MDAMAGE_MEDIUM
+          - Option: MDAMAGE_SIZE_MIDIUM_TARGET
             MinValue: 5
             MaxValue: 10
             Chance: 1111
-          - Option: SIZE_MDAMAGE_LARGE
+          - Option: MDAMAGE_SIZE_LARGE_TARGET
             MinValue: 5
             MaxValue: 10
             Chance: 1111
