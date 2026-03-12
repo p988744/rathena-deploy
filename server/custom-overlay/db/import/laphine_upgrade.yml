@@ -10,3 +10,89 @@ Body:
     TargetItems:
       - Item: MD_Geffen_Shield
       - Item: MD_Geffen_Shield2
+
+  # Condensed Sakrai's Wrath (100480) — physical enchant for Poenitentia equipment
+  - Item: Sakray_Fury2
+    RandomOptionGroup: SAKRAY_FURY2
+    CardsAllowed: true
+    TargetItems:
+      - Item: Poenetentia_Aegis
+      - Item: Poenitentia_Gladius
+      - Item: Poenitentia_Ligula
+      - Item: Poenitentia_Orbis
+      - Item: Poenitentia_Mucro
+      - Item: Poenetentia_Dilacero
+      - Item: Poenitentia_Sol
+      - Item: Poenitentia_Jana
+      - Item: Poenitentia_Hasta
+      - Item: Poenitentia_Codex
+      - Item: Poenitentia_Liber
+      - Item: Poenitentia_Radius
+      - Item: Poenitentia_Scipio
+      - Item: Poenitentia_Crystallum
+      - Item: Poenitentia_Ramus
+      - Item: Poenitentia_Planta
+      - Item: Poenitentia_Ferrum
+      - Item: Poenitentia_Caestus
+      - Item: Poenitentia_Ungula
+      - Item: Poenitentia_Chorda
+      - Item: Poenitentia_Flagellum
+      - Item: Poenitentia_Clava
+      - Item: Poenitentia_Pendulus
+      - Item: Poenitentia_Ensis
+      - Item: Poenitentia_Manus
+      - Item: Poenitentia_Ascia
+      - Item: Poenitentia_Catapulta
+      - Item: Poenitentia_Termes
+      - Item: Poenitentia_Virga
+      - Item: Poenitentia_Tenon
+      - Item: Poenitentia_Nervus
+      - Item: Poenetentia_Attendo
+      - Item: Poenetentia_Vatia
+      - Item: Poenitentia_Foramen
+      - Item: Poenitentia_Penet
+      - Item: Poenitentia_Veloci
+      - Item: Poenitentia_Ruina
+
+  # Condensed Sakrai's Regret (100486) — magical enchant for Poenitentia equipment
+  - Item: Sakray_Regret2
+    RandomOptionGroup: SAKRAY_REGRET2
+    CardsAllowed: true
+    TargetItems:
+      - Item: Poenetentia_Aegis
+      - Item: Poenitentia_Gladius
+      - Item: Poenitentia_Ligula
+      - Item: Poenitentia_Orbis
+      - Item: Poenitentia_Mucro
+      - Item: Poenetentia_Dilacero
+      - Item: Poenitentia_Sol
+      - Item: Poenitentia_Jana
+      - Item: Poenitentia_Hasta
+      - Item: Poenitentia_Codex
+      - Item: Poenitentia_Liber
+      - Item: Poenitentia_Radius
+      - Item: Poenitentia_Scipio
+      - Item: Poenitentia_Crystallum
+      - Item: Poenitentia_Ramus
+      - Item: Poenitentia_Planta
+      - Item: Poenitentia_Ferrum
+      - Item: Poenitentia_Caestus
+      - Item: Poenitentia_Ungula
+      - Item: Poenitentia_Chorda
+      - Item: Poenitentia_Flagellum
+      - Item: Poenitentia_Clava
+      - Item: Poenitentia_Pendulus
+      - Item: Poenitentia_Ensis
+      - Item: Poenitentia_Manus
+      - Item: Poenitentia_Ascia
+      - Item: Poenitentia_Catapulta
+      - Item: Poenitentia_Termes
+      - Item: Poenitentia_Virga
+      - Item: Poenitentia_Tenon
+      - Item: Poenitentia_Nervus
+      - Item: Poenetentia_Attendo
+      - Item: Poenetentia_Vatia
+      - Item: Poenitentia_Foramen
+      - Item: Poenitentia_Penet
+      - Item: Poenitentia_Veloci
+      - Item: Poenitentia_Ruina

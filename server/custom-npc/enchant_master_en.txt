@@ -185,7 +185,7 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	mes "Welcome! I can enchant your equipment from EP17.2 through EP19.";
 	mes "No quests or prerequisites required.";
 	next;
-	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Costume Garment Slot 2 Enchant", "Illusion Equipment Enchant", "Mad Bunny-LT Enchant", "Leave" ) ) {
+	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Costume Garment Slot 2 Enchant", "Illusion Equipment Enchant", "Mad Bunny-LT Enchant", "Miss Memory Record Enchant", "Leave" ) ) {
 	case 1: callsub L_Auto; end;
 	case 2: callsub L_GrayWolf; end;
 	case 3: callsub L_Snowflower; end;
@@ -274,7 +274,8 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	case 10: callsub L_LaceLaZardSlot2; end;
 	case 11: callsub L_Illusion; end;
 	case 12: callsub L_MadBunnyLT; end;
-	case 13:
+	case 13: callsub L_MissMemoryRecord; end;
+	case 14:
 		mes "[Enchant Master]";
 		mes "Come back anytime!";
 		close;
@@ -1687,6 +1688,103 @@ L_MadBunnyLT:
 		mes "[Enchant Master]";
 		mes "^00CC00Slot 4 has been reset.^000000";
 		getitem2 .@equip_id, 1, 1, .@equip_refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+		close;
+	case 3:
+		end;
+	}
+	return;
+
+// ============================================================
+// Miss Memory Record Enchant (490614)
+// Slot 3 (card[3]) = Memory Bond card
+// Cost: 5,000,000z enchant / 1,000,000z reset
+// ============================================================
+L_MissMemoryRecord:
+	.@target_id = 490614;
+	.@part = -1;
+	for (.@i = 0; .@i <= 22; .@i++) {
+		if (getequipid(.@i) == .@target_id) {
+			.@part = .@i;
+			break;
+		}
+	}
+	if (.@part == -1) {
+		mes "[Enchant Master]";
+		mes "Please ^FF0000equip^000000 ^0000FFMiss Memory Record^000000 first.";
+		close;
+	}
+	.@equip_refine = getequiprefinerycnt(.@part);
+	setarray .@card[0],
+		getequipcardid(.@part, 0), getequipcardid(.@part, 1),
+		getequipcardid(.@part, 2), getequipcardid(.@part, 3);
+
+	setarray .@bond_id[0],   29594, 29595, 29596, 29598, 29599, 29600;
+	setarray .@bond_name$[0],
+		"Seyren (Rune Knight) — Hundred Spear +70%, CD-3s, 20% Wind Cutter",
+		"Harword (Mechanic) — POW+5, Axe Boomerang +70%, 35% Power Swing",
+		"Eremes (Guillotine Cross) — Counter Slash +70%, 10% Rolling Cutter, 20% Cross Impact",
+		"Katrinn (Warlock) — Comet CD-60s, Soul Expansion +70%, 20% Soul Strike",
+		"Magaleta (Archbishop) — Delay-5%, Judex +70%, 40% Magnus Exorcismus",
+		"Shecil (Ranger) — Aimed Bolt +70%, Ranged 50% Aimed Bolt, 50% Falcon Assault";
+
+	mes "[Enchant Master]";
+	mes "^0000FF" + getequipname(.@part) + "^000000";
+	if (.@card[3] > 0)
+		mes "Memory Bond: ^0000CD" + getitemname(.@card[3]) + "^000000";
+	else
+		mes "Memory Bond: ^808080None^000000";
+	next;
+	switch (select("Bond a Memory (5,000,000z)", "Reset Memory Bond (1,000,000z)", "Back")) {
+	case 1:
+		mes "[Enchant Master]";
+		mes "Choose the memory to bond:";
+		next;
+		.@choice = select(
+			.@bond_name$[0],
+			.@bond_name$[1],
+			.@bond_name$[2],
+			.@bond_name$[3],
+			.@bond_name$[4],
+			.@bond_name$[5],
+			"Cancel"
+		);
+		if (.@choice == 7) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+		.@new_bond = .@bond_id[.@choice - 1];
+		mes "[Enchant Master]";
+		mes "Bond ^0000CD" + getitemname(.@new_bond) + "^000000?";
+		mes "Cost: ^FF00005,000,000 Zeny^000000";
+		next;
+		if (select("Yes, bond!", "Cancel") == 2) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+		if (Zeny < 5000000) { mes "[Enchant Master]"; mes "^FF0000Not enough Zeny.^000000"; close; }
+		if (callfunc("F_IsEquipIDHack", .@part, .@target_id) ||
+		    callfunc("F_IsEquipRefineHack", .@part, .@equip_refine) ||
+		    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+			end;
+		Zeny -= 5000000;
+		delequip .@part;
+		.@card[3] = .@new_bond;
+		getitem2 .@target_id, 1, 1, .@equip_refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+		mes "[Enchant Master]";
+		mes "^00CC00Memory bonded!^000000 ^0000CD" + getitemname(.@new_bond) + "^000000";
+		close;
+	case 2:
+		if (.@card[3] == 0) { mes "[Enchant Master]"; mes "No memory bond to reset."; close; }
+		if (Zeny < 1000000) { mes "[Enchant Master]"; mes "^FF0000Need 1,000,000 Zeny to reset.^000000"; close; }
+		mes "[Enchant Master]";
+		mes "Reset ^0000CD" + getitemname(.@card[3]) + "^000000?";
+		mes "Cost: ^FF00001,000,000 Zeny^000000";
+		next;
+		if (select("Yes, reset!", "Cancel") == 2) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+		if (callfunc("F_IsEquipIDHack", .@part, .@target_id) ||
+		    callfunc("F_IsEquipRefineHack", .@part, .@equip_refine) ||
+		    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+			end;
+		Zeny -= 1000000;
+		delequip .@part;
+		.@card[3] = 0;
+		getitem2 .@target_id, 1, 1, .@equip_refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+		mes "[Enchant Master]";
+		mes "^00CC00Memory bond has been reset.^000000";
 		close;
 	case 3:
 		end;

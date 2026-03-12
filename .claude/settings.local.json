@@ -10,7 +10,8 @@
       "Bash(head:*)",
       "Bash(do:*)",
       "Bash(python:*)",
-      "Bash(perl:*)"
+      "Bash(perl:*)",
+      "Bash(docker compose:*)"
     ]
   }
 }

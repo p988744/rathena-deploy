@@ -59314,6 +59314,73 @@ Body:
       if (getenchantgrade(EQI_HEAD_TOP)>=ENCHANTGRADE_A) {
          bonus2 bMagicAddEle,Ele_All,10;
       }
+  # --- Miss Memory Record Combos ---
+  # 與賽依連的記憶 + 盧恩騎士系列
+  - Combos:
+      - Combo:
+          - Miss_Memory_Record    # 490614
+          - Seyren_Memory         # 29594
+    Script: |
+      if (eaclass()&EAJL_THIRD && BaseJob == Job_Knight) {
+         bonus2 bSkillAtk,"RK_HUNDREDSPEAR",70;
+         bonus2 bSkillCooldown,"RK_HUNDREDSPEAR",-3000;
+         bonus4 bAutoSpellOnSkill,"RK_HUNDREDSPEAR","DK_HACKANDSLASHER",max(getskilllv("DK_HACKANDSLASHER"),1),200;
+      }
+  # 與哈沃德的記憶 + 機械工匠系列
+  - Combos:
+      - Combo:
+          - Miss_Memory_Record    # 490614
+          - Harword_Memory        # 29595
+    Script: |
+      if (eaclass()&EAJL_THIRD && BaseJob == Job_Blacksmith) {
+         bonus bPow,5;
+         bonus2 bSkillAtk,"NC_POWERSWING",70;
+         bonus4 bAutoSpellOnSkill,"NC_POWERSWING","MT_MIGHTY_SMASH",max(getskilllv("MT_MIGHTY_SMASH"),1),350;
+      }
+  # 與艾勒梅斯的記憶 + 十字斬首者系列
+  - Combos:
+      - Combo:
+          - Miss_Memory_Record    # 490614
+          - Eremes_Memory         # 29596
+    Script: |
+      if (eaclass()&EAJL_THIRD && BaseJob == Job_Assassin) {
+         bonus2 bSkillAtk,"GC_COUNTERSLASH",70;
+         bonus4 bAutoSpellOnSkill,"GC_COUNTERSLASH","GC_ROLLINGCUTTER",max(getskilllv("GC_ROLLINGCUTTER"),1),100;
+         bonus4 bAutoSpellOnSkill,"GC_COUNTERSLASH","SHC_IMPACT_CRATER",max(getskilllv("SHC_IMPACT_CRATER"),1),200;
+      }
+  # 與凱特莉娜的記憶 + 咒術士系列
+  - Combos:
+      - Combo:
+          - Miss_Memory_Record    # 490614
+          - Katrinn_Memory        # 29598
+    Script: |
+      if (eaclass()&EAJL_THIRD && BaseJob == Job_Wizard) {
+         bonus2 bSkillCooldown,"WL_TELEKINESIS_INTENSE",-60000;
+         bonus2 bSkillAtk,"WL_SOULEXPANSION",70;
+         bonus4 bAutoSpellOnSkill,"WL_SOULEXPANSION","AG_SOUL_VC_STRIKE",max(getskilllv("AG_SOUL_VC_STRIKE"),1),200;
+      }
+  # 與瑪嘉雷特的記憶 + 大主教系列
+  - Combos:
+      - Combo:
+          - Miss_Memory_Record    # 490614
+          - Magaleta_Memory       # 29599
+    Script: |
+      if (eaclass()&EAJL_THIRD && BaseJob == Job_Priest) {
+         bonus bDelayrate,-5;
+         bonus2 bSkillAtk,"AB_JUDEX",70;
+         bonus4 bAutoSpellOnSkill,"AB_JUDEX","CD_FRAMEN",max(getskilllv("CD_FRAMEN"),1),400;
+      }
+  # 與迪文的記憶 + 遊俠系列
+  - Combos:
+      - Combo:
+          - Miss_Memory_Record    # 490614
+          - Shecil_Memory         # 29600
+    Script: |
+      if (eaclass()&EAJL_THIRD && BaseJob == Job_Hunter) {
+         bonus2 bSkillAtk,"RA_AIMEDBOLT",70;
+         bonus5 bAutoSpell,"RA_AIMEDBOLT",max(getskilllv("RA_AIMEDBOLT"),1),500,BF_WEAPON|BF_LONG|BF_NORMAL,0;
+         bonus4 bAutoSpellOnSkill,"RA_AIMEDBOLT","WH_HAWKRUSH",max(getskilllv("WH_HAWKRUSH"),1),500;
+      }
   # --- Star Force Ring LT / Magic Circle LT Combos ---
   # 2-piece: Star_Force_Ring_LT + Magic_Circle_LT
   - Combos:

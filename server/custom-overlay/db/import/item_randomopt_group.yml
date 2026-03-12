@@ -486,3 +486,265 @@ Body:
             MinValue: 1
             MaxValue: 3
             Chance: 217
+
+  # Condensed Sakrai's Wrath (100480) — physical enchant group, 3 slots
+  - Id: 100480
+    Group: SAKRAY_FURY2
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_MAXHPAMOUNT
+            MinValue: 200
+            MaxValue: 500
+            Chance: 1429
+          - Option: VAR_MAXSPAMOUNT
+            MinValue: 30
+            MaxValue: 120
+            Chance: 1429
+          - Option: VAR_CRITICALRATIO
+            MinValue: 3
+            MaxValue: 10
+            Chance: 1429
+          - Option: VAR_PLUSFLEE
+            MinValue: 10
+            MaxValue: 30
+            Chance: 1429
+          - Option: VAR_PLUSHIT
+            MinValue: 10
+            MaxValue: 30
+            Chance: 1429
+          - Option: VAR_PLUSASPD
+            MinValue: 1
+            MaxValue: 2
+            Chance: 1429
+          - Option: VAR_PLUSATK
+            MinValue: 20
+            MaxValue: 70
+            Chance: 1429
+      - Slot: 2
+        Options:
+          - Option: DEC_AFTER_SKILL_DELAY
+            MinValue: 10
+            MaxValue: 18
+            Chance: 714
+          - Option: VAR_PLUSATKPERCENT
+            MinValue: 5
+            MaxValue: 10
+            Chance: 714
+          - Option: RANGE_DAMAGE_LONG
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: RANGE_DAMAGE_SHORT
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_DAMAGE_NOTHING
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_DAMAGE_WATER
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_DAMAGE_FIRE
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_DAMAGE_EARTH
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_DAMAGE_WIND
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_DAMAGE_POISON
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_DAMAGE_HOLY
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_DAMAGE_DARK
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_DAMAGE_UNDEAD
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_DAMAGE_GHOST
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+      - Slot: 3
+        Options:
+          - Option: VAR_ITEMDEFPOWER
+            MinValue: 30
+            MaxValue: 100
+            Chance: 1111
+          - Option: VAR_MDEFPOWER
+            MinValue: 10
+            MaxValue: 40
+            Chance: 1111
+          - Option: VAR_MAXHPPERCENT
+            MinValue: 1
+            MaxValue: 5
+            Chance: 1111
+          - Option: VAR_MAXSPPERCENT
+            MinValue: 1
+            MaxValue: 5
+            Chance: 1111
+          - Option: SIZE_DAMAGE_SMALL
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1111
+          - Option: SIZE_DAMAGE_MEDIUM
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1111
+          - Option: SIZE_DAMAGE_LARGE
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1111
+          - Option: CLASS_DAMAGE_NORMAL
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1111
+          - Option: CLASS_DAMAGE_BOSS
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1111
+
+  # Condensed Sakrai's Regret (100486) — magical enchant group, 3 slots
+  - Id: 100486
+    Group: SAKRAY_REGRET2
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_MAXHPAMOUNT
+            MinValue: 200
+            MaxValue: 500
+            Chance: 1429
+          - Option: VAR_MAXSPAMOUNT
+            MinValue: 30
+            MaxValue: 120
+            Chance: 1429
+          - Option: VAR_ITEMDEFPOWER
+            MinValue: 10
+            MaxValue: 50
+            Chance: 1429
+          - Option: VAR_PLUSFLEE
+            MinValue: 10
+            MaxValue: 30
+            Chance: 1429
+          - Option: HEAL_VALUE
+            MinValue: 10
+            MaxValue: 30
+            Chance: 1429
+          - Option: VAR_PLUSASPD
+            MinValue: 1
+            MaxValue: 2
+            Chance: 1429
+          - Option: VAR_PLUSMATK
+            MinValue: 20
+            MaxValue: 70
+            Chance: 1429
+      - Slot: 2
+        Options:
+          - Option: DEC_AFTER_SKILL_DELAY
+            MinValue: 10
+            MaxValue: 18
+            Chance: 714
+          - Option: VAR_PLUSMATKPERCENT
+            MinValue: 5
+            MaxValue: 10
+            Chance: 714
+          - Option: DEC_SPELL_CAST_TIME
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: DEC_SPELL_COST
+            MinValue: 5
+            MaxValue: 10
+            Chance: 714
+          - Option: ELE_MDAMAGE_NOTHING
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_MDAMAGE_WATER
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_MDAMAGE_FIRE
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_MDAMAGE_EARTH
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_MDAMAGE_WIND
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_MDAMAGE_POISON
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_MDAMAGE_HOLY
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_MDAMAGE_DARK
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_MDAMAGE_UNDEAD
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+          - Option: ELE_MDAMAGE_GHOST
+            MinValue: 5
+            MaxValue: 15
+            Chance: 714
+      - Slot: 3
+        Options:
+          - Option: VAR_ITEMDEFPOWER
+            MinValue: 30
+            MaxValue: 100
+            Chance: 1111
+          - Option: VAR_MDEFPOWER
+            MinValue: 10
+            MaxValue: 40
+            Chance: 1111
+          - Option: VAR_MAXHPPERCENT
+            MinValue: 1
+            MaxValue: 5
+            Chance: 1111
+          - Option: VAR_MAXSPPERCENT
+            MinValue: 1
+            MaxValue: 5
+            Chance: 1111
+          - Option: SIZE_MDAMAGE_SMALL
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1111
+          - Option: SIZE_MDAMAGE_MEDIUM
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1111
+          - Option: SIZE_MDAMAGE_LARGE
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1111
+          - Option: CLASS_MDAMAGE_NORMAL
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1111
+          - Option: CLASS_MDAMAGE_BOSS
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1111
