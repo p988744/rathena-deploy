@@ -6,6 +6,8 @@
 //=============================================================
 
 // --- BK Series Shop Definitions ---
+
+izlude,0,0,0	shop	BK_Master	-1,24792:100000000,24793:100000000
 izlude,0,0,0	shop	BK_Dragon_Knight	-1,24800:100000000,24801:100000000,24802:100000000,24803:100000000
 izlude,0,0,0	shop	BK_Imperial_Guard	-1,24804:100000000,24805:100000000,24806:100000000,24807:100000000
 izlude,0,0,0	shop	BK_Shadow_Cross	-1,24808:100000000,24809:100000000,24810:100000000,24811:100000000
@@ -117,6 +119,7 @@ L_BK_Menu:
 	mes "[BK Series] Select your class:";
 	next;
 	switch( select(
+		"BK Master",
 		"Dragon Knight",
 		"Imperial Guard",
 		"Shadow Cross",
@@ -137,25 +140,26 @@ L_BK_Menu:
 		"Hyper Novice",
 		"< Back"
 	) ) {
-	case 1:  callshop "BK_Dragon_Knight", 1;     end;
-	case 2:  callshop "BK_Imperial_Guard", 1;    end;
-	case 3:  callshop "BK_Shadow_Cross", 1;      end;
-	case 4:  callshop "BK_Abyss_Chaser", 1;      end;
-	case 5:  callshop "BK_Cardinal", 1;          end;
-	case 6:  callshop "BK_Inquisitor", 1;        end;
-	case 7:  callshop "BK_Meister", 1;           end;
-	case 8:  callshop "BK_Biolo", 1;             end;
-	case 9:  callshop "BK_Windhawk", 1;          end;
-	case 10: callshop "BK_Trouvere", 1;          end;
-	case 11: callshop "BK_Arch_Mage", 1;         end;
-	case 12: callshop "BK_Elemental_Master", 1;  end;
-	case 13: callshop "BK_Night_Watch", 1;       end;
-	case 14: callshop "BK_Spirit_Handler", 1;    end;
-	case 15: callshop "BK_Shinkiro_Shiranui", 1; end;
-	case 16: callshop "BK_Sky_Emperor", 1;       end;
-	case 17: callshop "BK_Soul_Ascetic", 1;      end;
-	case 18: callshop "BK_Hyper_Novice", 1;      end;
-	case 19: goto OnInit;
+	case 1:  callshop "BK_Master", 1;     end;
+	case 2:  callshop "BK_Dragon_Knight", 1;     end;
+	case 3:  callshop "BK_Imperial_Guard", 1;    end;
+	case 4:  callshop "BK_Shadow_Cross", 1;      end;
+	case 5:  callshop "BK_Abyss_Chaser", 1;      end;
+	case 6:  callshop "BK_Cardinal", 1;          end;
+	case 7:  callshop "BK_Inquisitor", 1;        end;
+	case 8:  callshop "BK_Meister", 1;           end;
+	case 9:  callshop "BK_Biolo", 1;             end;
+	case 10:  callshop "BK_Windhawk", 1;          end;
+	case 11: callshop "BK_Trouvere", 1;          end;
+	case 12: callshop "BK_Arch_Mage", 1;         end;
+	case 13: callshop "BK_Elemental_Master", 1;  end;
+	case 14: callshop "BK_Night_Watch", 1;       end;
+	case 15: callshop "BK_Spirit_Handler", 1;    end;
+	case 16: callshop "BK_Shinkiro_Shiranui", 1; end;
+	case 17: callshop "BK_Sky_Emperor", 1;       end;
+	case 18: callshop "BK_Soul_Ascetic", 1;      end;
+	case 19: callshop "BK_Hyper_Novice", 1;      end;
+	case 20: goto OnInit;
 	}
 
 L_SV_Menu:
