@@ -59314,3 +59314,51 @@ Body:
       if (getenchantgrade(EQI_HEAD_TOP)>=ENCHANTGRADE_A) {
          bonus2 bMagicAddEle,Ele_All,10;
       }
+  # --- Star Force Ring LT / Magic Circle LT Combos ---
+  # 2-piece: Star_Force_Ring_LT + Magic_Circle_LT
+  - Combos:
+      - Combo:
+          - Star_Force_Ring_LT   # 490619
+          - Magic_Circle_LT      # 420301
+    Script: |
+      bonus bVariableCastrate,-10;
+      bonus bFixedCast,-100;
+      bonus bSMatk,5;
+  # 2-piece: Star_Force_Ring_LT + Magic_Star_TW_LT
+  - Combos:
+      - Combo:
+          - Star_Force_Ring_LT   # 490619
+          - Magic_Star_TW_LT     # 410256
+    Script: |
+      bonus bVariableCastrate,-10;
+      bonus bFixedCast,-100;
+      bonus bSMatk,5;
+  # 3-piece: Star_Force_Ring_LT + Magic_Star_TW_LT + Magic_Circle_LT
+  - Combos:
+      - Combo:
+          - Star_Force_Ring_LT   # 490619
+          - Magic_Star_TW_LT     # 410256
+          - Magic_Circle_LT      # 420301
+    Script: |
+      bonus bMagicAtkRate,20;
+      bonus3 bAutoSpell,"WL_RECOGNIZEDSPELL",1,100;
+  # 2-piece: Magic_Circle_LT + Magic_Star_TW_LT (stat scaling per 12 points)
+  - Combos:
+      - Combo:
+          - Magic_Circle_LT      # 420301
+          - Magic_Star_TW_LT     # 410256
+    Script: |
+      .@str = readparam(bStr);
+      .@agi = readparam(bAgi);
+      .@vit = readparam(bVit);
+      .@int = readparam(bInt);
+      .@dex = readparam(bDex);
+      .@luk = readparam(bLuk);
+      .@total = .@str+.@agi+.@vit+.@int+.@dex+.@luk;
+      bonus bMatkRate,(.@str/12);
+      bonus bDelayrate,-(.@agi/12);
+      bonus2 bMagicAtkRaceRate,RC_All,(.@vit/12);
+      bonus2 bMagicAddClass,Class_All,(.@int/12);
+      bonus2 bMagicAtkEle,Ele_All,1*(.@dex/12);
+      bonus2 bMagicAtkEle,Ele_Neutral,1*(.@luk/12);
+      if (.@total>=160) bonus bMatk,100;

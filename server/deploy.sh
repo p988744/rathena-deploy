@@ -89,6 +89,16 @@ scp -P "${SERVER_SSH_PORT}" \
 
 echo "✅ 設定檔已上傳"
 
+# ------ Step 4b: 同步 custom-overlay ------
+echo ""
+echo "📤 Step 4b: 同步 custom-overlay..."
+
+scp -P "${SERVER_SSH_PORT}" -r \
+    custom-overlay/ \
+    "${SERVER_USER}@${SERVER_IP}:${REMOTE_DIR}/"
+
+echo "✅ custom-overlay 已同步"
+
 # ------ Step 5: 啟動服務 ------
 echo ""
 echo "🚀 Step 5: 啟動伺服器..."

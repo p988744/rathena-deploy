@@ -1,0 +1,276 @@
+//===== Custom Script =========================================
+//= Shadow Equipment Shop NPC
+//= Categories: BK / SV / Garden of Eden / Other Sets / FullPene
+//===== Description ===========================================
+//= Menu-based NPC at izlude 102,155 (sprite 87)
+//=============================================================
+
+// --- BK Series Shop Definitions ---
+izlude,0,0,0	shop	BK_Dragon_Knight	-1,24800:100000000,24801:100000000,24802:100000000,24803:100000000
+izlude,0,0,0	shop	BK_Imperial_Guard	-1,24804:100000000,24805:100000000,24806:100000000,24807:100000000
+izlude,0,0,0	shop	BK_Shadow_Cross	-1,24808:100000000,24809:100000000,24810:100000000,24811:100000000
+izlude,0,0,0	shop	BK_Abyss_Chaser	-1,24812:100000000,24813:100000000,24814:100000000,24815:100000000
+izlude,0,0,0	shop	BK_Cardinal	-1,24816:100000000,24817:100000000,24818:100000000,24819:100000000
+izlude,0,0,0	shop	BK_Inquisitor	-1,24820:100000000,24821:100000000,24822:100000000,24823:100000000
+izlude,0,0,0	shop	BK_Meister	-1,24824:100000000,24825:100000000,24826:100000000,24827:100000000
+izlude,0,0,0	shop	BK_Biolo	-1,24828:100000000,24829:100000000,24830:100000000,24831:100000000
+izlude,0,0,0	shop	BK_Windhawk	-1,24832:100000000,24833:100000000,24834:100000000,24835:100000000
+izlude,0,0,0	shop	BK_Trouvere	-1,24836:100000000,24837:100000000,24838:100000000,24839:100000000
+izlude,0,0,0	shop	BK_Arch_Mage	-1,24840:100000000,24841:100000000,24842:100000000,24843:100000000
+izlude,0,0,0	shop	BK_Elemental_Master	-1,24844:100000000,24845:100000000,24846:100000000,24847:100000000
+izlude,0,0,0	shop	BK_Night_Watch	-1,24848:100000000,24849:100000000,24850:100000000,24851:100000000
+izlude,0,0,0	shop	BK_Spirit_Handler	-1,24852:100000000,24853:100000000,24854:100000000,24855:100000000
+izlude,0,0,0	shop	BK_Shinkiro_Shiranui	-1,24856:100000000,24857:100000000,24858:100000000,24859:100000000
+izlude,0,0,0	shop	BK_Sky_Emperor	-1,24860:100000000,24861:100000000,24862:100000000,24863:100000000
+izlude,0,0,0	shop	BK_Soul_Ascetic	-1,24864:100000000,24865:100000000,24866:100000000,24867:100000000
+izlude,0,0,0	shop	BK_Hyper_Novice	-1,24868:100000000,24869:100000000,24870:100000000,24871:100000000
+
+// --- SV Series Shop Definitions (General) ---
+izlude,0,0,0	shop	SV_Attribute_Boosters	-1,24872:100000000,24873:100000000,24874:100000000,24875:100000000,24876:100000000,24877:100000000,24878:100000000,24879:100000000,24883:100000000,24884:100000000,24885:100000000,24886:100000000,24887:100000000,24888:100000000
+izlude,0,0,0	shop	SV_Magical_Spell_Master	-1,24993:100000000,24994:100000000,24995:100000000,24996:100000000,24997:100000000,24998:100000000,24999:100000000,1270000:100000000,1270001:100000000,1270002:100000000,1270003:100000000,1270004:100000000
+izlude,0,0,0	shop	SV_Elite_Master	-1,1270005:100000000,1270006:100000000,1270007:100000000,1270008:100000000,1270009:100000000,1270010:100000000,1270011:100000000,1270012:100000000,1270013:100000000,1270014:100000000,1270015:100000000,1270016:100000000
+
+// --- SV Series Shop Definitions (Class Skill) ---
+izlude,0,0,0	shop	SV_Dragon_Knight	-1,24918:100000000,24919:100000000,24920:100000000,24921:100000000,1270023:100000000,1270024:100000000,1270025:100000000,1270026:100000000
+izlude,0,0,0	shop	SV_Imperial_Guard	-1,24948:100000000,24949:100000000,24950:100000000,24951:100000000,1270039:100000000,1270040:100000000,1270041:100000000,1270042:100000000
+izlude,0,0,0	shop	SV_Shadow_Cross	-1,24906:100000000,24907:100000000,24908:100000000,24909:100000000,1270079:100000000,1270080:100000000,1270081:100000000,1270082:100000000
+izlude,0,0,0	shop	SV_Abyss_Chaser	-1,24983:100000000,24984:100000000,24985:100000000,24986:100000000,1270095:100000000,1270096:100000000,1270097:100000000,1270098:100000000
+izlude,0,0,0	shop	SV_Cardinal	-1,24967:100000000,24968:100000000,24969:100000000,24970:100000000,1270115:100000000,1270116:100000000,1270117:100000000,1270118:100000000
+izlude,0,0,0	shop	SV_Inquisitor	-1,24952:100000000,24953:100000000,24954:100000000,24955:100000000,1270083:100000000,1270084:100000000,1270085:100000000,1270086:100000000
+izlude,0,0,0	shop	SV_Meister	-1,24936:100000000,24937:100000000,24938:100000000,24939:100000000,1270035:100000000,1270036:100000000,1270037:100000000,1270038:100000000
+izlude,0,0,0	shop	SV_Biolo	-1,24940:100000000,24941:100000000,24942:100000000,24943:100000000,1270027:100000000,1270028:100000000,1270029:100000000,1270030:100000000
+izlude,0,0,0	shop	SV_Windhawk	-1,24910:100000000,24911:100000000,24912:100000000,24913:100000000,1270130:100000000,1270131:100000000,1270132:100000000,1270133:100000000
+izlude,0,0,0	shop	SV_Trouvere	-1,24922:100000000,24923:100000000,24924:100000000,24925:100000000,1270134:100000000,1270135:100000000,1270136:100000000,1270137:100000000
+izlude,0,0,0	shop	SV_Arch_Mage	-1,24971:100000000,24972:100000000,24973:100000000,24974:100000000,1270091:100000000,1270092:100000000,1270093:100000000,1270094:100000000
+izlude,0,0,0	shop	SV_Elemental_Master	-1,24979:100000000,24980:100000000,24981:100000000,24982:100000000,1270119:100000000,1270120:100000000,1270121:100000000,1270122:100000000
+izlude,0,0,0	shop	SV_Night_Watch	-1,24926:100000000,24927:100000000,24928:100000000,24929:100000000,1270138:100000000,1270139:100000000,1270140:100000000,1270141:100000000
+izlude,0,0,0	shop	SV_Spirit_Handler	-1,24956:100000000,24957:100000000,24958:100000000,24959:100000000,1270031:100000000,1270032:100000000,1270033:100000000,1270034:100000000
+izlude,0,0,0	shop	SV_Shinkiro_Shiranui	-1,24914:100000000,24915:100000000,24916:100000000,24917:100000000,1270123:100000000,1270124:100000000,1270125:100000000,1270126:100000000
+izlude,0,0,0	shop	SV_Sky_Emperor	-1,24975:100000000,24976:100000000,24977:100000000,24978:100000000,1270099:100000000,1270100:100000000,1270101:100000000,1270102:100000000
+izlude,0,0,0	shop	SV_Soul_Ascetic	-1,24987:100000000,24988:100000000,24989:100000000,24990:100000000,1270043:100000000,1270044:100000000,1270045:100000000,1270046:100000000
+izlude,0,0,0	shop	SV_Hyper_Novice	-1,24944:100000000,24945:100000000,24946:100000000,24947:100000000,1270087:100000000,1270088:100000000,1270089:100000000,1270090:100000000
+
+// --- Garden of Eden Shop Definitions ---
+izlude,0,0,0	shop	GoE_Beginner	-1,24687:100,24688:100,24689:100,24690:100,24691:100,24692:100
+izlude,0,0,0	shop	GoE_Advanced	-1,24693:100000,24694:100000,24695:100000,24696:100000,24697:100000
+izlude,0,0,0	shop	GoE_Rune_Knight	-1,24698:100000
+izlude,0,0,0	shop	GoE_Royal_Guard	-1,24699:100000
+izlude,0,0,0	shop	GoE_Mechanic	-1,24700:100000
+izlude,0,0,0	shop	GoE_Geneticist	-1,24701:100000
+izlude,0,0,0	shop	GoE_Guillotine_Cross	-1,24702:100000
+izlude,0,0,0	shop	GoE_Shadow_Chaser	-1,24703:100000
+izlude,0,0,0	shop	GoE_Warlock	-1,24704:100000
+izlude,0,0,0	shop	GoE_Sorcerer	-1,24705:100000
+izlude,0,0,0	shop	GoE_Arch_Bishop	-1,24706:100000
+izlude,0,0,0	shop	GoE_Sura	-1,24707:100000
+izlude,0,0,0	shop	GoE_Ranger	-1,24708:100000
+izlude,0,0,0	shop	GoE_Minstrel_Wanderer	-1,24709:100000
+izlude,0,0,0	shop	GoE_Ninja	-1,24710:100000
+izlude,0,0,0	shop	GoE_Rebellion	-1,24711:100000
+izlude,0,0,0	shop	GoE_Star_Emperor	-1,24712:100000
+izlude,0,0,0	shop	GoE_Soul_Reaper	-1,24713:100000
+izlude,0,0,0	shop	GoE_Summoner	-1,24714:100000
+izlude,0,0,0	shop	GoE_Super_Novice	-1,24715:100000
+
+// --- Other Special Sets ---
+izlude,0,0,0	shop	SET_Timeoverload	-1,24416:10000000,24417:10000000,24418:10000000,24419:10000000,24420:10000000,24421:10000000
+izlude,0,0,0	shop	SET_Infinity	-1,24150:10000000,24151:10000000,24386:10000000,24733:10000000
+izlude,0,0,0	shop	SET_Mammoth	-1,24679:10000000,24680:10000000,24681:10000000,24682:10000000
+izlude,0,0,0	shop	SET_AllMighty	-1,24339:10000000,24340:10000000
+izlude,0,0,0	shop	SET_Bearers	-1,24180:10000000,24181:10000000,24182:10000000,24183:10000000,24184:10000000,24185:10000000,24321:10000000,24337:10000000
+
+// --- FullPene Shop Definitions ---
+izlude,0,0,0	shop	FP_Through	-1,24661:100000000,24662:100000000,24663:100000000,24664:100000000
+izlude,0,0,0	shop	FP_Storm	-1,24665:100000000,24666:100000000,24667:100000000,24668:100000000
+
+// --- Main Menu NPC ---
+izlude,102,155,4	script	Shadow Equipment Shop	411,{
+	mes "[Shadow Equipment Shop]";
+	mes "Welcome! Please select a category.";
+	next;
+
+	switch( select(
+		"BK Series - Class Base Sets",
+		"SV Series - Attribute & Skill",
+		"Garden of Eden",
+		"Timeoverload",
+		"Infinity",
+		"Mammoth",
+		"AllMighty",
+		"Bearers",
+		"FullPene",
+		"Leave"
+	) ) {
+	case 1:  goto L_BK_Menu;
+	case 2:  goto L_SV_Menu;
+	case 3:  goto L_GoE_Menu;
+	case 4:  callshop "SET_Timeoverload", 1; end;
+	case 5:  callshop "SET_Infinity", 1;     end;
+	case 6:  callshop "SET_Mammoth", 1;      end;
+	case 7:  callshop "SET_AllMighty", 1;    end;
+	case 8:  callshop "SET_Bearers", 1;      end;
+	case 9:  goto L_FP_Menu;
+	case 10: close;
+	}
+
+L_BK_Menu:
+	mes "[BK Series] Select your class:";
+	next;
+	switch( select(
+		"Dragon Knight",
+		"Imperial Guard",
+		"Shadow Cross",
+		"Abyss Chaser",
+		"Cardinal",
+		"Inquisitor",
+		"Meister",
+		"Biolo",
+		"Windhawk",
+		"Trouvere & Troubadour",
+		"Arch Mage",
+		"Elemental Master",
+		"Night Watch",
+		"Spirit Handler",
+		"Shinkiro & Shiranui",
+		"Sky Emperor",
+		"Soul Ascetic",
+		"Hyper Novice",
+		"< Back"
+	) ) {
+	case 1:  callshop "BK_Dragon_Knight", 1;     end;
+	case 2:  callshop "BK_Imperial_Guard", 1;    end;
+	case 3:  callshop "BK_Shadow_Cross", 1;      end;
+	case 4:  callshop "BK_Abyss_Chaser", 1;      end;
+	case 5:  callshop "BK_Cardinal", 1;          end;
+	case 6:  callshop "BK_Inquisitor", 1;        end;
+	case 7:  callshop "BK_Meister", 1;           end;
+	case 8:  callshop "BK_Biolo", 1;             end;
+	case 9:  callshop "BK_Windhawk", 1;          end;
+	case 10: callshop "BK_Trouvere", 1;          end;
+	case 11: callshop "BK_Arch_Mage", 1;         end;
+	case 12: callshop "BK_Elemental_Master", 1;  end;
+	case 13: callshop "BK_Night_Watch", 1;       end;
+	case 14: callshop "BK_Spirit_Handler", 1;    end;
+	case 15: callshop "BK_Shinkiro_Shiranui", 1; end;
+	case 16: callshop "BK_Sky_Emperor", 1;       end;
+	case 17: callshop "BK_Soul_Ascetic", 1;      end;
+	case 18: callshop "BK_Hyper_Novice", 1;      end;
+	case 19: goto OnInit;
+	}
+
+L_SV_Menu:
+	mes "[SV Series] Select a category:";
+	next;
+	switch( select(
+		"Attribute Boosters",
+		"Magical & Spell Master",
+		"Elite Master Series",
+		"Dragon Knight",
+		"Imperial Guard",
+		"Shadow Cross",
+		"Abyss Chaser",
+		"Cardinal",
+		"Inquisitor",
+		"Meister",
+		"Biolo",
+		"Windhawk",
+		"Trouvere & Troubadour",
+		"Arch Mage",
+		"Elemental Master",
+		"Night Watch",
+		"Spirit Handler",
+		"Shinkiro & Shiranui",
+		"Sky Emperor",
+		"Soul Ascetic",
+		"Hyper Novice",
+		"< Back"
+	) ) {
+	case 1:  callshop "SV_Attribute_Boosters", 1;   end;
+	case 2:  callshop "SV_Magical_Spell_Master", 1; end;
+	case 3:  callshop "SV_Elite_Master", 1;         end;
+	case 4:  callshop "SV_Dragon_Knight", 1;        end;
+	case 5:  callshop "SV_Imperial_Guard", 1;       end;
+	case 6:  callshop "SV_Shadow_Cross", 1;         end;
+	case 7:  callshop "SV_Abyss_Chaser", 1;         end;
+	case 8:  callshop "SV_Cardinal", 1;             end;
+	case 9:  callshop "SV_Inquisitor", 1;           end;
+	case 10: callshop "SV_Meister", 1;              end;
+	case 11: callshop "SV_Biolo", 1;                end;
+	case 12: callshop "SV_Windhawk", 1;             end;
+	case 13: callshop "SV_Trouvere", 1;             end;
+	case 14: callshop "SV_Arch_Mage", 1;            end;
+	case 15: callshop "SV_Elemental_Master", 1;     end;
+	case 16: callshop "SV_Night_Watch", 1;          end;
+	case 17: callshop "SV_Spirit_Handler", 1;       end;
+	case 18: callshop "SV_Shinkiro_Shiranui", 1;    end;
+	case 19: callshop "SV_Sky_Emperor", 1;          end;
+	case 20: callshop "SV_Soul_Ascetic", 1;         end;
+	case 21: callshop "SV_Hyper_Novice", 1;         end;
+	case 22: goto OnInit;
+	}
+
+L_GoE_Menu:
+	mes "[Garden of Eden] Select a set:";
+	next;
+	switch( select(
+		"Beginner",
+		"Advanced",
+		"Rune Knight",
+		"Royal Guard",
+		"Mechanic",
+		"Geneticist",
+		"Guillotine Cross",
+		"Shadow Chaser",
+		"Warlock",
+		"Sorcerer",
+		"Arch Bishop",
+		"Sura",
+		"Ranger",
+		"Minstrel & Wanderer",
+		"Ninja",
+		"Rebellion",
+		"Star Emperor",
+		"Soul Reaper",
+		"Summoner (Doram)",
+		"Super Novice",
+		"< Back"
+	) ) {
+	case 1:  callshop "GoE_Beginner", 1;          end;
+	case 2:  callshop "GoE_Advanced", 1;          end;
+	case 3:  callshop "GoE_Rune_Knight", 1;       end;
+	case 4:  callshop "GoE_Royal_Guard", 1;       end;
+	case 5:  callshop "GoE_Mechanic", 1;          end;
+	case 6:  callshop "GoE_Geneticist", 1;        end;
+	case 7:  callshop "GoE_Guillotine_Cross", 1;  end;
+	case 8:  callshop "GoE_Shadow_Chaser", 1;     end;
+	case 9:  callshop "GoE_Warlock", 1;           end;
+	case 10: callshop "GoE_Sorcerer", 1;          end;
+	case 11: callshop "GoE_Arch_Bishop", 1;       end;
+	case 12: callshop "GoE_Sura", 1;              end;
+	case 13: callshop "GoE_Ranger", 1;            end;
+	case 14: callshop "GoE_Minstrel_Wanderer", 1; end;
+	case 15: callshop "GoE_Ninja", 1;             end;
+	case 16: callshop "GoE_Rebellion", 1;         end;
+	case 17: callshop "GoE_Star_Emperor", 1;      end;
+	case 18: callshop "GoE_Soul_Reaper", 1;       end;
+	case 19: callshop "GoE_Summoner", 1;          end;
+	case 20: callshop "GoE_Super_Novice", 1;      end;
+	case 21: goto OnInit;
+	}
+
+L_FP_Menu:
+	mes "[FullPene] Select a set:";
+	next;
+	switch( select(
+		"Through",
+		"Storm",
+		"< Back"
+	) ) {
+	case 1: callshop "FP_Through", 1; end;
+	case 2: callshop "FP_Storm", 1;   end;
+	case 3: goto OnInit;
+	}
+
+OnInit:
+	end;
+}

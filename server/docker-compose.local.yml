@@ -43,6 +43,9 @@ services:
       JOB_EXP_RATE: ${JOB_EXP_RATE:-500}
       DROP_RATE: ${DROP_RATE:-300}
       CARD_DROP_RATE: ${CARD_DROP_RATE:-1000}
+    volumes:
+      - ./custom-npc:/rathena-custom/npc:ro
+      - ./custom-overlay:/rathena-overlay:ro
     ports:
       - "6900:6900"
       - "6121:6121"

@@ -244,12 +244,20 @@ if [ -f "/rathena/npc/custom/zeny_mob.txt" ]; then
     echo "   已啟用野怪金幣及服飾 spawn"
 fi
 
-# 啟用金幣精靈（全野外 + 地穴，擊殺給 Zeny）
-if [ -f "/rathena/npc/custom/zeny_mob.txt" ]; then
-    if ! grep -q 'zeny_mob.txt' /rathena/npc/scripts_custom.conf; then
-        echo 'npc: npc/custom/zeny_mob.txt' >> /rathena/npc/scripts_custom.conf
+# 啟用影子裝商人
+if [ -f "/rathena/npc/custom/shadow_shop.txt" ]; then
+    if ! grep -q 'shadow_shop.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/shadow_shop.txt' >> /rathena/npc/scripts_custom.conf
     fi
-    echo "   已啟用金幣精靈 spawn"
+    echo "   已啟用影子裝商人"
+fi
+
+# 啟用力量商人
+if [ -f "/rathena/npc/custom/power_shop.txt" ]; then
+    if ! grep -q 'power_shop.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/power_shop.txt' >> /rathena/npc/scripts_custom.conf
+    fi
+    echo "   已啟用力量商人"
 fi
 
 # 啟用 EP 裝備商店 NPC（EP1-13 到 EP19，共 7 個商店）
