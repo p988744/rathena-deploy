@@ -1720,12 +1720,12 @@ L_MissMemoryRecord:
 
 	setarray .@bond_id[0],   29594, 29595, 29596, 29598, 29599, 29600;
 	setarray .@bond_name$[0],
-		"Seyren (Rune Knight) — Hundred Spear +70%, CD-3s, 20% Wind Cutter",
-		"Harword (Mechanic) — POW+5, Axe Boomerang +70%, 35% Power Swing",
-		"Eremes (Guillotine Cross) — Counter Slash +70%, 10% Rolling Cutter, 20% Cross Impact",
-		"Katrinn (Warlock) — Comet CD-60s, Soul Expansion +70%, 20% Soul Strike",
-		"Magaleta (Archbishop) — Delay-5%, Judex +70%, 40% Magnus Exorcismus",
-		"Shecil (Ranger) — Aimed Bolt +70%, Ranged 50% Aimed Bolt, 50% Falcon Assault";
+		"Seyren (Rune Knight)",
+		"Harword (Mechanic)",
+		"Eremes (Guillotine Cross)",
+		"Katrinn (Warlock)",
+		"Magaleta (Archbishop)",
+		"Shecil (Ranger)";
 
 	mes "[Enchant Master]";
 	mes "^0000FF" + getequipname(.@part) + "^000000";
