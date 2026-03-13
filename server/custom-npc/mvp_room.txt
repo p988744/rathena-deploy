@@ -1,0 +1,356 @@
+//===== Custom Script =============================================
+//= MVP Challenge Room  (up to 100-Wave System)
+//= - Enter from izlude 137,154
+//= - Face random MVPs wave by wave (no drops, no MVP rewards)
+//= - Every 10 waves = +1 random MVP Card (claimed at Reward NPC)
+//= - Max 100 waves per run; can continue after each 10-wave set
+//=============================================================
+
+// ─────────────────────────────────────────────────────────────
+// [1] ENTRY NPC
+// ─────────────────────────────────────────────────────────────
+izlude,137,154,5	script	MVP Room	925,{
+	mes "[Private MVP Room]";
+	mes "Defeat ^CC000010 random MVPs^000000 per set to earn a ^FF9900random MVP Card^000000!";
+	mes "Continue up to ^FF9900100 waves^000000 — claim all your cards at once.";
+	mes " ";
+	for (.@i = 1; .@i <= 8; .@i++) {
+		.@rt = getvariableofnpc(.renttime[.@i], "MVP Challenger");
+		.@wv = getvariableofnpc(.wave[.@i],     "MVP Challenger");
+		if (.@rt) {
+			if (.@wv > 0)
+				mes "Room #" + .@i + " = ^EE8800In Progress  (Wave " + .@wv + "/100)^000000";
+			else
+				mes "Room #" + .@i + " = ^EE0000Occupied^000000";
+		} else {
+			mes "Room #" + .@i + " = ^00CC00Available^000000";
+		}
+	}
+	next;
+	.@room = select(
+		"Room 1 [" + getmapusers("06guild_01") + " players]",
+		"Room 2 [" + getmapusers("06guild_02") + " players]",
+		"Room 3 [" + getmapusers("06guild_03") + " players]",
+		"Room 4 [" + getmapusers("06guild_04") + " players]",
+		"Room 5 [" + getmapusers("06guild_05") + " players]",
+		"Room 6 [" + getmapusers("06guild_06") + " players]",
+		"Room 7 [" + getmapusers("06guild_07") + " players]",
+		"Room 8 [" + getmapusers("06guild_08") + " players]");
+	if (getvariableofnpc(.renttime[.@room], "MVP Challenger")) {
+		mes "[Private MVP Room]";
+		mes "Room #" + .@room + " is already occupied.";
+		mes "Please select another room.";
+		close;
+	}
+	warp "06guild_0" + .@room, 49, 53;
+	donpcevent "MVP Challenger#" + .@room + "::OnEnterMap";
+	close;
+OnInit:
+	waitingroom "MVP Room", 0;
+	end;
+}
+
+// ─────────────────────────────────────────────────────────────
+// [2] MVP CHALLENGER  (inside each room)
+// ─────────────────────────────────────────────────────────────
+-	script	MVP Challenger	-1,{
+	.@id = atoi(strnpcinfo(2));
+
+	if (mobcount("this", strnpcinfo(3) + "::OnMobDead") > 0) {
+		mes "[MVP Challenger]";
+		mes "^CC0000An MVP is still alive!^000000";
+		mes "Defeat it before starting the next wave.";
+		close;
+	}
+
+	mes "[MVP Challenger]";
+	if (.wave[.@id] == 0)
+		mes "Welcome, challenger. Are you ready to begin?";
+	else
+		mes "Wave ^CC0000" + .wave[.@id] + " / 100^000000 cleared! Keep going!";
+	next;
+
+	switch (select("Start Wave " + (.wave[.@id] + 1) + " / 100:Full Heal:Leave Room")) {
+	case 1:
+		.@size = getarraysize(.mvpid);
+		.@pick = rand(.@size);
+		hideonnpc strnpcinfo(0);
+		monster strnpcinfo(4), 49, 49, "--ja--", .mvpid[.@pick], 1, strnpcinfo(3) + "::OnMobDead";
+		mes "[MVP Challenger]";
+		mes "^CC0000" + getmonsterinfo(.mvpid[.@pick], MOB_NAME) + "^000000 has appeared!";
+		mes "Defeat it to advance to the next wave.";
+		close;
+	case 2:
+		sc_end SC_STONE;       sc_end SC_SLOWDOWN;    sc_end SC_FREEZE;
+		sc_end SC_SLEEP;       sc_end SC_CURSE;       sc_end SC_SILENCE;
+		sc_end SC_CONFUSION;   sc_end SC_BLIND;       sc_end SC_BLEEDING;
+		sc_end SC_DECREASEAGI; sc_end SC_POISON;      sc_end SC_HALLUCINATION;
+		sc_end SC_STRIPWEAPON; sc_end SC_STRIPARMOR;
+		sc_end SC_STRIPHELM;   sc_end SC_STRIPSHIELD;
+		sc_end SC_CHANGEUNDEAD; sc_end SC_BERSERK;
+		percentheal 100, 100;
+		specialeffect2 EF_HEAL;
+		mes "[MVP Challenger]";
+		mes "You have been fully healed.";
+		close;
+	case 3:
+		mes "[MVP Challenger]";
+		if (.pending[.@id] > 0) {
+			mes "^CC0000Warning:^000000 You have ^FF9900" + .pending[.@id] + " unclaimed card(s)^000000.";
+			mes "Leaving will ^CC0000forfeit^000000 your pending rewards!";
+		} else {
+			mes "Are you sure you want to leave the challenge?";
+		}
+		next;
+		if (select("Yes, leave:No, stay") == 1)
+			warp .respawnmap$, .respawnx, .respawny;
+		close;
+	}
+	close;
+
+OnMobDead:
+	.@id = atoi(strnpcinfo(2));
+	.wave[.@id]++;
+	if (.wave[.@id] % 10 == 0) {
+		.pending[.@id]++;
+		enablenpc "MVP Reward#" + .@id;
+		if (.wave[.@id] >= 100)
+			mapannounce strnpcinfo(4), "Amazing! All 100 waves cleared! Talk to the Reward NPC to claim your " + .pending[.@id] + " MVP Card(s)!", 0, 0xFFD700;
+		else
+			mapannounce strnpcinfo(4), "Wave " + .wave[.@id] + "/100 cleared! Talk to the Reward NPC to continue or claim your " + .pending[.@id] + " card(s)!", 0, 0xFFD700;
+	} else {
+		hideoffnpc "MVP Challenger#" + .@id;
+	}
+	end;
+
+OnEnterMap:
+	.@id = atoi(strnpcinfo(2));
+	.wave[.@id]    = 0;
+	.pending[.@id] = 0;
+	disablenpc "MVP Reward#" + .@id;
+	killmonsterall strnpcinfo(4);
+	setmapflag strnpcinfo(4), mf_nomobloot;
+	setmapflag strnpcinfo(4), mf_nomvploot;
+	setmapflag strnpcinfo(4), mf_noteleport;
+	.renttime[.@id] = gettimetick(2);
+	sleep .timeout * 60000;
+	// Timeout — clean up room and kick players
+	.renttime[.@id] = 0;
+	.wave[.@id]     = 0;
+	.pending[.@id]  = 0;
+	mapwarp strnpcinfo(4), .respawnmap$, .respawnx, .respawny;
+	killmonsterall strnpcinfo(4);
+	disablenpc "MVP Reward#" + .@id;
+	hideoffnpc strnpcinfo(0);
+	removemapflag strnpcinfo(4), mf_nomobloot;
+	removemapflag strnpcinfo(4), mf_nomvploot;
+	removemapflag strnpcinfo(4), mf_noteleport;
+	end;
+
+OnContinue:
+	// Called by Reward NPC when player chooses to keep fighting
+	hideoffnpc strnpcinfo(0);
+	end;
+
+OnReset:
+	// Called by Reward NPC after full claim — reset state without triggering mapwarp
+	.@id = atoi(strnpcinfo(2));
+	.renttime[.@id] = 0;
+	.wave[.@id]     = 0;
+	.pending[.@id]  = 0;
+	end;
+
+OnInit:
+	if (!getstrlen(strnpcinfo(2))) {
+		.timeout     = 60;         // room time limit in minutes
+		.respawnmap$ = "prontera";
+		.respawnx    = 150;
+		.respawny    = 174;
+
+		setarray .mvpid[0],
+			// Classic MVPs (Episode 1-11)
+			1038, 1039, 1046, 1059, 1086, 1087, 1112, 1115,
+			1147, 1150, 1157, 1159, 1190, 1251, 1252, 1272,
+			1312, 1373, 1389, 1418, 1492, 1511,
+			1583, 1623, 1630,
+			// Biolab / Thanatos / Comodo MVPs (Ep 12-13)
+			1646, 1647, 1648, 1649, 1650, 1651, 1658, 1685,
+			1688, 1708, 1719, 1734, 1751, 1768,
+			1779, 1785, 1832, 1871, 1874,
+			1885,1916,
+			// Episode 14+ MVPs
+			2131, 2156, 2165, 2187,
+			2188, 2189, 2190, 2194, 2202, 2235, 2236,
+			2237, 2238, 2239, 2240, 2241, 2249, 2251, 2253,
+			2255, 2319, 2341, 2362,
+			2475, 2476, 2529, 2532, 2533, 2534, 2535,
+			2564, 2942, 2996, 3000, 3029, 3073, 3074,
+			3097, 3109, 3124, 3181, 3190, 3220, 3221,
+			3222, 3223, 3224, 3225, 3240, 3241, 3242, 3243,
+			3244, 3245, 3246, 3254, 3427, 3428, 3429,
+			3430, 3450, 3473, 3505, 3621, 3628, 3633, 3658,
+			3659, 3741, 3757, 3758, 3796, 3804,
+			// EP17-20 MVPs
+			20118, 20273, 20277, 20340, 20346, 20381, 20419,
+			20421, 20422, 20520, 20601, 20610, 20611, 20620,
+			20621, 20642, 20648, 20659, 20667, 20668, 20811,
+			20843, 20928, 20934, 20943, 21301, 21314, 21316,
+			21317, 21360, 21361, 21395, 21555, 21563, 21571,
+			21579;
+	}
+	end;
+}
+
+// ─────────────────────────────────────────────────────────────
+// [3] REWARD NPC  (enabled after every 10th wave)
+// ─────────────────────────────────────────────────────────────
+-	script	MVP Reward	-1,{
+	.@id      = atoi(strnpcinfo(2));
+	.@wave    = getvariableofnpc(.wave[.@id],    "MVP Challenger");
+	.@pending = getvariableofnpc(.pending[.@id], "MVP Challenger");
+
+	mes "[MVP Challenge - Reward]";
+	if (.@wave >= 100)
+		mes "Incredible! You've conquered all ^FF9900100 waves^000000!";
+	else
+		mes "Wave ^FF9900" + .@wave + " / 100^000000 cleared!";
+	mes " ";
+	mes "You have ^FF9900" + .@pending + " pending card(s)^000000 to claim.";
+	mes "^888888(1 random MVP card per 10-wave set)^000000";
+	next;
+
+	if (.@wave >= 100) {
+		// Max reached — must claim now
+		if (select("Claim " + .@pending + " Card(s):Not Right Now") == 2) {
+			mes "[MVP Challenge - Reward]";
+			mes "Come back whenever you are ready.";
+			close;
+		}
+	} else {
+		.@choice = select("Claim " + .@pending + " Card(s) and Leave:Continue Challenge (Wave " + .@wave + "/100):Not Right Now");
+		if (.@choice == 2) {
+			// Continue — keep pending cards, re-enable Challenger
+			disablenpc strnpcinfo(0);
+			donpcevent "MVP Challenger#" + .@id + "::OnContinue";
+			mes "[MVP Challenge]";
+			mes "Good luck on the next waves!";
+			mes "Your ^FF9900" + .@pending + " pending card(s)^000000 will be waiting when you claim.";
+			close;
+		} else if (.@choice == 3) {
+			mes "[MVP Challenge - Reward]";
+			mes "Come back whenever you are ready.";
+			close;
+		}
+		// .@choice == 1: fall through to claim
+	}
+
+	// — Claim all pending cards (each drawn independently) —
+	for (.@i = 0; .@i < .@pending; .@i++) {
+		.@card = .cardid[rand(getarraysize(.cardid))];
+		getitem .@card, 1;
+		announce "[MVP Challenge] " + strcharinfo(PC_NAME) + " cleared " + .@wave + " waves and obtained " + getitemname(.@card) + "!", bc_all, 0xFFD700;
+	}
+
+	// Reset the room
+	disablenpc strnpcinfo(0);
+	enablenpc "MVP Challenger#" + .@id;
+	donpcevent "MVP Challenger#" + .@id + "::OnReset";
+	warp "SavePoint", 0, 0;
+	close;
+
+OnInit:
+	// duplicate NPCs do not run OnInit — disable all room instances explicitly
+	disablenpc "MVP Reward#1";
+	disablenpc "MVP Reward#2";
+	disablenpc "MVP Reward#3";
+	disablenpc "MVP Reward#4";
+	disablenpc "MVP Reward#5";
+	disablenpc "MVP Reward#6";
+	disablenpc "MVP Reward#7";
+	disablenpc "MVP Reward#8";
+	// Card pool: only MVP cards whose monster is in the challenge list
+	setarray .cardid[0],
+		// Classic MVPs (Ep 1-11)
+		4144, 4147, 4142, 4132, 4128, 4143, 4137, 4123, 4146, 4131, 4148,
+		4121, 4135, 4318, 4324, 4168, 4305, 4276, 4134, 4330, 4263, 4236,
+		4372, 4302, 4342, 4357, 4359, 4361, 4363, 4367, 4365, 4352, 4374,
+		4376, 4399, 4386,4403,4407,4408,4419,4425,4430,4441,4145,27162,4451,
+		4456,4168,27126,4507,4520,4509,4527,4526,4528,4529,4534,4525,4565,
+		4563,4561,4562,4564,4560,4566,4578,4576,4574,4580,4592,4652,4603,
+		4601,27164,4556,27265,31023,27326,27327,27106,4625,27321, 27109, 4697,
+		27182,4610,4674,4675,4676,4677,4678,4679,4680,4681,4671,4672,4682,
+		4673,4683,27020,4636,31026,4662,27152,27151,27150,27025,27180,
+		27104,27081,27113,27119,300297,27294,27298,27305,27318,27319,
+		27346,27362,27363,27334,300007,300013,300014,300079,300080,300107,
+		300099,300100,300151,300145,300262,300281,300248,300217,300227,
+		300228,300239;
+	end;
+}
+
+// ─────────────────────────────────────────────────────────────
+// Room duplicates — Challenger
+// ─────────────────────────────────────────────────────────────
+06guild_01,49,49,4	duplicate(MVP Challenger)	MVP Challenger#1	116
+06guild_02,49,49,4	duplicate(MVP Challenger)	MVP Challenger#2	116
+06guild_03,49,49,4	duplicate(MVP Challenger)	MVP Challenger#3	116
+06guild_04,49,49,4	duplicate(MVP Challenger)	MVP Challenger#4	116
+06guild_05,49,49,4	duplicate(MVP Challenger)	MVP Challenger#5	116
+06guild_06,49,49,4	duplicate(MVP Challenger)	MVP Challenger#6	116
+06guild_07,49,49,4	duplicate(MVP Challenger)	MVP Challenger#7	116
+06guild_08,49,49,4	duplicate(MVP Challenger)	MVP Challenger#8	116
+
+// ─────────────────────────────────────────────────────────────
+// Room duplicates — Reward NPC
+// ─────────────────────────────────────────────────────────────
+06guild_01,49,49,4	duplicate(MVP Reward)	MVP Reward#1	120
+06guild_02,49,49,4	duplicate(MVP Reward)	MVP Reward#2	120
+06guild_03,49,49,4	duplicate(MVP Reward)	MVP Reward#3	120
+06guild_04,49,49,4	duplicate(MVP Reward)	MVP Reward#4	120
+06guild_05,49,49,4	duplicate(MVP Reward)	MVP Reward#5	120
+06guild_06,49,49,4	duplicate(MVP Reward)	MVP Reward#6	120
+06guild_07,49,49,4	duplicate(MVP Reward)	MVP Reward#7	120
+06guild_08,49,49,4	duplicate(MVP Reward)	MVP Reward#8	120
+
+// ─────────────────────────────────────────────────────────────
+// Mapflags
+// ─────────────────────────────────────────────────────────────
+06guild_01	mapflag	nowarpto
+06guild_02	mapflag	nowarpto
+06guild_03	mapflag	nowarpto
+06guild_04	mapflag	nowarpto
+06guild_05	mapflag	nowarpto
+06guild_06	mapflag	nowarpto
+06guild_07	mapflag	nowarpto
+06guild_08	mapflag	nowarpto
+06guild_01	mapflag	nomemo
+06guild_02	mapflag	nomemo
+06guild_03	mapflag	nomemo
+06guild_04	mapflag	nomemo
+06guild_05	mapflag	nomemo
+06guild_06	mapflag	nomemo
+06guild_07	mapflag	nomemo
+06guild_08	mapflag	nomemo
+06guild_01	mapflag	noteleport
+06guild_02	mapflag	noteleport
+06guild_03	mapflag	noteleport
+06guild_04	mapflag	noteleport
+06guild_05	mapflag	noteleport
+06guild_06	mapflag	noteleport
+06guild_07	mapflag	noteleport
+06guild_08	mapflag	noteleport
+06guild_01	mapflag	nosave	SavePoint
+06guild_02	mapflag	nosave	SavePoint
+06guild_03	mapflag	nosave	SavePoint
+06guild_04	mapflag	nosave	SavePoint
+06guild_05	mapflag	nosave	SavePoint
+06guild_06	mapflag	nosave	SavePoint
+06guild_07	mapflag	nosave	SavePoint
+06guild_08	mapflag	nosave	SavePoint
+06guild_01	mapflag	nopenalty
+06guild_02	mapflag	nopenalty
+06guild_03	mapflag	nopenalty
+06guild_04	mapflag	nopenalty
+06guild_05	mapflag	nopenalty
+06guild_06	mapflag	nopenalty
+06guild_07	mapflag	nopenalty
+06guild_08	mapflag	nopenalty

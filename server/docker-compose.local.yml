@@ -44,6 +44,7 @@ services:
       DROP_RATE: ${DROP_RATE:-300}
       CARD_DROP_RATE: ${CARD_DROP_RATE:-1000}
     volumes:
+      - ./scripts/entrypoint.sh:/entrypoint.sh:ro
       - ./custom-npc:/rathena-custom/npc:ro
       - ./custom-overlay:/rathena-overlay:ro
     ports:

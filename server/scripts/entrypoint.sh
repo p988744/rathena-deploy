@@ -228,6 +228,13 @@ if [ -f "/rathena/npc/custom/reset_npc.txt" ]; then
     echo "   已啟用重置npc spawn"
 fi
 
+# 啟用 MVP 房間
+if [ -f "/rathena/npc/custom/mvp_room.txt" ]; then
+    grep -qF 'npc: npc/custom/mvp_room.txt' /rathena/npc/scripts_custom.conf || \
+        echo 'npc: npc/custom/mvp_room.txt' >> /rathena/npc/scripts_custom.conf
+    echo "   已啟用 MVP 房間"
+fi
+
 # 啟用健身房大師
 if [ -f "/rathena/npc/custom/gympass.txt" ]; then
     if ! grep -q 'gympass.txt' /rathena/npc/scripts_custom.conf; then

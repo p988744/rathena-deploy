@@ -13,7 +13,10 @@
       "Bash(perl:*)",
       "Bash(docker compose:*)",
       "Bash(printf \"4714 INT+5, 4713 INT+4, 4712 INT+3, 4723 DEX+4, 4722 DEX+3, 4721 DEX+2, 4734 AGI+5, 4733 AGI+4, 4732 AGI+3, 4744 VIT+5, 4743 VIT+4, 4742 VIT+3, 4704 STR+5, 4703 STR+4, 4702 STR+3\\\\n\\\\n\" | python3 tools/enchant_prob.py --ratio 2 --rathena)",
-      "Bash(printf \"4808 鬥志Lv.4, 4809 鬥志Lv.3, 4714 INT+5, 4713 INT+4, 4712 INT+3, 310692 霸氣星光Lv.1, 310693 霸氣星光Lv.2\\\\n\\\\n\" | python3 tools/enchant_prob.py --ratio 2)"
+      "Bash(printf \"4808 鬥志Lv.4, 4809 鬥志Lv.3, 4714 INT+5, 4713 INT+4, 4712 INT+3, 310692 霸氣星光Lv.1, 310693 霸氣星光Lv.2\\\\n\\\\n\" | python3 tools/enchant_prob.py --ratio 2)",
+      "Bash(gh api:*)",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/rathena/rathena/master/db/re/mob_db.yml\" -o /tmp/mob_db.yml)",
+      "Read(//tmp/**)"
     ]
   }
 }
