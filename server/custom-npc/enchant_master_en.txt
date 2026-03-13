@@ -185,7 +185,7 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	mes "Welcome! I can enchant your equipment from EP17.2 through EP19.";
 	mes "No quests or prerequisites required.";
 	next;
-	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Costume Garment Slot 2 Enchant", "Illusion Equipment Enchant", "Mad Bunny-LT Enchant", "Miss Memory Record Enchant", "Leave" ) ) {
+	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Costume Garment Slot 2 Enchant", "Illusion Equipment Enchant", "Mad Bunny-LT Enchant", "Miss Memory Record Enchant", "EP20 Crystal Equipment Enchant", "EP20 Dark Crystal Equipment Enchant", "Leave" ) ) {
 	case 1: callsub L_Auto; end;
 	case 2: callsub L_GrayWolf; end;
 	case 3: callsub L_Snowflower; end;
@@ -275,7 +275,9 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	case 11: callsub L_Illusion; end;
 	case 12: callsub L_MadBunnyLT; end;
 	case 13: callsub L_MissMemoryRecord; end;
-	case 14:
+	case 14: callsub L_EP20Crystal; end;
+	case 15: callsub L_EP20DimCrystal; end;
+	case 16:
 		mes "[Enchant Master]";
 		mes "Come back anytime!";
 		close;
@@ -1789,5 +1791,222 @@ L_MissMemoryRecord:
 	case 3:
 		end;
 	}
+	return;
+
+// ============================================================
+// EP20 Crystal Equipment Enchant
+// card[3]=Slot4, card[2]=Slot3, card[1]=Slot2
+// Cost: 2,000,000z per enchant / 2,000,000z per slot reset
+// ============================================================
+L_EP20Crystal:
+	mes "[Enchant Master]";
+	mes "Which ^0000FFEP20 Crystal^000000 equipment do you want to enchant?";
+	next;
+	switch (select("Armor (Crystal)", "Garment (Crystal)", "Shoes (Crystal)", "Accessory Left (Crystal)", "Accessory Right (Crystal)", "Shield (Crystal)", "Back")) {
+	case 1:
+		setarray .@eq[0], 450264, 450265;
+		.@eq_name$ = "Crystal Armor";
+		setarray .@s4[0], 312058, 312060, 312059, 312068;
+		setarray .@s3[0], 312061, 312062, 312063, 312067;
+		setarray .@s2[0], 312064, 312065, 312066;
+		break;
+	case 2:
+		setarray .@eq[0], 450266, 450267;
+		.@eq_name$ = "Crystal Garment";
+		setarray .@s4[0], 312056, 312057;
+		setarray .@s3[0], 312069, 312070, 312071;
+		setarray .@s2[0], 312073, 312072;
+		break;
+	case 3:
+		setarray .@eq[0], 450268, 470196;
+		.@eq_name$ = "Crystal Shoes";
+		setarray .@s4[0], 300454, 312074, 312076;
+		setarray .@s3[0], 312077, 312078, 312075;
+		setarray .@s2[0], 312079, 312081, 312080;
+		break;
+	case 4:
+		setarray .@eq[0], 490327, 490329;
+		.@eq_name$ = "Crystal Accessory Left";
+		setarray .@s4[0], 312052, 312054, 312055, 312082;
+		setarray .@s3[0], 312083, 312084, 312086, 312085;
+		setarray .@s2[0], 312087, 312088, 312089;
+		break;
+	case 5:
+		setarray .@eq[0], 490328, 490330;
+		.@eq_name$ = "Crystal Accessory Right";
+		setarray .@s4[0], 312050, 312051, 312053, 312082;
+		setarray .@s3[0], 312083, 312084, 312086, 312085;
+		setarray .@s2[0], 312087, 312088, 312089;
+		break;
+	case 6:
+		setarray .@eq[0], 4600, 0;
+		.@eq_name$ = "Crystal Shield";
+		setarray .@s4[0], 312091, 312090;
+		setarray .@s3[0], 312092, 312093;
+		setarray .@s2[0], 312095, 312094;
+		break;
+	case 7:
+		return;
+	}
+
+	.@part = -1;
+	for (.@i = 0; .@i <= 22; .@i++) {
+		.@eid = getequipid(.@i);
+		if (.@eid == .@eq[0] || (.@eq[1] > 0 && .@eid == .@eq[1])) {
+			.@part = .@i;
+			break;
+		}
+	}
+	if (.@part == -1) {
+		mes "[Enchant Master]";
+		mes "Please ^FF0000equip^000000 your ^0000FF" + .@eq_name$ + "^000000 first.";
+		close;
+	}
+
+	.@equip_id    = getequipid(.@part);
+	.@equip_name$ = getequipname(.@part);
+	.@refine      = getequiprefinerycnt(.@part);
+	setarray .@card[0],
+		getequipcardid(.@part, 0), getequipcardid(.@part, 1),
+		getequipcardid(.@part, 2), getequipcardid(.@part, 3);
+
+	mes "[Enchant Master]";
+	mes "^0000FF" + .@equip_name$ + "^000000";
+	mes "Slot 4: " + (.@card[3] > 0 ? "^0000CD" + getitemname(.@card[3]) + "^000000" : "^808080Empty^000000");
+	mes "Slot 3: " + (.@card[2] > 0 ? "^0000CD" + getitemname(.@card[2]) + "^000000" : "^808080Empty^000000");
+	mes "Slot 2: " + (.@card[1] > 0 ? "^0000CD" + getitemname(.@card[1]) + "^000000" : "^808080Empty^000000");
+	next;
+
+	switch (select("Enchant Slot 4 (2,000,000z)", "Enchant Slot 3 (2,000,000z)", "Enchant Slot 2 (2,000,000z)", "Back")) {
+	case 1: .@slot = 3; copyarray .@opts[0], .@s4[0], getarraysize(.@s4); break;
+	case 2: .@slot = 2; copyarray .@opts[0], .@s3[0], getarraysize(.@s3); break;
+	case 3: .@slot = 1; copyarray .@opts[0], .@s2[0], getarraysize(.@s2); break;
+	case 4:
+		return;
+	}
+
+	.@opt_size = getarraysize(.@opts);
+	.@menu$ = "Cancel";
+	for (.@i = 0; .@i < .@opt_size; .@i++)
+		.@menu$ += ":" + getitemname(.@opts[.@i]);
+	.@s = select(.@menu$) - 2;
+	if (.@s == -1) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+	.@new_ench = .@opts[.@s];
+
+	mes "[Enchant Master]";
+	mes "Enchant with ^0000CD" + getitemname(.@new_ench) + "^000000?";
+	mes "Cost: ^FF00002,000,000 Zeny^000000";
+	next;
+	if (select("Yes, enchant!", "Cancel") == 2) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+	if (Zeny < 2000000) { mes "[Enchant Master]"; mes "^FF0000Not enough Zeny. Need 2,000,000z.^000000"; close; }
+	if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+	    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+	    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+		end;
+	Zeny -= 2000000;
+	delequip .@part;
+	.@card[.@slot] = .@new_ench;
+	getitem2 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+	mes "[Enchant Master]";
+	mes "^00CC00Enchanted successfully!^000000 ^0000CD" + getitemname(.@new_ench) + "^000000";
+	close;
+	return;
+
+// ============================================================
+// EP20 Dark Crystal Equipment Enchant
+// card[3]=Slot4, card[2]=Slot3, card[1]=Slot2
+// Cost: 10,000,000z per enchant / 10,000,000z per slot reset
+// ============================================================
+L_EP20DimCrystal:
+	mes "[Enchant Master]";
+	mes "Which ^0000FFEP20 Dark Crystal^000000 equipment do you want to enchant?";
+	next;
+	switch (select("Armor (Dark Crystal)", "Garment (Dark Crystal)", "Shoes (Dark Crystal)", "Back")) {
+	case 1:
+		setarray .@eq[0], 450270, 450271;
+		.@eq_name$ = "Dark Crystal Armor";
+		setarray .@s4[0], 312105;
+		setarray .@s3[0], 312115, 312125;
+		setarray .@s2[0], 312126;
+		break;
+	case 2:
+		setarray .@eq[0], 480283, 480284;
+		.@eq_name$ = "Dark Crystal Garment";
+		setarray .@s4[0], 312136;
+		setarray .@s3[0], 312146, 312156;
+		setarray .@s2[0], 312157;
+		break;
+	case 3:
+		setarray .@eq[0], 470197, 470198;
+		.@eq_name$ = "Dark Crystal Shoes";
+		setarray .@s4[0], 312167;
+		setarray .@s3[0], 312177, 312187;
+		setarray .@s2[0], 312188;
+		break;
+	case 4:
+		return;
+	}
+
+	.@part = -1;
+	for (.@i = 0; .@i <= 22; .@i++) {
+		.@eid = getequipid(.@i);
+		if (.@eid == .@eq[0] || .@eid == .@eq[1]) {
+			.@part = .@i;
+			break;
+		}
+	}
+	if (.@part == -1) {
+		mes "[Enchant Master]";
+		mes "Please ^FF0000equip^000000 your ^0000FF" + .@eq_name$ + "^000000 first.";
+		close;
+	}
+
+	.@equip_id    = getequipid(.@part);
+	.@equip_name$ = getequipname(.@part);
+	.@refine      = getequiprefinerycnt(.@part);
+	setarray .@card[0],
+		getequipcardid(.@part, 0), getequipcardid(.@part, 1),
+		getequipcardid(.@part, 2), getequipcardid(.@part, 3);
+
+	mes "[Enchant Master]";
+	mes "^0000FF" + .@equip_name$ + "^000000";
+	mes "Slot 4: " + (.@card[3] > 0 ? "^0000CD" + getitemname(.@card[3]) + "^000000" : "^808080Empty^000000");
+	mes "Slot 3: " + (.@card[2] > 0 ? "^0000CD" + getitemname(.@card[2]) + "^000000" : "^808080Empty^000000");
+	mes "Slot 2: " + (.@card[1] > 0 ? "^0000CD" + getitemname(.@card[1]) + "^000000" : "^808080Empty^000000");
+	next;
+
+	switch (select("Enchant Slot 4 (10,000,000z)", "Enchant Slot 3 (10,000,000z)", "Enchant Slot 2 (10,000,000z)", "Back")) {
+	case 1: .@slot = 3; copyarray .@opts[0], .@s4[0], getarraysize(.@s4); break;
+	case 2: .@slot = 2; copyarray .@opts[0], .@s3[0], getarraysize(.@s3); break;
+	case 3: .@slot = 1; copyarray .@opts[0], .@s2[0], getarraysize(.@s2); break;
+	case 4:
+		return;
+	}
+
+	.@opt_size = getarraysize(.@opts);
+	.@menu$ = "Cancel";
+	for (.@i = 0; .@i < .@opt_size; .@i++)
+		.@menu$ += ":" + getitemname(.@opts[.@i]);
+	.@s = select(.@menu$) - 2;
+	if (.@s == -1) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+	.@new_ench = .@opts[.@s];
+
+	mes "[Enchant Master]";
+	mes "Enchant with ^0000CD" + getitemname(.@new_ench) + "^000000?";
+	mes "Cost: ^FF000010,000,000 Zeny^000000";
+	next;
+	if (select("Yes, enchant!", "Cancel") == 2) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+	if (Zeny < 10000000) { mes "[Enchant Master]"; mes "^FF0000Not enough Zeny. Need 10,000,000z.^000000"; close; }
+	if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+	    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+	    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+		end;
+	Zeny -= 10000000;
+	delequip .@part;
+	.@card[.@slot] = .@new_ench;
+	getitem2 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+	mes "[Enchant Master]";
+	mes "^00CC00Enchanted successfully!^000000 ^0000CD" + getitemname(.@new_ench) + "^000000";
+	close;
 	return;
 }

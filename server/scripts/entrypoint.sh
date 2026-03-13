@@ -108,7 +108,7 @@ start_point: izlude,128,114
 start_point_pre: izlude,128,114
 start_point_doram: izlude,128,114
 // 新角色初始金額：2億
-start_zeny: 200000000
+start_zeny: 100000
 EOF
 
 # Map Server
@@ -299,6 +299,13 @@ if [ -f "/rathena/npc/custom/enchant_master_en.txt" ]; then
         echo 'npc: npc/custom/enchant_master_en.txt' >> /rathena/npc/scripts_custom.conf
     fi
     echo "   已啟用統合附魔師 NPC (EN)"
+fi
+
+if [ -f "/rathena/npc/custom/welcome_broadcast.txt" ]; then
+    if ! grep -q 'welcome_broadcast.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/welcome_broadcast.txt' >> /rathena/npc/scripts_custom.conf
+    fi
+    echo "   已啟用新玩家歡迎廣播 NPC"
 fi
 
 # 啟用基本服務 NPC（轉職、重置、補血等）

@@ -1,0 +1,22 @@
+//===== Custom Script ==========================================
+//= New Player Welcome Broadcast
+//= Fires once per account on first login.
+//= Announces server-wide + sends a private tip to the player.
+//===== Description ============================================
+//= Uses OnPCLoginEvent with a permanent account variable
+//= (#welcomed) to ensure the broadcast only triggers once.
+//==============================================================
+
+-	script	WelcomeBroadcast	FAKE_NPC,{
+
+OnPCLoginEvent:
+	if (welcomed) end;
+	welcomed = 1;
+
+	announce "[NEW PLAYER] " + strcharinfo(PC_NAME) + " has joined the adventure for the first time! Welcome!", bc_all, 0x00CCFF;
+	dispbottom "=== Welcome to the server! ===";
+	dispbottom "Use @go to warp around, @jobchange to change class, and @rates to see server rates.";
+	dispbottom "Have fun and enjoy your adventure!";
+	end;
+
+}
