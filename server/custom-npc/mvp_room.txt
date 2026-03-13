@@ -42,6 +42,17 @@ izlude,137,154,5	script	MVP Room	925,{
 		mes "Please select another room.";
 		close;
 	}
+	mes "[Private MVP Room]";
+	mes "Entry fee: ^FF0000100,000,000 Zeny^000000.";
+	mes "Your Zeny: ^0000FF" + Zeny + "^000000";
+	next;
+	if (select("Pay and Enter:Cancel") == 2) close;
+	if (Zeny < 100000000) {
+		mes "[Private MVP Room]";
+		mes "You don't have enough Zeny.";
+		close;
+	}
+	Zeny -= 100000000;
 	warp "06guild_0" + .@room, 49, 53;
 	donpcevent "MVP Challenger#" + .@room + "::OnEnterMap";
 	close;
