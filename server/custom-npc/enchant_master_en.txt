@@ -185,7 +185,7 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	mes "Welcome! I can enchant your equipment from EP17.2 through EP19.";
 	mes "No quests or prerequisites required.";
 	next;
-	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Costume Garment Slot 2 Enchant", "Illusion Equipment Enchant", "Mad Bunny-LT Enchant", "Miss Memory Record Enchant", "EP20 Crystal Equipment Enchant", "EP20 Dark Crystal Equipment Enchant", "Leave" ) ) {
+	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Costume Garment Slot 2 Enchant", "Illusion Equipment Enchant", "Mad Bunny-LT Enchant", "Miss Memory Record Enchant", "EP20 Crystal Equipment Enchant", "EP20 Dark Crystal Equipment Enchant", "Caesar Series Enchant", "Nebula Series Enchant", "Leave" ) ) {
 	case 1: callsub L_Auto; end;
 	case 2: callsub L_GrayWolf; end;
 	case 3: callsub L_Snowflower; end;
@@ -277,7 +277,9 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	case 13: callsub L_MissMemoryRecord; end;
 	case 14: callsub L_EP20Crystal; end;
 	case 15: callsub L_EP20DimCrystal; end;
-	case 16:
+	case 16: callsub L_Caesar; end;
+	case 17: callsub L_Nebula; end;
+	case 18:
 		mes "[Enchant Master]";
 		mes "Come back anytime!";
 		close;
@@ -2008,5 +2010,529 @@ L_EP20DimCrystal:
 	mes "[Enchant Master]";
 	mes "^00CC00Enchanted successfully!^000000 ^0000CD" + getitemname(.@new_ench) + "^000000";
 	close;
+	return;
+
+// ============================================================
+// Caesar Series Enchant
+// Items: 450293~450298, 450386~450391
+// card[3]=Slot4, card[2]=Slot3, card[1]=Slot2
+// Enchants all 3 slots at once with weighted random.
+// Free. Allows re-roll (overwrite all slots).
+//
+// Slot 4 pool — stat bonuses + Niflheim enchants:
+//   STR/INT/DEX/AGI/VIT/LUK +2 (5%), +3 (4%), +4 (3%), +5 (2%)
+//   Power Niflheim 1/2/3Lv  (1.4% / 0.7% / 0.5%)
+//   Agile  Niflheim 1/2/3Lv  (1.3% / 0.8% / 0.6%)
+//   Magic  Niflheim 1/2/3Lv  (1.3% / 0.8% / 0.6%)
+//   Clever Niflheim 1/2/3Lv  (1.3% / 0.8% / 0.6%)
+//   Lucky  Niflheim 1/2/3Lv  (1.3% / 0.8% / 0.6%)
+//   Vital  Niflheim 1/2/3Lv  (1.3% / 0.8% / 0.6%)
+//
+// Slot 3 pool — Nebula enchants (6 types × 3 levels):
+//   Spirit/Archer/Sharp/Magic/Recovery/Vit Nebula
+//   Lv1 (10.5%), Lv2 (4.6%), Lv3 (1.5%)
+//
+// Slot 2 pool — Cluster enchants (6 types × 3 levels):
+//   Power/Endurance/Focus/Creation Cluster
+//     Lv1 (15.55%), Lv2 (0.89%), Lv3 (0.225%)
+//   Curse/Wisdom Cluster
+//     Lv1 (15.55%), Lv2 (0.895%), Lv3 (0.225%)
+// ============================================================
+L_Caesar:
+	setarray .@caesar_ids[0],
+		450293, 450294, 450295, 450296, 450297, 450298,
+		450386, 450387, 450388, 450389, 450390, 450391;
+
+	.@part = -1;
+	for (.@i = 0; .@i <= 22; .@i++) {
+		if (inarray(.@caesar_ids, getequipid(.@i)) != -1) {
+			.@part = .@i;
+			break;
+		}
+	}
+	if (.@part == -1) {
+		mes "[Enchant Master]";
+		mes "Please ^FF0000equip^000000 a ^0000FFCaesar Series^000000 item first.";
+		mes "Supported items: Caesar Armor / Garment / Shoes / Accessories (IDs 450293~450298, 450386~450391)";
+		close;
+	}
+
+	.@equip_id    = getequipid(.@part);
+	.@equip_name$ = getequipname(.@part);
+	.@refine      = getequiprefinerycnt(.@part);
+	setarray .@card[0],
+		getequipcardid(.@part, 0), getequipcardid(.@part, 1),
+		getequipcardid(.@part, 2), getequipcardid(.@part, 3);
+
+	mes "[Enchant Master]";
+	mes "^FFD700== Caesar Series Enchant ==^000000";
+	mes "^0000FF" + .@equip_name$ + "^000000";
+	mes "Slot 4: " + (.@card[3] > 0 ? "^0000CD" + getitemname(.@card[3]) + "^000000" : "^808080Empty^000000");
+	mes "Slot 3: " + (.@card[2] > 0 ? "^0000CD" + getitemname(.@card[2]) + "^000000" : "^808080Empty^000000");
+	mes "Slot 2: " + (.@card[1] > 0 ? "^0000CD" + getitemname(.@card[1]) + "^000000" : "^808080Empty^000000");
+	next;
+
+	mes "[Enchant Master]";
+	mes "^00CC00[Slot 4] Stat / Niflheim Enchants^000000";
+	mes "STR/INT/DEX/AGI/VIT/LUK +2 ^808080(5%)^000000 / +3 ^808080(4%)^000000 / +4 ^808080(3%)^000000 / +5 ^808080(2%)^000000";
+	mes "Power Niflheim 1/2/3Lv ^808080(1.4% / 0.7% / 0.5%)^000000";
+	mes "Agile/Magic/Clever/Lucky/Vital Niflheim 1/2/3Lv ^808080(1.3% / 0.8% / 0.6%)^000000";
+	next;
+
+	mes "[Enchant Master]";
+	mes "^00CC00[Slot 3] Nebula Enchants^000000";
+	mes "Spirit / Archer / Sharp / Magic / Recovery / Vit Nebula";
+	mes "Lv1 ^808080(10.5%)^000000 / Lv2 ^808080(4.6%)^000000 / Lv3 ^808080(1.5%)^000000";
+	next;
+
+	mes "[Enchant Master]";
+	mes "^00CC00[Slot 2] Cluster Enchants^000000";
+	mes "Power / Endurance / Focus / Creation Cluster";
+	mes "Lv1 ^808080(15.55%)^000000 / Lv2 ^808080(0.89%)^000000 / Lv3 ^808080(0.225%)^000000";
+	mes "Curse / Wisdom Cluster";
+	mes "Lv1 ^808080(15.55%)^000000 / Lv2 ^808080(0.895%)^000000 / Lv3 ^808080(0.225%)^000000";
+	next;
+
+	mes "[Enchant Master]";
+	if (.@card[1] > 0 || .@card[2] > 0 || .@card[3] > 0) {
+		mes "^FF0000This item already has enchants.^000000";
+		mes "Re-rolling will ^FF0000overwrite ALL 3 slots^000000 with new random results.";
+	} else {
+		mes "All 3 enchant slots (Slot 2 / 3 / 4) will be filled at once.";
+	}
+	mes "Cost: ^FF000050,000,000 Zeny^000000";
+	next;
+	if (select("Yes, enchant!", "Cancel") == 2) {
+		mes "[Enchant Master]"; mes "Cancelled."; close;
+	}
+	if (Zeny < 50000000) {
+		mes "[Enchant Master]";
+		mes "^FF0000Not enough Zeny. Need 50,000,000z.^000000";
+		close;
+	}
+
+	if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+	    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+	    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+		end;
+
+	// === Roll Slot 4 ===
+	// Weights scaled x10000 (e.g. 5% = 5000, 1.4% = 1400)
+	setarray .@s4_ids[0],
+		4701, 4702, 4703, 4704,   // STR +2/+3/+4/+5
+		4711, 4712, 4713, 4714,   // INT +2/+3/+4/+5
+		4721, 4722, 4723, 4724,   // DEX +2/+3/+4/+5
+		4731, 4732, 4733, 4734,   // AGI +2/+3/+4/+5
+		4741, 4742, 4743, 4744,   // VIT +2/+3/+4/+5
+		4751, 4752, 4753, 4754,   // LUK +2/+3/+4/+5
+		4994,  4995,  4996,       // Power Niflheim  1/2/3Lv
+		4997,  4998,  4999,       // Agile Niflheim  1/2/3Lv
+		29000, 29001, 29002,      // Magic Niflheim  1/2/3Lv
+		29003, 29004, 29005,      // Clever Niflheim 1/2/3Lv
+		29006, 29007, 29008,      // Lucky Niflheim  1/2/3Lv
+		29009, 29010, 29011;      // Vital Niflheim  1/2/3Lv
+	setarray .@s4_wts[0],
+		5000, 4000, 3000, 2000,
+		5000, 4000, 3000, 2000,
+		5000, 4000, 3000, 2000,
+		5000, 4000, 3000, 2000,
+		5000, 4000, 3000, 2000,
+		5000, 4000, 3000, 2000,
+		1400, 700, 500,
+		1300, 800, 600,
+		1300, 800, 600,
+		1300, 800, 600,
+		1300, 800, 600,
+		1300, 800, 600;
+	// Total = 84000 + 16100 = 100100
+	.@tot4 = 0;
+	for (.@i = 0; .@i < getarraysize(.@s4_wts); .@i++) .@tot4 += .@s4_wts[.@i];
+	.@r = rand(.@tot4); .@cum = 0;
+	for (.@i = 0; .@i < getarraysize(.@s4_ids); .@i++) {
+		.@cum += .@s4_wts[.@i];
+		if (.@r < .@cum) { .@new_s4 = .@s4_ids[.@i]; break; }
+	}
+
+	// === Roll Slot 3 ===
+	// Total = 6 × (10500+4600+1500) = 99600
+	setarray .@s3_ids[0],
+		310727, 310728, 310729,   // Spirit Nebula  1/2/3Lv
+		310730, 310731, 310732,   // Archer Nebula  1/2/3Lv
+		310733, 310734, 310735,   // Sharp Nebula   1/2/3Lv
+		310736, 310737, 310738,   // Magic Nebula   1/2/3Lv
+		310739, 310740, 310741,   // Recovery Nebula 1/2/3Lv
+		310742, 310743, 310744;   // Vit Nebula     1/2/3Lv
+	setarray .@s3_wts[0],
+		10500, 4600, 1500,
+		10500, 4600, 1500,
+		10500, 4600, 1500,
+		10500, 4600, 1500,
+		10500, 4600, 1500,
+		10500, 4600, 1500;
+	.@tot3 = 0;
+	for (.@i = 0; .@i < getarraysize(.@s3_wts); .@i++) .@tot3 += .@s3_wts[.@i];
+	.@r = rand(.@tot3); .@cum = 0;
+	for (.@i = 0; .@i < getarraysize(.@s3_ids); .@i++) {
+		.@cum += .@s3_wts[.@i];
+		if (.@r < .@cum) { .@new_s3 = .@s3_ids[.@i]; break; }
+	}
+
+	// === Roll Slot 2 ===
+	// Total = 4×(15550+890+225) + 2×(15550+895+225) = 100000
+	setarray .@s2_ids[0],
+		310674, 310675, 310676,   // Power Cluster    1/2/3Lv
+		310677, 310678, 310679,   // Endurance Cluster 1/2/3Lv
+		310680, 310681, 310682,   // Focus Cluster    1/2/3Lv
+		310683, 310684, 310685,   // Creation Cluster  1/2/3Lv
+		310686, 310687, 310688,   // Curse Cluster    1/2/3Lv
+		310689, 310690, 310691;   // Wisdom Cluster   1/2/3Lv
+	setarray .@s2_wts[0],
+		15550, 890, 225,
+		15550, 890, 225,
+		15550, 890, 225,
+		15550, 890, 225,
+		15550, 895, 225,
+		15550, 895, 225;
+	.@tot2 = 0;
+	for (.@i = 0; .@i < getarraysize(.@s2_wts); .@i++) .@tot2 += .@s2_wts[.@i];
+	.@r = rand(.@tot2); .@cum = 0;
+	for (.@i = 0; .@i < getarraysize(.@s2_ids); .@i++) {
+		.@cum += .@s2_wts[.@i];
+		if (.@r < .@cum) { .@new_s2 = .@s2_ids[.@i]; break; }
+	}
+
+	// Apply enchants to slots 4, 3, 2 (card indices 3, 2, 1)
+	Zeny -= 50000000;
+	.@card[3] = .@new_s4;
+	.@card[2] = .@new_s3;
+	.@card[1] = .@new_s2;
+	delequip .@part;
+	getitem2 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+	specialeffect2 EF_REPAIRWEAPON;
+
+	mes "[Enchant Master]";
+	mes "^00CC00Enchantment complete!^000000";
+	mes "Slot 4: ^0000CD" + getitemname(.@card[3]) + "^000000";
+	mes "Slot 3: ^0000CD" + getitemname(.@card[2]) + "^000000";
+	mes "Slot 2: ^0000CD" + getitemname(.@card[1]) + "^000000";
+	close;
+
+	return;
+
+// ============================================================
+// Nebula Series Enchant — sub-menu dispatcher
+// ============================================================
+L_Nebula:
+	mes "[Enchant Master]";
+	mes "Which ^0000FFNebula Series^000000 equipment do you want to enchant?";
+	next;
+	switch (select("Nebula Armor (Slots 4+3+2)", "Nebula Accessory (Slots 4+3)", "Back")) {
+	case 1: callsub L_NebulaArmor; return;
+	case 2: callsub L_NebulaAcc;   return;
+	case 3: return;
+	}
+	return;
+
+// ============================================================
+// Nebula Armor Enchant
+// Items: 450169~450174
+// Slot 4 (card[3]): stat pool (INT/DEX/AGI/VIT/STR)
+// Slot 3 (card[2]): Nebula  pool (鬥志/名弓/尖銳/魔力/恢復/體力星雲 1~3Lv)
+// Slot 2 (card[1]): Cluster pool (威力/耐力/專注/創造/咒術/智慧星團 1~3Lv)
+// Free. Allows re-roll (overwrites all 3 slots).
+//
+// Slot 4 probabilities:
+//   INT+3 (9.52%)  INT+4 (4.76%)  INT+5 (2.38%)
+//   DEX+2 (19.05%) DEX+3 (9.52%)  DEX+4 (4.76%)
+//   AGI/VIT/STR +3 (9.52%) +4 (4.76%) +5 (2.38%)
+// Slot 3 probabilities:
+//   6 types × Lv1 (10.5%) / Lv2 (4.6%) / Lv3 (1.5%)
+// Slot 2 probabilities:
+//   Power/Endurance/Focus/Creation  Lv1 (15.55%) Lv2 (0.89%)  Lv3 (0.225%)
+//   Curse/Wisdom                    Lv1 (15.55%) Lv2 (0.895%) Lv3 (0.225%)
+// ============================================================
+L_NebulaArmor:
+	setarray .@eq_ids[0], 450169, 450170, 450171, 450172, 450173, 450174;
+	.@part = -1;
+	for (.@i = 0; .@i <= 22; .@i++) {
+		if (inarray(.@eq_ids, getequipid(.@i)) != -1) { .@part = .@i; break; }
+	}
+	if (.@part == -1) {
+		mes "[Enchant Master]";
+		mes "Please ^FF0000equip^000000 a ^0000FFNebula Armor^000000 first.";
+		mes "Supported IDs: 450169 ~ 450174";
+		close;
+	}
+
+	.@equip_id    = getequipid(.@part);
+	.@equip_name$ = getequipname(.@part);
+	.@refine      = getequiprefinerycnt(.@part);
+	setarray .@card[0],
+		getequipcardid(.@part,0), getequipcardid(.@part,1),
+		getequipcardid(.@part,2), getequipcardid(.@part,3);
+
+	mes "[Enchant Master]";
+	mes "^FFD700== Nebula Armor Enchant ==^000000";
+	mes "^0000FF" + .@equip_name$ + "^000000";
+	mes "Slot 4: " + (.@card[3] > 0 ? "^0000CD" + getitemname(.@card[3]) + "^000000" : "^808080Empty^000000");
+	mes "Slot 3: " + (.@card[2] > 0 ? "^0000CD" + getitemname(.@card[2]) + "^000000" : "^808080Empty^000000");
+	mes "Slot 2: " + (.@card[1] > 0 ? "^0000CD" + getitemname(.@card[1]) + "^000000" : "^808080Empty^000000");
+	next;
+
+	mes "[Enchant Master]";
+	mes "^00CC00[Slot 4] Stat Enchants^000000";
+	mes "INT  +3 ^808080(9.52%)^000000 / +4 ^808080(4.76%)^000000 / +5 ^808080(2.38%)^000000";
+	mes "DEX  +2 ^808080(19.05%)^000000 / +3 ^808080(9.52%)^000000 / +4 ^808080(4.76%)^000000";
+	mes "AGI / VIT / STR  +3 ^808080(9.52%)^000000 / +4 ^808080(4.76%)^000000 / +5 ^808080(2.38%)^000000";
+	next;
+
+	mes "[Enchant Master]";
+	mes "^00CC00[Slot 3] Nebula Enchants^000000";
+	mes "Warrior / Archer / Sharp / Magic / Recovery / Vit Nebula";
+	mes "Lv1 ^808080(10.5%)^000000 / Lv2 ^808080(4.6%)^000000 / Lv3 ^808080(1.5%)^000000";
+	next;
+
+	mes "[Enchant Master]";
+	mes "^00CC00[Slot 2] Cluster Enchants^000000";
+	mes "Power / Endurance / Focus / Creation Cluster";
+	mes "Lv1 ^808080(15.55%)^000000 / Lv2 ^808080(0.89%)^000000 / Lv3 ^808080(0.225%)^000000";
+	mes "Curse / Wisdom Cluster";
+	mes "Lv1 ^808080(15.55%)^000000 / Lv2 ^808080(0.895%)^000000 / Lv3 ^808080(0.225%)^000000";
+	next;
+
+	mes "[Enchant Master]";
+	if (.@card[1] > 0 || .@card[2] > 0 || .@card[3] > 0) {
+		mes "^FF0000This item already has enchants.^000000";
+		mes "Re-rolling will ^FF0000overwrite ALL 3 slots^000000 with new random results.";
+	} else {
+		mes "Slots 2, 3, and 4 will all be enchanted at once.";
+	}
+	mes "Cost: ^FF0000100,000,000 Zeny^000000";
+	next;
+	if (select("Yes, enchant!", "Cancel") == 2) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+	if (Zeny < 100000000) {
+		mes "[Enchant Master]";
+		mes "^FF0000Not enough Zeny. Need 100,000,000z.^000000";
+		close;
+	}
+
+	if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+	    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+	    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+		end;
+
+	// === Roll Slot 4: stat pool ===
+	// Weights ×10000 (2.38%=238, 4.76%=476, 9.52%=952, 19.05%=1905)
+	// Total = 9997
+	setarray .@s4_ids[0],
+		4714, 4713, 4712,   // INT  +5/+4/+3
+		4723, 4722, 4721,   // DEX  +4/+3/+2
+		4734, 4733, 4732,   // AGI  +5/+4/+3
+		4744, 4743, 4742,   // VIT  +5/+4/+3
+		4704, 4703, 4702;   // STR  +5/+4/+3
+	setarray .@s4_wts[0],
+		238, 476, 952,
+		476, 952, 1905,
+		238, 476, 952,
+		238, 476, 952,
+		238, 476, 952;
+	.@tot = 0;
+	for (.@i = 0; .@i < getarraysize(.@s4_wts); .@i++) .@tot += .@s4_wts[.@i];
+	.@r = rand(.@tot); .@cum = 0;
+	for (.@i = 0; .@i < getarraysize(.@s4_ids); .@i++) {
+		.@cum += .@s4_wts[.@i];
+		if (.@r < .@cum) { .@new_s4 = .@s4_ids[.@i]; break; }
+	}
+
+	// === Roll Slot 3: Nebula pool ===
+	// Total = 6 × (10500+4600+1500) = 99600
+	setarray .@s3_ids[0],
+		310727, 310728, 310729,   // 鬥志星雲 1/2/3Lv
+		310730, 310731, 310732,   // 名弓星雲 1/2/3Lv
+		310733, 310734, 310735,   // 尖銳星雲 1/2/3Lv
+		310736, 310737, 310738,   // 魔力星雲 1/2/3Lv
+		310739, 310740, 310741,   // 恢復星雲 1/2/3Lv
+		310742, 310743, 310744;   // 體力星雲 1/2/3Lv
+	setarray .@s3_wts[0],
+		10500, 4600, 1500,
+		10500, 4600, 1500,
+		10500, 4600, 1500,
+		10500, 4600, 1500,
+		10500, 4600, 1500,
+		10500, 4600, 1500;
+	.@tot = 0;
+	for (.@i = 0; .@i < getarraysize(.@s3_wts); .@i++) .@tot += .@s3_wts[.@i];
+	.@r = rand(.@tot); .@cum = 0;
+	for (.@i = 0; .@i < getarraysize(.@s3_ids); .@i++) {
+		.@cum += .@s3_wts[.@i];
+		if (.@r < .@cum) { .@new_s3 = .@s3_ids[.@i]; break; }
+	}
+
+	// === Roll Slot 2: Cluster pool ===
+	// Total = 4×(15550+890+225) + 2×(15550+895+225) = 100000
+	setarray .@s2_ids[0],
+		310674, 310675, 310676,   // 威力星團 1/2/3Lv
+		310677, 310678, 310679,   // 耐力星團 1/2/3Lv
+		310680, 310681, 310682,   // 專注星團 1/2/3Lv
+		310683, 310684, 310685,   // 創造星團 1/2/3Lv
+		310686, 310687, 310688,   // 咒術星團 1/2/3Lv
+		310689, 310690, 310691;   // 智慧星團 1/2/3Lv
+	setarray .@s2_wts[0],
+		15550, 890, 225,
+		15550, 890, 225,
+		15550, 890, 225,
+		15550, 890, 225,
+		15550, 895, 225,
+		15550, 895, 225;
+	.@tot = 0;
+	for (.@i = 0; .@i < getarraysize(.@s2_wts); .@i++) .@tot += .@s2_wts[.@i];
+	.@r = rand(.@tot); .@cum = 0;
+	for (.@i = 0; .@i < getarraysize(.@s2_ids); .@i++) {
+		.@cum += .@s2_wts[.@i];
+		if (.@r < .@cum) { .@new_s2 = .@s2_ids[.@i]; break; }
+	}
+
+	Zeny -= 100000000;
+	.@card[3] = .@new_s4;
+	.@card[2] = .@new_s3;
+	.@card[1] = .@new_s2;
+	delequip .@part;
+	getitem2 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+	specialeffect2 EF_REPAIRWEAPON;
+
+	mes "[Enchant Master]";
+	mes "^00CC00Enchantment complete!^000000";
+	mes "Slot 4: ^0000CD" + getitemname(.@card[3]) + "^000000";
+	mes "Slot 3: ^0000CD" + getitemname(.@card[2]) + "^000000";
+	mes "Slot 2: ^0000CD" + getitemname(.@card[1]) + "^000000";
+	close;
+
+	return;
+
+// ============================================================
+// Nebula Accessory Enchant
+// Items: 490132~490137
+// Slot 4 (card[3]): Starlight pool
+// Slot 3 (card[2]): Starlight pool (same pool, independent roll)
+// (No Slot 2 — accessories only have 2 enchant slots)
+// Free. Allows re-roll (overwrites both slots).
+//
+// Pool probabilities (43 items):
+//   鬥志/魔力/尖銳/名弓  Lv.3 (1.66%) / Lv.4 (0.83%)
+//   霸氣/精弓/尖銳/魔力/速度/體力/精神 Starlight
+//     Lv1 (6.64%) / Lv2 (3.32%) / Lv3 (1.66%) / Lv4 (0.83%) / Lv5 (0.41%)
+// ============================================================
+L_NebulaAcc:
+	setarray .@eq_ids[0], 490132, 490133, 490134, 490135, 490136, 490137;
+	.@part = -1;
+	for (.@i = 0; .@i <= 22; .@i++) {
+		if (inarray(.@eq_ids, getequipid(.@i)) != -1) { .@part = .@i; break; }
+	}
+	if (.@part == -1) {
+		mes "[Enchant Master]";
+		mes "Please ^FF0000equip^000000 a ^0000FFNebula Accessory^000000 first.";
+		mes "Supported IDs: 490132 ~ 490137";
+		close;
+	}
+
+	.@equip_id    = getequipid(.@part);
+	.@equip_name$ = getequipname(.@part);
+	.@refine      = getequiprefinerycnt(.@part);
+	setarray .@card[0],
+		getequipcardid(.@part,0), getequipcardid(.@part,1),
+		getequipcardid(.@part,2), getequipcardid(.@part,3);
+
+	mes "[Enchant Master]";
+	mes "^FFD700== Nebula Accessory Enchant ==^000000";
+	mes "^0000FF" + .@equip_name$ + "^000000";
+	mes "Slot 4: " + (.@card[3] > 0 ? "^0000CD" + getitemname(.@card[3]) + "^000000" : "^808080Empty^000000");
+	mes "Slot 3: " + (.@card[2] > 0 ? "^0000CD" + getitemname(.@card[2]) + "^000000" : "^808080Empty^000000");
+	next;
+
+	mes "[Enchant Master]";
+	mes "^00CC00[Slot 4 & Slot 3] Starlight Pool^000000 ^808080(independent rolls)^000000";
+	mes "Warrior / Magic / Sharp / Archer";
+	mes "Lv.3 ^808080(1.66%)^000000 / Lv.4 ^808080(0.83%)^000000";
+	mes "Domination / Precision / Sharp / Magic / Speed / Vit / Spirit Starlight";
+	mes "Lv1 ^808080(6.64%)^000000 / Lv2 ^808080(3.32%)^000000 / Lv3 ^808080(1.66%)^000000 / Lv4 ^808080(0.83%)^000000 / Lv5 ^808080(0.41%)^000000";
+	next;
+
+	mes "[Enchant Master]";
+	if (.@card[2] > 0 || .@card[3] > 0) {
+		mes "^FF0000This item already has enchants.^000000";
+		mes "Re-rolling will ^FF0000overwrite BOTH slots^000000 with new random results.";
+	} else {
+		mes "Slots 3 and 4 will both be enchanted at once.";
+	}
+	mes "Cost: ^FF0000100,000,000 Zeny^000000";
+	next;
+	if (select("Yes, enchant!", "Cancel") == 2) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+	if (Zeny < 100000000) {
+		mes "[Enchant Master]";
+		mes "^FF0000Not enough Zeny. Need 100,000,000z.^000000";
+		close;
+	}
+
+	if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+	    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+	    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+		end;
+
+	// === Starlight pool (used for both slot 4 and slot 3) ===
+	// Weights ×10000: 0.83%=83, 1.66%=166, 6.64%=664, 3.32%=332, 0.41%=41
+	// Total = 4×83 + 4×166 + 7×(664+332+166+83+41) = 9998
+	setarray .@pool_ids[0],
+		4808,   4809,             // 鬥志 Lv.4 / Lv.3
+		4812,   4813,             // 魔力 Lv.4 / Lv.3
+		4843,   4816,             // 尖銳 Lv.4 / Lv.3
+		4835,   4834,             // 名弓 Lv.4 / Lv.3
+		310692, 310693, 310694, 310695, 310696,   // 霸氣 Lv1~5
+		310697, 310698, 310699, 310700, 310701,   // 精弓 Lv1~5
+		310702, 310703, 310704, 310705, 310706,   // 尖銳 Lv1~5
+		310707, 310708, 310709, 310710, 310711,   // 魔力 Lv1~5
+		310712, 310713, 310714, 310715, 310716,   // 速度 Lv1~5
+		310717, 310718, 310719, 310720, 310721,   // 體力 Lv1~5
+		310722, 310723, 310724, 310725, 310726;   // 精神 Lv1~5
+	setarray .@pool_wts[0],
+		83,  166,
+		83,  166,
+		83,  166,
+		83,  166,
+		664, 332, 166, 83, 41,
+		664, 332, 166, 83, 41,
+		664, 332, 166, 83, 41,
+		664, 332, 166, 83, 41,
+		664, 332, 166, 83, 41,
+		664, 332, 166, 83, 41,
+		664, 332, 166, 83, 41;
+	.@tot = 0;
+	for (.@i = 0; .@i < getarraysize(.@pool_wts); .@i++) .@tot += .@pool_wts[.@i];
+
+	// Roll slot 4
+	.@r = rand(.@tot); .@cum = 0;
+	for (.@i = 0; .@i < getarraysize(.@pool_ids); .@i++) {
+		.@cum += .@pool_wts[.@i];
+		if (.@r < .@cum) { .@new_s4 = .@pool_ids[.@i]; break; }
+	}
+	// Roll slot 3 (independent)
+	.@r = rand(.@tot); .@cum = 0;
+	for (.@i = 0; .@i < getarraysize(.@pool_ids); .@i++) {
+		.@cum += .@pool_wts[.@i];
+		if (.@r < .@cum) { .@new_s3 = .@pool_ids[.@i]; break; }
+	}
+
+	Zeny -= 100000000;
+	.@card[3] = .@new_s4;
+	.@card[2] = .@new_s3;
+	delequip .@part;
+	getitem2 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3];
+	specialeffect2 EF_REPAIRWEAPON;
+
+	mes "[Enchant Master]";
+	mes "^00CC00Enchantment complete!^000000";
+	mes "Slot 4: ^0000CD" + getitemname(.@card[3]) + "^000000";
+	mes "Slot 3: ^0000CD" + getitemname(.@card[2]) + "^000000";
+	close;
+
 	return;
 }
