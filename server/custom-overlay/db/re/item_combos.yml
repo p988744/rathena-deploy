@@ -59407,7 +59407,7 @@ Body:
           - Magic_Star_TW_LT     # 410256
           - Magic_Circle_LT      # 420301
     Script: |
-      bonus bMagicAtkRate,20;
+      bonus bMatkRate,20;
       bonus3 bAutoSpell,"WL_RECOGNIZEDSPELL",1,100;
   # 2-piece: Magic_Circle_LT + Magic_Star_TW_LT (stat scaling per 12 points)
   - Combos:
@@ -59424,7 +59424,7 @@ Body:
       .@total = .@str+.@agi+.@vit+.@int+.@dex+.@luk;
       bonus bMatkRate,(.@str/12);
       bonus bDelayrate,-(.@agi/12);
-      bonus2 bMagicAtkRaceRate,RC_All,(.@vit/12);
+      bonus2 bMagicAddRace,RC_All,(.@vit/12);
       bonus2 bMagicAddClass,Class_All,(.@int/12);
       bonus2 bMagicAtkEle,Ele_All,1*(.@dex/12);
       bonus2 bMagicAtkEle,Ele_Neutral,1*(.@luk/12);

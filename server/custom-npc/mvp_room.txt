@@ -101,10 +101,9 @@ OnInit:
 		close;
 	}
 
-	mes "[MVP Challenger]";
-
 	if (.mode[.@id] == 1) {
 		// ── Challenge Mode ──
+		mes "[MVP Challenger]";
 		if (.wave[.@id] == 0)
 			mes "^FF9900Challenge Mode^000000 — Wave N spawns N MVPs.";
 		else
@@ -117,7 +116,6 @@ OnInit:
 		case 1:
 			.@size = getarraysize(.mvpid);
 			hideonnpc strnpcinfo(0);
-			.remaining[.@id] = .@nextwavesize;
 			for (.@k = 0; .@k < .@nextwavesize; .@k++) {
 				.@pick = rand(.@size);
 				monster strnpcinfo(4), 49, 49, "--ja--", .mvpid[.@pick], 1, strnpcinfo(3) + "::OnMobDead";
@@ -241,9 +239,8 @@ L_EnterCommon:
 OnMobDead:
 	.@id = atoi(strnpcinfo(2));
 	if (.mode[.@id] == 1) {
-		// Challenge Mode: wait for all wave mobs to die
-		.remaining[.@id]--;
-		if (.remaining[.@id] > 0) end;
+		// Challenge Mode: use mobcount so dropped events don't block progression
+		if (mobcount(strnpcinfo(4), strnpcinfo(3) + "::OnMobDead") > 0) end;
 		.wave[.@id]++;
 		if (.wave[.@id] >= 10) {
 			enablenpc "MVP Reward#" + .@id;
