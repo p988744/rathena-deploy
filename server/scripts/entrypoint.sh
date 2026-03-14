@@ -228,6 +228,14 @@ if [ -f "/rathena/npc/custom/reset_npc.txt" ]; then
     echo "   已啟用重置npc spawn"
 fi
 
+# 啟用拔卡NPC
+if [ -f "/rathena/npc/custom/card_separation.txt" ]; then
+    if ! grep -q 'card_separation.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/card_separation.txt' >> /rathena/npc/scripts_custom.conf
+    fi
+    echo "   已啟用拔卡NPC"
+fi
+
 # 啟用 MVP 房間
 if [ -f "/rathena/npc/custom/mvp_room.txt" ]; then
     grep -qF 'npc: npc/custom/mvp_room.txt' /rathena/npc/scripts_custom.conf || \

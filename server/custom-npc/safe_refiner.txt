@@ -115,9 +115,9 @@ izlude,108,144,4	script	Safe Refiner	4_M_DWARF,{
 
 	mes "[Safe Refiner]";
 	mes "What level would you like?";
-	.@choice = select("Refine to +9:Refine to +13:Cancel");
+	.@choice = select("Refine to +9:Refine to +13:Refine to +14:Cancel");
 
-	if (.@choice == 3) {
+	if (.@choice == 4) {
 		mes "[Safe Refiner]";
 		mes "See you next time!";
 		close;
@@ -125,6 +125,7 @@ izlude,108,144,4	script	Safe Refiner	4_M_DWARF,{
 
 	.@target = 9;
 	if (.@choice == 2) .@target = 13;
+	if (.@choice == 3) .@target = 14;
 
 	if (.@current_ref >= .@target) {
 		mes "[Safe Refiner]";
