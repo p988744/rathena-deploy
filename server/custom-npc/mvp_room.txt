@@ -1,9 +1,9 @@
 //===== Custom Script =============================================
-//= MVP Challenge Room  (up to 100-Wave System)
+//= MVP Challenge Room  (Normal & Challenge Modes)
+//= Normal Mode: up to 100 waves, 1 MVP/wave, 1 card per 10 waves
+//= Challenge Mode: 10 waves, wave N spawns N MVPs, 5 cards on clear
 //= - Enter from izlude 137,154
-//= - Face random MVPs wave by wave (no drops, no MVP rewards)
-//= - Every 10 waves = +1 random MVP Card (claimed at Reward NPC)
-//= - Max 100 waves per run; can continue after each 10-wave set
+//= - Entry fee: Normal 1億 / Challenge 3億
 //=============================================================
 
 // ─────────────────────────────────────────────────────────────
@@ -11,17 +11,34 @@
 // ─────────────────────────────────────────────────────────────
 izlude,137,154,5	script	MVP Room	925,{
 	mes "[Private MVP Room]";
-	mes "Defeat ^CC000010 random MVPs^000000 per set to earn a ^FF9900random MVP Card^000000!";
-	mes "Continue up to ^FF9900100 waves^000000 — claim all your cards at once.";
+	mes "Choose your challenge mode:";
 	mes " ";
+	mes "^00CC00Normal Mode^000000 — 1 MVP per wave, up to 100 waves.";
+	mes "Every 10 waves earns 1 random MVP Card.";
+	mes " ";
+	mes "^FF9900Challenge Mode^000000 — Wave N spawns N MVPs, 10 waves total.";
+	mes "Clear all 10 waves to earn ^FF99005 random MVP Cards^000000!";
+	next;
+	.@mode = select("Normal Mode (100,000,000 Zeny):Challenge Mode (300,000,000 Zeny):Cancel");
+	if (.@mode == 3) close;
+
+	.@fee = (.@mode == 1) ? 100000000 : 300000000;
+
+	mes "[Private MVP Room]";
+	mes "^888888Room Status:^000000";
 	for (.@i = 1; .@i <= 8; .@i++) {
 		.@rt = getvariableofnpc(.renttime[.@i], "MVP Challenger");
 		.@wv = getvariableofnpc(.wave[.@i],     "MVP Challenger");
+		.@md = getvariableofnpc(.mode[.@i],     "MVP Challenger");
+		// treat occupied-but-empty rooms as available
+		if (.@rt && getmapusers("06guild_0" + .@i) == 0) .@rt = 0;
 		if (.@rt) {
+			.@modestr$ = (.@md == 1) ? " [Challenge]" : " [Normal]";
+			.@maxwave   = (.@md == 1) ? 10 : 100;
 			if (.@wv > 0)
-				mes "Room #" + .@i + " = ^EE8800In Progress  (Wave " + .@wv + "/100)^000000";
+				mes "Room #" + .@i + " = ^EE8800In Progress (Wave " + .@wv + "/" + .@maxwave + ")" + .@modestr$ + "^000000";
 			else
-				mes "Room #" + .@i + " = ^EE0000Occupied^000000";
+				mes "Room #" + .@i + " = ^EE0000Occupied^000000" + .@modestr$;
 		} else {
 			mes "Room #" + .@i + " = ^00CC00Available^000000";
 		}
@@ -36,25 +53,35 @@ izlude,137,154,5	script	MVP Room	925,{
 		"Room 6 [" + getmapusers("06guild_06") + " players]",
 		"Room 7 [" + getmapusers("06guild_07") + " players]",
 		"Room 8 [" + getmapusers("06guild_08") + " players]");
-	if (getvariableofnpc(.renttime[.@room], "MVP Challenger")) {
+	if (getvariableofnpc(.renttime[.@room], "MVP Challenger") && getmapusers("06guild_0" + .@room) > 0) {
 		mes "[Private MVP Room]";
 		mes "Room #" + .@room + " is already occupied.";
 		mes "Please select another room.";
 		close;
 	}
 	mes "[Private MVP Room]";
-	mes "Entry fee: ^FF0000100,000,000 Zeny^000000.";
+	if (.@mode == 1) {
+		mes "^00CC00Normal Mode^000000 selected.";
+		mes "Entry fee: ^FF0000100,000,000 Zeny^000000.";
+	} else {
+		mes "^FF9900Challenge Mode^000000 selected.";
+		mes "Entry fee: ^FF0000300,000,000 Zeny^000000.";
+		mes "^888888Complete all 10 waves to earn 5 random MVP Cards!^000000";
+	}
 	mes "Your Zeny: ^0000FF" + Zeny + "^000000";
 	next;
 	if (select("Pay and Enter:Cancel") == 2) close;
-	if (Zeny < 100000000) {
+	if (Zeny < .@fee) {
 		mes "[Private MVP Room]";
 		mes "You don't have enough Zeny.";
 		close;
 	}
-	Zeny -= 100000000;
+	Zeny -= .@fee;
 	warp "06guild_0" + .@room, 49, 53;
-	donpcevent "MVP Challenger#" + .@room + "::OnEnterMap";
+	if (.@mode == 1)
+		donpcevent "MVP Challenger#" + .@room + "::OnEnterMap";
+	else
+		donpcevent "MVP Challenger#" + .@room + "::OnEnterChallenge";
 	close;
 OnInit:
 	waitingroom "MVP Room", 0;
@@ -75,6 +102,57 @@ OnInit:
 	}
 
 	mes "[MVP Challenger]";
+
+	if (.mode[.@id] == 1) {
+		// ── Challenge Mode ──
+		if (.wave[.@id] == 0)
+			mes "^FF9900Challenge Mode^000000 — Wave N spawns N MVPs.";
+		else
+			mes "Challenge Wave ^CC0000" + .wave[.@id] + " / 10^000000 cleared!";
+		mes "^888888Complete all 10 waves to earn 5 random MVP Cards!^000000";
+		next;
+
+		.@nextwavesize = .wave[.@id] + 1;
+		switch (select("Start Wave " + (.wave[.@id] + 1) + " / 10 (" + .@nextwavesize + " MVPs):Full Heal:Leave Room")) {
+		case 1:
+			.@size = getarraysize(.mvpid);
+			hideonnpc strnpcinfo(0);
+			.remaining[.@id] = .@nextwavesize;
+			for (.@k = 0; .@k < .@nextwavesize; .@k++) {
+				.@pick = rand(.@size);
+				monster strnpcinfo(4), 49, 49, "--ja--", .mvpid[.@pick], 1, strnpcinfo(3) + "::OnMobDead";
+			}
+			mes "[MVP Challenger]";
+			mes "^CC0000" + .@nextwavesize + " MVP(s)^000000 have appeared!";
+			mes "Defeat them all to advance to Wave " + (.wave[.@id] + 2) + ".";
+			close;
+		case 2:
+			sc_end SC_STONE;       sc_end SC_SLOWDOWN;    sc_end SC_FREEZE;
+			sc_end SC_SLEEP;       sc_end SC_CURSE;       sc_end SC_SILENCE;
+			sc_end SC_CONFUSION;   sc_end SC_BLIND;       sc_end SC_BLEEDING;
+			sc_end SC_DECREASEAGI; sc_end SC_POISON;      sc_end SC_HALLUCINATION;
+			sc_end SC_STRIPWEAPON; sc_end SC_STRIPARMOR;
+			sc_end SC_STRIPHELM;   sc_end SC_STRIPSHIELD;
+			sc_end SC_CHANGEUNDEAD; sc_end SC_BERSERK;
+			percentheal 100, 100;
+			specialeffect2 EF_HEAL;
+			mes "[MVP Challenger]";
+			mes "You have been fully healed.";
+			close;
+		case 3:
+			mes "[MVP Challenger]";
+			mes "Leaving will ^CC0000forfeit^000000 your Challenge run.";
+			next;
+			if (select("Yes, leave:No, stay") == 1) {
+				warp .respawnmap$, .respawnx, .respawny;
+				donpcevent strnpcinfo(0) + "::OnForceReset";
+			}
+			close;
+		}
+		close;
+	}
+
+	// ── Normal Mode ──
 	if (.wave[.@id] == 0)
 		mes "Welcome, challenger. Are you ready to begin?";
 	else
@@ -113,42 +191,44 @@ OnInit:
 			mes "Are you sure you want to leave the challenge?";
 		}
 		next;
-		if (select("Yes, leave:No, stay") == 1)
+		if (select("Yes, leave:No, stay") == 1) {
 			warp .respawnmap$, .respawnx, .respawny;
+			donpcevent strnpcinfo(0) + "::OnForceReset";
+		}
 		close;
 	}
 	close;
 
-OnMobDead:
+OnEnterChallenge:
 	.@id = atoi(strnpcinfo(2));
-	.wave[.@id]++;
-	if (.wave[.@id] % 10 == 0) {
-		.pending[.@id]++;
-		enablenpc "MVP Reward#" + .@id;
-		if (.wave[.@id] >= 100)
-			mapannounce strnpcinfo(4), "Amazing! All 100 waves cleared! Talk to the Reward NPC to claim your " + .pending[.@id] + " MVP Card(s)!", 0, 0xFFD700;
-		else
-			mapannounce strnpcinfo(4), "Wave " + .wave[.@id] + "/100 cleared! Talk to the Reward NPC to continue or claim your " + .pending[.@id] + " card(s)!", 0, 0xFFD700;
-	} else {
-		hideoffnpc "MVP Challenger#" + .@id;
-	}
-	end;
+	.mode[.@id] = 1;
+	goto L_EnterCommon;
 
 OnEnterMap:
 	.@id = atoi(strnpcinfo(2));
-	.wave[.@id]    = 0;
-	.pending[.@id] = 0;
+	.mode[.@id] = 0;
+
+L_EnterCommon:
+	hideoffnpc strnpcinfo(0);
+	.wave[.@id]      = 0;
+	.pending[.@id]   = 0;
+	.remaining[.@id] = 0;
 	disablenpc "MVP Reward#" + .@id;
 	killmonsterall strnpcinfo(4);
 	setmapflag strnpcinfo(4), mf_nomobloot;
 	setmapflag strnpcinfo(4), mf_nomvploot;
 	setmapflag strnpcinfo(4), mf_noteleport;
 	.renttime[.@id] = gettimetick(2);
+	.@session = .renttime[.@id];
 	sleep .timeout * 60000;
-	// Timeout — clean up room and kick players
-	.renttime[.@id] = 0;
-	.wave[.@id]     = 0;
-	.pending[.@id]  = 0;
+	// Abort if room was reset or a new session started while we slept
+	if (.renttime[.@id] != .@session) end;
+	// Clean up room and kick players
+	.renttime[.@id]  = 0;
+	.wave[.@id]      = 0;
+	.pending[.@id]   = 0;
+	.remaining[.@id] = 0;
+	.mode[.@id]      = 0;
 	mapwarp strnpcinfo(4), .respawnmap$, .respawnx, .respawny;
 	killmonsterall strnpcinfo(4);
 	disablenpc "MVP Reward#" + .@id;
@@ -158,17 +238,72 @@ OnEnterMap:
 	removemapflag strnpcinfo(4), mf_noteleport;
 	end;
 
+OnMobDead:
+	.@id = atoi(strnpcinfo(2));
+	if (.mode[.@id] == 1) {
+		// Challenge Mode: wait for all wave mobs to die
+		.remaining[.@id]--;
+		if (.remaining[.@id] > 0) end;
+		.wave[.@id]++;
+		if (.wave[.@id] >= 10) {
+			enablenpc "MVP Reward#" + .@id;
+			mapannounce strnpcinfo(4), "All 10 Challenge waves cleared! Talk to the Reward NPC to claim your 5 MVP Cards!", 0, 0xFFD700;
+		} else {
+			mapannounce strnpcinfo(4), "Challenge Wave " + .wave[.@id] + "/10 cleared! Talk to the Challenger NPC for Wave " + (.wave[.@id] + 1) + ".", 0, 0x00CC00;
+			hideoffnpc "MVP Challenger#" + .@id;
+		}
+	} else {
+		// Normal Mode
+		.wave[.@id]++;
+		if (.wave[.@id] % 10 == 0) {
+			.pending[.@id]++;
+			enablenpc "MVP Reward#" + .@id;
+			if (.wave[.@id] >= 100)
+				mapannounce strnpcinfo(4), "Amazing! All 100 waves cleared! Talk to the Reward NPC to claim your " + .pending[.@id] + " MVP Card(s)!", 0, 0xFFD700;
+			else
+				mapannounce strnpcinfo(4), "Wave " + .wave[.@id] + "/100 cleared! Talk to the Reward NPC to continue or claim your " + .pending[.@id] + " card(s)!", 0, 0xFFD700;
+		} else {
+			hideoffnpc "MVP Challenger#" + .@id;
+		}
+	}
+	end;
+
+OnPCLogoutEvent:
+	.@id = atoi(strnpcinfo(2));
+	if (!.renttime[.@id]) end;
+	donpcevent strnpcinfo(0) + "::OnForceReset";
+	end;
+
+OnForceReset:
+	// Player died / logged out / left — reset room without mapwarp
+	.@id = atoi(strnpcinfo(2));
+	if (!.renttime[.@id]) end;
+	.renttime[.@id]  = 0;
+	.wave[.@id]      = 0;
+	.pending[.@id]   = 0;
+	.remaining[.@id] = 0;
+	.mode[.@id]      = 0;
+	killmonsterall strnpcinfo(4);
+	disablenpc "MVP Reward#" + .@id;
+	hideoffnpc strnpcinfo(0);
+	removemapflag strnpcinfo(4), mf_nomobloot;
+	removemapflag strnpcinfo(4), mf_nomvploot;
+	removemapflag strnpcinfo(4), mf_noteleport;
+	end;
+
 OnContinue:
-	// Called by Reward NPC when player chooses to keep fighting
+	// Called by Reward NPC when player chooses to keep fighting (Normal Mode)
 	hideoffnpc strnpcinfo(0);
 	end;
 
 OnReset:
 	// Called by Reward NPC after full claim — reset state without triggering mapwarp
 	.@id = atoi(strnpcinfo(2));
-	.renttime[.@id] = 0;
-	.wave[.@id]     = 0;
-	.pending[.@id]  = 0;
+	.renttime[.@id]  = 0;
+	.wave[.@id]      = 0;
+	.pending[.@id]   = 0;
+	.remaining[.@id] = 0;
+	.mode[.@id]      = 0;
 	end;
 
 OnInit:
@@ -196,7 +331,7 @@ OnInit:
 			2255, 2319, 2341, 2362,
 			2475, 2476, 2529, 2532, 2533, 2534, 2535,
 			2564, 2942, 2996, 3000, 3029, 3073, 3074,
-			3097, 3109, 3124, 3181, 3190, 3220, 3221,
+			3097, 3109, 3124, 3181, 3220, 3221,
 			3222, 3223, 3224, 3225, 3240, 3241, 3242, 3243,
 			3244, 3245, 3246, 3254, 3427, 3428, 3429,
 			3430, 3450, 3473, 3505, 3621, 3628, 3633, 3658,
@@ -213,14 +348,42 @@ OnInit:
 }
 
 // ─────────────────────────────────────────────────────────────
-// [3] REWARD NPC  (enabled after every 10th wave)
+// [3] REWARD NPC  (enabled after every 10th normal wave, or after 10 challenge waves)
 // ─────────────────────────────────────────────────────────────
 -	script	MVP Reward	-1,{
 	.@id      = atoi(strnpcinfo(2));
 	.@wave    = getvariableofnpc(.wave[.@id],    "MVP Challenger");
 	.@pending = getvariableofnpc(.pending[.@id], "MVP Challenger");
+	.@mode    = getvariableofnpc(.mode[.@id],    "MVP Challenger");
 
 	mes "[MVP Challenge - Reward]";
+
+	if (.@mode == 1) {
+		// ── Challenge Mode ──
+		mes "^FF9900Incredible!^000000 You've conquered all ^FF990010 Challenge waves^000000!";
+		mes " ";
+		mes "Claim your ^FF99005 random MVP Cards^000000!";
+		next;
+		if (select("Claim 5 Cards:Not Right Now") == 2) {
+			mes "[MVP Challenge - Reward]";
+			mes "Come back whenever you are ready.";
+			close;
+		}
+		// Give 5 cards (each drawn independently)
+		for (.@i = 0; .@i < 5; .@i++) {
+			.@card = .cardid[rand(getarraysize(.cardid))];
+			getitem .@card, 1;
+			announce "[MVP Challenge] " + strcharinfo(PC_NAME) + " cleared all 10 Challenge waves and obtained " + getitemname(.@card) + "!", bc_all, 0xFFD700;
+		}
+		// Reset room
+		disablenpc strnpcinfo(0);
+		enablenpc "MVP Challenger#" + .@id;
+		donpcevent "MVP Challenger#" + .@id + "::OnReset";
+		warp "SavePoint", 0, 0;
+		close;
+	}
+
+	// ── Normal Mode ──
 	if (.@wave >= 100)
 		mes "Incredible! You've conquered all ^FF9900100 waves^000000!";
 	else
