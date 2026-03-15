@@ -1,0 +1,1160 @@
+[313070] = {
+    unidentifiedDisplayName = "숲의 마력구(물리방어)",
+    unidentifiedResourceName = "Ep21_4",
+    unidentifiedDescriptionName = {
+      "DEF + 125, RES + 15.",
+      "7제련 시, DEF + 25, RES + 5 추가 증가.",
+      "9제련 시, DEF + 25, RES + 5 추가 증가.",
+      "11제련 시, DEF + 50, RES + 10 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(물리방어)",
+    identifiedResourceName = "Ep21_4",
+    identifiedDescriptionName = {
+      "DEF + 125, RES + 15.",
+      "7제련 시, DEF + 25, RES + 5 추가 증가.",
+      "9제련 시, DEF + 25, RES + 5 추가 증가.",
+      "11제련 시, DEF + 50, RES + 10 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313071] = {
+    unidentifiedDisplayName = "숲의 마력구(마법방어)",
+    unidentifiedResourceName = "Ep21_4",
+    unidentifiedDescriptionName = {
+      "MDEF + 30, MRES + 15.",
+      "7제련 시, MDEF + 5, MRES + 3 추가 증가.",
+      "9제련 시, MDEF + 5, MRES + 3 추가 증가.",
+      "11제련 시, MDEF + 10, MRES + 6 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(마법방어)",
+    identifiedResourceName = "Ep21_4",
+    identifiedDescriptionName = {
+      "MDEF + 30, MRES + 15.",
+      "7제련 시, MDEF + 5, MRES + 3 추가 증가.",
+      "9제련 시, MDEF + 5, MRES + 3 추가 증가.",
+      "11제련 시, MDEF + 10, MRES + 6 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313072] = {
+    unidentifiedDisplayName = "숲의 마력구(전사)",
+    unidentifiedResourceName = "Ep21_4",
+    unidentifiedDescriptionName = {
+      "ATK + 30, P.ATK + 5.",
+      "7제련 시, 근접 물리 데미지 3% 증가.",
+      "9제련 시, 근접 물리 데미지 4% 추가 증가.",
+      "11제련 시, 근접 물리 데미지 5% 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(전사)",
+    identifiedResourceName = "Ep21_4",
+    identifiedDescriptionName = {
+      "ATK + 30, P.ATK + 5.",
+      "7제련 시, 근접 물리 데미지 3% 증가.",
+      "9제련 시, 근접 물리 데미지 4% 추가 증가.",
+      "11제련 시, 근접 물리 데미지 5% 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313073] = {
+    unidentifiedDisplayName = "숲의 마력구(사수)",
+    unidentifiedResourceName = "Ep21_4",
+    unidentifiedDescriptionName = {
+      "ATK + 30, P.ATK + 5.",
+      "7제련 시, 원거리 물리 데미지 3% 증가.",
+      "9제련 시, 원거리 물리 데미지 4% 추가 증가.",
+      "11제련 시, 원거리 물리 데미지 5% 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(사수)",
+    identifiedResourceName = "Ep21_4",
+    identifiedDescriptionName = {
+      "ATK + 30, P.ATK + 5.",
+      "7제련 시, 원거리 물리 데미지 3% 증가.",
+      "9제련 시, 원거리 물리 데미지 4% 추가 증가.",
+      "11제련 시, 원거리 물리 데미지 5% 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313074] = {
+    unidentifiedDisplayName = "숲의 마력구(암살자)",
+    unidentifiedResourceName = "Ep21_4",
+    unidentifiedDescriptionName = {
+      "ATK + 20, CRI + 2, P.ATK + 5.",
+      "7제련 시, 크리티컬 데미지 3% 증가.",
+      "9제련 시, 크리티컬 데미지 4% 추가 증가.",
+      "11제련 시, 크리티컬 데미지 5% 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(암살자)",
+    identifiedResourceName = "Ep21_4",
+    identifiedDescriptionName = {
+      "ATK + 20, CRI + 2, P.ATK + 5.",
+      "7제련 시, 크리티컬 데미지 3% 증가.",
+      "9제련 시, 크리티컬 데미지 4% 추가 증가.",
+      "11제련 시, 크리티컬 데미지 5% 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313075] = {
+    unidentifiedDisplayName = "숲의 마력구(마도사)",
+    unidentifiedResourceName = "Ep21_4",
+    unidentifiedDescriptionName = {
+      "MATK + 30, S.MATK + 5.",
+      "7제련 시, 모든 속성 마법 데미지 3% 증가.",
+      "9제련 시, 모든 속성 마법 데미지 4% 추가 증가.",
+      "11제련 시, 모든 속성 마법 데미지 5% 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(마도사)",
+    identifiedResourceName = "Ep21_4",
+    identifiedDescriptionName = {
+      "MATK + 30, S.MATK + 5.",
+      "7제련 시, 모든 속성 마법 데미지 3% 증가.",
+      "9제련 시, 모든 속성 마법 데미지 4% 추가 증가.",
+      "11제련 시, 모든 속성 마법 데미지 5% 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313076] = {
+    unidentifiedDisplayName = "숲의 마력구(광전사)",
+    unidentifiedResourceName = "Ep21_3",
+    unidentifiedDescriptionName = {
+      "ATK + 5%, ATK + 50, P.ATK + 7.",
+      "7제련 시, 근접 물리 데미지 5% 증가.",
+      "9제련 시, 근접 물리 데미지 5% 추가 증가.",
+      "D등급 이상일 경우, 근접 물리 데미지 5% 증가.",
+      "C등급 이상일 경우, 근접 물리 데미지 5% 추가 증가.",
+      "B등급 이상일 경우, 근접 물리 데미지 5% 추가 증가.",
+      "A등급 이상일 경우, 근접 물리 데미지 5% 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(광전사)",
+    identifiedResourceName = "Ep21_3",
+    identifiedDescriptionName = {
+      "ATK + 5%, ATK + 50, P.ATK + 7.",
+      "7제련 시, 근접 물리 데미지 5% 증가.",
+      "9제련 시, 근접 물리 데미지 5% 추가 증가.",
+      "D등급 이상일 경우, 근접 물리 데미지 5% 증가.",
+      "C등급 이상일 경우, 근접 물리 데미지 5% 추가 증가.",
+      "B등급 이상일 경우, 근접 물리 데미지 5% 추가 증가.",
+      "A등급 이상일 경우, 근접 물리 데미지 5% 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313077] = {
+    unidentifiedDisplayName = "숲의 마력구(명사수)",
+    unidentifiedResourceName = "Ep21_3",
+    unidentifiedDescriptionName = {
+      "ATK + 5%, ATK + 50, P.ATK + 7.",
+      "7제련 시, 원거리 물리 데미지 5% 증가.",
+      "9제련 시, 원거리 물리 데미지 5% 추가 증가.",
+      "D등급 이상일 경우, 원거리 물리 데미지 5% 증가.",
+      "C등급 이상일 경우, 원거리 물리 데미지 5% 추가 증가.",
+      "B등급 이상일 경우, 원거리 물리 데미지 5% 추가 증가.",
+      "A등급 이상일 경우, 원거리 물리 데미지 5% 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(명사수)",
+    identifiedResourceName = "Ep21_3",
+    identifiedDescriptionName = {
+      "ATK + 5%, ATK + 50, P.ATK + 7.",
+      "7제련 시, 원거리 물리 데미지 5% 증가.",
+      "9제련 시, 원거리 물리 데미지 5% 추가 증가.",
+      "D등급 이상일 경우, 원거리 물리 데미지 5% 증가.",
+      "C등급 이상일 경우, 원거리 물리 데미지 5% 추가 증가.",
+      "B등급 이상일 경우, 원거리 물리 데미지 5% 추가 증가.",
+      "A등급 이상일 경우, 원거리 물리 데미지 5% 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313078] = {
+    unidentifiedDisplayName = "숲의 마력구(처형자)",
+    unidentifiedResourceName = "Ep21_3",
+    unidentifiedDescriptionName = {
+      "ATK + 3%, ATK + 30, CRI + 5, P.ATK +7.",
+      "7제련 시, 크리티컬 데미지 5% 증가.",
+      "9제련 시, 크리티컬 데미지 5% 추가 증가.",
+      "D등급 이상일 경우, 크리티컬 데미지 5% 증가.",
+      "C등급 이상일 경우, 크리티컬 데미지 5% 추가 증가.",
+      "B등급 이상일 경우, 크리티컬 데미지 5% 추가 증가.",
+      "A등급 이상일 경우, 크리티컬 데미지 5% 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(처형자)",
+    identifiedResourceName = "Ep21_3",
+    identifiedDescriptionName = {
+      "ATK + 3%, ATK + 30, CRI + 5, P.ATK +7.",
+      "7제련 시, 크리티컬 데미지 5% 증가.",
+      "9제련 시, 크리티컬 데미지 5% 추가 증가.",
+      "D등급 이상일 경우, 크리티컬 데미지 5% 증가.",
+      "C등급 이상일 경우, 크리티컬 데미지 5% 추가 증가.",
+      "B등급 이상일 경우, 크리티컬 데미지 5% 추가 증가.",
+      "A등급 이상일 경우, 크리티컬 데미지 5% 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313079] = {
+    unidentifiedDisplayName = "숲의 마력구(대마도사)",
+    unidentifiedResourceName = "Ep21_3",
+    unidentifiedDescriptionName = {
+      "MATK + 5%, MATK + 50, S.MATK + 7.",
+      "7제련 시, 모든 속성 마법 데미지 5% 증가.",
+      "9제련 시, 모든 속성 마법 데미지 5% 추가 증가.",
+      "D등급 이상일 경우, 모든 속성 마법 데미지 5% 증가.",
+      "C등급 이상일 경우, 모든 속성 마법 데미지 5% 추가 증가.",
+      "B등급 이상일 경우, 모든 속성 마법 데미지 5% 추가 증가.",
+      "A등급 이상일 경우, 모든 속성 마법 데미지 5% 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(대마도사)",
+    identifiedResourceName = "Ep21_3",
+    identifiedDescriptionName = {
+      "MATK + 5%, MATK + 50, S.MATK + 7.",
+      "7제련 시, 모든 속성 마법 데미지 5% 증가.",
+      "9제련 시, 모든 속성 마법 데미지 5% 추가 증가.",
+      "D등급 이상일 경우, 모든 속성 마법 데미지 5% 증가.",
+      "C등급 이상일 경우, 모든 속성 마법 데미지 5% 추가 증가.",
+      "B등급 이상일 경우, 모든 속성 마법 데미지 5% 추가 증가.",
+      "A등급 이상일 경우, 모든 속성 마법 데미지 5% 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313080] = {
+    unidentifiedDisplayName = "숲의 마력구(파워 포스)",
+    unidentifiedResourceName = "Ep21_2",
+    unidentifiedDescriptionName = {
+      "ATK + 2%.",
+      "7제련 시, ATK + 3% 추가 증가.",
+      "9제련 시, ATK + 4% 추가 증가.",
+      "11제련 시, P.ATK + 3.",
+      "D등급 이상일 경우, ATK + 2%.",
+      "C등급 이상일 경우, ATK + 3% 추가 증가.",
+      "B등급 이상일 경우, ATK + 4% 추가 증가.",
+      "A등급 이상일 경우, P.ATK + 5."
+    },
+    identifiedDisplayName = "숲의 마력구(파워 포스)",
+    identifiedResourceName = "Ep21_2",
+    identifiedDescriptionName = {
+      "ATK + 2%.",
+      "7제련 시, ATK + 3% 추가 증가.",
+      "9제련 시, ATK + 4% 추가 증가.",
+      "11제련 시, P.ATK + 3.",
+      "D등급 이상일 경우, ATK + 2%.",
+      "C등급 이상일 경우, ATK + 3% 추가 증가.",
+      "B등급 이상일 경우, ATK + 4% 추가 증가.",
+      "A등급 이상일 경우, P.ATK + 5."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313081] = {
+    unidentifiedDisplayName = "숲의 마력구(매직 포스)",
+    unidentifiedResourceName = "Ep21_2",
+    unidentifiedDescriptionName = {
+      "MATK +2%.",
+      "7제련 시, MATK +3% 추가 증가.",
+      "9제련 시, MATK +4% 추가 증가.",
+      "11제련 시, S.MATK +3.",
+      "D등급 이상일 경우, MATK +2%.",
+      "C등급 이상일 경우, MATK +3% 추가 증가.",
+      "B등급 이상일 경우, MATK +4% 추가 증가.",
+      "A등급 이상일 경우, S.MATK +5."
+    },
+    identifiedDisplayName = "숲의 마력구(매직 포스)",
+    identifiedResourceName = "Ep21_2",
+    identifiedDescriptionName = {
+      "MATK +2%.",
+      "7제련 시, MATK +3% 추가 증가.",
+      "9제련 시, MATK +4% 추가 증가.",
+      "11제련 시, S.MATK +3.",
+      "D등급 이상일 경우, MATK +2%.",
+      "C등급 이상일 경우, MATK +3% 추가 증가.",
+      "B등급 이상일 경우, MATK +4% 추가 증가.",
+      "A등급 이상일 경우, S.MATK +5."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313082] = {
+    unidentifiedDisplayName = "숲의 마력구(글로벌 쿨타임)",
+    unidentifiedResourceName = "Ep21_2",
+    unidentifiedDescriptionName = {
+      "글로벌 쿨타임 3% 감소.",
+      "7제련 시, 글로벌 쿨타임 3% 추가 감소.",
+      "9제련 시, 글로벌 쿨타임 2% 추가 감소.",
+      "11제련 시, 글로벌 쿨타임 2% 추가 감소."
+    },
+    identifiedDisplayName = "숲의 마력구(글로벌 쿨타임)",
+    identifiedResourceName = "Ep21_2",
+    identifiedDescriptionName = {
+      "글로벌 쿨타임 3% 감소.",
+      "7제련 시, 글로벌 쿨타임 3% 추가 감소.",
+      "9제련 시, 글로벌 쿨타임 2% 추가 감소.",
+      "11제련 시, 글로벌 쿨타임 2% 추가 감소."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313083] = {
+    unidentifiedDisplayName = "숲의 마력구(신속)",
+    unidentifiedResourceName = "Ep21_3",
+    unidentifiedDescriptionName = {
+      "공격 속도 증가(공격 후 딜레이 5% 감소).",
+      "7제련 시, 공격 속도 증가(공격 후 딜레이 5% 추가 감소).",
+      "9제련 시, 공격 속도 증가(공격 후 딜레이 5% 추가 감소).",
+      "11제련 시, 공격 속도 증가(공격 후 딜레이 10% 추가 감소)."
+    },
+    identifiedDisplayName = "숲의 마력구(신속)",
+    identifiedResourceName = "Ep21_3",
+    identifiedDescriptionName = {
+      "공격 속도 증가(공격 후 딜레이 5% 감소).",
+      "7제련 시, 공격 속도 증가(공격 후 딜레이 5% 추가 감소).",
+      "9제련 시, 공격 속도 증가(공격 후 딜레이 5% 추가 감소).",
+      "11제련 시, 공격 속도 증가(공격 후 딜레이 10% 추가 감소)."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313084] = {
+    unidentifiedDisplayName = "숲의 마력구(캐스터)",
+    unidentifiedResourceName = "Ep21_3",
+    unidentifiedDescriptionName = {
+      "변동 캐스팅 5% 감소.",
+      "7제련 시, 변동 캐스팅 5% 추가 감소.",
+      "9제련 시, 변동 캐스팅 5% 추가 감소.",
+      "11제련 시, 변동 캐스팅 10% 추가 감소."
+    },
+    identifiedDisplayName = "숲의 마력구(캐스터)",
+    identifiedResourceName = "Ep21_3",
+    identifiedDescriptionName = {
+      "변동 캐스팅 5% 감소.",
+      "7제련 시, 변동 캐스팅 5% 추가 감소.",
+      "9제련 시, 변동 캐스팅 5% 추가 감소.",
+      "11제련 시, 변동 캐스팅 10% 추가 감소."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313085] = {
+    unidentifiedDisplayName = "숲의 마력구(밀리)",
+    unidentifiedResourceName = "Ep21_2",
+    unidentifiedDescriptionName = {
+      "근접 물리 데미지 3% 증가.",
+      "7제련 시, 근접 물리 데미지 3% 추가 증가.",
+      "9제련 시, 근접 물리 데미지 3% 추가 증가.",
+      "D등급 이상일 경우, 근접 물리 데미지 3%, 유도 공격 확률 5% 증가.",
+      "C등급 이상일 경우, 근접 물리 데미지 3%, 유도 공격 확률 6% 추가 증가.",
+      "B등급 이상일 경우, 근접 물리 데미지 5%, 유도 공격 확률 7% 추가 증가.",
+      "A등급 이상일 경우, 근접 물리 데미지 5%, 유도 공격 확률 8% 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(밀리)",
+    identifiedResourceName = "Ep21_2",
+    identifiedDescriptionName = {
+      "근접 물리 데미지 3% 증가.",
+      "7제련 시, 근접 물리 데미지 3% 추가 증가.",
+      "9제련 시, 근접 물리 데미지 3% 추가 증가.",
+      "D등급 이상일 경우, 근접 물리 데미지 3%, 유도 공격 확률 5% 증가.",
+      "C등급 이상일 경우, 근접 물리 데미지 3%, 유도 공격 확률 6% 추가 증가.",
+      "B등급 이상일 경우, 근접 물리 데미지 5%, 유도 공격 확률 7% 추가 증가.",
+      "A등급 이상일 경우, 근접 물리 데미지 5%, 유도 공격 확률 8% 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313086] = {
+    unidentifiedDisplayName = "숲의 마력구(레인지)",
+    unidentifiedResourceName = "Ep21_2",
+    unidentifiedDescriptionName = {
+      "원거리 물리 데미지 3% 증가.",
+      "7제련 시, 원거리 물리 데미지 3% 추가 증가.",
+      "9제련 시, 원거리 물리 데미지 3% 추가 증가.",
+      "D등급 이상일 경우, 원거리 물리 데미지 3%, 유도 공격 확률 5% 증가.",
+      "C등급 이상일 경우, 원거리 물리 데미지 3%, 유도 공격 확률 6% 추가 증가.",
+      "B등급 이상일 경우, 원거리 물리 데미지 5%, 유도 공격 확률 7% 추가 증가.",
+      "A등급 이상일 경우, 원거리 물리 데미지 5%, 유도 공격 확률 8% 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(레인지)",
+    identifiedResourceName = "Ep21_2",
+    identifiedDescriptionName = {
+      "원거리 물리 데미지 3% 증가.",
+      "7제련 시, 원거리 물리 데미지 3% 추가 증가.",
+      "9제련 시, 원거리 물리 데미지 3% 추가 증가.",
+      "D등급 이상일 경우, 원거리 물리 데미지 3%, 유도 공격 확률 5% 증가.",
+      "C등급 이상일 경우, 원거리 물리 데미지 3%, 유도 공격 확률 6% 추가 증가.",
+      "B등급 이상일 경우, 원거리 물리 데미지 5%, 유도 공격 확률 7% 추가 증가.",
+      "A등급 이상일 경우, 원거리 물리 데미지 5%, 유도 공격 확률 8% 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313087] = {
+    unidentifiedDisplayName = "숲의 마력구(크리티컬)",
+    unidentifiedResourceName = "Ep21_2",
+    unidentifiedDescriptionName = {
+      "크리티컬 데미지 3% 증가.",
+      "7제련 시, 크리티컬 데미지 3% 추가 증가.",
+      "9제련 시, 크리티컬 데미지 3% 추가 증가.",
+      "D등급 이상일 경우, CRI + 2, 크리티컬 데미지 3% 증가.",
+      "C등급 이상일 경우, CRI + 3, 크리티컬 데미지 3% 추가 증가.",
+      "B등급 이상일 경우, CRI + 5, 크리티컬 데미지 5% 추가 증가.",
+      "A등급 이상일 경우, 크리티컬 데미지 5% 추가 증가, C.RATE + 5."
+    },
+    identifiedDisplayName = "숲의 마력구(크리티컬)",
+    identifiedResourceName = "Ep21_2",
+    identifiedDescriptionName = {
+      "크리티컬 데미지 3% 증가.",
+      "7제련 시, 크리티컬 데미지 3% 추가 증가.",
+      "9제련 시, 크리티컬 데미지 3% 추가 증가.",
+      "D등급 이상일 경우, CRI + 2, 크리티컬 데미지 3% 증가.",
+      "C등급 이상일 경우, CRI + 3, 크리티컬 데미지 3% 추가 증가.",
+      "B등급 이상일 경우, CRI + 5, 크리티컬 데미지 5% 추가 증가.",
+      "A등급 이상일 경우, 크리티컬 데미지 5% 추가 증가, C.RATE + 5."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313088] = {
+    unidentifiedDisplayName = "숲의 마력구(스펠)",
+    unidentifiedResourceName = "Ep21_2",
+    unidentifiedDescriptionName = {
+      "모든 속성 마법 데미지 3% 증가.",
+      "7제련 시, 모든 속성 마법 데미지 3% 추가 증가.",
+      "9제련 시, 모든 속성 마법 데미지 3% 추가 증가.",
+      "D등급 이상일 경우, 모든 속성 마법 데미지 3%, MSP + 2% 증가.",
+      "C등급 이상일 경우, 모든 속성 마법 데미지 3%, MSP + 3% 추가 증가.",
+      "B등급 이상일 경우, 모든 속성 마법 데미지 5%, MSP + 4% 추가 증가.",
+      "A등급 이상일 경우, 모든 속성 마법 데미지 5%, MSP + 5% 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(스펠)",
+    identifiedResourceName = "Ep21_2",
+    identifiedDescriptionName = {
+      "모든 속성 마법 데미지 3% 증가.",
+      "7제련 시, 모든 속성 마법 데미지 3% 추가 증가.",
+      "9제련 시, 모든 속성 마법 데미지 3% 추가 증가.",
+      "D등급 이상일 경우, 모든 속성 마법 데미지 3%, MSP + 2% 증가.",
+      "C등급 이상일 경우, 모든 속성 마법 데미지 3%, MSP + 3% 추가 증가.",
+      "B등급 이상일 경우, 모든 속성 마법 데미지 5%, MSP + 4% 추가 증가.",
+      "A등급 이상일 경우, 모든 속성 마법 데미지 5%, MSP + 5% 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313089] = {
+    unidentifiedDisplayName = "숲의 마력구(어보브 올)",
+    unidentifiedResourceName = "Ep21_2",
+    unidentifiedDescriptionName = {
+      "모든 속성 및 크기의 적에게 받는 물리/마법 데미지 3% 감소.",
+      "7제련 시, 모든 속성 적에게 받는 물리/마법 데미지 4% 추가 감소.",
+      "9제련 시, 모든 크기 적에게 받는 물리/마법 데미지 4% 추가 감소.",
+      "11제련 시, 모든 종족 몬스터에게 받는 데미지 7% 감소(플레이어 제외)."
+    },
+    identifiedDisplayName = "숲의 마력구(어보브 올)",
+    identifiedResourceName = "Ep21_2",
+    identifiedDescriptionName = {
+      "모든 속성 및 크기의 적에게 받는 물리/마법 데미지 3% 감소.",
+      "7제련 시, 모든 속성 적에게 받는 물리/마법 데미지 4% 추가 감소.",
+      "9제련 시, 모든 크기 적에게 받는 물리/마법 데미지 4% 추가 감소.",
+      "11제련 시, 모든 종족 몬스터에게 받는 데미지 7% 감소(플레이어 제외)."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313090] = {
+    unidentifiedDisplayName = "숲의 마력구(체력)",
+    unidentifiedResourceName = "Ep21_4",
+    unidentifiedDescriptionName = {
+      "MHP + 4000.",
+      "7제련 시, MHP + 3% 증가.",
+      "9제련 시, MHP + 5% 추가 증가.",
+      "11제련 시, MHP + 7% 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(체력)",
+    identifiedResourceName = "Ep21_4",
+    identifiedDescriptionName = {
+      "MHP + 4000.",
+      "7제련 시, MHP + 3% 증가.",
+      "9제련 시, MHP + 5% 추가 증가.",
+      "11제련 시, MHP + 7% 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313091] = {
+    unidentifiedDisplayName = "숲의 마력구(정신력)",
+    unidentifiedResourceName = "Ep21_4",
+    unidentifiedDescriptionName = {
+      "MSP + 600.",
+      "7제련 시, MSP + 3% 증가.",
+      "9제련 시, MSP + 5% 추가 증가.",
+      "11제련 시, MSP + 7% 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(정신력)",
+    identifiedResourceName = "Ep21_4",
+    identifiedDescriptionName = {
+      "MSP + 600.",
+      "7제련 시, MSP + 3% 증가.",
+      "9제련 시, MSP + 5% 추가 증가.",
+      "11제련 시, MSP + 7% 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313092] = {
+    unidentifiedDisplayName = "숲의 마력구(피지컬 포스)",
+    unidentifiedResourceName = "Ep21_4",
+    unidentifiedDescriptionName = {
+      "ATK + 10.",
+      "7제련 시, ATK + 10 추가 증가.",
+      "9제련 시, ATK + 10 추가 증가.",
+      "11제련 시, ATK + 20 추가 증가, ATK + 5%."
+    },
+    identifiedDisplayName = "숲의 마력구(피지컬 포스)",
+    identifiedResourceName = "Ep21_4",
+    identifiedDescriptionName = {
+      "ATK + 10.",
+      "7제련 시, ATK + 10 추가 증가.",
+      "9제련 시, ATK + 10 추가 증가.",
+      "11제련 시, ATK + 20 추가 증가, ATK + 5%."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313093] = {
+    unidentifiedDisplayName = "숲의 마력구(매지컬 포스)",
+    unidentifiedResourceName = "Ep21_4",
+    unidentifiedDescriptionName = {
+      "MATK + 10.",
+      "7제련 시, MATK + 10 추가 증가.",
+      "9제련 시, MATK + 10 추가 증가.",
+      "11제련 시, MATK + 20 추가 증가, MATK + 5%."
+    },
+    identifiedDisplayName = "숲의 마력구(매지컬 포스)",
+    identifiedResourceName = "Ep21_4",
+    identifiedDescriptionName = {
+      "MATK + 10.",
+      "7제련 시, MATK + 10 추가 증가.",
+      "9제련 시, MATK + 10 추가 증가.",
+      "11제련 시, MATK + 20 추가 증가, MATK + 5%."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313094] = {
+    unidentifiedDisplayName = "숲의 마력구(사이즈 어택)",
+    unidentifiedResourceName = "Ep21_3",
+    unidentifiedDescriptionName = {
+      "모든 크기의 적에게 주는 물리 데미지 5% 증가.",
+      "7제련 시, 모든 크기의 적에게 주는 물리 데미지 3% 추가 증가.",
+      "9제련 시, 모든 크기의 적에게 주는 물리 데미지 2% 추가 증가.",
+      "11제련 시, 모든 크기의 적에게 주는 물리 데미지 10% 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(사이즈 어택)",
+    identifiedResourceName = "Ep21_3",
+    identifiedDescriptionName = {
+      "모든 크기의 적에게 주는 물리 데미지 5% 증가.",
+      "7제련 시, 모든 크기의 적에게 주는 물리 데미지 3% 추가 증가.",
+      "9제련 시, 모든 크기의 적에게 주는 물리 데미지 2% 추가 증가.",
+      "11제련 시, 모든 크기의 적에게 주는 물리 데미지 10% 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313095] = {
+    unidentifiedDisplayName = "숲의 마력구(사이즈 스펠)",
+    unidentifiedResourceName = "Ep21_3",
+    unidentifiedDescriptionName = {
+      "모든 크기의 적에게 주는 마법 데미지 5% 증가.",
+      "7제련 시, 모든 크기의 적에게 주는 마법 데미지 3% 추가 증가.",
+      "9제련 시, 모든 크기의 적에게 주는 마법 데미지 2% 추가 증가.",
+      "11제련 시, 모든 크기의 적에게 주는 마법 데미지 10% 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(사이즈 스펠)",
+    identifiedResourceName = "Ep21_3",
+    identifiedDescriptionName = {
+      "모든 크기의 적에게 주는 마법 데미지 5% 증가.",
+      "7제련 시, 모든 크기의 적에게 주는 마법 데미지 3% 추가 증가.",
+      "9제련 시, 모든 크기의 적에게 주는 마법 데미지 2% 추가 증가.",
+      "11제련 시, 모든 크기의 적에게 주는 마법 데미지 10% 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313096] = {
+    unidentifiedDisplayName = "숲의 마력구(오버 파워)",
+    unidentifiedResourceName = "Ep21_2",
+    unidentifiedDescriptionName = {
+      "P.ATK + 5.",
+      "D등급 이상일 경우, 근접 물리 데미지 5% 증가.",
+      "C등급 이상일 경우, 근접 물리 데미지 5% 추가 증가.",
+      "B등급 이상일 경우, ATK + 2%, P.ATK + 5.",
+      "A등급 이상일 경우, ATK + 3%, P.ATK + 5 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(오버 파워)",
+    identifiedResourceName = "Ep21_2",
+    identifiedDescriptionName = {
+      "P.ATK + 5.",
+      "D등급 이상일 경우, 근접 물리 데미지 5% 증가.",
+      "C등급 이상일 경우, 근접 물리 데미지 5% 추가 증가.",
+      "B등급 이상일 경우, ATK + 2%, P.ATK + 5.",
+      "A등급 이상일 경우, ATK + 3%, P.ATK + 5 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313097] = {
+    unidentifiedDisplayName = "숲의 마력구(파이어링 샷)",
+    unidentifiedResourceName = "Ep21_2",
+    unidentifiedDescriptionName = {
+      "P.ATK + 5.",
+      "D등급 이상일 경우, 원거리 물리 데미지 5% 증가.",
+      "C등급 이상일 경우, 원거리 물리 데미지 5% 추가 증가.",
+      "B등급 이상일 경우, ATK + 2%, P.ATK + 5.",
+      "A등급 이상일 경우, ATK + 3%, P.ATK + 5 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(파이어링 샷)",
+    identifiedResourceName = "Ep21_2",
+    identifiedDescriptionName = {
+      "P.ATK + 5.",
+      "D등급 이상일 경우, 원거리 물리 데미지 5% 증가.",
+      "C등급 이상일 경우, 원거리 물리 데미지 5% 추가 증가.",
+      "B등급 이상일 경우, ATK + 2%, P.ATK + 5.",
+      "A등급 이상일 경우, ATK + 3%, P.ATK + 5 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313098] = {
+    unidentifiedDisplayName = "숲의 마력구(럭키 스트라이크)",
+    unidentifiedResourceName = "Ep21_2",
+    unidentifiedDescriptionName = {
+      "P.ATK + 5.",
+      "D등급 이상일 경우, 크리티컬 데미지 5% 증가.",
+      "C등급 이상일 경우, 크리티컬 데미지 5% 추가 증가.",
+      "B등급 이상일 경우, ATK + 2%, C.RATE + 3.",
+      "A등급 이상일 경우, ATK + 3%, C.RATE + 5 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(럭키 스트라이크)",
+    identifiedResourceName = "Ep21_2",
+    identifiedDescriptionName = {
+      "P.ATK + 5.",
+      "D등급 이상일 경우, 크리티컬 데미지 5% 증가.",
+      "C등급 이상일 경우, 크리티컬 데미지 5% 추가 증가.",
+      "B등급 이상일 경우, ATK + 2%, C.RATE + 3.",
+      "A등급 이상일 경우, ATK + 3%, C.RATE + 5 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313099] = {
+    unidentifiedDisplayName = "숲의 마력구(스펠 버스터)",
+    unidentifiedResourceName = "Ep21_2",
+    unidentifiedDescriptionName = {
+      "S.MATK + 5.",
+      "D등급 이상일 경우, 모든 속성 마법 데미지 5% 증가.",
+      "C등급 이상일 경우, 모든 속성 마법 데미지 5% 추가 증가.",
+      "B등급 이상일 경우, MATK + 2%, S.MATK + 5.",
+      "A등급 이상일 경우, MATK + 3%, S.MATK + 5 추가 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(스펠 버스터)",
+    identifiedResourceName = "Ep21_2",
+    identifiedDescriptionName = {
+      "S.MATK + 5.",
+      "D등급 이상일 경우, 모든 속성 마법 데미지 5% 증가.",
+      "C등급 이상일 경우, 모든 속성 마법 데미지 5% 추가 증가.",
+      "B등급 이상일 경우, MATK + 2%, S.MATK + 5.",
+      "A등급 이상일 경우, MATK + 3%, S.MATK + 5 추가 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313100] = {
+    unidentifiedDisplayName = "숲의 마력구(투지)",
+    unidentifiedResourceName = "Ep21_4",
+    unidentifiedDescriptionName = {
+      "ATK + 25, 근접 물리 데미지 12% 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(투지)",
+    identifiedResourceName = "Ep21_4",
+    identifiedDescriptionName = {
+      "ATK + 25, 근접 물리 데미지 12% 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313101] = {
+    unidentifiedDisplayName = "숲의 마력구(명궁)",
+    unidentifiedResourceName = "Ep21_4",
+    unidentifiedDescriptionName = {
+      "ATK + 25, 원거리 물리 데미지 12% 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(명궁)",
+    identifiedResourceName = "Ep21_4",
+    identifiedDescriptionName = {
+      "ATK + 25, 원거리 물리 데미지 12% 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313102] = {
+    unidentifiedDisplayName = "숲의 마력구(치명)",
+    unidentifiedResourceName = "Ep21_4",
+    unidentifiedDescriptionName = {
+      "CRI + 8, 크리티컬 데미지 12% 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(치명)",
+    identifiedResourceName = "Ep21_4",
+    identifiedDescriptionName = {
+      "CRI + 8, 크리티컬 데미지 12% 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313103] = {
+    unidentifiedDisplayName = "숲의 마력구(마력)",
+    unidentifiedResourceName = "Ep21_4",
+    unidentifiedDescriptionName = {
+      "MATK + 25, 모든 속성 마법 데미지 12% 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(마력)",
+    identifiedResourceName = "Ep21_4",
+    identifiedDescriptionName = {
+      "MATK + 25, 모든 속성 마법 데미지 12% 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313104] = {
+    unidentifiedDisplayName = "숲의 마력구(불굴)",
+    unidentifiedResourceName = "Ep21_3",
+    unidentifiedDescriptionName = {
+      "ATK + 35, 근접 물리 데미지 15% 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(불굴)",
+    identifiedResourceName = "Ep21_3",
+    identifiedDescriptionName = {
+      "ATK + 35, 근접 물리 데미지 15% 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313105] = {
+    unidentifiedDisplayName = "숲의 마력구(선궁)",
+    unidentifiedResourceName = "Ep21_3",
+    unidentifiedDescriptionName = {
+      "ATK + 35, 원거리 물리 데미지 15% 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(선궁)",
+    identifiedResourceName = "Ep21_3",
+    identifiedDescriptionName = {
+      "ATK + 35, 원거리 물리 데미지 15% 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313106] = {
+    unidentifiedDisplayName = "숲의 마력구(예기)",
+    unidentifiedResourceName = "Ep21_3",
+    unidentifiedDescriptionName = {
+      "CRI + 12, 크리티컬 데미지 15% 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(예기)",
+    identifiedResourceName = "Ep21_3",
+    identifiedDescriptionName = {
+      "CRI + 12, 크리티컬 데미지 15% 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313107] = {
+    unidentifiedDisplayName = "숲의 마력구(마정)",
+    unidentifiedResourceName = "Ep21_3",
+    unidentifiedDescriptionName = {
+      "MATK + 35, 모든 속성 마법 데미지 15% 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(마정)",
+    identifiedResourceName = "Ep21_3",
+    identifiedDescriptionName = {
+      "MATK + 35, 모든 속성 마법 데미지 15% 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313108] = {
+    unidentifiedDisplayName = "숲의 마력구(피지컬 파워)",
+    unidentifiedResourceName = "Ep21_2",
+    unidentifiedDescriptionName = {
+      "P.ATK + 5, 모든 속성의 적에게 주는 물리 데미지 5% 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(피지컬 파워)",
+    identifiedResourceName = "Ep21_2",
+    identifiedDescriptionName = {
+      "P.ATK + 5, 모든 속성의 적에게 주는 물리 데미지 5% 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+  [313109] = {
+    unidentifiedDisplayName = "숲의 마력구(매지컬 파워)",
+    unidentifiedResourceName = "Ep21_2",
+    unidentifiedDescriptionName = {
+      "S.MATK + 5, 모든 속성의 적에게 주는 마법 데미지 5% 증가."
+    },
+    identifiedDisplayName = "숲의 마력구(매지컬 파워)",
+    identifiedResourceName = "Ep21_2",
+    identifiedDescriptionName = {
+      "S.MATK + 5, 모든 속성의 적에게 주는 마법 데미지 5% 증가."
+    },
+    slotCount = 0,
+    ClassNum = 0,
+    costume = false
+  },
+[450350] = {
+    unidentifiedDisplayName = "갑옷",
+    unidentifiedResourceName = "우든메일",
+    unidentifiedDescriptionName = {
+      "감정되지 않음. [돋보기] 를 사용하여 감정할 수 있다."
+    },
+    identifiedDisplayName = "게오보르그 아머",
+    identifiedResourceName = "Gaebolg_Armor",
+    identifiedDescriptionName = {
+      "저항군의 일원에게 주어지는 갑옷.",
+      "ATK + 130.",
+      "2제련 당 ATK + 15, DEF + 15.",
+      "7제련 시, 근접/원거리 물리 데미지 3% 증가.",
+      "9제련 시, P.ATK + 5, 변동 캐스팅 10% 감소.",
+      "10제련 시, 근접/원거리 물리 데미지 5% 추가 증가.",
+      "12제련 시, 글로벌 쿨타임 5% 감소.",
+      "^ffffff_^000000",
+      "게오보르그 망토와 함께 장착 시, 모든 속성 적에게 주는 물리 데미지 10% 증가.",
+      "^ffffff_^000000",
+      "게오보르그 망토, 게오보르그 부츠와 함께 장착 시, 모든 종족 적에게 주는 물리 데미지 10% 증가(플레이어 제외).",
+      "^ffffff_^000000",
+      "^CC3D3D[등급별 추가 옵션]^000000",
+      "[D등급] POW + 3, CON + 3, 글로벌 쿨타임 5% 감소.",
+      "[C등급] ATK + 3%, P.ATK + 2.",
+      "[B등급] POW + 4, CON + 4, P.ATK + 3 추가 증가.",
+      "[A등급] ATK + 4%, P.ATK + 5 추가 증가.",
+      "^ffffff_^000000",
+      "계열 : ^777777갑옷^000000  방어 : ^777777198^000000",
+      "무게 : ^777777240^000000",
+      "방어구 레벨 : ^7777772^000000",
+      "요구 레벨 : ^777777245^000000",
+      "장착 : ^777777전 직업^000000"
+    },
+    slotCount = 1,
+    ClassNum = 0,
+    costume = false
+  },
+  [450351] = {
+    unidentifiedDisplayName = "옷",
+    unidentifiedResourceName = "코튼셔츠",
+    unidentifiedDescriptionName = {
+      "감정되지 않음. [돋보기] 를 사용하여 감정할 수 있다."
+    },
+    identifiedDisplayName = "게오보르그 로브",
+    identifiedResourceName = "Gaebolg_Robe",
+    identifiedDescriptionName = {
+      "저항군의 일원에게 주어지는 로브.",
+      "MATK + 130.",
+      "2제련 당 MATK + 15, DEF + 15.",
+      "7제련 시, 모든 속성 마법 데미지 3% 증가.",
+      "9제련 시, S.MATK + 5, 변동 캐스팅 10% 감소.",
+      "10제련 시, 모든 속성 마법 데미지 5% 추가 증가.",
+      "12제련 시, 글로벌 쿨타임 5% 감소.",
+      "^ffffff_^000000",
+      "게오보르그 머플러와 함께 장착 시, 모든 속성 적에게 주는 마법 데미지 10% 증가.",
+      "^ffffff_^000000",
+      "게오보르그 머플러, 게오보르그 슈즈와 함께 장착 시, 모든 종족 적에게 주는 마법 데미지 10% 증가(플레이어 제외).",
+      "^ffffff_^000000",
+      "^CC3D3D[등급별 추가 옵션]^000000",
+      "[D등급] SPL + 3, CON + 3, 글로벌 쿨타임 5% 감소.",
+      "[C등급] MATK + 3%, S.MATK + 2.",
+      "[B등급] SPL + 4, CON + 4, S.MATK + 3 추가 증가.",
+      "[A등급] MATK + 4%, S.MATK + 5 추가 증가.",
+      "^ffffff_^000000",
+      "계열 : ^777777갑옷^000000  방어 : ^777777130^000000",
+      "무게 : ^777777120^000000",
+      "방어구 레벨 : ^7777772^000000",
+      "요구 레벨 : ^777777245^000000",
+      "장착 : ^777777전 직업^000000"
+    },
+    slotCount = 1,
+    ClassNum = 0,
+    costume = false
+  },
+  [470260] = {
+    unidentifiedDisplayName = "신발",
+    unidentifiedResourceName = "부츠",
+    unidentifiedDescriptionName = {
+      "감정되지 않음. [돋보기] 를 사용하여 감정할 수 있다."
+    },
+    identifiedDisplayName = "게오보르그 부츠",
+    identifiedResourceName = "Gaebolg_Boots",
+    identifiedDescriptionName = {
+      "저항군의 일원에게 주어지는 부츠.",
+      "MHP + 10%, MSP + 4%.",
+      "2제련 당 MSP + 1%, DEF + 10.",
+      "7제련 시, 공격 속도 증가(공격 후 딜레이 10% 감소).",
+      "9제련 시, P.ATK + 5, 근접/원거리 물리 데미지 5% 증가.",
+      "10제련 시, DEF + 100, ATK + 20.",
+      "12제련 시, 근접/원거리 물리 데미지 5% 추가 증가.",
+      "^ffffff_^000000",
+      "게오보르그 아머와 함께 장착 시, 모든 속성 적에게 주는 물리 데미지 10% 증가.",
+      "^ffffff_^000000",
+      "^CC3D3D[등급별 추가 옵션]^000000",
+      "[D등급] POW + 2, CON + 2, ATK + 10.",
+      "[C등급] ATK + 2%, P.ATK + 2",
+      "[B등급] 고정 캐스팅 1초 감소.",
+      "[A등급] ATK + 3%, P.ATK + 3 추가 증가.",
+      "^ffffff_^000000",
+      "계열 : ^777777신발^000000  방어 : ^777777128^000000",
+      "무게 : ^777777200^000000",
+      "방어구 레벨 : ^7777772^000000",
+      "요구 레벨 : ^777777245^000000",
+      "장착 : ^777777전 직업^000000"
+    },
+    slotCount = 1,
+    ClassNum = 0,
+    costume = false
+  },
+  [470261] = {
+    unidentifiedDisplayName = "신발",
+    unidentifiedResourceName = "슈즈",
+    unidentifiedDescriptionName = {
+      "감정되지 않음. [돋보기] 를 사용하여 감정할 수 있다."
+    },
+    identifiedDisplayName = "게오보르그 슈즈",
+    identifiedResourceName = "Gaebolg_Shoes",
+    identifiedDescriptionName = {
+      "저항군의 일원에게 주어지는 슈즈.",
+      "MHP + 10%, MSP + 4%.",
+      "2제련 당 MSP + 1%, DEF + 10.",
+      "7제련 시, 공격 속도 증가(공격 후 딜레이 10% 감소).",
+      "9제련 시, S.MATK + 5, 모든 속성 마법 데미지 5% 증가.",
+      "10제련 시, DEF + 100, MATK + 20.",
+      "12제련 시, 모든 속성 마법 데미지 5% 추가 증가.",
+      "^ffffff_^000000",
+      "게오보르그 로브와 함께 장착 시, 모든 속성 적에게 주는 마법 데미지 10% 증가.",
+      "^ffffff_^000000",
+      "^CC3D3D[등급별 추가 옵션]^000000",
+      "[D등급] SPL + 2, CON + 2, MATK + 10.",
+      "[C등급] MATK + 2%, S.MATK + 2",
+      "[B등급] 고정 캐스팅 1초 감소.",
+      "[A등급] MATK + 3%, S.MATK + 3 추가 증가.",
+      "^ffffff_^000000",
+      "계열 : ^777777신발^000000  방어 : ^77777780^000000",
+      "무게 : ^777777100^000000",
+      "방어구 레벨 : ^7777772^000000",
+      "요구 레벨 : ^777777245^000000",
+      "장착 : ^777777전 직업^000000"
+    },
+    slotCount = 1,
+    ClassNum = 0,
+    costume = false
+  },
+  [480415] = {
+    unidentifiedDisplayName = "걸칠것",
+    unidentifiedResourceName = "망토",
+    unidentifiedDescriptionName = {
+      "감정되지 않음. [돋보기] 를 사용하여 감정할 수 있다."
+    },
+    identifiedDisplayName = "게오보르그 망토",
+    identifiedResourceName = "Gaebolg_Manteau",
+    identifiedDescriptionName = {
+      "저항군의 일원에게 주어지는 망토.",
+      "POW + 3, CON + 3.",
+      "2제련 당 ATK + 1%, DEF + 10.",
+      "7제련 시, 글로벌 쿨타임 5% 감소.",
+      "9제련 시, 근접/원거리 물리 데미지 5% 증가.",
+      "10제련 시, P.ATK + 3, ATK + 20.",
+      "12제련 시, 글로벌 쿨타임 5% 추가 감소.",
+      "^ffffff_^000000",
+      "게오보르그 부츠와 함께 장착 시, 모든 종족 몬스터에게 주는 물리 데미지 10% 증가(플레이어 제외).",
+      "^ffffff_^000000",
+      "^CC3D3D[등급별 추가 옵션]^000000",
+      "[D등급] ATK + 3%, P.ATK + 2.",
+      "[C등급] P.ATK + 3 추가 증가.",
+      "[B등급] ATK + 2%, P.ATK + 5 추가 증가.",
+      "[A등급] ATK + 4%, P.ATK + 7 추가 증가, 글로벌 쿨타임 5% 감소.",
+      "^ffffff_^000000",
+      "계열 : ^777777걸칠것^000000  방어 : ^777777142^000000",
+      "무게 : ^777777160^000000",
+      "방어구 레벨 : ^7777772^000000",
+      "요구 레벨 : ^777777245^000000",
+      "장착 : ^777777전 직업^000000"
+    },
+    slotCount = 1,
+    ClassNum = 0,
+    costume = false
+  },
+  [480416] = {
+    unidentifiedDisplayName = "걸칠것",
+    unidentifiedResourceName = "후드",
+    unidentifiedDescriptionName = {
+      "감정되지 않음. [돋보기] 를 사용하여 감정할 수 있다."
+    },
+    identifiedDisplayName = "게오보르그 머플러",
+    identifiedResourceName = "Gaebolg_Muffler",
+    identifiedDescriptionName = {
+      "저항군의 일원에게 주어지는 머플러.",
+      "SPL + 3, CON + 3.",
+      "2제련 당 MATK + 1%, DEF + 10.",
+      "7제련 시, 글로벌 쿨타임 5% 감소.",
+      "9제련 시, 모든 속성 마법 데미지 5% 증가.",
+      "10제련 시, S.MATK + 3, MATK + 20.",
+      "12제련 시, 글로벌 쿨타임 5% 추가 감소.",
+      "^ffffff_^000000",
+      "게오보르그 슈즈와 함께 장착 시, 모든 종족 몬스터에게 주는 마법 데미지 10% 증가(플레이어 제외).",
+      "^ffffff_^000000",
+      "^CC3D3D[등급별 추가 옵션]^000000",
+      "[D등급] MATK + 3%, S.MATK + 2.",
+      "[C등급] S.MATK + 3 추가 증가.",
+      "[B등급] MATK + 2%, S.MATK + 5 추가 증가.",
+      "[A등급] MATK + 4%, S.MATK + 7 추가 증가, 글로벌 쿨타임 5% 감소.",
+      "^ffffff_^000000",
+      "계열 : ^777777걸칠것^000000  방어 : ^77777790^000000",
+      "무게 : ^77777780^000000",
+      "방어구 레벨 : ^7777772^000000",
+      "요구 레벨 : ^777777245^000000",
+      "장착 : ^777777전 직업^000000"
+    },
+    slotCount = 1,
+    ClassNum = 0,
+    costume = false
+  },
+  [490507] = {
+    unidentifiedDisplayName = "액세서리",
+    unidentifiedResourceName = "링",
+    unidentifiedDescriptionName = {
+      "감정되지 않음. [돋보기] 를 사용하여 감정할 수 있다."
+    },
+    identifiedDisplayName = "게오보르그 링",
+    identifiedResourceName = "Gaebolg_Ring",
+    identifiedDescriptionName = {
+      "저항군의 일원에게 주어지는 반지.",
+      "ATK + 8%, P.ATK + 3, 공격 속도 증가(공격 후 딜레이 10% 감소).",
+      "^ffffff_^000000",
+      "게오보르그 글러브와 함께 장착 시, ",
+      "변동 캐스팅 10% 감소, 글로벌 쿨타임 5% 감소.",
+      "^ffffff_^000000",
+      "계열 : ^777777액세서리(왼쪽)^000000 방어 : ^7777770^000000",
+      "무게 : ^77777710^000000",
+      "방어구 레벨 : ^7777772^000000",
+      "요구 레벨 : ^777777245^000000",
+      "장착 : ^777777전 직업^000000"
+    },
+    slotCount = 1,
+    ClassNum = 0,
+    costume = false
+  },
+  [490508] = {
+    unidentifiedDisplayName = "액세서리",
+    unidentifiedResourceName = "글러브",
+    unidentifiedDescriptionName = {
+      "감정되지 않음. [돋보기] 를 사용하여 감정할 수 있다."
+    },
+    identifiedDisplayName = "게오보르그 글러브",
+    identifiedResourceName = "Gaebolg_Glove",
+    identifiedDescriptionName = {
+      "저항군의 일원에게 주어지는 장갑.",
+      "ATK + 8%, P.ATK + 3, 공격 속도 증가(공격 후 딜레이 5% 감소), 변동 캐스팅 5% 감소.",
+      "^ffffff_^000000",
+      "계열 : ^777777액세서리(오른쪽)^000000 방어 : ^7777770^000000",
+      "무게 : ^77777710^000000",
+      "방어구 레벨 : ^7777772^000000",
+      "요구 레벨 : ^777777245^000000",
+      "장착 : ^777777전 직업^000000"
+    },
+    slotCount = 1,
+    ClassNum = 0,
+    costume = false
+  },
+  [490509] = {
+    unidentifiedDisplayName = "액세서리",
+    unidentifiedResourceName = "이어링",
+    unidentifiedDescriptionName = {
+      "감정되지 않음. [돋보기] 를 사용하여 감정할 수 있다."
+    },
+    identifiedDisplayName = "게오보르그 이어링",
+    identifiedResourceName = "Gaebolg_Earring",
+    identifiedDescriptionName = {
+      "저항군의 일원에게 주어지는 귀걸이.",
+      "MATK + 8%, S.MATK + 3, 공격 속도 증가(공격 후 딜레이 10% 감소).",
+      "^ffffff_^000000",
+      "게오보르그 네클리스와 함께 장착 시, ",
+      "변동 캐스팅 10% 감소, 글로벌 쿨타임 5% 감소.",
+      "^ffffff_^000000",
+      "계열 : ^777777액세서리(왼쪽)^000000 방어 : ^7777770^000000",
+      "무게 : ^77777710^000000",
+      "방어구 레벨 : ^7777772^000000",
+      "요구 레벨 : ^777777245^000000",
+      "장착 : ^777777전 직업^000000"
+    },
+    slotCount = 1,
+    ClassNum = 0,
+    costume = false
+  },
+  [490510] = {
+    unidentifiedDisplayName = "액세서리",
+    unidentifiedResourceName = "네클리스",
+    unidentifiedDescriptionName = {
+      "감정되지 않음. [돋보기] 를 사용하여 감정할 수 있다."
+    },
+    identifiedDisplayName = "게오보르그 네클리스",
+    identifiedResourceName = "Gaebolg_Necklace",
+    identifiedDescriptionName = {
+      "저항군의 일원에게 주어지는 목걸이.",
+      "MATK + 8%, S.MATK + 3, 공격 속도 증가(공격 후 딜레이 5% 감소), 변동 캐스팅 5% 감소.",
+      "^ffffff_^000000",
+      "계열 : ^777777액세서리(오른쪽)^000000 방어 : ^7777770^000000",
+      "무게 : ^77777710^000000",
+      "방어구 레벨 : ^7777772^000000",
+      "요구 레벨 : ^777777245^000000",
+      "장착 : ^777777전 직업^000000"
+    },
+    slotCount = 1,
+    ClassNum = 0,
+    costume = false
+  }

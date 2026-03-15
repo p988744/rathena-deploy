@@ -185,7 +185,7 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	mes "Welcome! I can enchant your equipment from EP17.2 through EP19.";
 	mes "No quests or prerequisites required.";
 	next;
-	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Costume Garment Slot 2 Enchant", "Illusion Equipment Enchant", "Mad Bunny-LT Enchant", "Miss Memory Record Enchant", "EP20 Crystal Equipment Enchant", "EP20 Dark Crystal Equipment Enchant", "Caesar Series Enchant", "Nebula Series Enchant", "Swallow God Shield Enchant", "Leave" ) ) {
+	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Costume Garment Slot 2 Enchant", "Illusion Equipment Enchant", "Mad Bunny-LT Enchant", "Miss Memory Record Enchant", "EP20 Crystal Equipment Enchant", "EP20 Dark Crystal Equipment Enchant", "Caesar Series Enchant", "Nebula Series Enchant", "Swallow God Shield Enchant", "Gaebolg Series Enchant", "Leave" ) ) {
 	case 1: callsub L_Auto; end;
 	case 2: callsub L_GrayWolf; end;
 	case 3: callsub L_Snowflower; end;
@@ -282,7 +282,8 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	case 16: callsub L_Caesar; end;
 	case 17: callsub L_Nebula; end;
 	case 18: callsub L_SwallowShield; end;
-	case 19:
+	case 19: callsub L_Gaebolg; end;
+	case 20:
 		mes "[Enchant Master]";
 		mes "Come back anytime!";
 		close;
@@ -2683,5 +2684,161 @@ L_SwallowShield:
 	mes "Slot 3: ^0000CD" + getitemname(.@card[2]) + "^000000";
 	close;
 
+	return;
+
+// ============================================================
+// Gaebolg Series Targeted Enchant
+// Armor/Robe:  450350, 450351  (Slot4: 6, Slot3: 4, Slot2: 3)
+// Garment:     480415, 480416  (Slot4: 2, Slot3: 2, Slot2: 5)
+// Footgear:    470260, 470261  (Slot4: 4, Slot3: 2, Slot2: 4)
+// Accessory:   490507~490510   (Slot4: 4, Slot3: 4, Slot2: 2)
+// Targeted (no random). Cost: 5,000,000z per slot.
+// Single-level callsub (no nested callsubs) to avoid callfunc issues.
+// ============================================================
+L_Gaebolg:
+	mes "[Enchant Master]";
+	mes "^FFD700== Gaebolg Series Enchant ==^000000";
+	mes "Targeted enchant — choose exactly which enchant to apply.";
+	mes "Cost: ^FF00005,000,000z^000000 per slot.";
+	next;
+	.@type = select("Armor / Robe:Manteau / Muffler:Boots / Shoes:Accessory:Back");
+	if (.@type == 5) return;
+
+	if (.@type == 1)      setarray .@eq_ids[0], 450350, 450351;
+	else if (.@type == 2) setarray .@eq_ids[0], 480415, 480416;
+	else if (.@type == 3) setarray .@eq_ids[0], 470260, 470261;
+	else                  setarray .@eq_ids[0], 490507, 490508, 490509, 490510;
+
+	.@part = -1;
+	for (.@i = 0; .@i <= 22; .@i++) {
+		if (inarray(.@eq_ids, getequipid(.@i)) != -1) { .@part = .@i; break; }
+	}
+	if (.@part == -1) {
+		mes "[Enchant Master]";
+		if (.@type == 1)      mes "Please ^FF0000equip^000000 your ^0000FFGaebolg Armor^000000 or ^0000FFGaebolg Robe^000000 first.";
+		else if (.@type == 2) mes "Please ^FF0000equip^000000 your ^0000FFGaebolg Manteau^000000 or ^0000FFGaebolg Muffler^000000 first.";
+		else if (.@type == 3) mes "Please ^FF0000equip^000000 your ^0000FFGaebolg Boots^000000 or ^0000FFGaebolg Shoes^000000 first.";
+		else { mes "Please ^FF0000equip^000000 a ^0000FFGaebolg Accessory^000000 first."; mes "(Ring, Glove, Earring, or Necklace)"; }
+		close;
+	}
+
+	.@equip_id    = getequipid(.@part);
+	.@equip_name$ = getequipname(.@part);
+	.@refine      = getequiprefinerycnt(.@part);
+	.@grade       = getenchantgrade(.@part);
+	setarray .@card[0], getequipcardid(.@part,0), getequipcardid(.@part,1), getequipcardid(.@part,2), getequipcardid(.@part,3);
+
+	mes "[Enchant Master]";
+	mes "^0000FF" + .@equip_name$ + "^000000";
+	mes "Slot 4: " + (.@card[3] > 0 ? "^0000CD" + getitemname(.@card[3]) + "^000000" : "^808080Empty^000000");
+	mes "Slot 3: " + (.@card[2] > 0 ? "^0000CD" + getitemname(.@card[2]) + "^000000" : "^808080Empty^000000");
+	mes "Slot 2: " + (.@card[1] > 0 ? "^0000CD" + getitemname(.@card[1]) + "^000000" : "^808080Empty^000000");
+	next;
+
+	.@sl = select("Slot 4:Slot 3:Slot 2:Cancel");
+	if (.@sl == 4) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+
+	// --- Armor / Robe ---
+	if (.@type == 1) {
+		if (.@sl == 1) {
+			.@opt = select("Physical Defense (313070):Magic Defense (313071):Warrior (313072):Shooter (313073):Assassin (313074):Mage (313075):Cancel");
+			if (.@opt == 7) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+			setarray .@enc[0], 313070,313071,313072,313073,313074,313075;
+			.@slot_idx = 3;
+		} else if (.@sl == 2) {
+			.@opt = select("Berserker (313076):Deadeye (313077):Executioner (313078):Arch Mage (313079):Cancel");
+			if (.@opt == 5) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+			setarray .@enc[0], 313076,313077,313078,313079;
+			.@slot_idx = 2;
+		} else {
+			.@opt = select("Power Force (313080):Magic Force (313081):Global Cooldown (313082):Cancel");
+			if (.@opt == 4) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+			setarray .@enc[0], 313080,313081,313082;
+			.@slot_idx = 1;
+		}
+	// --- Manteau / Muffler ---
+	} else if (.@type == 2) {
+		if (.@sl == 1) {
+			.@opt = select("Physical Defense (313070):Magic Defense (313071):Cancel");
+			if (.@opt == 3) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+			setarray .@enc[0], 313070,313071;
+			.@slot_idx = 3;
+		} else if (.@sl == 2) {
+			.@opt = select("Swift (313083):Caster (313084):Cancel");
+			if (.@opt == 3) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+			setarray .@enc[0], 313083,313084;
+			.@slot_idx = 2;
+		} else {
+			.@opt = select("Melee (313085):Range (313086):Critical (313087):Spell (313088):Above All (313089):Cancel");
+			if (.@opt == 6) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+			setarray .@enc[0], 313085,313086,313087,313088,313089;
+			.@slot_idx = 1;
+		}
+	// --- Boots / Shoes ---
+	} else if (.@type == 3) {
+		if (.@sl == 1) {
+			.@opt = select("Stamina (313090):Mental Power (313091):Physical Force (313092):Magical Force (313093):Cancel");
+			if (.@opt == 5) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+			setarray .@enc[0], 313090,313091,313092,313093;
+			.@slot_idx = 3;
+		} else if (.@sl == 2) {
+			.@opt = select("Size Attack (313094):Size Spell (313095):Cancel");
+			if (.@opt == 3) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+			setarray .@enc[0], 313094,313095;
+			.@slot_idx = 2;
+		} else {
+			.@opt = select("Over Power (313096):Firing Shot (313097):Lucky Strike (313098):Spell Buster (313099):Cancel");
+			if (.@opt == 5) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+			setarray .@enc[0], 313096,313097,313098,313099;
+			.@slot_idx = 1;
+		}
+	// --- Accessory ---
+	} else {
+		if (.@sl == 1) {
+			.@opt = select("Fighting Spirit (313100):Expert Archer (313101):Fatal (313102):Magic (313103):Cancel");
+			if (.@opt == 5) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+			setarray .@enc[0], 313100,313101,313102,313103;
+			.@slot_idx = 3;
+		} else if (.@sl == 2) {
+			.@opt = select("Indomitable (313104):Sharpshooting (313105):Sharp Blade (313106):Magic Essence (313107):Cancel");
+			if (.@opt == 5) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+			setarray .@enc[0], 313104,313105,313106,313107;
+			.@slot_idx = 2;
+		} else {
+			.@opt = select("Physical Power (313108):Magical Power (313109):Cancel");
+			if (.@opt == 3) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+			setarray .@enc[0], 313108,313109;
+			.@slot_idx = 1;
+		}
+	}
+	.@new_ench = .@enc[.@opt - 1];
+
+	// Confirm
+	.@slot_display = (.@slot_idx == 3) ? 4 : (.@slot_idx == 2) ? 3 : 2;
+	mes "[Enchant Master]";
+	mes "Apply ^0000CD" + getitemname(.@new_ench) + "^000000";
+	mes "to ^0000FF" + .@equip_name$ + "^000000 Slot ^FFD700" + .@slot_display + "^000000?";
+	mes "Current Slot " + .@slot_display + ": " + (.@card[.@slot_idx] > 0 ? "^FF0000" + getitemname(.@card[.@slot_idx]) + " (will be overwritten)^000000" : "^808080Empty^000000");
+	mes "Cost: ^FF00005,000,000z^000000";
+	next;
+	if (select("Yes, apply!:Cancel") == 2) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+	if (Zeny < 5000000) {
+		mes "[Enchant Master]";
+		mes "^FF0000Not enough Zeny. Need 5,000,000z.^000000";
+		close;
+	}
+	if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+	    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+	    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+		end;
+	Zeny -= 5000000;
+	.@card[.@slot_idx] = .@new_ench;
+	delequip .@part;
+	getitem4 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3], .@grade, .@roi, .@rov, .@rop;
+	specialeffect2 EF_REPAIRWEAPON;
+	mes "[Enchant Master]";
+	mes "^00CC00Enchantment complete!^000000";
+	mes "Slot " + .@slot_display + ": ^0000CD" + getitemname(.@new_ench) + "^000000";
+	close;
 	return;
 }
