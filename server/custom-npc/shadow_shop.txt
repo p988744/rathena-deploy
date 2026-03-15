@@ -114,7 +114,7 @@ izlude,102,155,4	script	Shadow Equipment Shop	411,{
 	case 7:  callshop "SET_AllMighty", 1;    end;
 	case 8:  callshop "SET_Bearers", 1;      end;
 	case 9:  goto L_FP_Menu;
-	case 10: callshop "SET_PerfectSize", 1;  end;
+	case 10: callshop "SET_PerfectSize", 1;      end;
 	case 11: close;
 	}
 
