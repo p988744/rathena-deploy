@@ -142,6 +142,7 @@ item_rate_equip_boss: ${DROP_RATE}
 item_rate_card: ${CARD_DROP_RATE}
 item_rate_card_boss: ${CARD_DROP_RATE}
 item_rate_mvp: ${DROP_RATE}
+multi_level_up: yes
 EOF
 
 # 如果有外掛設定檔（從 volume mount 進來），覆蓋
