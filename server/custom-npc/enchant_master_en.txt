@@ -185,7 +185,7 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	mes "Welcome! I can enchant your equipment from EP17.2 through EP19.";
 	mes "No quests or prerequisites required.";
 	next;
-	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Costume Garment Slot 2 Enchant", "Illusion Equipment Enchant", "Mad Bunny-LT Enchant", "Miss Memory Record Enchant", "EP20 Crystal Equipment Enchant", "EP20 Dark Crystal Equipment Enchant", "Caesar Series & Asteria Enchant", "Nebula Series Enchant", "Swallow God Shield Enchant", "Gaebolg Series Enchant", "Battle Dead Head Enchant", "Asteria's Dawn Combat Boots Enchant", "Wraith Binding Garment Enchant", "Leave" ) ) {
+	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Costume Garment Slot 2 Enchant", "Illusion Equipment Enchant", "Mad Bunny-LT Enchant", "Miss Memory Record Enchant", "EP20 Crystal Equipment Enchant", "EP20 Dark Crystal Equipment Enchant", "Caesar Series & Asteria Enchant", "Nebula Series Enchant", "Swallow God Shield Enchant", "Gaebolg Series Enchant", "Battle Dead Head Enchant", "Asteria's Dawn Combat Boots Enchant", "Wraith Binding Garment Enchant", "Thanos Helm Enchant", "Schmidt Badge Enchant", "Leave" ) ) {
 	case 1: callsub L_Auto; end;
 	case 2: callsub L_GrayWolf; end;
 	case 3: callsub L_Snowflower; end;
@@ -286,7 +286,9 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	case 20: callsub L_BattleHead; end;
 	case 21: callsub L_AstarBoots; end;
 	case 22: callsub L_WraithGarment; end;
-	case 23:
+	case 23: callsub L_ThanosHelm; end;
+	case 24: callsub L_SchmidtBadge; end;
+	case 25:
 		mes "[Enchant Master]";
 		mes "Come back anytime!";
 		close;
@@ -1679,7 +1681,7 @@ L_MadBunnyLT:
 // ============================================================
 // Miss Memory Record Enchant (490614)
 // Slot 3 (card[3]) = Memory Bond card
-// Cost: 5,000,000z enchant / 1,000,000z reset
+// Cost: 10,000,000z enchant / 1,000,000z reset
 // ============================================================
 L_MissMemoryRecord:
 	.@target_id = 490614;
@@ -1717,7 +1719,7 @@ L_MissMemoryRecord:
 	else
 		mes "Memory Bond: ^808080None^000000";
 	next;
-	switch (select("Bond a Memory (5,000,000z)", "Reset Memory Bond (1,000,000z)", "Back")) {
+	switch (select("Bond a Memory (10,000,000z)", "Reset Memory Bond (1,000,000z)", "Back")) {
 	case 1:
 		mes "[Enchant Master]";
 		mes "Choose the memory to bond:";
@@ -1738,12 +1740,12 @@ L_MissMemoryRecord:
 		mes "Cost: ^FF00005,000,000 Zeny^000000";
 		next;
 		if (select("Yes, bond!", "Cancel") == 2) { mes "[Enchant Master]"; mes "Cancelled."; close; }
-		if (Zeny < 5000000) { mes "[Enchant Master]"; mes "^FF0000Not enough Zeny.^000000"; close; }
+		if (Zeny < 10000000) { mes "[Enchant Master]"; mes "^FF0000Not enough Zeny.^000000"; close; }
 		if (callfunc("F_IsEquipIDHack", .@part, .@target_id) ||
 		    callfunc("F_IsEquipRefineHack", .@part, .@equip_refine) ||
 		    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
 			end;
-		Zeny -= 5000000;
+		Zeny -= 10000000;
 		delequip .@part;
 		.@card[3] = .@new_bond;
 		getitem4 .@target_id, 1, 1, .@equip_refine, 0, .@card[0], .@card[1], .@card[2], .@card[3], .@grade, .@roi, .@rov, .@rop;
@@ -2088,7 +2090,7 @@ L_Caesar:
 	if (select("Yes, enchant!", "Cancel") == 2) {
 		mes "[Enchant Master]"; mes "Cancelled."; close;
 	}
-	if (Zeny < 50000000) {
+	if (Zeny < 100000000) {
 		mes "[Enchant Master]";
 		mes "^FF0000Not enough Zeny. Need 50,000,000z.^000000";
 		close;
@@ -2185,7 +2187,7 @@ L_Caesar:
 	}
 
 	// Apply enchants to slots 4, 3, 2 (card indices 3, 2, 1)
-	Zeny -= 50000000;
+	Zeny -= 100000000;
 	.@card[3] = .@new_s4;
 	.@card[2] = .@new_s3;
 	.@card[1] = .@new_s2;
@@ -2576,7 +2578,7 @@ L_SwallowShield:
 	if (select("Yes, enchant!", "Cancel") == 2) {
 		mes "[Enchant Master]"; mes "Cancelled."; close;
 	}
-	if (Zeny < 50000000) {
+	if (Zeny < 100000000) {
 		mes "[Enchant Master]";
 		mes "^FF0000Not enough Zeny. Need 50,000,000z.^000000";
 		close;
@@ -2638,7 +2640,7 @@ L_SwallowShield:
 		if (.@r < .@cum) { .@new_s3 = .@s3_ids[.@i]; break; }
 	}
 
-	Zeny -= 50000000;
+	Zeny -= 100000000;
 	.@card[3] = .@new_s4;
 	.@card[2] = .@new_s3;
 	delequip .@part;
@@ -3143,7 +3145,7 @@ L_AstarBoots:
 	if (select("Yes, enchant!", "Cancel") == 2) {
 		mes "[Enchant Master]"; mes "Cancelled."; close;
 	}
-	if (Zeny < 50000000) {
+	if (Zeny < 100000000) {
 		mes "[Enchant Master]";
 		mes "^FF0000Not enough Zeny. Need 50,000,000z.^000000";
 		close;
@@ -3194,7 +3196,7 @@ L_AstarBoots:
 		if (.@r < .@cum) { .@new_s3 = .@s3_ids[.@i]; break; }
 	}
 
-	Zeny -= 50000000;
+	Zeny -= 100000000;
 	.@card[3] = .@new_s4;
 	.@card[2] = .@new_s3;
 	delequip .@part;
@@ -3280,7 +3282,7 @@ L_WraithGarment:
 	if (select("Yes, enchant!", "Cancel") == 2) {
 		mes "[Enchant Master]"; mes "Cancelled."; close;
 	}
-	if (Zeny < 50000000) {
+	if (Zeny < 100000000) {
 		mes "[Enchant Master]";
 		mes "^FF0000Not enough Zeny. Need 50,000,000z.^000000";
 		close;
@@ -3371,7 +3373,7 @@ L_WraithGarment:
 		if (.@r < .@cum) { .@new_s2 = .@s2_ids[.@i]; break; }
 	}
 
-	Zeny -= 50000000;
+	Zeny -= 100000000;
 	.@card[3] = .@new_s4;
 	.@card[2] = .@new_s3;
 	.@card[1] = .@new_s2;
@@ -3385,6 +3387,315 @@ L_WraithGarment:
 	mes "Slot 3: ^0000CD" + getitemname(.@card[2]) + "^000000";
 	mes "Slot 2: ^0000CD" + getitemname(.@card[1]) + "^000000";
 	close;
+
+	return;
+
+// ============================================================
+// L_ThanosHelm — 塔諾斯頭盔 Targeted Enchant
+// Equipment IDs: 400135, 400142, 400145, 400151
+// Slot 4 (card[3]): 6 options — Tenacity/MagicEssence/Acute/MasterArcher/Adamantine/Affection Lv3
+// Slot 3 (card[2]): 4 options — Earth Force Melee/Ranged/Magic/Brute Lv3
+// Targeted (no random). Cost: 10,000,000z per slot.
+// ============================================================
+L_ThanosHelm:
+	setarray .@eq_ids[0], 400135, 400142, 400145, 400151;
+
+	.@part = -1;
+	for (.@i = 0; .@i <= 22; .@i++) {
+		if (inarray(.@eq_ids, getequipid(.@i)) != -1) { .@part = .@i; break; }
+	}
+	if (.@part == -1) {
+		mes "[Enchant Master]";
+		mes "Please ^FF0000equip^000000 a ^0000FFThanos Helm^000000 first.";
+		mes "(IDs: 400135 / 400142 / 400145 / 400151)";
+		close;
+	}
+
+	.@equip_id    = getequipid(.@part);
+	.@equip_name$ = getequipname(.@part);
+	.@refine      = getequiprefinerycnt(.@part);
+	.@grade       = getenchantgrade(.@part);
+	setarray .@card[0],
+		getequipcardid(.@part, 0), getequipcardid(.@part, 1),
+		getequipcardid(.@part, 2), getequipcardid(.@part, 3);
+
+	mes "[Enchant Master]";
+	mes "^FFD700== Thanos Helm Enchant ==^000000";
+	mes "^0000FF" + .@equip_name$ + "^000000";
+	mes "Slot 4: " + (.@card[3] > 0 ? "^0000CD" + getitemname(.@card[3]) + "^000000" : "^808080Empty^000000");
+	mes "Slot 3: " + (.@card[2] > 0 ? "^0000CD" + getitemname(.@card[2]) + "^000000" : "^808080Empty^000000");
+	mes "Targeted enchant — choose exactly which enchant to apply.";
+	mes "Cost: ^FF000010,000,000z^000000 per slot.";
+	next;
+
+	.@sl = select("Slot 4:Slot 3:Cancel");
+	if (.@sl == 3) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+
+	// --- Slot 4 ---
+	if (.@sl == 1) {
+		mes "[Enchant Master]";
+		mes "Choose a ^FF0000Slot 4^000000 enchant:";
+		next;
+		.@pick = select(
+			"Tenacity Lv3",
+			"Magic Essence Lv3",
+			"Acute Lv3",
+			"Master Archer Lv3",
+			"Adamantine Lv3",
+			"Affection Lv3",
+			"Cancel"
+		);
+		if (.@pick == 7) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+		setarray .@opts[0], 29063, 29073, 29083, 29093, 29103, 29113;
+		.@new_ench = .@opts[.@pick - 1];
+	}
+
+	// --- Slot 3 ---
+	if (.@sl == 2) {
+		mes "[Enchant Master]";
+		mes "Choose a ^FF0000Slot 3^000000 enchant:";
+		next;
+		.@pick = select(
+			"Earth Force (Melee) Lv3",
+			"Earth Force (Ranged) Lv3",
+			"Earth Force (Magic) Lv3",
+			"Earth Force (Brute) Lv3",
+			"Cancel"
+		);
+		if (.@pick == 5) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+		setarray .@opts[0], 311369, 311372, 311375, 311378;
+		.@new_ench = .@opts[.@pick - 1];
+	}
+
+	mes "[Enchant Master]";
+	mes "Apply ^0000CD" + getitemname(.@new_ench) + "^000000 to Slot " + (.@sl == 1 ? "4" : "3") + "?";
+	mes "Cost: ^FF000010,000,000z^000000";
+	next;
+	if (select("Proceed!", "Cancel") == 2) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+	if (Zeny < 10000000) {
+		mes "[Enchant Master]";
+		mes "^FF0000Not enough Zeny. Need 10,000,000z.^000000";
+		close;
+	}
+
+	if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+	    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+	    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+		end;
+
+	Zeny -= 10000000;
+	if (.@sl == 1) .@card[3] = .@new_ench;
+	else           .@card[2] = .@new_ench;
+	delequip .@part;
+	getitem4 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3], .@grade, .@roi, .@rov, .@rop;
+	specialeffect2 EF_REPAIRWEAPON;
+
+	mes "[Enchant Master]";
+	mes "^00CC00Enchantment complete!^000000";
+	mes "Slot " + (.@sl == 1 ? "4" : "3") + ": ^0000CD" + getitemname(.@new_ench) + "^000000";
+	close;
+
+	return;
+
+// ============================================================
+// L_SchmidtBadge — 斯密特徽章 Enchant
+// Equipment IDs: 400135, 400142, 400145, 400151
+// Slot 4 (card[3]): STR/INT/DEX/AGI/VIT/LUK +3~+5 (18 items, ~5.56% each, uniform)
+// Slot 3 (card[2]): Fighting Spirit/Spell/Sharp/Expert Archer Lv4~6/7 (8 items, 12.5% each)
+// Slot 2 (card[1]): STR/DEX/INT/VIT/LUK Ruby (targeted, player chooses)
+// Rules:
+//   - Roll Slots 3+4 together: only if Slot 2 is EMPTY
+//   - Set Slot 2: only if Slots 3+4 already enchanted
+//   - Reset: clears Slots 2+3+4 together
+// Cost: 35,000,000z per roll / 10,000,000z to reset
+// ============================================================
+L_SchmidtBadge:
+	setarray .@eq_ids[0], 400135, 400142, 400145, 400151;
+
+	.@part = -1;
+	for (.@i = 0; .@i <= 22; .@i++) {
+		if (inarray(.@eq_ids, getequipid(.@i)) != -1) { .@part = .@i; break; }
+	}
+	if (.@part == -1) {
+		mes "[Enchant Master]";
+		mes "Please ^FF0000equip^000000 a ^0000FFSchmidt Badge^000000 first.";
+		mes "(IDs: 400135 / 400142 / 400145 / 400151)";
+		close;
+	}
+
+	.@equip_id    = getequipid(.@part);
+	.@equip_name$ = getequipname(.@part);
+	.@refine      = getequiprefinerycnt(.@part);
+	.@grade       = getenchantgrade(.@part);
+	setarray .@card[0],
+		getequipcardid(.@part, 0), getequipcardid(.@part, 1),
+		getequipcardid(.@part, 2), getequipcardid(.@part, 3);
+
+	mes "[Enchant Master]";
+	mes "^FFD700== Schmidt Badge Enchant ==^000000";
+	mes "^0000FF" + .@equip_name$ + "^000000";
+	mes "Slot 4: " + (.@card[3] > 0 ? "^0000CD" + getitemname(.@card[3]) + "^000000" : "^808080Empty^000000");
+	mes "Slot 3: " + (.@card[2] > 0 ? "^0000CD" + getitemname(.@card[2]) + "^000000" : "^808080Empty^000000");
+	mes "Slot 2: " + (.@card[1] > 0 ? "^0000CD" + getitemname(.@card[1]) + "^000000" : "^808080Empty^000000");
+	next;
+
+	.@action = select(
+		"Roll Slots 3+4 (^0000CD35,000,000z^000000)",
+		"Set Slot 2 — Ruby (^0000CDtargeted^000000)",
+		"Reset All Enchants (^0000CD10,000,000z^000000)",
+		"Back"
+	);
+	if (.@action == 4) return;
+
+	// ── Roll Slots 3+4 ────────────────────────────────────────
+	if (.@action == 1) {
+		if (.@card[1] > 0) {
+			mes "[Enchant Master]";
+			mes "^FF0000Slot 2 is already enchanted.^000000";
+			mes "Please ^FF0000Reset^000000 all enchants first before re-rolling.";
+			close;
+		}
+		mes "[Enchant Master]";
+		mes "^00CC00[Slot 4] STR/INT/DEX/AGI/VIT/LUK +3/+4/+5^000000";
+		mes "Each stat+level: ^808080~5.56% (18 options, uniform)^000000";
+		mes "^00CC00[Slot 3] Fighting Spirit / Spell / Sharp / Expert Archer^000000";
+		mes "Lv4/Lv5 each: ^80808012.5%^000000  |  Fighting Spirit Lv6/Lv7: ^80808012.5%^000000";
+		next;
+		if (.@card[2] > 0 || .@card[3] > 0) {
+			mes "[Enchant Master]";
+			mes "^FF0000This item already has Slot 3/4 enchants.^000000";
+			mes "Re-rolling will ^FF0000overwrite both slots^000000 with new random results.";
+		} else {
+			mes "[Enchant Master]";
+			mes "Both Slot 3 and Slot 4 will be filled at once.";
+		}
+		mes "Cost: ^FF000035,000,000z^000000";
+		next;
+		if (select("Yes, roll!", "Cancel") == 2) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+		if (Zeny < 35000000) {
+			mes "[Enchant Master]";
+			mes "^FF0000Not enough Zeny. Need 35,000,000z.^000000";
+			close;
+		}
+		if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+		    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+		    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+			end;
+
+		// Roll Slot 4 — uniform 18 items
+		setarray .@s4_pool[0],
+			4702, 4703, 4704,   // STR +3/+4/+5
+			4712, 4713, 4714,   // INT +3/+4/+5
+			4722, 4723, 4724,   // DEX +3/+4/+5
+			4732, 4733, 4734,   // AGI +3/+4/+5
+			4742, 4743, 4744,   // VIT +3/+4/+5
+			4752, 4753, 4754;   // LUK +3/+4/+5
+		.@new_s4 = .@s4_pool[rand(getarraysize(.@s4_pool))];
+
+		// Roll Slot 3 — uniform 8 items
+		setarray .@s3_pool[0],
+			4821, 4822,   // 鬥志 Fighting Spirit Lv6/7
+			4812, 4826,   // 魔力 Spell Lv4/5
+			4843, 4844,   // 尖銳 Sharp Lv4/5
+			4835, 4836;   // 名弓 Expert Archer Lv4/5
+		.@new_s3 = .@s3_pool[rand(getarraysize(.@s3_pool))];
+
+		Zeny -= 35000000;
+		.@card[3] = .@new_s4;
+		.@card[2] = .@new_s3;
+		delequip .@part;
+		getitem4 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3], .@grade, .@roi, .@rov, .@rop;
+		specialeffect2 EF_REPAIRWEAPON;
+		mes "[Enchant Master]";
+		mes "^00CC00Enchantment complete!^000000";
+		mes "Slot 4: ^0000CD" + getitemname(.@card[3]) + "^000000";
+		mes "Slot 3: ^0000CD" + getitemname(.@card[2]) + "^000000";
+		close;
+	}
+
+	// ── Set Slot 2 (targeted) ─────────────────────────────────
+	if (.@action == 2) {
+		if (.@card[3] == 0 || .@card[2] == 0) {
+			mes "[Enchant Master]";
+			mes "Please enchant ^FF0000Slots 3 and 4^000000 first before setting Slot 2.";
+			close;
+		}
+		if (.@card[1] > 0) {
+			mes "[Enchant Master]";
+			mes "Slot 2 is already enchanted: ^0000CD" + getitemname(.@card[1]) + "^000000";
+			mes "Reset all enchants first to change Slot 2.";
+			close;
+		}
+		mes "[Enchant Master]";
+		mes "Choose a ^FF0000Slot 2^000000 Ruby enchant:";
+		mes "Cost: ^FF000035,000,000z^000000";
+		next;
+		.@pick = select(
+			"STR Ruby",
+			"DEX Ruby",
+			"INT Ruby",
+			"VIT Ruby",
+			"LUK Ruby",
+			"Cancel"
+		);
+		if (.@pick == 6) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+		setarray .@s2_opts[0], 29588, 29589, 29590, 29591, 29592;
+		.@new_s2 = .@s2_opts[.@pick - 1];
+		mes "[Enchant Master]";
+		mes "Apply ^0000CD" + getitemname(.@new_s2) + "^000000 to Slot 2?";
+		mes "Cost: ^FF000035,000,000z^000000";
+		next;
+		if (select("Proceed!", "Cancel") == 2) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+		if (Zeny < 35000000) {
+			mes "[Enchant Master]";
+			mes "^FF0000Not enough Zeny. Need 35,000,000z.^000000";
+			close;
+		}
+		if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+		    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+		    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+			end;
+		Zeny -= 35000000;
+		.@card[1] = .@new_s2;
+		delequip .@part;
+		getitem4 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3], .@grade, .@roi, .@rov, .@rop;
+		specialeffect2 EF_REPAIRWEAPON;
+		mes "[Enchant Master]";
+		mes "^00CC00Slot 2 enchanted!^000000";
+		mes "Slot 2: ^0000CD" + getitemname(.@card[1]) + "^000000";
+		close;
+	}
+
+	// ── Reset All Enchants ────────────────────────────────────
+	if (.@action == 3) {
+		if (.@card[1] == 0 && .@card[2] == 0 && .@card[3] == 0) {
+			mes "[Enchant Master]";
+			mes "No enchants found on this item.";
+			close;
+		}
+		if (Zeny < 10000000) {
+			mes "[Enchant Master]";
+			mes "Need ^0000CD10,000,000z^000000 to reset. You have: " + Zeny + "z.";
+			close;
+		}
+		mes "[Enchant Master]";
+		mes "Reset ALL enchants on ^FF0000" + .@equip_name$ + "^000000?";
+		mes "Cost: ^0000CD10,000,000z^000000 (100% success)";
+		mes "(Card slot 1 is kept; enchant slots 2~4 are cleared.)";
+		next;
+		if (select("Yes, reset it!", "Cancel") == 2) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+		if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+		    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+		    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+			end;
+		Zeny -= 10000000;
+		specialeffect2 EF_REPAIRWEAPON;
+		delequip .@part;
+		getitem4 .@equip_id, 1, 1, .@refine, 0, .@card[0], 0, 0, 0, .@grade, .@roi, .@rov, .@rop;
+		mes "[Enchant Master]";
+		mes "^00CC00Reset successful!^000000 All enchants cleared.";
+		close;
+	}
 
 	return;
 }

@@ -748,3 +748,507 @@ Body:
             MinValue: 5
             MaxValue: 10
             Chance: 1111
+
+  # MD Geffen Accessory enchant group (used by MD_Geffen_Racc / item 100367)
+  # Slot 1 = 第一段 (wider ranges), Slot 2 = 第二段 (narrower ranges)
+  # 12 options each, Chance: 834 ≈ uniform (12 × 834 = 10008 ≈ 10000)
+  - Id: 100367
+    Group: MD_GEFFEN_ACC
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_PLUSASPDPERCENT
+            MinValue: 3
+            MaxValue: 7
+            Chance: 834
+          - Option: DEC_SPELL_CAST_TIME
+            MinValue: 5
+            MaxValue: 10
+            Chance: 834
+          - Option: DAMAGE_CRI_TARGET
+            MinValue: 5
+            MaxValue: 10
+            Chance: 834
+          - Option: ATTR_TOLERACE_FIRE
+            MinValue: 3
+            MaxValue: 5
+            Chance: 834
+          - Option: ATTR_TOLERACE_WATER
+            MinValue: 3
+            MaxValue: 5
+            Chance: 834
+          - Option: ATTR_TOLERACE_GROUND
+            MinValue: 3
+            MaxValue: 5
+            Chance: 834
+          - Option: ATTR_TOLERACE_WIND
+            MinValue: 3
+            MaxValue: 5
+            Chance: 834
+          - Option: DEC_SP_CONSUMPTION
+            MinValue: 3
+            MaxValue: 5
+            Chance: 834
+          - Option: VAR_MAXHPPERCENT
+            MinValue: 1
+            MaxValue: 5
+            Chance: 834
+          - Option: VAR_MAXSPPERCENT
+            MinValue: 1
+            MaxValue: 5
+            Chance: 834
+          - Option: VAR_ATKPERCENT
+            MinValue: 1
+            MaxValue: 5
+            Chance: 834
+          - Option: VAR_MAGICATKPERCENT
+            MinValue: 1
+            MaxValue: 5
+            Chance: 834
+      - Slot: 2
+        Options:
+          - Option: VAR_PLUSASPDPERCENT
+            MinValue: 3
+            MaxValue: 5
+            Chance: 834
+          - Option: DEC_SPELL_CAST_TIME
+            MinValue: 5
+            MaxValue: 8
+            Chance: 834
+          - Option: DAMAGE_CRI_TARGET
+            MinValue: 5
+            MaxValue: 8
+            Chance: 834
+          - Option: ATTR_TOLERACE_FIRE
+            MinValue: 3
+            MaxValue: 5
+            Chance: 834
+          - Option: ATTR_TOLERACE_WATER
+            MinValue: 3
+            MaxValue: 5
+            Chance: 834
+          - Option: ATTR_TOLERACE_GROUND
+            MinValue: 3
+            MaxValue: 5
+            Chance: 834
+          - Option: ATTR_TOLERACE_WIND
+            MinValue: 3
+            MaxValue: 5
+            Chance: 834
+          - Option: DEC_SP_CONSUMPTION
+            MinValue: 3
+            MaxValue: 5
+            Chance: 834
+          - Option: VAR_MAXHPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 834
+          - Option: VAR_MAXSPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 834
+          - Option: VAR_ATKPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 834
+          - Option: VAR_MAGICATKPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 834
+
+  # Thanos melee weapon enchant group (Gray_Charcoal_Melee / item 23676)
+  # Slot 1 = 19 options (property damage + utility), Slot 2 = 15 options (race damage + utility)
+  # Chance 526 for 19 options (19×526=9994≈10000), 667 for 15 options (15×667=10005≈10000)
+  - Id: 23676
+    Group: GRAY_CHARCOAL_MELEE
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: DAMAGE_PROPERTY_NOTHING_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 526
+          - Option: DAMAGE_PROPERTY_WATER_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 526
+          - Option: DAMAGE_PROPERTY_WIND_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 526
+          - Option: DAMAGE_PROPERTY_GROUND_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 526
+          - Option: DAMAGE_PROPERTY_FIRE_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 526
+          - Option: DAMAGE_PROPERTY_SAINT_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 526
+          - Option: DAMAGE_PROPERTY_DARKNESS_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 526
+          - Option: DAMAGE_PROPERTY_TELEKINESIS_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 526
+          - Option: DAMAGE_PROPERTY_UNDEAD_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 526
+          - Option: DAMAGE_PROPERTY_POISON_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 526
+          - Option: VAR_PLUSASPDPERCENT
+            MinValue: 5
+            MaxValue: 10
+            Chance: 526
+          - Option: VAR_PLUSASPD
+            MinValue: 1
+            MaxValue: 1
+            Chance: 526
+          - Option: WEAPON_ATTR_WATER
+            MinValue: 1
+            MaxValue: 1
+            Chance: 526
+          - Option: WEAPON_ATTR_WIND
+            MinValue: 1
+            MaxValue: 1
+            Chance: 526
+          - Option: WEAPON_ATTR_GROUND
+            MinValue: 1
+            MaxValue: 1
+            Chance: 526
+          - Option: WEAPON_ATTR_FIRE
+            MinValue: 1
+            MaxValue: 1
+            Chance: 526
+          - Option: WEAPON_ATTR_SAINT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 526
+          - Option: WEAPON_ATTR_DARKNESS
+            MinValue: 1
+            MaxValue: 1
+            Chance: 526
+          - Option: DAMAGE_SIZE_PERFECT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 526
+      - Slot: 2
+        Options:
+          - Option: RACE_DAMAGE_HUMAN
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_UNDEAD
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_ANGEL
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_DEVIL
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_ANIMAL
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_FISHS
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_INSECT
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_PLANT
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_NOTHING
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_DRAGON
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: VAR_ATKPERCENT
+            MinValue: 3
+            MaxValue: 5
+            Chance: 667
+          - Option: DAMAGE_CRI_TARGET
+            MinValue: 5
+            MaxValue: 20
+            Chance: 667
+          - Option: CLASS_DAMAGE_NORMAL_TARGET
+            MinValue: 1
+            MaxValue: 10
+            Chance: 667
+          - Option: CLASS_DAMAGE_BOSS_TARGET
+            MinValue: 1
+            MaxValue: 10
+            Chance: 667
+          - Option: WEAPON_INDESTRUCTIBLE
+            MinValue: 1
+            MaxValue: 1
+            Chance: 667
+
+  # Thanos magic weapon enchant group (Gray_Charcoal_Magic / item 23677)
+  # Slot 1 = 14 options (property magic damage + utility), Slot 2 = 14 options (race magic damage + utility)
+  # Chance 714 for 14 options (14×714=9996≈10000)
+  - Id: 23677
+    Group: GRAY_CHARCOAL_MAGIC
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: MDAMAGE_PROPERTY_NOTHING_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: MDAMAGE_PROPERTY_WATER_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: MDAMAGE_PROPERTY_WIND_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: MDAMAGE_PROPERTY_GROUND_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: MDAMAGE_PROPERTY_FIRE_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: MDAMAGE_PROPERTY_SAINT_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: MDAMAGE_PROPERTY_DARKNESS_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: MDAMAGE_PROPERTY_TELEKINESIS_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: MDAMAGE_PROPERTY_UNDEAD_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: MDAMAGE_PROPERTY_POISON_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: HEAL_MODIFY_PERCENT
+            MinValue: 5
+            MaxValue: 20
+            Chance: 714
+          - Option: DEC_SPELL_CAST_TIME
+            MinValue: 5
+            MaxValue: 10
+            Chance: 714
+          - Option: DEC_SP_CONSUMPTION
+            MinValue: 5
+            MaxValue: 10
+            Chance: 714
+          - Option: DEC_SPELL_DELAY_TIME
+            MinValue: 1
+            MaxValue: 5
+            Chance: 714
+      - Slot: 2
+        Options:
+          - Option: RACE_MDAMAGE_HUMAN
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: RACE_MDAMAGE_UNDEAD
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: RACE_MDAMAGE_ANGEL
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: RACE_MDAMAGE_DEVIL
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: RACE_MDAMAGE_ANIMAL
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: RACE_MDAMAGE_FISHS
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: RACE_MDAMAGE_INSECT
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: RACE_MDAMAGE_PLANT
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: RACE_MDAMAGE_NOTHING
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: RACE_MDAMAGE_DRAGON
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: VAR_MAGICATKPERCENT
+            MinValue: 3
+            MaxValue: 7
+            Chance: 714
+          - Option: DEC_SPELL_CAST_TIME
+            MinValue: 5
+            MaxValue: 10
+            Chance: 714
+          - Option: CLASS_MDAMAGE_NORMAL
+            MinValue: 1
+            MaxValue: 10
+            Chance: 714
+          - Option: CLASS_MDAMAGE_BOSS
+            MinValue: 1
+            MaxValue: 10
+            Chance: 714
+
+  # Thanos ranged weapon enchant group (Gray_Charcoal_Range / item 23678)
+  # Slot 1 = 14 options (property damage + ranged utility), Slot 2 = 15 options (race damage + utility)
+  # Chance 714 for 14 options, 667 for 15 options
+  - Id: 23678
+    Group: GRAY_CHARCOAL_RANGE
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: DAMAGE_PROPERTY_NOTHING_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: DAMAGE_PROPERTY_WATER_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: DAMAGE_PROPERTY_WIND_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: DAMAGE_PROPERTY_GROUND_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: DAMAGE_PROPERTY_FIRE_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: DAMAGE_PROPERTY_SAINT_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: DAMAGE_PROPERTY_DARKNESS_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: DAMAGE_PROPERTY_TELEKINESIS_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: DAMAGE_PROPERTY_UNDEAD_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: DAMAGE_PROPERTY_POISON_TARGET
+            MinValue: 1
+            MaxValue: 20
+            Chance: 714
+          - Option: RANGE_ATTACK_DAMAGE_TARGET
+            MinValue: 5
+            MaxValue: 10
+            Chance: 714
+          - Option: VAR_PLUSASPDPERCENT
+            MinValue: 5
+            MaxValue: 10
+            Chance: 714
+          - Option: VAR_PLUSASPD
+            MinValue: 1
+            MaxValue: 1
+            Chance: 714
+          - Option: DAMAGE_SIZE_PERFECT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 714
+      - Slot: 2
+        Options:
+          - Option: RACE_DAMAGE_HUMAN
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_UNDEAD
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_ANGEL
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_DEVIL
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_ANIMAL
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_FISHS
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_INSECT
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_PLANT
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_NOTHING
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: RACE_DAMAGE_DRAGON
+            MinValue: 1
+            MaxValue: 20
+            Chance: 667
+          - Option: VAR_ATKPERCENT
+            MinValue: 3
+            MaxValue: 5
+            Chance: 667
+          - Option: DAMAGE_CRI_TARGET
+            MinValue: 5
+            MaxValue: 20
+            Chance: 667
+          - Option: CLASS_DAMAGE_NORMAL_TARGET
+            MinValue: 5
+            MaxValue: 10
+            Chance: 667
+          - Option: CLASS_DAMAGE_BOSS_TARGET
+            MinValue: 5
+            MaxValue: 10
+            Chance: 667
+          - Option: WEAPON_INDESTRUCTIBLE
+            MinValue: 1
+            MaxValue: 1
+            Chance: 667

@@ -54,6 +54,58 @@ Body:
       - Item: Poenitentia_Veloci
       - Item: Poenitentia_Ruina
 
+  # MD Geffen Accessory enchant: use item 100367 (MD_Geffen_Racc) on 490077/490078
+  - Item: MD_Geffen_Racc
+    RandomOptionGroup: MD_GEFFEN_ACC
+    CardsAllowed: true
+    TargetItems:
+      - Item: MD_Geffen_Ring
+      - Item: MD_Geffen_Ring2
+
+  # Thanos melee weapon enchant: use item 23676 (Gray_Charcoal_Melee) on Thanos_*_AD melee weapons
+  - Item: Gray_Charcoal_Melee
+    RandomOptionGroup: GRAY_CHARCOAL_MELEE
+    CardsAllowed: true
+    TargetItems:
+      - Item: Thanos_Sword_AD
+      - Item: Thanos_TSword_AD
+      - Item: Thanos_Spear_AD
+      - Item: Thanos_Dagger_AD
+      - Item: Thanos_Katar_AD
+      - Item: Thanos_Knuckle_AD
+      - Item: Thanos_Hammer_AD
+      - Item: Thanos_Axe_AD
+      - Item: Thanos_Whip_AD
+      - Item: Thanos_Violin_AD
+
+  # Thanos magic weapon enchant: use item 23677 (Gray_Charcoal_Magic) on Thanos magic weapons
+  - Item: Gray_Charcoal_Magic
+    RandomOptionGroup: GRAY_CHARCOAL_MAGIC
+    CardsAllowed: true
+    TargetItems:
+      - Item: Thanos_Rod_AD
+      - Item: Thanos_Staff_AD
+      - Item: Thanos_Dagger_AD
+      - Item: Thanos_Sword_AD
+      - Item: Thanos_Violin_AD
+      - Item: Thanos_Whip_AD
+
+  # Thanos ranged weapon enchant: use item 23678 (Gray_Charcoal_Range) on Thanos ranged/hybrid weapons
+  - Item: Gray_Charcoal_Range
+    RandomOptionGroup: GRAY_CHARCOAL_RANGE
+    CardsAllowed: true
+    TargetItems:
+      - Item: Thanos_Bow_AD
+      - Item: Thanos_Whip_AD
+      - Item: Thanos_Violin_AD
+      - Item: Thanos_Sword_AD
+      - Item: Thanos_TSword_AD
+      - Item: Thanos_Spear_AD
+      - Item: Thanos_Katar_AD
+      - Item: Thanos_Knuckle_AD
+      - Item: Thanos_Hammer_AD
+      - Item: Thanos_Axe_AD
+
   # Condensed Sakrai's Regret (100486) — magical enchant for Poenitentia equipment
   - Item: Sakray_Regret2
     RandomOptionGroup: SAKRAY_REGRET2

@@ -54510,7 +54510,7 @@ Body:
       Garment: true
     Script: |
       bonus bCritical,3*(readparam(bLuk)/20);
-      if(readparam(bLuk)>=125) { bonus bNearAtkRate,30; bonus bLongAtkRate,30; }
+      if(readparam(bLuk)>=125) { bonus bShortAtkRate,30; bonus bLongAtkRate,30; }
   - Id: 300552
     AegisName: Prince_Undead_Kingdom_Card
     Name: Prince and Undead Kingdom Card
@@ -101081,11 +101081,11 @@ Body:
     Locations:
       Garment: true
     Script: |
-      bonus bNearAtkRate,5;
+      bonus bShortAtkRate,5;
       bonus bLongAtkRate,5;
-      bonus bNearAtkRate,4*(getrefine()/2);
+      bonus bShortAtkRate,4*(getrefine()/2);
       bonus bLongAtkRate,4*(getrefine()/2);
-      if(getrefine()>=12) { bonus bNearAtkRate,7; bonus bLongAtkRate,7; }
+      if(getrefine()>=12) { bonus bShortAtkRate,7; bonus bLongAtkRate,7; }
   - Id: 300501
     AegisName: P_Assist_Card
     Name: P Assist Card
