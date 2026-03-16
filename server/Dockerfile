@@ -38,6 +38,7 @@ RUN if [ "${BUILD_MODE}" = "pre-re" ]; then \
         ./configure --enable-packetver=${PACKETVER}; \
     fi \
     && echo '#undef PACKET_OBFUSCATION' >> src/custom/defines_post.hpp \
+    && sed -i 's/#define MAX_LEVEL 250/#define MAX_LEVEL 275/' src/common/mmo.hpp \
     && make clean && make server -j$(nproc)
 
 # 確保 log 目錄存在 & 確認編譯成功

@@ -206,6 +206,16 @@ function	Job_Options	{
 		Job_Options(.@job_opt, roclass(EAJ_SPIRIT_HANDLER));
 	}
 
+	if (.FourthExpanded && .@eac == EAJ_STAR_EMPEROR) {
+		Require_Level(.Req_Fourth[0], .Req_Fourth[1]);
+		Job_Options(.@job_opt, roclass(EAJ_SKY_EMPEROR));
+	}
+
+	if (.FourthExpanded && .@eac == EAJ_SOUL_REAPER) {
+		Require_Level(.Req_Fourth[0], .Req_Fourth[1]);
+		Job_Options(.@job_opt, roclass(EAJ_SOUL_ASCETIC));
+	}
+
 	if (.SecondExpanded && 
 		((.@eac&(~EAJL_BABY)) == EAJ_NINJA || 		// is (Baby) Ninja
 		(.@eac&(~EAJL_BABY)) == EAJ_GUNSLINGER)) {	// is (Baby) Gunslinger
