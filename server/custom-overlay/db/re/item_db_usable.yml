@@ -4782,13 +4782,13 @@ Body:
   - Id: 12020
     AegisName: Water_Of_Darkness
     Name: Cursed Water
-    Type: DelayConsume
+    Type: Usable
     Buy: 2
     Weight: 30
     Flags:
       BuyingStore: true
     Script: |
-      itemskill "ITEM_ENCHANTARMS",8;
+      sc_start SC_ENCHANTARMS,1200000,Ele_Dark;
   - Id: 12021
     AegisName: Pork_Belly
     Name: Pork
@@ -4907,7 +4907,7 @@ Body:
   - Id: 12032
     AegisName: Box_Of_Storm
     Name: Box of Storms
-    Type: DelayConsume
+    Type: Usable
     Buy: 1000
     Weight: 200
     Flags:
@@ -4915,7 +4915,7 @@ Body:
     NoUse:
       Sitting: true
     Script: |
-      itemskill "ITEM_ENCHANTARMS",2;
+      sc_start SC_ENCHANTARMS,1200000,Ele_Water;
   - Id: 12033
     AegisName: Box_Of_Sunlight
     Name: Box of Sunlight
@@ -5808,43 +5808,43 @@ Body:
   - Id: 12114
     AegisName: Elemental_Fire
     Name: Elemental Converter
-    Type: DelayConsume
+    Type: Usable
     Buy: 2
     Weight: 10
     Flags:
       BuyingStore: true
     Script: |
-      itemskill "ITEM_ENCHANTARMS",4;
+      sc_start SC_ENCHANTARMS,1200000,Ele_Fire;
   - Id: 12115
     AegisName: Elemental_Water
     Name: Elemental Converter
-    Type: DelayConsume
+    Type: Usable
     Buy: 2
     Weight: 10
     Flags:
       BuyingStore: true
     Script: |
-      itemskill "ITEM_ENCHANTARMS",2;
+      sc_start SC_ENCHANTARMS,1200000,Ele_Water;
   - Id: 12116
     AegisName: Elemental_Earth
     Name: Elemental Converter
-    Type: DelayConsume
+    Type: Usable
     Buy: 2
     Weight: 10
     Flags:
       BuyingStore: true
     Script: |
-      itemskill "ITEM_ENCHANTARMS",3;
+      sc_start SC_ENCHANTARMS,1200000,Ele_Earth;
   - Id: 12117
     AegisName: Elemental_Wind
     Name: Elemental Converter
-    Type: DelayConsume
+    Type: Usable
     Buy: 2
     Weight: 10
     Flags:
       BuyingStore: true
     Script: |
-      itemskill "ITEM_ENCHANTARMS",5;
+      sc_start SC_ENCHANTARMS,1200000,Ele_Wind;
   - Id: 12118
     AegisName: Resist_Fire
     Name: Fireproof Potion
