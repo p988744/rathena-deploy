@@ -54492,53 +54492,35 @@ Body:
       bonus bLongAtkRate,3;
       bonus2 bMagicAtkEle,Ele_All,3;
   - Id: 300550
-    AegisName: CLB_SS_EA_Card
-    Name: Fei-Chai and Morroc Card
+    AegisName: Wasteman_Desert_City_Card
+    Name: Wasteman and Desert City Card
     Type: Card
-    Weight: 10
+    Weight: 1
     Locations:
       Right_Hand: true
-    Flags:
-      BuyingStore: true
-      DropEffect: CLIENT
-    Trade:
-      NoSell: true
+      Left_Hand: true
     Script: |
-      .@max_lvl = min(200,BaseLevel);
-      bonus bBaseAtk,35+5*(.@max_lvl/10);
+      bonus2 bMagicAddClass,Class_All,10;
   - Id: 300551
-    AegisName: CLB_SS_LL_Card
-    Name: A-Ji and Geffen Card
+    AegisName: Aji_Magic_City_Card
+    Name: Aji and Magic City Card
     Type: Card
-    Weight: 10
+    Weight: 1
     Locations:
       Garment: true
-    Flags:
-      BuyingStore: true
-      DropEffect: CLIENT
-    Trade:
-      NoSell: true
     Script: |
-      .@max_lvl = min(200,BaseLevel);
-      bonus bMdef,35+2*(.@max_lvl/10);
-      bonus bMaxSP,50*(.@max_lvl/10);
-      bonus2 bAddRace,RC_Plant,10;
-      bonus2 bMagicAddRace,RC_Plant,10;
+      bonus bCritical,3*(readparam(bLuk)/20);
+      if(readparam(bLuk)>=125) { bonus bNearAtkRate,30; bonus bLongAtkRate,30; }
   - Id: 300552
-    AegisName: CLB_SS_LT_Card
-    Name: Tai-Zi and Niflheim Card
+    AegisName: Prince_Undead_Kingdom_Card
+    Name: Prince and Undead Kingdom Card
     Type: Card
-    Weight: 10
+    Weight: 1
     Locations:
-      Right_Hand: true
-    Flags:
-      BuyingStore: true
-      DropEffect: CLIENT
-    Trade:
-      NoSell: true
+      Garment: true
     Script: |
-      .@max_lvl = min(200,BaseLevel);
-      bonus bMatk,35+5*(.@max_lvl/10);
+      bonus bDelayrate,-(readparam(bInt)/20);
+      if(readparam(bInt)>=125) { bonus2 bMagicAtkEle,Ele_All,30; bonus bHealPower,30; }
   - Id: 300555
     AegisName: aegis_300555
     Name: Violen Card
@@ -101091,6 +101073,30 @@ Body:
       bonus bMatk,50;
       bonus2 bAddRace,RC_All,5;
       bonus2 bMagicAddRace,RC_All,5;
+  - Id: 300500
+    AegisName: Pink_Bunny_Card
+    Name: Pink Bunny Card
+    Type: Card
+    Weight: 0
+    Locations:
+      Garment: true
+    Script: |
+      bonus bNearAtkRate,5;
+      bonus bLongAtkRate,5;
+      bonus bNearAtkRate,4*(getrefine()/2);
+      bonus bLongAtkRate,4*(getrefine()/2);
+      if(getrefine()>=12) { bonus bNearAtkRate,7; bonus bLongAtkRate,7; }
+  - Id: 300501
+    AegisName: P_Assist_Card
+    Name: P Assist Card
+    Type: Card
+    Weight: 0
+    Locations:
+      Garment: true
+    Script: |
+      bonus2 bMagicAtkEle,Ele_All,5;
+      bonus2 bMagicAtkEle,Ele_All,5*(getrefine()/2);
+      if(getrefine()>=12) { bonus2 bMagicAtkEle,Ele_All,7; }
   - Id: 312442
     AegisName: Star_Soul_5
     Name: Star Soul Lv5
