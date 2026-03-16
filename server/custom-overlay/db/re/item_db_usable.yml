@@ -88456,3 +88456,143 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+
+  - Id: 9125
+    AegisName: E_Duckling_Egg
+    Name: Wandering Duck Doll Egg
+    Type: PetEgg
+  - Id: 9126
+    AegisName: Kiel_Egg
+    Name: Kiel-D-01 Egg
+    Type: PetEgg
+    Buy: 20
+  - Id: 9129
+    AegisName: Desert_Wolf_Egg
+    Name: Desert Wolf Egg
+    Type: PetEgg
+  - Id: 9130
+    AegisName: Chaos_Bapho_Jr_Egg
+    Name: Chaotic Baphomet Junior Egg
+    Type: PetEgg
+  - Id: 9131
+    AegisName: Fire_Golem_Egg
+    Name: Fire Golem Egg
+    Type: PetEgg
+  - Id: 9132
+    AegisName: Abyss_Knight_Egg
+    Name: Abysmal Knight Egg
+    Type: PetEgg
+  - Id: 9133
+    AegisName: Change_W_Knight_Egg
+    Name: Mutated White Knight Egg
+    Type: PetEgg
+  - Id: 9134
+    AegisName: White_Knight_Egg
+    Name: White Knight Egg
+    Type: PetEgg
+  - Id: 9137
+    AegisName: Baphomet_Egg
+    Name: Baphomet Egg
+    Type: PetEgg
+  - Id: 9138
+    AegisName: Farmiliar_Egg
+    Name: Familiar Egg
+    Type: PetEgg
+  - Id: 9139
+    AegisName: Dark_Illusion_Egg
+    Name: Dark Illusion Egg
+    Type: PetEgg
+  - Id: 9140
+    AegisName: Blue_Moon_Loli_Ruri_Egg
+    Name: Blue Moon Loli Ruri Egg
+    Type: PetEgg
+  - Id: 9141
+    AegisName: Wild_Rose_Egg2
+    Name: Wild Rose Egg
+    Type: PetEgg
+  - Id: 9142
+    AegisName: Eddga_Egg2
+    Name: Eddga Egg
+    Type: PetEgg
+  - Id: 9144
+    AegisName: Larva_Violet_Egg
+    Name: Violet Egg
+    Type: PetEgg
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+  - Id: 9145
+    AegisName: Copo_Egg
+    Name: Copo Egg
+    Type: PetEgg
+  - Id: 9146
+    AegisName: Grey_Icewind_Egg
+    Name: Gray Icewind Egg
+    Type: PetEgg
+  - Id: 9147
+    AegisName: Icewind_Egg
+    Name: Icewind Egg
+    Type: PetEgg
+  - Id: 9148
+    AegisName: Dark_Lord_Egg
+    Name: Dark Lord Egg
+    Type: PetEgg
+  - Id: 9155
+    AegisName: aegis_9155
+    Name: Hornet Egg
+    Type: PetEgg
+  - Id: 9156
+    AegisName: Sonic_Chao_Egg
+    Name: Chao Egg
+    Type: PetEgg
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+  - Id: 9157
+    AegisName: aegis_9157
+    Name: Ice Seahorse Egg
+    Type: PetEgg
+  - Id: 9169
+    AegisName: aegis_9169
+    Name: Clock Tower Manager Egg
+    Type: PetEgg
+  - Id: 9170
+    AegisName: aegis_9170
+    Name: Angelgolt Egg
+    Type: PetEgg
+  - Id: 9171
+    AegisName: aegis_9171
+    Name: Timeholder Egg
+    Type: PetEgg
+  - Id: 9183
+    AegisName: CLB_SS_Egg01
+    Name: Fei-Chai Egg
+    Type: PetEgg
+  - Id: 9184
+    AegisName: CLB_SS_Egg02
+    Name: Tai-Zi Egg
+    Type: PetEgg
+  - Id: 9187
+    AegisName: Skeggiold_Egg
+    Name: Skeggiold Egg
+    Type: PetEgg
+  - Id: 9190
+    AegisName: aegis_9190
+    Name: Clock Egg
+    Type: PetEgg
+  - Id: 9192
+    AegisName: aegis_9192
+    Name: Giant Hornet Egg
+    Type: PetEgg
+  - Id: 9193
+    AegisName: aegis_9193
+    Name: Mistress Egg
+    Type: PetEgg

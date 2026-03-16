@@ -83,6 +83,39 @@ Header:
   Version: 5
 
 Body:
+  - Id: 21653
+    AegisName: EDDGA3
+    Name: Eddga
+    JapaneseName: Eddga
+    Level: 180
+    Hp: 8000000
+    BaseExp: 500000
+    JobExp: 350000
+    Attack: 4500
+    Attack2: 2000
+    Defense: 350
+    MagicDefense: 200
+    Str: 180
+    Agi: 150
+    Vit: 200
+    Int: 120
+    Dex: 220
+    Luk: 150
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Brute
+    Element: Fire
+    ElementLevel: 1
+    WalkSpeed: 300
+    AttackDelay: 872
+    AttackMotion: 1344
+    ClientAttackMotion: 408
+    DamageMotion: 432
+    DamageTaken: 10
+    Ai: 21
+    Class: Boss
   - Id: 20525
     AegisName: ILL_BAPHOMET_J
     Name: Chaos Baphomet Jr.
@@ -3928,3 +3961,272 @@ Body:
 #      - Item: Zombie_Master_Card
 #        Rate: 1
 #        StealProtected: true
+
+  # ======================================================
+  # 以下為進化版王寵寵物用 Mob（pet_db.yml 引用，原版被 comment 掉）
+  # ======================================================
+
+  - Id: 20423
+    AegisName: BACSOJIN2
+    Name: White Lady (Evolved)
+    JapaneseName: Bacsojin
+    Level: 120
+    Hp: 1080750
+    BaseExp: 601344
+    JobExp: 407160
+    Attack: 1838
+    Attack2: 2647
+    Defense: 273
+    MagicDefense: 231
+    Str: 153
+    Agi: 317
+    Vit: 127
+    Int: 164
+    Dex: 320
+    Luk: 133
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Demihuman
+    Element: Wind
+    ElementLevel: 3
+    WalkSpeed: 130
+    AttackDelay: 576
+    AttackMotion: 960
+    ClientAttackMotion: 768
+    DamageMotion: 480
+    DamageTaken: 10
+    Ai: 21
+    Class: Boss
+
+  - Id: 20425
+    AegisName: PHREEONI2
+    Name: Phreeoni (Evolved)
+    Level: 90
+    Hp: 450000
+    BaseExp: 95700
+    JobExp: 135000
+    Attack: 900
+    Attack2: 1257
+    Defense: 350
+    MagicDefense: 127
+    Str: 114
+    Agi: 91
+    Vit: 146
+    Int: 113
+    Dex: 159
+    Luk: 92
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Brute
+    Element: Neutral
+    ElementLevel: 3
+    WalkSpeed: 200
+    AttackDelay: 1020
+    AttackMotion: 1020
+    ClientAttackMotion: 324
+    DamageMotion: 288
+    DamageTaken: 10
+    Ai: 21
+    Class: Boss
+
+  - Id: 20571
+    AegisName: ORK_HERO2
+    Name: Orc Hero (Evolved)
+    Level: 70
+    Hp: 543000
+    BaseExp: 80190
+    JobExp: 72900
+    Attack: 861
+    Attack2: 573
+    Defense: 256
+    MagicDefense: 91
+    Str: 126
+    Agi: 107
+    Vit: 139
+    Int: 92
+    Dex: 187
+    Luk: 56
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Demihuman
+    Element: Earth
+    ElementLevel: 2
+    WalkSpeed: 150
+    AttackDelay: 1678
+    AttackMotion: 780
+    ClientAttackMotion: 660
+    DamageMotion: 648
+    DamageTaken: 10
+    Ai: 21
+    Class: Boss
+
+  - Id: 20619
+    AegisName: GLOOMUNDERNIGHT2
+    Name: Gloom Under Night (Evolved)
+    Level: 160
+    Hp: 4507500
+    BaseExp: 2106000
+    JobExp: 1485000
+    Attack: 8570
+    Attack2: 3621
+    Defense: 623
+    MagicDefense: 341
+    Str: 248
+    Agi: 290
+    Vit: 243
+    Int: 202
+    Dex: 471
+    Luk: 212
+    AttackRange: 3
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Formless
+    Element: Ghost
+    ElementLevel: 3
+    WalkSpeed: 200
+    AttackDelay: 1344
+    AttackMotion: 2880
+    ClientAttackMotion: 288
+    DamageMotion: 576
+    DamageTaken: 10
+    Ai: 21
+    Class: Boss
+
+  - Id: 21290
+    AegisName: KIEL_D_01_2
+    Name: Kiel D-01 (Evolved)
+    Level: 150
+    Hp: 3753000
+    BaseExp: 1755000
+    JobExp: 1188000
+    Attack: 5346
+    Attack2: 4654
+    Defense: 408
+    MagicDefense: 302
+    Str: 216
+    Agi: 243
+    Vit: 202
+    Int: 183
+    Dex: 363
+    Luk: 234
+    AttackRange: 3
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Dark
+    ElementLevel: 2
+    WalkSpeed: 130
+    AttackDelay: 1152
+    AttackMotion: 576
+    ClientAttackMotion: 384
+    DamageMotion: 432
+    DamageTaken: 10
+    Ai: 21
+    Class: Boss
+
+  - Id: 21502
+    AegisName: BAPHOMET2
+    Name: Baphomet (Evolved)
+    Level: 105
+    Hp: 1002000
+    BaseExp: 327134
+    JobExp: 250580
+    Attack: 4095
+    Attack2: 2579
+    Defense: 493
+    MagicDefense: 59
+    Str: 156
+    Agi: 163
+    Vit: 39
+    Int: 111
+    Dex: 242
+    Luk: 111
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Demon
+    Element: Dark
+    ElementLevel: 3
+    WalkSpeed: 100
+    AttackDelay: 768
+    AttackMotion: 768
+    ClientAttackMotion: 600
+    DamageMotion: 576
+    DamageTaken: 10
+    Ai: 21
+    Class: Boss
+
+  - Id: 22185
+    AegisName: DARK_LORD2
+    Name: Dark Lord (Evolved)
+    Level: 120
+    Hp: 1786350
+    BaseExp: 642816
+    JobExp: 418500
+    Attack: 5116
+    Attack2: 3361
+    Defense: 429
+    MagicDefense: 218
+    Str: 153
+    Agi: 177
+    Vit: 200
+    Int: 185
+    Dex: 251
+    Luk: 86
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Demon
+    Element: Undead
+    ElementLevel: 4
+    WalkSpeed: 100
+    AttackDelay: 868
+    AttackMotion: 768
+    ClientAttackMotion: 408
+    DamageMotion: 480
+    DamageTaken: 10
+    Ai: 21
+    Class: Boss
+
+  - Id: 22405
+    AegisName: MISTRESS3
+    Name: Mistress (Evolved)
+    Level: 100
+    Hp: 567000
+    BaseExp: 276210
+    JobExp: 225990
+    Attack: 1281
+    Attack2: 2557
+    Defense: 373
+    MagicDefense: 250
+    Str: 99
+    Agi: 242
+    Vit: 114
+    Int: 147
+    Dex: 224
+    Luk: 103
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Insect
+    Element: Wind
+    ElementLevel: 4
+    WalkSpeed: 100
+    AttackDelay: 1148
+    AttackMotion: 648
+    ClientAttackMotion: 504
+    DamageMotion: 300
+    DamageTaken: 10
+    Ai: 21
+    Class: Boss
