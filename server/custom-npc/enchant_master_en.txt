@@ -185,7 +185,7 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	mes "Welcome! I can enchant your equipment from EP17.2 through EP19.";
 	mes "No quests or prerequisites required.";
 	next;
-	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Costume Garment Slot 2 Enchant", "Illusion Equipment Enchant", "Mad Bunny-LT Enchant", "Miss Memory Record Enchant", "EP20 Crystal Equipment Enchant", "EP20 Dark Crystal Equipment Enchant", "Caesar Series & Asteria Enchant", "Nebula Series Enchant", "Swallow God Shield Enchant", "Gaebolg Series Enchant", "Battle Dead Head Enchant", "Asteria's Dawn Combat Boots Enchant", "Wraith Binding Garment Enchant", "Thanos Helm Enchant", "Schmidt Badge Enchant", "Leave" ) ) {
+	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Costume Garment Slot 2 Enchant", "Illusion Equipment Enchant", "Mad Bunny-LT Enchant", "Miss Memory Record Enchant", "EP20 Crystal Equipment Enchant", "EP20 Dark Crystal Equipment Enchant", "Caesar Series & Asteria Enchant", "Nebula Series Enchant", "Swallow God Shield Enchant", "Gaebolg Series Enchant", "Battle Dead Head Enchant", "Asteria's Dawn Combat Boots Enchant", "Taiwan Special Garment Enchant", "Thanos Helm Enchant", "Schmidt Badge Enchant", "Leave" ) ) {
 	case 1: callsub L_Auto; end;
 	case 2: callsub L_GrayWolf; end;
 	case 3: callsub L_Snowflower; end;
@@ -285,7 +285,7 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	case 19: callsub L_Gaebolg; end;
 	case 20: callsub L_BattleHead; end;
 	case 21: callsub L_AstarBoots; end;
-	case 22: callsub L_WraithGarment; end;
+	case 22: callsub L_TaiwanSpecial; end;
 	case 23: callsub L_ThanosHelm; end;
 	case 24: callsub L_SchmidtBadge; end;
 	case 25:
@@ -3212,14 +3212,14 @@ L_AstarBoots:
 	return;
 
 // ============================================================
-// L_WraithGarment — 鬥氣纏身 (480454) Enchant
+// L_TaiwanSpecial — 台灣特製系列披肩 (480454 / 480482) Enchant
 // Slot 4 (card[3]): AtkDelay/Frugality/SkillDelay + 7×Starlight Lv1~5
 // Slot 3 (card[2]): Bhramand Fragment POW/CON/CRT/STA/SPL/WIS Lv1~5
 // Slot 2 (card[1]): Bhramand Power/Curse/Focus/Creation/Wisdom/Endurance Lv1~3
 // Cost: 50,000,000z per roll (all 3 slots at once)
 // ============================================================
-L_WraithGarment:
-	setarray .@eq_ids[0], 480454;
+L_TaiwanSpecial:
+	setarray .@eq_ids[0], 480454, 480482;
 
 	.@part = -1;
 	for (.@i = 0; .@i <= 22; .@i++) {
@@ -3227,7 +3227,7 @@ L_WraithGarment:
 	}
 	if (.@part == -1) {
 		mes "[Enchant Master]";
-		mes "Please ^FF0000equip^000000 the ^0000FFWraith Binding Garment (480454)^000000 first.";
+		mes "Please ^FF0000equip^000000 a ^0000FFTaiwan Special Garment (480454 / 480482)^000000 first.";
 		close;
 	}
 
@@ -3240,7 +3240,7 @@ L_WraithGarment:
 		getequipcardid(.@part, 2), getequipcardid(.@part, 3);
 
 	mes "[Enchant Master]";
-	mes "^FFD700== Wraith Binding Garment Enchant ==^000000";
+	mes "^FFD700== Taiwan Special Garment Enchant ==^000000";
 	mes "^0000FF" + .@equip_name$ + "^000000";
 	mes "Slot 4: " + (.@card[3] > 0 ? "^0000CD" + getitemname(.@card[3]) + "^000000" : "^808080Empty^000000");
 	mes "Slot 3: " + (.@card[2] > 0 ? "^0000CD" + getitemname(.@card[2]) + "^000000" : "^808080Empty^000000");
