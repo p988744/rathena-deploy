@@ -16,8 +16,13 @@ Dependencies:
 import sys
 import os
 import re
+import time
 import argparse
 import yaml
+
+# Fix Windows terminal encoding (cp950 can't handle Korean/other Unicode chars)
+if sys.stdout.encoding and sys.stdout.encoding.lower() not in ("utf-8", "utf_8"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 try:
     import requests
@@ -781,104 +786,114 @@ def append_to_mob_skill_db(skill_lines):
             f.write(line + "\n")
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
-def main():
-    parser = argparse.ArgumentParser(
-        description="Scrape monster data from divine-pride.net and generate rAthena DB entries."
-    )
-    parser.add_argument("monster_id", type=int, help="Monster ID to scrape")
-    parser.add_argument("--dry-run", action="store_true", help="Print output without writing files")
-    parser.add_argument("--force", action="store_true", help="Overwrite if monster ID already exists")
-    args = parser.parse_args()
+# ── Helpers ───────────────────────────────────────────────────────────────────
+def parse_id_args(id_args):
+    """Parse list of ID tokens: '21946' or '21946-21950' → sorted unique int list."""
+    ids = []
+    for token in id_args:
+        m = re.match(r"^(\d+)-(\d+)$", token)
+        if m:
+            ids.extend(range(int(m.group(1)), int(m.group(2)) + 1))
+        else:
+            ids.append(int(token))
+    return sorted(set(ids))
 
-    monster_id = args.monster_id
-    dry_run = args.dry_run
-    force = args.force
 
-    data = scrape_monster(monster_id)
-
-    print("Loading item AegisName map...")
-    item_aegis_map = load_item_aegis_map()
-    print(f"  Loaded {len(item_aegis_map)} items.")
+def process_one(monster_id, item_aegis_map, dry_run, force, verbose=True):
+    """Scrape and write one monster. Returns True on success."""
+    try:
+        data = scrape_monster(monster_id)
+    except SystemExit:
+        return False
 
     mob_entry, unmapped_items = generate_mob_db_entry(monster_id, data, item_aegis_map)
     skill_lines = generate_mob_skill_lines(monster_id, data)
 
-    # Print summary
-    print("\n" + "=" * 60)
-    print(f"Monster ID   : {monster_id}")
-    print(f"Name         : {data['name']}")
-    print(f"AegisName    : {data['aegis_name']}")
-    print(f"Level        : {data['level']}")
-    print(f"HP           : {data['hp']}")
-    print(f"BaseExp/Job  : {data['base_exp']} / {data['job_exp']}")
-    print(f"ATK          : {data['atk_min']} ~ {data['atk_max']}")
-    print(f"DEF/MDEF     : {data['def']} / {data['mdef']}")
-    print(f"STR/AGI/VIT  : {data['str']} / {data['agi']} / {data['vit']}")
-    print(f"INT/DEX/LUK  : {data['int']} / {data['dex']} / {data['luk']}")
-    print(f"Size/Race    : {data['size']} / {data['race']}")
-    print(f"Element      : {data['element']} Lv{data['element_level']}")
-    print(f"AI           : {data['ai']}")
-    print(f"WalkSpeed    : {data['walk_speed']}")
-    print(f"AttackDelay  : {data['atk_delay']}")
-    print(f"Drops        : {len(data['drops'])} items")
-    print(f"MVP Drops    : {len(data['mvp_drops'])} items")
-    print(f"Skills       : {len(data['skills'])} skills")
-    print("=" * 60)
-
-    print("\n--- mob_db.yml entry ---")
-    print(mob_entry)
-
-    if skill_lines:
-        print("--- mob_skill_db.txt lines ---")
-        for line in skill_lines:
-            print(line)
-    else:
-        print("(No skills found)")
+    if verbose:
+        print("\n" + "=" * 60)
+        print(f"Monster ID   : {monster_id}")
+        print(f"Name         : {data['name']}")
+        print(f"AegisName    : {data['aegis_name']}")
+        print(f"Level        : {data['level']}")
+        print(f"HP           : {data['hp']}")
+        print(f"BaseExp/Job  : {data['base_exp']} / {data['job_exp']}")
+        print(f"ATK          : {data['atk_min']} ~ {data['atk_max']}")
+        print(f"DEF/MDEF     : {data['def']} / {data['mdef']}")
+        print(f"STR/AGI/VIT  : {data['str']} / {data['agi']} / {data['vit']}")
+        print(f"INT/DEX/LUK  : {data['int']} / {data['dex']} / {data['luk']}")
+        print(f"Size/Race    : {data['size']} / {data['race']}")
+        print(f"Element      : {data['element']} Lv{data['element_level']}")
+        print(f"Drops        : {len(data['drops'])} items  |  Skills: {len(data['skills'])}")
+        print("=" * 60)
 
     if unmapped_items:
-        print(f"\n[WARN] Unmapped items (AegisName not found in item_db): {unmapped_items}")
-        print("  Look up at: https://www.divine-pride.net/database/item/<id>/")
-        print("  Then add to server/db/import/item_db.yml or fix drop entries manually.")
+        print(f"  [WARN] Unmapped item IDs: {unmapped_items}")
 
     if dry_run:
-        print("\n[DRY RUN] No files written.")
-        return
-
-    # ── Write files ───────────────────────────────────────────────────────────
-    mob_dup   = check_mob_db_duplicate(monster_id)
-    skill_dup = check_mob_skill_duplicate(monster_id)
+        print("\n--- mob_db.yml entry (dry-run) ---")
+        print(mob_entry)
+        return True
 
     # mob_db.yml
+    mob_dup = check_mob_db_duplicate(monster_id)
     if mob_dup and not force:
-        ans = input(f"\nMonster {monster_id} already in mob_db.yml. Overwrite? [y/N] ").strip().lower()
-        if ans != "y":
-            print("Skipped mob_db.yml.")
-            mob_dup = None  # sentinel: skip write
-        else:
-            mob_dup = False
-
-    if mob_dup is not None:
+        print(f"  [SKIP] {monster_id} already in mob_db.yml (use --force to overwrite)")
+    else:
         append_to_mob_db(mob_entry)
-        if mob_dup:
-            print(f"\n[OK] Force-appended to: {MOB_DB_PATH}  (duplicate — clean up manually)")
-        else:
-            print(f"\n[OK] Appended to: {MOB_DB_PATH}")
+        print(f"  [OK] mob_db.yml ← {monster_id} {data['name']}")
 
     # mob_skill_db.txt
-    write_skills = True
+    skill_dup = check_mob_skill_duplicate(monster_id)
     if skill_dup and not force:
-        ans = input(f"Monster {monster_id} already has skills in mob_skill_db.txt. Overwrite? [y/N] ").strip().lower()
-        if ans != "y":
-            write_skills = False
-
-    if write_skills and skill_lines:
+        print(f"  [SKIP] {monster_id} skills already in mob_skill_db.txt")
+    elif skill_lines:
         append_to_mob_skill_db(skill_lines)
-        print(f"[OK] Written to: {MOB_SKILL_DB_PATH}")
-    elif not skill_lines:
-        print("[INFO] No skills to write.")
-    else:
-        print("[SKIP] Skill entries not written.")
+        print(f"  [OK] mob_skill_db.txt ← {len(skill_lines)} skill lines")
+
+    return True
+
+
+# ── Main ──────────────────────────────────────────────────────────────────────
+def main():
+    parser = argparse.ArgumentParser(
+        description=(
+            "Scrape monster data from divine-pride.net and generate rAthena DB entries.\n"
+            "Accepts single IDs or ranges: 21946 21951-21955 22140-22155"
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument(
+        "monster_ids", nargs="+",
+        help="One or more monster IDs or ranges (e.g. 21946 21951-21955 22140-22155)"
+    )
+    parser.add_argument("--dry-run", action="store_true", help="Print output without writing files")
+    parser.add_argument("--force", action="store_true", help="Skip duplicate check and always append")
+    parser.add_argument("--delay", type=float, default=1.5,
+                        help="Seconds between requests (default: 1.5)")
+    args = parser.parse_args()
+
+    ids = parse_id_args(args.monster_ids)
+    print(f"Batch: {len(ids)} monsters to scrape: {ids}")
+
+    print("Loading item AegisName map...")
+    item_aegis_map = load_item_aegis_map()
+    print(f"  Loaded {len(item_aegis_map)} items.\n")
+
+    ok, failed = 0, []
+    for i, mid in enumerate(ids):
+        print(f"\n[{i+1}/{len(ids)}] Monster {mid}")
+        success = process_one(mid, item_aegis_map, args.dry_run, args.force)
+        if success:
+            ok += 1
+        else:
+            failed.append(mid)
+        if i < len(ids) - 1:
+            time.sleep(args.delay)
+
+    print(f"\n{'='*60}")
+    print(f"Done: {ok} OK, {len(failed)} failed")
+    if failed:
+        print(f"Failed IDs: {failed}")
 
 
 if __name__ == "__main__":

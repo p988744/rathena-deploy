@@ -213,6 +213,14 @@ if [ -f "/rathena/npc/custom/illu_mobs.txt" ]; then
     echo "   已啟用幻影地下城怪物 spawn"
 fi
 
+# 啟用傳送NPC
+if [ -f "/rathena/npc/custom/warper.txt" ]; then
+    if ! grep -q 'warper.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/warper.txt' >> /rathena/npc/scripts_custom.conf
+    fi
+    echo "   已啟用傳送NPC"
+fi
+
 # 啟用生態圈 spawn
 if [ -f "/rathena/npc/custom/eco_mobs.txt" ]; then
     if ! grep -q 'eco_mobs.txt' /rathena/npc/scripts_custom.conf; then

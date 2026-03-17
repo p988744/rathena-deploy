@@ -1508,7 +1508,7 @@ Body:
     Hp: 26602843
     BaseExp: 1407874
     JobExp: 980584
-    MvpExp: 140787
+    MvpExp: 0
     Attack: 17189
     Attack2: 25548
     Defense: 478
@@ -1532,12 +1532,11 @@ Body:
     DamageMotion: 0
     DamageTaken: 100
     Ai: 06
-    Class: Boss
+    Class: Normal
     Modes:
       CanMove: true
       CanAttack: true
       Aggressive: true
-      Mvp: true
     Drops:
       - Item: Reins
         Rate: 2668
@@ -2896,6 +2895,2208 @@ Body:
         Rate: 17
       - Item: Shadowdecon_Ore
         Rate: 180
+
+  - Id: 21946
+    AegisName: BURNING_KNIGHT
+    Name: Burning Night
+    Level: 265
+    Hp: 45319714
+    BaseExp: 1065428
+    JobExp: 890485
+    MvpExp: 0
+    Attack: 15858
+    Attack2: 23507
+    Defense: 504
+    MagicDefense: 195
+    Str: 296
+    Agi: 249
+    Vit: 235
+    Int: 189
+    Dex: 256
+    Luk: 246
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Demon
+    Element: Ghost
+    ElementLevel: 2
+    WalkSpeed: 180
+    AttackDelay: 613
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Blaze_Stone
+        Rate: 2350
+      - Item: Burning_Heart
+        Rate: 1750
+      - Item: Burning_Horse_Shoe
+        Rate: 2000
+      - Item: Shadowdecon_Ore
+        Rate: 150
+      - Item: Zelunium_Ore
+        Rate: 150
+      - Item: Shadowdecon
+        Rate: 25
+      - Item: Zelunium
+        Rate: 25
+      - Item: Burning_Knight_Card
+        Rate: 1
+
+  - Id: 21947
+    AegisName: DEDSERA
+    Name: Deadsera
+    Level: 262
+    Hp: 48836035
+    BaseExp: 995893
+    JobExp: 836550
+    MvpExp: 0
+    Attack: 9914
+    Attack2: 14651
+    Defense: 409
+    MagicDefense: 230
+    Str: 180
+    Agi: 148
+    Vit: 172
+    Int: 180
+    Dex: 225
+    Luk: 172
+    AttackRange: 7
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Plant
+    Element: Undead
+    ElementLevel: 2
+    WalkSpeed: 1000
+    AttackDelay: 575
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Aromatic_Flower
+        Rate: 2350
+      - Item: Sticky_Poison
+        Rate: 1750
+      - Item: Root_Of_Maneater
+        Rate: 1000
+      - Item: Shadowdecon_Ore
+        Rate: 150
+      - Item: Zelunium_Ore
+        Rate: 150
+      - Item: Zelunium
+        Rate: 25
+      - Item: Shadowdecon
+        Rate: 25
+      - Item: Dedsera_Card
+        Rate: 1
+
+  - Id: 21948
+    AegisName: HARDROCK_TITAN
+    Name: Hardrock Titan
+    Level: 263
+    Hp: 47874030
+    BaseExp: 1023843
+    JobExp: 855728
+    MvpExp: 0
+    Attack: 13826
+    Attack2: 20476
+    Defense: 481
+    MagicDefense: 186
+    Str: 263
+    Agi: 222
+    Vit: 209
+    Int: 169
+    Dex: 228
+    Luk: 219
+    AttackRange: 3
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Formless
+    Element: Earth
+    ElementLevel: 1
+    WalkSpeed: 200
+    AttackDelay: 794
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Evil_Minded_Ruby
+        Rate: 2350
+      - Item: Great_Nature
+        Rate: 250
+      - Item: Stone_Heart
+        Rate: 2500
+      - Item: Shadowdecon_Ore
+        Rate: 150
+      - Item: Zelunium_Ore
+        Rate: 150
+      - Item: Zelunium
+        Rate: 25
+      - Item: Shadowdecon
+        Rate: 25
+      - Item: Hardrock_Titan_Card
+        Rate: 1
+
+  - Id: 21949
+    AegisName: DEADWEEN
+    Name: Deadween
+    Level: 264
+    Hp: 50482947
+    BaseExp: 1054194
+    JobExp: 885523
+    MvpExp: 0
+    Attack: 11955
+    Attack2: 17712
+    Defense: 410
+    MagicDefense: 231
+    Str: 179
+    Agi: 148
+    Vit: 171
+    Int: 179
+    Dex: 174
+    Luk: 171
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Beast
+    Element: Poison
+    ElementLevel: 3
+    WalkSpeed: 150
+    AttackDelay: 505
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Congealed_Poison
+        Rate: 2350
+      - Item: Rotten_Meat
+        Rate: 1750
+      - Item: Animal's_Skin
+        Rate: 1500
+      - Item: Shadowdecon_Ore
+        Rate: 150
+      - Item: Zelunium_Ore
+        Rate: 150
+      - Item: Zelunium
+        Rate: 25
+      - Item: Shadowdecon
+        Rate: 25
+      - Item: Deadween_Card
+        Rate: 1
+
+  - Id: 21950
+    AegisName: GAIA_POL
+    Name: Gaia Pol
+    Level: 270
+    Hp: 401194387
+    BaseExp: 1953747
+    JobExp: 1641148
+    MvpExp: 0
+    Attack: 18052
+    Attack2: 26839
+    Defense: 435
+    MagicDefense: 247
+    Str: 207
+    Agi: 171
+    Vit: 197
+    Int: 207
+    Dex: 201
+    Luk: 197
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Beast
+    Element: Earth
+    ElementLevel: 4
+    WalkSpeed: 200
+    AttackDelay: 625
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Evil_Black_Bid
+        Rate: 1800
+      - Item: Evil_Minded_Ruby
+        Rate: 1800
+      - Item: Animal's_Skin
+        Rate: 1500
+      - Item: Shadowdecon_Ore
+        Rate: 500
+      - Item: Zelunium_Ore
+        Rate: 500
+      - Item: Shadowdecon
+        Rate: 150
+      - Item: Zelunium
+        Rate: 150
+      - Item: Gaia_Pol_Card
+        Rate: 1
+
+  - Id: 21951
+    AegisName: PUNCH_BUG
+    Name: Punch Bug
+    Level: 262
+    Hp: 46915251
+    BaseExp: 999230
+    JobExp: 835156
+    MvpExp: 0
+    Attack: 13521
+    Attack2: 20014
+    Defense: 486
+    MagicDefense: 188
+    Str: 272
+    Agi: 229
+    Vit: 216
+    Int: 174
+    Dex: 235
+    Luk: 227
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Insect
+    Element: Earth
+    ElementLevel: 3
+    WalkSpeed: 150
+    AttackDelay: 658
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Fresh_Pear
+        Rate: 2250
+      - Item: Worm_Peelings
+        Rate: 250
+      - Item: Solid_Peeling
+        Rate: 3250
+      - Item: Shadowdecon_Ore
+        Rate: 150
+      - Item: Zelunium_Ore
+        Rate: 150
+      - Item: Shadowdecon
+        Rate: 25
+      - Item: Zelunium
+        Rate: 25
+      - Item: Punch_Bug_Card
+        Rate: 1
+
+  - Id: 21952
+    AegisName: AFERDE
+    Name: Aferde
+    Level: 264
+    Hp: 46254911
+    BaseExp: 1027707
+    JobExp: 863274
+    MvpExp: 0
+    Attack: 11986
+    Attack2: 17711
+    Defense: 478
+    MagicDefense: 275
+    Str: 271
+    Agi: 223
+    Vit: 258
+    Int: 271
+    Dex: 263
+    Luk: 258
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Insect
+    Element: Wind
+    ElementLevel: 2
+    WalkSpeed: 170
+    AttackDelay: 794
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Slicky_Fluid
+        Rate: 2250
+      - Item: Short_Leg
+        Rate: 2668
+      - Item: Zargon
+        Rate: 600
+      - Item: Shadowdecon_Ore
+        Rate: 150
+      - Item: Zelunium_Ore
+        Rate: 150
+      - Item: Shadowdecon
+        Rate: 25
+      - Item: Zelunium
+        Rate: 25
+      - Item: Aferde_Card
+        Rate: 1
+
+  - Id: 21953
+    AegisName: DISPOL
+    Name: Dispol
+    Level: 263
+    Hp: 44652659
+    BaseExp: 1039283
+    JobExp: 872563
+    MvpExp: 0
+    Attack: 10756
+    Attack2: 15935
+    Defense: 284
+    MagicDefense: 300
+    Str: 135
+    Agi: 146
+    Vit: 152
+    Int: 205
+    Dex: 183
+    Luk: 205
+    AttackRange: 3
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Beast
+    Element: Holy
+    ElementLevel: 1
+    WalkSpeed: 130
+    AttackDelay: 481
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Cool_Liquid
+        Rate: 2250
+      - Item: Moustache_Of_Mole
+        Rate: 4500
+      - Item: Nail_Of_Mole
+        Rate: 2500
+      - Item: Shadowdecon_Ore
+        Rate: 150
+      - Item: Zelunium_Ore
+        Rate: 150
+      - Item: Shadowdecon
+        Rate: 25
+      - Item: Zelunium
+        Rate: 25
+      - Item: Dispol_Card
+        Rate: 1
+
+  - Id: 21954
+    AegisName: TIMBERS
+    Name: Timbers
+    Level: 265
+    Hp: 47189684
+    BaseExp: 1043994
+    JobExp: 876955
+    MvpExp: 0
+    Attack: 12304
+    Attack2: 18193
+    Defense: 472
+    MagicDefense: 271
+    Str: 262
+    Agi: 216
+    Vit: 249
+    Int: 262
+    Dex: 254
+    Luk: 249
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Plant
+    Element: Neutral
+    ElementLevel: 4
+    WalkSpeed: 160
+    AttackDelay: 719
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Whittling
+        Rate: 2250
+      - Item: Resin
+        Rate: 2000
+      - Item: Wooden_Block
+        Rate: 1500
+      - Item: Shadowdecon_Ore
+        Rate: 150
+      - Item: Zelunium_Ore
+        Rate: 150
+      - Item: Shadowdecon
+        Rate: 25
+      - Item: Zelunium
+        Rate: 25
+      - Item: Timbers_Card
+        Rate: 1
+
+  - Id: 21955
+    AegisName: RENIRE
+    Name: Renire
+    Level: 270
+    Hp: 384095393
+    BaseExp: 2006252
+    JobExp: 1760275
+    MvpExp: 0
+    Attack: 17467
+    Attack2: 25938
+    Defense: 472
+    MagicDefense: 270
+    Str: 256
+    Agi: 211
+    Vit: 244
+    Int: 256
+    Dex: 248
+    Luk: 244
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Insect
+    Element: Water
+    ElementLevel: 3
+    WalkSpeed: 150
+    AttackDelay: 599
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Green_Crystal_Fragment
+        Rate: 1800
+      - Item: Cool_Liquid
+        Rate: 1800
+      - Item: Long_Limb
+        Rate: 2200
+      - Item: Shadowdecon_Ore
+        Rate: 500
+      - Item: Zelunium_Ore
+        Rate: 500
+      - Item: Shadowdecon
+        Rate: 150
+      - Item: Zelunium
+        Rate: 150
+      - Item: Renire_Card
+        Rate: 1
+
+  - Id: 22140
+    AegisName: BIO_ANOLIAN
+    Name: Deep Anolian
+    Level: 263
+    Hp: 107320500
+    BaseExp: 5440652
+    JobExp: 3789414
+    MvpExp: 0
+    Attack: 32536
+    Attack2: 48488
+    Defense: 229
+    MagicDefense: 115
+    Str: 369
+    Agi: 254
+    Vit: 293
+    Int: 236
+    Dex: 423
+    Luk: 323
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Fish
+    Element: Water
+    ElementLevel: 3
+    WalkSpeed: 190
+    AttackDelay: 901
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Bar_D_Ic_Energy
+        Rate: 500
+      - Item: Bar_D_Ic_Crystal
+        Rate: 50
+      - Item: Etel_Dust
+        Rate: 150
+      - Item: Ice_Barmund_Rune
+        Rate: 80
+      - Item: Ice_Barmund_Rune2
+        Rate: 20
+      - Item: Barmund_Ice_Essence
+        Rate: 30
+      - Item: Bar_D_Ic_Specimen
+        Rate: 2500
+
+  - Id: 22141
+    AegisName: BIO_SKEL_ARCHER
+    Name: Deep Skeleton Archer
+    Level: 264
+    Hp: 98579600
+    BaseExp: 5522166
+    JobExp: 3855867
+    MvpExp: 0
+    Attack: 18354
+    Attack2: 27248
+    Defense: 172
+    MagicDefense: 100
+    Str: 302
+    Agi: 290
+    Vit: 191
+    Int: 253
+    Dex: 441
+    Luk: 319
+    AttackRange: 10
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Undead
+    Element: Undead
+    ElementLevel: 2
+    WalkSpeed: 250
+    AttackDelay: 541
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Bar_D_Co_Energy
+        Rate: 500
+      - Item: Bar_D_Co_Crystal
+        Rate: 50
+      - Item: Etel_Dust
+        Rate: 150
+      - Item: Death_Barmund_Rune
+        Rate: 80
+      - Item: Death_Barmund_Rune2
+        Rate: 20
+      - Item: Barmund_Death_Essence
+        Rate: 30
+      - Item: Bar_D_Co_Specimen
+        Rate: 2500
+
+  - Id: 22142
+    AegisName: BIO_DRAGON_TAIL
+    Name: Deep Dragon Tail
+    Level: 264
+    Hp: 83702230
+    BaseExp: 5478855
+    JobExp: 3825625
+    MvpExp: 0
+    Attack: 24323
+    Attack2: 36138
+    Defense: 201
+    MagicDefense: 119
+    Str: 430
+    Agi: 414
+    Vit: 281
+    Int: 361
+    Dex: 597
+    Luk: 455
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Insect
+    Element: Wind
+    ElementLevel: 4
+    WalkSpeed: 175
+    AttackDelay: 719
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Bar_D_St_Energy
+        Rate: 500
+      - Item: Bar_D_St_Crystal
+        Rate: 50
+      - Item: Etel_Dust
+        Rate: 150
+      - Item: Plain_Barmund_Rune
+        Rate: 80
+      - Item: Plain_Barmund_Rune2
+        Rate: 20
+      - Item: Barmund_Plain_Essence
+        Rate: 30
+      - Item: Bar_D_St_Specimen
+        Rate: 2500
+
+  - Id: 22143
+    AegisName: BIO_LAVA_TOAD
+    Name: Deep Lava Toad
+    Level: 262
+    Hp: 102957370
+    BaseExp: 5449476
+    JobExp: 3791860
+    MvpExp: 0
+    Attack: 28136
+    Attack2: 41951
+    Defense: 363
+    MagicDefense: 159
+    Str: 244
+    Agi: 225
+    Vit: 331
+    Int: 286
+    Dex: 411
+    Luk: 295
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Beast
+    Element: Fire
+    ElementLevel: 4
+    WalkSpeed: 150
+    AttackDelay: 840
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Bar_D_Fl_Energy
+        Rate: 500
+      - Item: Bar_D_Fl_Crystal
+        Rate: 50
+      - Item: Etel_Dust
+        Rate: 150
+      - Item: Flame_Barmund_Rune
+        Rate: 80
+      - Item: Flame_Barmund_Rune2
+        Rate: 20
+      - Item: Barmund_Flame_Essence
+        Rate: 30
+      - Item: Bar_D_Fl_Specimen
+        Rate: 2500
+
+  - Id: 22144
+    AegisName: BIO_LITTLE_FATUM
+    Name: Deep Little Fatum
+    Level: 263
+    Hp: 87700530
+    BaseExp: 5475237
+    JobExp: 3830757
+    MvpExp: 0
+    Attack: 31454
+    Attack2: 46928
+    Defense: 192
+    MagicDefense: 213
+    Str: 243
+    Agi: 251
+    Vit: 274
+    Int: 370
+    Dex: 455
+    Luk: 380
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Neutral
+    ElementLevel: 1
+    WalkSpeed: 170
+    AttackDelay: 962
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Bar_D_St_Energy
+        Rate: 500
+      - Item: Bar_D_St_Crystal
+        Rate: 50
+      - Item: Etel_Dust
+        Rate: 150
+      - Item: Plain_Barmund_Rune
+        Rate: 80
+      - Item: Plain_Barmund_Rune2
+        Rate: 20
+      - Item: Barmund_Plain_Essence
+        Rate: 30
+      - Item: Bar_D_St_Specimen
+        Rate: 2500
+
+  - Id: 22145
+    AegisName: BIO_STING
+    Name: Deep Sting
+    Level: 265
+    Hp: 101934980
+    BaseExp: 5596403
+    JobExp: 3917482
+    MvpExp: 0
+    Attack: 18765
+    Attack2: 27839
+    Defense: 292
+    MagicDefense: 170
+    Str: 352
+    Agi: 249
+    Vit: 335
+    Int: 352
+    Dex: 471
+    Luk: 345
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Earth
+    ElementLevel: 4
+    WalkSpeed: 200
+    AttackDelay: 529
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Bar_D_Ea_Energy
+        Rate: 500
+      - Item: Bar_D_Ea_Crystal
+        Rate: 50
+      - Item: Etel_Dust
+        Rate: 150
+      - Item: Plain_Barmund_Rune
+        Rate: 80
+      - Item: Plain_Barmund_Rune2
+        Rate: 20
+      - Item: Barmund_Plain_Essence
+        Rate: 30
+      - Item: Bar_D_Ea_Specimen
+        Rate: 2500
+
+  - Id: 22146
+    AegisName: BIO_EMPATHIZER
+    Name: Deep Empathizer
+    Level: 262
+    Hp: 78695860
+    BaseExp: 5389361
+    JobExp: 3770674
+    MvpExp: 0
+    Attack: 33075
+    Attack2: 49349
+    Defense: 199
+    MagicDefense: 223
+    Str: 265
+    Agi: 273
+    Vit: 298
+    Int: 403
+    Dex: 493
+    Luk: 415
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Angel
+    Element: Ghost
+    ElementLevel: 2
+    WalkSpeed: 120
+    AttackDelay: 1010
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Bar_D_So_Energy
+        Rate: 500
+      - Item: Bar_D_So_Crystal
+        Rate: 50
+      - Item: Etel_Dust
+        Rate: 150
+      - Item: Soul_Barmund_Rune
+        Rate: 80
+      - Item: Soul_Barmund_Rune2
+        Rate: 20
+      - Item: Barmund_Soul_Essence
+        Rate: 30
+      - Item: Bar_D_So_Specimen
+        Rate: 2500
+
+  - Id: 22147
+    AegisName: BIO_FIRE_FRILLDORA
+    Name: Deep Fire Frilldora
+    Level: 265
+    Hp: 93256470
+    BaseExp: 5675187
+    JobExp: 3962714
+    MvpExp: 0
+    Attack: 18287
+    Attack2: 27138
+    Defense: 180
+    MagicDefense: 103
+    Str: 321
+    Agi: 309
+    Vit: 210
+    Int: 270
+    Dex: 455
+    Luk: 340
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Beast
+    Element: Fire
+    ElementLevel: 3
+    WalkSpeed: 120
+    AttackDelay: 541
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Bar_D_Fl_Energy
+        Rate: 500
+      - Item: Bar_D_Fl_Crystal
+        Rate: 50
+      - Item: Etel_Dust
+        Rate: 150
+      - Item: Flame_Barmund_Rune
+        Rate: 80
+      - Item: Flame_Barmund_Rune2
+        Rate: 20
+      - Item: Barmund_Flame_Essence
+        Rate: 30
+      - Item: Bar_D_Fl_Specimen
+        Rate: 2500
+
+  - Id: 22148
+    AegisName: BIO_HOLY_FRUS
+    Name: Deep Holy Frus
+    Level: 263
+    Hp: 85467880
+    BaseExp: 5525795
+    JobExp: 3848717
+    MvpExp: 0
+    Attack: 28004
+    Attack2: 41691
+    Defense: 299
+    MagicDefense: 115
+    Str: 369
+    Agi: 254
+    Vit: 293
+    Int: 236
+    Dex: 423
+    Luk: 323
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Angel
+    Element: Holy
+    ElementLevel: 2
+    WalkSpeed: 130
+    AttackDelay: 781
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Bar_D_Pu_Energy
+        Rate: 500
+      - Item: Bar_D_Pu_Crystal
+        Rate: 50
+      - Item: Etel_Dust
+        Rate: 150
+      - Item: Temple_Barmund_Rune
+        Rate: 80
+      - Item: Temple_Barmund_Rune2
+        Rate: 20
+      - Item: Barmund_Temple_Essence
+        Rate: 30
+      - Item: Bar_D_Pu_Specimen
+        Rate: 2500
+
+  - Id: 22149
+    AegisName: BIO_HOLY_SKOGUL
+    Name: Deep Holy Skogul
+    Level: 265
+    Hp: 83587530
+    BaseExp: 5693764
+    JobExp: 3983650
+    MvpExp: 0
+    Attack: 55218
+    Attack2: 82580
+    Defense: 187
+    MagicDefense: 207
+    Str: 229
+    Agi: 237
+    Vit: 258
+    Int: 349
+    Dex: 431
+    Luk: 359
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Angel
+    Element: Holy
+    ElementLevel: 2
+    WalkSpeed: 150
+    AttackDelay: 1053
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Bar_D_Pu_Energy
+        Rate: 500
+      - Item: Bar_D_Pu_Crystal
+        Rate: 50
+      - Item: Etel_Dust
+        Rate: 150
+      - Item: Temple_Barmund_Rune
+        Rate: 80
+      - Item: Temple_Barmund_Rune2
+        Rate: 20
+      - Item: Barmund_Temple_Essence
+        Rate: 30
+      - Item: Bar_D_Pu_Specimen
+        Rate: 2500
+
+  - Id: 22150
+    AegisName: BIO_KAPHA
+    Name: Deep Kapha
+    Level: 263
+    Hp: 105899670
+    BaseExp: 5440652
+    JobExp: 3789414
+    MvpExp: 0
+    Attack: 31020
+    Attack2: 46214
+    Defense: 299
+    MagicDefense: 115
+    Str: 369
+    Agi: 254
+    Vit: 293
+    Int: 236
+    Dex: 423
+    Luk: 395
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Fish
+    Element: Water
+    ElementLevel: 3
+    WalkSpeed: 165
+    AttackDelay: 862
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Bar_D_Ic_Energy
+        Rate: 500
+      - Item: Bar_D_Ic_Crystal
+        Rate: 50
+      - Item: Etel_Dust
+        Rate: 150
+      - Item: Ice_Barmund_Rune
+        Rate: 80
+      - Item: Ice_Barmund_Rune2
+        Rate: 20
+      - Item: Barmund_Ice_Essence
+        Rate: 30
+      - Item: Bar_D_Ic_Specimen
+        Rate: 2500
+
+  - Id: 22151
+    AegisName: BIO_SKEL_SOLDIER
+    Name: Deep Skeleton Soldier
+    Level: 264
+    Hp: 100400600
+    BaseExp: 5526869
+    JobExp: 3849464
+    MvpExp: 0
+    Attack: 20841
+    Attack2: 30952
+    Defense: 294
+    MagicDefense: 114
+    Str: 355
+    Agi: 244
+    Vit: 282
+    Int: 227
+    Dex: 408
+    Luk: 310
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Undead
+    Element: Undead
+    ElementLevel: 3
+    WalkSpeed: 160
+    AttackDelay: 575
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Bar_D_Co_Energy
+        Rate: 500
+      - Item: Bar_D_Co_Crystal
+        Rate: 50
+      - Item: Etel_Dust
+        Rate: 150
+      - Item: Death_Barmund_Rune
+        Rate: 80
+      - Item: Death_Barmund_Rune2
+        Rate: 20
+      - Item: Barmund_Death_Essence
+        Rate: 30
+      - Item: Bar_D_Co_Specimen
+        Rate: 2500
+
+  - Id: 22152
+    AegisName: BIO_PINGUICULA_D
+    Name: Deep Dark Pinguicula
+    Level: 264
+    Hp: 81679820
+    BaseExp: 5519017
+    JobExp: 3861388
+    MvpExp: 0
+    Attack: 19746
+    Attack2: 29356
+    Defense: 198
+    MagicDefense: 222
+    Str: 262
+    Agi: 270
+    Vit: 294
+    Int: 398
+    Dex: 487
+    Luk: 409
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Plant
+    Element: Poison
+    ElementLevel: 3
+    WalkSpeed: 230
+    AttackDelay: 599
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Bar_D_Po_Energy
+        Rate: 500
+      - Item: Bar_D_Po_Crystal
+        Rate: 50
+      - Item: Etel_Dust
+        Rate: 150
+      - Item: Venom_Barmund_Rune
+        Rate: 80
+      - Item: Venom_Barmund_Rune2
+        Rate: 20
+      - Item: Barmund_Venom_Essence
+        Rate: 30
+      - Item: Bar_D_Po_Specimen
+        Rate: 2500
+
+  - Id: 22153
+    AegisName: BIO_POM_SPIDER
+    Name: Deep Pom Spider
+    Level: 265
+    Hp: 89009870
+    BaseExp: 5613974
+    JobExp: 3910133
+    MvpExp: 0
+    Attack: 23905
+    Attack2: 35515
+    Defense: 319
+    MagicDefense: 123
+    Str: 420
+    Agi: 289
+    Vit: 334
+    Int: 269
+    Dex: 477
+    Luk: 368
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Insect
+    Element: Poison
+    ElementLevel: 2
+    WalkSpeed: 200
+    AttackDelay: 658
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Bar_D_Po_Energy
+        Rate: 500
+      - Item: Bar_D_Po_Crystal
+        Rate: 50
+      - Item: Etel_Dust
+        Rate: 150
+      - Item: Venom_Barmund_Rune
+        Rate: 80
+      - Item: Venom_Barmund_Rune2
+        Rate: 20
+      - Item: Barmund_Venom_Essence
+        Rate: 30
+      - Item: Bar_D_Po_Specimen
+        Rate: 2500
+
+  - Id: 22154
+    AegisName: BIO_PRAY_GIVER
+    Name: Deep Pray Giver
+    Level: 263
+    Hp: 89002070
+    BaseExp: 5466195
+    JobExp: 3826337
+    MvpExp: 0
+    Attack: 26893
+    Attack2: 40022
+    Defense: 299
+    MagicDefense: 175
+    Str: 372
+    Agi: 263
+    Vit: 354
+    Int: 372
+    Dex: 496
+    Luk: 365
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Angel
+    Element: Ghost
+    ElementLevel: 3
+    WalkSpeed: 120
+    AttackDelay: 769
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Bar_D_So_Energy
+        Rate: 500
+      - Item: Bar_D_So_Crystal
+        Rate: 50
+      - Item: Etel_Dust
+        Rate: 150
+      - Item: Soul_Barmund_Rune
+        Rate: 80
+      - Item: Soul_Barmund_Rune2
+        Rate: 20
+      - Item: Barmund_Soul_Essence
+        Rate: 30
+      - Item: Bar_D_So_Specimen
+        Rate: 2500
+
+  - Id: 22155
+    AegisName: BIO_WOOD_GOBLIN
+    Name: Deep Wood Goblin
+    Level: 264
+    Hp: 99900999
+    BaseExp: 5466757
+    JobExp: 3826730
+    MvpExp: 0
+    Attack: 29304
+    Attack2: 43633
+    Defense: 303
+    MagicDefense: 177
+    Str: 382
+    Agi: 270
+    Vit: 363
+    Int: 382
+    Dex: 507
+    Luk: 374
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Plant
+    Element: Earth
+    ElementLevel: 3
+    WalkSpeed: 240
+    AttackDelay: 840
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Bar_D_Ea_Energy
+        Rate: 500
+      - Item: Bar_D_Ea_Crystal
+        Rate: 50
+      - Item: Etel_Dust
+        Rate: 150
+      - Item: Plain_Barmund_Rune
+        Rate: 80
+      - Item: Plain_Barmund_Rune2
+        Rate: 20
+      - Item: Barmund_Plain_Essence
+        Rate: 30
+      - Item: Bar_D_Ea_Specimen
+        Rate: 2500
+
+  - Id: 22383
+    AegisName: VIOLEN
+    Name: 비올렌
+    Level: 273
+    Hp: 25126600
+    BaseExp: 3414800
+    JobExp: 2384392
+    MvpExp: 0
+    Attack: 251
+    Attack2: 160
+    Defense: 273
+    MagicDefense: 178
+    Str: 160
+    Agi: 155
+    Vit: 102
+    Int: 135
+    Dex: 201
+    Luk: 252
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Neutral
+    ElementLevel: 1
+    WalkSpeed: 200
+    AttackDelay: 840
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Golden_Jewel
+        Rate: 1
+      - Item: Hot_Water_Drop_Gem
+        Rate: 1
+      - Item: Shining_Crystal
+        Rate: 1
+      - Item: Small_Sewing_Box
+        Rate: 1
+
+  - Id: 22384
+    AegisName: CP_VIOLEN
+    Name: 강인한 비올렌
+    Level: 273
+    Hp: 55293200
+    BaseExp: 10244398
+    JobExp: 7153178
+    MvpExp: 0
+    Attack: 320
+    Attack2: 229
+    Defense: 327
+    MagicDefense: 238
+    Str: 229
+    Agi: 232
+    Vit: 145
+    Int: 201
+    Dex: 307
+    Luk: 374
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Neutral
+    ElementLevel: 1
+    WalkSpeed: 200
+    AttackDelay: 840
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Shining_Crystal
+        Rate: 1
+      - Item: Small_Sewing_Box
+        Rate: 1
+      - Item: Etel_Stone
+        Rate: 1
+
+  - Id: 22385
+    AegisName: SPIDING
+    Name: 거밍
+    Level: 273
+    Hp: 23018500
+    BaseExp: 3385982
+    JobExp: 2364272
+    MvpExp: 0
+    Attack: 326
+    Attack2: 235
+    Defense: 305
+    MagicDefense: 203
+    Str: 235
+    Agi: 227
+    Vit: 254
+    Int: 198
+    Dex: 229
+    Luk: 347
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Insect
+    Element: Shadow
+    ElementLevel: 2
+    WalkSpeed: 120
+    AttackDelay: 1351
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Etel_Dust
+        Rate: 1
+      - Item: Congealed_Poison
+        Rate: 1
+      - Item: Firm_Land_Crystal
+        Rate: 1
+      - Item: Ectoplasmic_Stone
+        Rate: 1
+
+  - Id: 22386
+    AegisName: CP_SPIDING
+    Name: 강인한 거밍
+    Level: 273
+    Hp: 50648900
+    BaseExp: 10157948
+    JobExp: 7092814
+    MvpExp: 0
+    Attack: 360
+    Attack2: 269
+    Defense: 350
+    MagicDefense: 254
+    Str: 269
+    Agi: 272
+    Vit: 176
+    Int: 235
+    Dex: 345
+    Luk: 425
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Insect
+    Element: Shadow
+    ElementLevel: 2
+    WalkSpeed: 120
+    AttackDelay: 1351
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Congealed_Poison
+        Rate: 1
+      - Item: Firm_Land_Crystal
+        Rate: 1
+      - Item: Shadowdecon
+        Rate: 1
+
+  - Id: 22387
+    AegisName: GARLING
+    Name: 갈링
+    Level: 274
+    Hp: 24468900
+    BaseExp: 3426154
+    JobExp: 2386316
+    MvpExp: 0
+    Attack: 402
+    Attack2: 311
+    Defense: 522
+    MagicDefense: 243
+    Str: 310
+    Agi: 231
+    Vit: 246
+    Int: 198
+    Dex: 243
+    Luk: 373
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Plant
+    Element: Fire
+    ElementLevel: 3
+    WalkSpeed: 100
+    AttackDelay: 360
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+
+  - Id: 22388
+    AegisName: CP_GARLING
+    Name: 강인한 갈링
+    Level: 274
+    Hp: 53843500
+    BaseExp: 10278462
+    JobExp: 7158950
+    MvpExp: 0
+    Attack: 446
+    Attack2: 355
+    Defense: 607
+    MagicDefense: 305
+    Str: 354
+    Agi: 256
+    Vit: 281
+    Int: 236
+    Dex: 363
+    Luk: 455
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Plant
+    Element: Fire
+    ElementLevel: 3
+    WalkSpeed: 100
+    AttackDelay: 360
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+
+  - Id: 22389
+    AegisName: JACKONETTE
+    Name: 잭오네트
+    Level: 274
+    Hp: 22990300
+    BaseExp: 3463024
+    JobExp: 2422910
+    MvpExp: 0
+    Attack: 268
+    Attack2: 177
+    Defense: 317
+    MagicDefense: 410
+    Str: 176
+    Agi: 181
+    Vit: 198
+    Int: 267
+    Dex: 227
+    Luk: 378
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Demon
+    Element: Ghost
+    ElementLevel: 2
+    WalkSpeed: 180
+    AttackDelay: 481
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Shadowdecon
+        Rate: 1
+      - Item: Ice_Water_Drop_Gem
+        Rate: 1
+      - Item: Small_Sewing_Box
+        Rate: 1
+      - Item: Evil_Minded_Ruby
+        Rate: 1
+      - Item: Etel_Dust
+        Rate: 1
+      - Item: Amber
+        Rate: 1
+
+  - Id: 22390
+    AegisName: CP_JACKONETTE
+    Name: 강인한 잭오네트
+    Level: 274
+    Hp: 50588600
+    BaseExp: 10389072
+    JobExp: 7272728
+    MvpExp: 0
+    Attack: 293
+    Attack2: 202
+    Defense: 366
+    MagicDefense: 520
+    Str: 201
+    Agi: 218
+    Vit: 226
+    Int: 318
+    Dex: 341
+    Luk: 460
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Demon
+    Element: Ghost
+    ElementLevel: 2
+    WalkSpeed: 180
+    AttackDelay: 481
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Evil_Minded_Ruby
+        Rate: 1
+      - Item: Small_Sewing_Box
+        Rate: 1
+      - Item: Ice_Water_Drop_Gem
+        Rate: 1
+
+  - Id: 22391
+    AegisName: LIAMETTE
+    Name: 리아멧트
+    Level: 275
+    Hp: 29946400
+    BaseExp: 3521528
+    JobExp: 2452744
+    MvpExp: 0
+    Attack: 323
+    Attack2: 232
+    Defense: 469
+    MagicDefense: 218
+    Str: 231
+    Agi: 159
+    Vit: 181
+    Int: 148
+    Dex: 183
+    Luk: 290
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Neutral
+    ElementLevel: 1
+    WalkSpeed: 150
+    AttackDelay: 433
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Blue_Flame_Heart_Gem
+        Rate: 1
+      - Item: Evil_Minded_Ruby
+        Rate: 1
+      - Item: Heavy_Chain
+        Rate: 1
+      - Item: Etel_Dust
+        Rate: 1
+      - Item: Etel_Stone
+        Rate: 1
+      - Item: Zelunium
+        Rate: 1
+      - Item: Violet_Jewel
+        Rate: 1
+
+  - Id: 22392
+    AegisName: CP_LIAMETTE
+    Name: 강인한 리아멧트
+    Level: 275
+    Hp: 65891020
+    BaseExp: 10564584
+    JobExp: 7358234
+    MvpExp: 0
+    Attack: 356
+    Attack2: 265
+    Defense: 540
+    MagicDefense: 271
+    Str: 264
+    Agi: 191
+    Vit: 209
+    Int: 176
+    Dex: 280
+    Luk: 359
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Neutral
+    ElementLevel: 1
+    WalkSpeed: 150
+    AttackDelay: 433
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Violet_Jewel
+        Rate: 1
+      - Item: Zelunium
+        Rate: 1
+      - Item: Etel_Dust
+        Rate: 1
+      - Item: Evil_Minded_Ruby
+        Rate: 1
+      - Item: Heavy_Chain
+        Rate: 1
+      - Item: Blue_Flame_Heart_Gem
+        Rate: 1
+
+  - Id: 22394
+    AegisName: NIGHTMARE_PIAMETTE
+    Name: 악몽의 피아멧트
+    Level: 275
+    Hp: 754280400
+    BaseExp: 2064645
+    JobExp: 11597201
+    MvpExp: 0
+    Attack: 508
+    Attack2: 417
+    Defense: 1308
+    MagicDefense: 658
+    Str: 416
+    Agi: 301
+    Vit: 330
+    Int: 278
+    Dex: 421
+    Luk: 521
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Neutral
+    ElementLevel: 1
+    WalkSpeed: 150
+    AttackDelay: 0
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+
+  - Id: 22395
+    AegisName: MEDJED
+    Name: 메제드
+    Level: 272
+    Hp: 23535500
+    BaseExp: 3367462
+    JobExp: 2345438
+    MvpExp: 0
+    Attack: 374
+    Attack2: 283
+    Defense: 502
+    MagicDefense: 233
+    Str: 283
+    Agi: 195
+    Vit: 225
+    Int: 181
+    Dex: 222
+    Luk: 345
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Angel
+    Element: Ghost
+    ElementLevel: 2
+    WalkSpeed: 120
+    AttackDelay: 433
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Turn_Yellow_Leaf
+        Rate: 1
+      - Item: Whittling
+        Rate: 1
+      - Item: Amber
+        Rate: 1
+      - Item: Golden_Jewel
+        Rate: 1
+
+  - Id: 22396
+    AegisName: CP_MEDJED
+    Name: 강인한 메제드
+    Level: 272
+    Hp: 51788960
+    BaseExp: 10102388
+    JobExp: 7036314
+    MvpExp: 0
+    Attack: 414
+    Attack2: 323
+    Defense: 582
+    MagicDefense: 292
+    Str: 323
+    Agi: 234
+    Vit: 257
+    Int: 216
+    Dex: 335
+    Luk: 422
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Angel
+    Element: Ghost
+    ElementLevel: 2
+    WalkSpeed: 120
+    AttackDelay: 433
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Whittling
+        Rate: 1
+      - Item: Turn_Yellow_Leaf
+        Rate: 1
+      - Item: Blue_Flame_Heart_Gem
+        Rate: 1
+
+  - Id: 22397
+    AegisName: MEDJAY
+    Name: 메자이
+    Level: 274
+    Hp: 26708750
+    BaseExp: 3484274
+    JobExp: 2426796
+    MvpExp: 0
+    Attack: 331
+    Attack2: 240
+    Defense: 474
+    MagicDefense: 221
+    Str: 239
+    Agi: 165
+    Vit: 190
+    Int: 153
+    Dex: 188
+    Luk: 299
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Neutral
+    ElementLevel: 1
+    WalkSpeed: 150
+    AttackDelay: 575
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Red_Flame_Heart_Gem
+        Rate: 1
+      - Item: Blaze_Stone
+        Rate: 1
+      - Item: Evil_Minded_Ruby
+        Rate: 1
+      - Item: Amber
+        Rate: 1
+
+  - Id: 22398
+    AegisName: CP_MEDJAY
+    Name: 강인한 메자이
+    Level: 274
+    Hp: 58768350
+    BaseExp: 10452822
+    JobExp: 7280390
+    MvpExp: 0
+    Attack: 364
+    Attack2: 273
+    Defense: 547
+    MagicDefense: 274
+    Str: 273
+    Agi: 198
+    Vit: 217
+    Int: 183
+    Dex: 289
+    Luk: 369
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Neutral
+    ElementLevel: 1
+    WalkSpeed: 150
+    AttackDelay: 575
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Etel_Dust
+        Rate: 1
+      - Item: Evil_Minded_Ruby
+        Rate: 1
+      - Item: Blaze_Stone
+        Rate: 1
+
+  - Id: 22399
+    AegisName: OPHOIS
+    Name: 오포이스
+    Level: 275
+    Hp: 27228250
+    BaseExp: 3521528
+    JobExp: 2452744
+    MvpExp: 0
+    Attack: 336
+    Attack2: 245
+    Defense: 478
+    MagicDefense: 223
+    Str: 244
+    Agi: 168
+    Vit: 194
+    Int: 157
+    Dex: 194
+    Luk: 304
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Undead
+    Element: Shadow
+    ElementLevel: 2
+    WalkSpeed: 150
+    AttackDelay: 575
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Congealed_Poison
+        Rate: 1
+      - Item: Dry_Wind_Leaf_Gem
+        Rate: 1
+      - Item: Evil_Black_Bid
+        Rate: 1
+      - Item: Violet_Jewel
+        Rate: 1
+
+  - Id: 22400
+    AegisName: CP_OPHOIS
+    Name: 강인한 오포이스
+    Level: 275
+    Hp: 60011470
+    BaseExp: 10564584
+    JobExp: 7358234
+    MvpExp: 0
+    Attack: 371
+    Attack2: 280
+    Defense: 552
+    MagicDefense: 277
+    Str: 279
+    Agi: 202
+    Vit: 222
+    Int: 186
+    Dex: 294
+    Luk: 375
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Undead
+    Element: Shadow
+    ElementLevel: 2
+    WalkSpeed: 170
+    AttackDelay: 575
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Congealed_Poison
+        Rate: 1
+
+  - Id: 22401
+    AegisName: HEKA
+    Name: 헤카
+    Level: 273
+    Hp: 23207890
+    BaseExp: 3411768
+    JobExp: 2387048
+    MvpExp: 0
+    Attack: 224
+    Attack2: 133
+    Defense: 282
+    MagicDefense: 364
+    Str: 133
+    Agi: 137
+    Vit: 145
+    Int: 201
+    Dex: 220
+    Luk: 297
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Demon
+    Element: Wind
+    ElementLevel: 3
+    WalkSpeed: 200
+    AttackDelay: 505
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Slicky_Fluid
+        Rate: 1
+      - Item: Shining_Crystal
+        Rate: 1
+      - Item: Shadowdecon
+        Rate: 1
+
+  - Id: 22402
+    AegisName: CP_HEKA
+    Name: 강인한 헤카
+    Level: 273
+    Hp: 51101790
+    BaseExp: 10235304
+    JobExp: 7161144
+    MvpExp: 0
+    Attack: 280
+    Attack2: 189
+    Defense: 348
+    MagicDefense: 504
+    Str: 189
+    Agi: 205
+    Vit: 207
+    Int: 300
+    Dex: 332
+    Luk: 438
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Demon
+    Element: Wind
+    ElementLevel: 3
+    WalkSpeed: 200
+    AttackDelay: 505
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
+    Drops:
+      - Item: Shining_Crystal
+        Rate: 1
+      - Item: Slicky_Fluid
+        Rate: 1
+
+  - Id: 22404
+    AegisName: GUIDE_OF_DEAD
+    Name: 사자의 인도자
+    Level: 275
+    Hp: 776870690
+    BaseExp: 2064645
+    JobExp: 11597201
+    MvpExp: 0
+    Attack: 511
+    Attack2: 420
+    Defense: 1312
+    MagicDefense: 660
+    Str: 419
+    Agi: 303
+    Vit: 332
+    Int: 280
+    Dex: 243
+    Luk: 524
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Undead
+    Element: Shadow
+    ElementLevel: 3
+    WalkSpeed: 120
+    AttackDelay: 1149
+    AttackMotion: 0
+    DamageMotion: 0
+    DamageTaken: 100
+    Ai: 06
+    Class: Normal
+    Modes:
+      CanMove: true
+      CanAttack: true
 
 #Body:
 # eAthena Dev Team
