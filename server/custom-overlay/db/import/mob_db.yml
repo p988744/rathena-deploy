@@ -2931,6 +2931,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Blaze_Stone
         Rate: 2350
@@ -2984,6 +2985,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Aromatic_Flower
         Rate: 2350
@@ -3037,6 +3039,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Evil_Minded_Ruby
         Rate: 2350
@@ -3090,6 +3093,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Congealed_Poison
         Rate: 2350
@@ -3143,6 +3147,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Evil_Black_Bid
         Rate: 1800
@@ -3196,6 +3201,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Fresh_Pear
         Rate: 2250
@@ -3249,6 +3255,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Slicky_Fluid
         Rate: 2250
@@ -3302,6 +3309,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Cool_Liquid
         Rate: 2250
@@ -3355,6 +3363,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Whittling
         Rate: 2250
@@ -3408,6 +3417,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Green_Crystal_Fragment
         Rate: 1800
@@ -3461,6 +3471,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Bar_D_Ic_Energy
         Rate: 500
@@ -3512,6 +3523,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Bar_D_Co_Energy
         Rate: 500
@@ -3563,6 +3575,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Bar_D_St_Energy
         Rate: 500
@@ -3614,6 +3627,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Bar_D_Fl_Energy
         Rate: 500
@@ -3665,6 +3679,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Bar_D_St_Energy
         Rate: 500
@@ -3716,6 +3731,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Bar_D_Ea_Energy
         Rate: 500
@@ -3767,6 +3783,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Bar_D_So_Energy
         Rate: 500
@@ -3818,6 +3835,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Bar_D_Fl_Energy
         Rate: 500
@@ -3869,6 +3887,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Bar_D_Pu_Energy
         Rate: 500
@@ -3920,6 +3939,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Bar_D_Pu_Energy
         Rate: 500
@@ -3971,6 +3991,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Bar_D_Ic_Energy
         Rate: 500
@@ -4022,6 +4043,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Bar_D_Co_Energy
         Rate: 500
@@ -4073,6 +4095,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Bar_D_Po_Energy
         Rate: 500
@@ -4124,6 +4147,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Bar_D_Po_Energy
         Rate: 500
@@ -4175,6 +4199,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Bar_D_So_Energy
         Rate: 500
@@ -4226,6 +4251,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Bar_D_Ea_Energy
         Rate: 500
@@ -4250,8 +4276,8 @@ Body:
     BaseExp: 3414800
     JobExp: 2384392
     MvpExp: 0
-    Attack: 251
-    Attack2: 160
+    Attack: 25100
+    Attack2: 16000
     Defense: 273
     MagicDefense: 178
     Str: 160
@@ -4277,6 +4303,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Golden_Jewel
         Rate: 1
@@ -4295,8 +4322,8 @@ Body:
     BaseExp: 10244398
     JobExp: 7153178
     MvpExp: 0
-    Attack: 320
-    Attack2: 229
+    Attack: 32000
+    Attack2: 22900
     Defense: 327
     MagicDefense: 238
     Str: 229
@@ -4322,6 +4349,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Shining_Crystal
         Rate: 1
@@ -4338,8 +4366,8 @@ Body:
     BaseExp: 3385982
     JobExp: 2364272
     MvpExp: 0
-    Attack: 326
-    Attack2: 235
+    Attack: 32600
+    Attack2: 23500
     Defense: 305
     MagicDefense: 203
     Str: 235
@@ -4365,6 +4393,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Etel_Dust
         Rate: 1
@@ -4383,8 +4412,8 @@ Body:
     BaseExp: 10157948
     JobExp: 7092814
     MvpExp: 0
-    Attack: 360
-    Attack2: 269
+    Attack: 36000
+    Attack2: 26900
     Defense: 350
     MagicDefense: 254
     Str: 269
@@ -4410,6 +4439,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Congealed_Poison
         Rate: 1
@@ -4426,8 +4456,8 @@ Body:
     BaseExp: 3426154
     JobExp: 2386316
     MvpExp: 0
-    Attack: 402
-    Attack2: 311
+    Attack: 40200
+    Attack2: 31100
     Defense: 522
     MagicDefense: 243
     Str: 310
@@ -4453,6 +4483,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
 
   - Id: 22388
     AegisName: CP_GARLING
@@ -4462,8 +4493,8 @@ Body:
     BaseExp: 10278462
     JobExp: 7158950
     MvpExp: 0
-    Attack: 446
-    Attack2: 355
+    Attack: 44600
+    Attack2: 35500
     Defense: 607
     MagicDefense: 305
     Str: 354
@@ -4489,6 +4520,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
 
   - Id: 22389
     AegisName: JACKONETTE
@@ -4498,8 +4530,8 @@ Body:
     BaseExp: 3463024
     JobExp: 2422910
     MvpExp: 0
-    Attack: 268
-    Attack2: 177
+    Attack: 26800
+    Attack2: 17700
     Defense: 317
     MagicDefense: 410
     Str: 176
@@ -4525,6 +4557,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Shadowdecon
         Rate: 1
@@ -4547,8 +4580,8 @@ Body:
     BaseExp: 10389072
     JobExp: 7272728
     MvpExp: 0
-    Attack: 293
-    Attack2: 202
+    Attack: 29300
+    Attack2: 20200
     Defense: 366
     MagicDefense: 520
     Str: 201
@@ -4574,6 +4607,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Evil_Minded_Ruby
         Rate: 1
@@ -4590,8 +4624,8 @@ Body:
     BaseExp: 3521528
     JobExp: 2452744
     MvpExp: 0
-    Attack: 323
-    Attack2: 232
+    Attack: 32300
+    Attack2: 23200
     Defense: 469
     MagicDefense: 218
     Str: 231
@@ -4617,6 +4651,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Blue_Flame_Heart_Gem
         Rate: 1
@@ -4641,8 +4676,8 @@ Body:
     BaseExp: 10564584
     JobExp: 7358234
     MvpExp: 0
-    Attack: 356
-    Attack2: 265
+    Attack: 35600
+    Attack2: 26500
     Defense: 540
     MagicDefense: 271
     Str: 264
@@ -4668,6 +4703,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Violet_Jewel
         Rate: 1
@@ -4690,8 +4726,8 @@ Body:
     BaseExp: 2064645
     JobExp: 11597201
     MvpExp: 0
-    Attack: 508
-    Attack2: 417
+    Attack: 50800
+    Attack2: 41700
     Defense: 1308
     MagicDefense: 658
     Str: 416
@@ -4717,6 +4753,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
 
   - Id: 22395
     AegisName: MEDJED
@@ -4726,8 +4763,8 @@ Body:
     BaseExp: 3367462
     JobExp: 2345438
     MvpExp: 0
-    Attack: 374
-    Attack2: 283
+    Attack: 37400
+    Attack2: 28300
     Defense: 502
     MagicDefense: 233
     Str: 283
@@ -4753,6 +4790,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Turn_Yellow_Leaf
         Rate: 1
@@ -4771,8 +4809,8 @@ Body:
     BaseExp: 10102388
     JobExp: 7036314
     MvpExp: 0
-    Attack: 414
-    Attack2: 323
+    Attack: 41400
+    Attack2: 32300
     Defense: 582
     MagicDefense: 292
     Str: 323
@@ -4798,6 +4836,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Whittling
         Rate: 1
@@ -4814,8 +4853,8 @@ Body:
     BaseExp: 3484274
     JobExp: 2426796
     MvpExp: 0
-    Attack: 331
-    Attack2: 240
+    Attack: 33100
+    Attack2: 24000
     Defense: 474
     MagicDefense: 221
     Str: 239
@@ -4841,6 +4880,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Red_Flame_Heart_Gem
         Rate: 1
@@ -4859,8 +4899,8 @@ Body:
     BaseExp: 10452822
     JobExp: 7280390
     MvpExp: 0
-    Attack: 364
-    Attack2: 273
+    Attack: 36400
+    Attack2: 27300
     Defense: 547
     MagicDefense: 274
     Str: 273
@@ -4886,6 +4926,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Etel_Dust
         Rate: 1
@@ -4902,8 +4943,8 @@ Body:
     BaseExp: 3521528
     JobExp: 2452744
     MvpExp: 0
-    Attack: 336
-    Attack2: 245
+    Attack: 33600
+    Attack2: 24500
     Defense: 478
     MagicDefense: 223
     Str: 244
@@ -4929,6 +4970,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Congealed_Poison
         Rate: 1
@@ -4947,8 +4989,8 @@ Body:
     BaseExp: 10564584
     JobExp: 7358234
     MvpExp: 0
-    Attack: 371
-    Attack2: 280
+    Attack: 37100
+    Attack2: 28000
     Defense: 552
     MagicDefense: 277
     Str: 279
@@ -4974,6 +5016,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Congealed_Poison
         Rate: 1
@@ -4986,8 +5029,8 @@ Body:
     BaseExp: 3411768
     JobExp: 2387048
     MvpExp: 0
-    Attack: 224
-    Attack2: 133
+    Attack: 22400
+    Attack2: 13300
     Defense: 282
     MagicDefense: 364
     Str: 133
@@ -5013,6 +5056,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Slicky_Fluid
         Rate: 1
@@ -5029,8 +5073,8 @@ Body:
     BaseExp: 10235304
     JobExp: 7161144
     MvpExp: 0
-    Attack: 280
-    Attack2: 189
+    Attack: 28000
+    Attack2: 18900
     Defense: 348
     MagicDefense: 504
     Str: 189
@@ -5056,6 +5100,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
     Drops:
       - Item: Shining_Crystal
         Rate: 1
@@ -5070,8 +5115,8 @@ Body:
     BaseExp: 2064645
     JobExp: 11597201
     MvpExp: 0
-    Attack: 511
-    Attack2: 420
+    Attack: 51100
+    Attack2: 42000
     Defense: 1312
     MagicDefense: 660
     Str: 419
@@ -5097,6 +5142,7 @@ Body:
     Modes:
       CanMove: true
       CanAttack: true
+      Aggressive: true
 
 #Body:
 # eAthena Dev Team

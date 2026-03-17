@@ -353,6 +353,30 @@ sed -i 's|.SkillPointCheck = true;|.SkillPointCheck = false;|' /rathena/npc/cust
 
 echo "✅ 設定檔生成完成！"
 
+if [ -f "/rathena/npc/custom/new_maps_mobs.txt" ]; then
+    if ! grep -q 'new_maps_mobs.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/new_maps_mobs.txt' >> /rathena/npc/scripts_custom.conf
+    fi
+    echo "   已啟用新地圖怪物 spawns"
+fi
+
+# 啟用自訂地圖 mapflag（讓 map server 載入這些地圖）
+if [ -f "/rathena/npc/custom/custom_maps.txt" ]; then
+    if ! grep -q 'custom_maps.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/custom_maps.txt' >> /rathena/npc/scripts_custom.conf
+    fi
+    echo "   已啟用自訂地圖 mapflag"
+fi
+
+# ------ 自訂地圖（bl_depth1 複製體）------
+# map_index.txt（char server 用）
+grep -qF 'bl_dep1_cus' /rathena/db/map_index.txt || echo 'bl_dep1_cus' >> /rathena/db/map_index.txt
+grep -qF 'bl_dep2_cus' /rathena/db/map_index.txt || echo 'bl_dep2_cus' >> /rathena/db/map_index.txt
+# maps_athena.conf（map server 載入清單）
+grep -qF 'map: bl_dep1_cus' /rathena/conf/maps_athena.conf || echo 'map: bl_dep1_cus' >> /rathena/conf/maps_athena.conf
+grep -qF 'map: bl_dep2_cus' /rathena/conf/maps_athena.conf || echo 'map: bl_dep2_cus' >> /rathena/conf/maps_athena.conf
+echo "   已加入自訂地圖 (bl_dep1_cus, bl_dep2_cus)"
+
 # ------ 啟動伺服器 ------
 echo "[4/4] 啟動伺服器..."
 

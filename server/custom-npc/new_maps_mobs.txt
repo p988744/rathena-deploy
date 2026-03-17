@@ -1,0 +1,45 @@
+//===== Custom Script =========================================
+//= New Maps Monster Spawns
+//= 最粗的感動 private server
+//===== Description ===========================================
+//= Monster spawns for new custom map areas:
+//= bl_depth1 (Bio Lab Deep), mjo_wst01, ra_pol01
+//=============================================================
+
+//==================================================
+// bl_depth1 — Bio Lab Deep
+//==================================================
+bl_depth1,0,0	monster	Deep Lava Toad	22143,25,5000,0
+bl_depth1,0,0	monster	Deep Empathizer	22146,25,5000,0
+bl_depth1,0,0	monster	Deep Anolian	22140,25,5000,0
+bl_depth1,0,0	monster	Deep Little Fatum	22144,25,5000,0
+bl_depth1,0,0	monster	Deep Holy Frus	22148,25,5000,0
+bl_depth1,0,0	monster	Deep Kapha	22150,25,5000,0
+bl_depth1,0,0	monster	Deep Pray Giver	22154,25,5000,0
+bl_depth1,0,0	monster	Deep Skeleton Archer	22141,25,5000,0
+bl_depth1,0,0	monster	Deep Dragon Tail	22142,25,5000,0
+bl_depth1,0,0	monster	Deep Skeleton Soldier	22151,25,5000,0
+bl_depth1,0,0	monster	Deep Dark Pinguicula	22152,25,5000,0
+bl_depth1,0,0	monster	Deep Wood Goblin	22155,25,5000,0
+bl_depth1,0,0	monster	Deep Sting	22145,25,5000,0
+bl_depth1,0,0	monster	Deep Fire Frilldora	22147,25,5000,0
+bl_depth1,0,0	monster	Deep Holy Skogul	22149,25,5000,0
+bl_depth1,0,0	monster	Deep Pom Spider	22153,25,5000,0
+
+//==================================================
+// mjo_wst01 — Mjolnir West
+//==================================================
+mjo_wst01,0,0	monster	Punch Bug	21951,90,5000,0
+mjo_wst01,0,0	monster	Dispol	21953,90,5000,0
+mjo_wst01,0,0	monster	Aferde	21952,90,5000,0
+mjo_wst01,0,0	monster	Timbers	21954,90,5000,0
+mjo_wst01,0,0,0,0	boss_monster	Renire	21955,1,7200000,600000,1
+
+//==================================================
+// ra_pol01 — Rachel Polar
+//==================================================
+ra_pol01,0,0	monster	Deadsera	21947,100,5000,0
+ra_pol01,0,0	monster	Hardrock Titan	21948,125,5000,0
+ra_pol01,0,0	monster	Deadween	21949,125,5000,0
+ra_pol01,0,0	monster	Burning Night	21946,125,5000,0
+ra_pol01,0,0,0,0	boss_monster	Gaia Pol	21950,1,7200000,600000,1
