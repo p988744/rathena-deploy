@@ -1,0 +1,28 @@
+Scrape log
+==========
+OK    22143 BIO_LAVA_TOAD: 11 entries
+OK    22146 BIO_EMPATHIZER: 13 entries
+OK    22140 BIO_ANOLIAN: 14 entries
+OK    22144 BIO_LITTLE_FATUM: 12 entries
+OK    22148 BIO_HOLY_FRUS: 20 entries
+OK    22150 BIO_KAPHA: 14 entries
+OK    22154 BIO_PRAY_GIVER: 11 entries
+OK    22141 BIO_SKELETON_ARCHER: 7 entries
+OK    22142 BIO_DRAGON_TAIL: 10 entries
+OK    22151 BIO_SKELETON_SOLDIER: 7 entries
+OK    22152 BIO_DARK_PINGUICULA: 12 entries
+OK    22155 BIO_WOOD_GOBLIN: 15 entries
+OK    22145 BIO_STING: 19 entries
+OK    22147 BIO_FIRE_FRILLDORA: 14 entries
+OK    22149 BIO_HOLY_SKOGUL: 13 entries
+OK    22153 BIO_POM_SPIDER: 13 entries
+EMPTY 21951 MJO_PUNCH_BUG (no skills table found)
+EMPTY 21952 MJO_AFERDE (no skills table found)
+EMPTY 21953 MJO_DISPOL (no skills table found)
+EMPTY 21954 MJO_TIMBERS (no skills table found)
+EMPTY 21955 MJO_RENIRE (no skills table found)
+EMPTY 21946 RA_BURNING_NIGHT (no skills table found)
+EMPTY 21947 RA_DEADSERA (no skills table found)
+EMPTY 21948 RA_HARDROCK_TITAN (no skills table found)
+EMPTY 21949 RA_DEADWEEN (no skills table found)
+EMPTY 21950 RA_GAIA_POL (no skills table found)
