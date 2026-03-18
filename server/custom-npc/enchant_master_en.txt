@@ -3314,14 +3314,14 @@ L_TaiwanSpecial:
 	} else {
 		mes "All 3 enchant slots (Slot 2 / 3 / 4) will be filled at once.";
 	}
-	mes "Cost: ^FF000050,000,000 Zeny^000000";
+	mes "Cost: ^FF0000100,000,000 Zeny^000000";
 	next;
 	if (select("Yes, enchant!", "Cancel") == 2) {
 		mes "[Enchant Master]"; mes "Cancelled."; close;
 	}
 	if (Zeny < 100000000) {
 		mes "[Enchant Master]";
-		mes "^FF0000Not enough Zeny. Need 50,000,000z.^000000";
+		mes "^FF0000Not enough Zeny. Need 100,000,000z.^000000";
 		close;
 	}
 
