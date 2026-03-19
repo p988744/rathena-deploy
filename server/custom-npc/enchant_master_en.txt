@@ -2127,7 +2127,7 @@ L_Caesar:
 	if (select("Yes, enchant!", "Cancel") == 2) {
 		mes "[Enchant Master]"; mes "Cancelled."; close;
 	}
-	if (Zeny < 100000000) {
+	if (Zeny < 50000000) {
 		mes "[Enchant Master]";
 		mes "^FF0000Not enough Zeny. Need 50,000,000z.^000000";
 		close;
@@ -2224,7 +2224,7 @@ L_Caesar:
 	}
 
 	// Apply enchants to slots 4, 3, 2 (card indices 3, 2, 1)
-	Zeny -= 100000000;
+	Zeny -= 50000000;
 	.@card[3] = .@new_s4;
 	.@card[2] = .@new_s3;
 	.@card[1] = .@new_s2;
@@ -2615,7 +2615,7 @@ L_SwallowShield:
 	if (select("Yes, enchant!", "Cancel") == 2) {
 		mes "[Enchant Master]"; mes "Cancelled."; close;
 	}
-	if (Zeny < 100000000) {
+	if (Zeny < 50000000) {
 		mes "[Enchant Master]";
 		mes "^FF0000Not enough Zeny. Need 50,000,000z.^000000";
 		close;
@@ -2677,7 +2677,7 @@ L_SwallowShield:
 		if (.@r < .@cum) { .@new_s3 = .@s3_ids[.@i]; break; }
 	}
 
-	Zeny -= 100000000;
+	Zeny -= 50000000;
 	.@card[3] = .@new_s4;
 	.@card[2] = .@new_s3;
 	delequip .@part;
@@ -3182,7 +3182,7 @@ L_AstarBoots:
 	if (select("Yes, enchant!", "Cancel") == 2) {
 		mes "[Enchant Master]"; mes "Cancelled."; close;
 	}
-	if (Zeny < 100000000) {
+	if (Zeny < 50000000) {
 		mes "[Enchant Master]";
 		mes "^FF0000Not enough Zeny. Need 50,000,000z.^000000";
 		close;
@@ -3233,7 +3233,7 @@ L_AstarBoots:
 		if (.@r < .@cum) { .@new_s3 = .@s3_ids[.@i]; break; }
 	}
 
-	Zeny -= 100000000;
+	Zeny -= 50000000;
 	.@card[3] = .@new_s4;
 	.@card[2] = .@new_s3;
 	delequip .@part;

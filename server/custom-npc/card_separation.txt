@@ -23,12 +23,12 @@
 	if (strnpcinfo(1) == "Jeremy") {
 		set .@Jeremy,1;
 		set .@n$, "[Jeremy]";
-		setarray .@equip_name$[0],  "Armor",  "Shoes",  "Garment", "Upper Hat";
-		setarray .@equip_slot[0], EQI_ARMOR,EQI_SHOES,EQI_GARMENT,EQI_HEAD_TOP;
+		setarray .@equip_name$[0],  "Armor",  "Shoes",  "Garment", "Upper Hat", "Middle Hat", "Lower Hat";
+		setarray .@equip_slot[0], EQI_ARMOR,EQI_SHOES,EQI_GARMENT,EQI_HEAD_TOP,EQI_HEAD_MID,EQI_HEAD_LOW;
 
 		mes .@n$;
 		mes "Long time no see~";
-		mes "I can separate cards from Armor, Shoes, Garment and Headgear. ^0000FFAlways succeeds!^000000 Fee: ^FF000010,000,000z^000000 per separation.";
+		mes "I can separate cards from Armor, Shoes, Garment and Headgear (Upper/Middle/Lower). ^0000FFAlways succeeds!^000000 Fee: ^FF000010,000,000z^000000 per separation.";
 	} else {
 		set .@Jeremy,0;
 		set .@n$, "[Richard]";

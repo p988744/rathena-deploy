@@ -59429,3 +59429,78 @@ Body:
       bonus2 bMagicAtkEle,Ele_All,1*(.@dex/12);
       bonus2 bMagicAtkEle,Ele_Neutral,1*(.@luk/12);
       if (.@total>=160) bonus bMatk,100;
+  # 狄克推多指環 (Ullr_Bracelet #490491) set bonuses
+  - Combos:
+      - Combo:
+          - Ullr_Bracelet        # 490491
+          - Apollo_Armor_TW_LT   # 450295
+    Script: |
+      bonus2 bAddSize,Size_All,10;
+      bonus2 bSkillAtk,"DK_DRAGONIC_BREATH",10;
+      bonus2 bSkillAtk,"IG_SHIELD_SHOOTING",10;
+      if (getenchantgrade(EQI_ARMOR) >= ENCHANTGRADE_A) {
+         bonus2 bSkillAtk,"DK_DRAGONIC_BREATH",10;
+         bonus2 bSkillAtk,"IG_SHIELD_SHOOTING",10;
+      }
+  - Combos:
+      - Combo:
+          - Ullr_Bracelet        # 490491
+          - Jupiter_Armor_TW_LT  # 450294
+    Script: |
+      bonus2 bMagicAddSize,Size_All,10;
+      bonus2 bSkillAtk,"AG_SOUL_VC_STRIKE",10;
+      bonus2 bSkillAtk,"EM_TERRA_DRIVE",10;
+      if (getenchantgrade(EQI_ARMOR) >= ENCHANTGRADE_A) {
+         bonus2 bSkillAtk,"AG_SOUL_VC_STRIKE",10;
+         bonus2 bSkillAtk,"EM_TERRA_DRIVE",10;
+      }
+  - Combos:
+      - Combo:
+          - Ullr_Bracelet        # 490491
+          - Mars_Armor_TW_LT     # 450296
+    Script: |
+      bonus2 bAddSize,Size_All,10;
+      bonus2 bSkillAtk,"SHC_SHADOW_STAB",10;
+      bonus2 bSkillAtk,"ABC_FRENZY_SHOT",10;
+      if (getenchantgrade(EQI_ARMOR) >= ENCHANTGRADE_A) {
+         bonus2 bSkillAtk,"SHC_SHADOW_STAB",10;
+         bonus2 bSkillAtk,"ABC_FRENZY_SHOT",10;
+      }
+  - Combos:
+      - Combo:
+          - Ullr_Bracelet        # 490491
+          - Ceres_Armor_TW_LT    # 450293
+    Script: |
+      bonus2 bAddSize,Size_All,8;
+      bonus2 bMagicAddSize,Size_All,8;
+      bonus2 bSkillAtk,"WH_GALESTORM",10;
+      bonus2 bSkillAtk,"TR_METALIC_FURY",10;
+      if (getenchantgrade(EQI_ARMOR) >= ENCHANTGRADE_A) {
+         bonus2 bSkillAtk,"WH_GALESTORM",10;
+         bonus2 bSkillAtk,"TR_METALIC_FURY",10;
+      }
+  - Combos:
+      - Combo:
+          - Ullr_Bracelet        # 490491
+          - Vinus_Armor_TW_LT    # 450297
+    Script: |
+      bonus2 bAddSize,Size_All,8;
+      bonus2 bMagicAddSize,Size_All,8;
+      bonus2 bSkillAtk,"CD_ARBITRIUM",10;
+      bonus2 bSkillAtk,"IQ_OLEUM_SANCTUM",10;
+      if (getenchantgrade(EQI_ARMOR) >= ENCHANTGRADE_A) {
+         bonus2 bSkillAtk,"CD_ARBITRIUM",10;
+         bonus2 bSkillAtk,"IQ_OLEUM_SANCTUM",10;
+      }
+  - Combos:
+      - Combo:
+          - Ullr_Bracelet        # 490491
+          - Vulcan_Armor_TW_LT   # 450298
+    Script: |
+      bonus2 bAddSize,Size_All,10;
+      bonus2 bSkillAtk,"MT_MIGHTY_SMASH",10;
+      bonus2 bSkillAtk,"BO_EXPLOSIVE_POWDER",10;
+      if (getenchantgrade(EQI_ARMOR) >= ENCHANTGRADE_A) {
+         bonus2 bSkillAtk,"MT_MIGHTY_SMASH",10;
+         bonus2 bSkillAtk,"BO_EXPLOSIVE_POWDER",10;
+      }
