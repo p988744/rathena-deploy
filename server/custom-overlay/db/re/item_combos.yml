@@ -59429,10 +59429,10 @@ Body:
       bonus2 bMagicAtkEle,Ele_All,1*(.@dex/12);
       bonus2 bMagicAtkEle,Ele_Neutral,1*(.@luk/12);
       if (.@total>=160) bonus bMatk,100;
-  # 狄克推多指環 (Ullr_Bracelet #490491) set bonuses
+  # 狄克推多指環 (Dictator_True_Ring #490491) set bonuses
   - Combos:
       - Combo:
-          - Ullr_Bracelet        # 490491
+          - Dictator_True_Ring        # 490491
           - Apollo_Armor_TW_LT   # 450295
     Script: |
       bonus2 bAddSize,Size_All,10;
@@ -59444,7 +59444,7 @@ Body:
       }
   - Combos:
       - Combo:
-          - Ullr_Bracelet        # 490491
+          - Dictator_True_Ring        # 490491
           - Jupiter_Armor_TW_LT  # 450294
     Script: |
       bonus2 bMagicAddSize,Size_All,10;
@@ -59456,7 +59456,7 @@ Body:
       }
   - Combos:
       - Combo:
-          - Ullr_Bracelet        # 490491
+          - Dictator_True_Ring        # 490491
           - Mars_Armor_TW_LT     # 450296
     Script: |
       bonus2 bAddSize,Size_All,10;
@@ -59468,7 +59468,7 @@ Body:
       }
   - Combos:
       - Combo:
-          - Ullr_Bracelet        # 490491
+          - Dictator_True_Ring        # 490491
           - Ceres_Armor_TW_LT    # 450293
     Script: |
       bonus2 bAddSize,Size_All,8;
@@ -59481,7 +59481,7 @@ Body:
       }
   - Combos:
       - Combo:
-          - Ullr_Bracelet        # 490491
+          - Dictator_True_Ring        # 490491
           - Vinus_Armor_TW_LT    # 450297
     Script: |
       bonus2 bAddSize,Size_All,8;
@@ -59494,7 +59494,7 @@ Body:
       }
   - Combos:
       - Combo:
-          - Ullr_Bracelet        # 490491
+          - Dictator_True_Ring        # 490491
           - Vulcan_Armor_TW_LT   # 450298
     Script: |
       bonus2 bAddSize,Size_All,10;
