@@ -1,0 +1,158 @@
+//===== Custom Script =========================================
+//= MVP Exchange NPC
+//= ???ç²—çš„?„Ÿ?‹• private server
+//===== Description ===========================================
+//= izlude 139,154
+//= [1] 1 MVP Card -> 1 MVP Coin (25223 / ?‚™?›?‹¨ ì£¼í™”)
+//= [2] 100 MVP Coins -> 1 MVP Card of choice
+//= [3] Exchange ALL MVP Cards in inventory at once
+//=============================================================
+
+izlude,139,154,5	script	MVP Exchange	840,{
+	mes "[MVP Exchange]";
+	mes "I can help you with the following trades:";
+	mes "^777777MVP Coin = ³«¿ø´Ü ÁÖÈ­ (ID: 25223)^000000";
+	mes " ";
+	mes "^0000FF[1]^000000 1 MVP Card -> ^FF66001 MVP Coin^000000";
+	mes "^0000FF[2]^000000 ^FF6600100 MVP Coins^000000 -> 1 MVP Card of your choice";
+	next;
+
+	switch(select("MVP Card -> MVP Coin:100 MVP Coins -> MVP Card:Exchange ALL Cards -> Coins:Leave")) {
+	case 1:
+		// Scan inventory for MVP cards
+		.@count = 0;
+		for (.@i = 0; .@i < getarraysize(.mvp_list); .@i++) {
+			if (countitem(.mvp_list[.@i]) > 0) {
+				.@found_id[.@count] = .mvp_list[.@i];
+				.@count++;
+			}
+		}
+		if (.@count == 0) {
+			mes "[MVP Exchange]";
+			mes "You don't have any MVP Cards in your inventory.";
+			close;
+		}
+		mes "[MVP Exchange]";
+		mes "Select the MVP Card you want to trade in:";
+		next;
+		.@menu$ = "Cancel";
+		for (.@i = 0; .@i < .@count; .@i++)
+			.@menu$ = .@menu$ + ":" + getitemname(.@found_id[.@i]);
+		.@sel = select(.@menu$);
+		if (.@sel == 1) {
+			mes "[MVP Exchange]";
+			mes "Come back anytime!";
+			close;
+		}
+		.@chosen_id = .@found_id[.@sel - 2];
+		mes "[MVP Exchange]";
+		mes "Trade 1x ^0000FF" + getitemname(.@chosen_id) + "^000000 for ^FF66001 MVP Coin^000000?";
+		next;
+		if (select("Confirm:Cancel") == 2) {
+			mes "[MVP Exchange]";
+			mes "Come back anytime!";
+			close;
+		}
+		delitem .@chosen_id, 1;
+		getitem 25223, 1;
+		mes "[MVP Exchange]";
+		mes "Done! You received ^FF66001 MVP Coin^000000.";
+		close;
+
+	case 2:
+		if (countitem(25223) < 100) {
+			mes "[MVP Exchange]";
+			mes "You need ^FF6600100 MVP Coins^000000. You currently have ^FF0000" + countitem(25223) + "^000000.";
+			close;
+		}
+		mes "[MVP Exchange]";
+		mes "Enter the ID of the MVP Card you want:";
+		next;
+		input .@target_id;
+		if (getitemname(.@target_id) == "null") {
+			mes "[MVP Exchange]";
+			mes "Item ID ^FF0000" + .@target_id + "^000000 does not exist.";
+			close;
+		}
+		if (inarray(.mvp_list, .@target_id) < 0) {
+			mes "[MVP Exchange]";
+			mes "^FF0000" + getitemname(.@target_id) + "^000000 is not an MVP Card.";
+			close;
+		}
+		mes "[MVP Exchange]";
+		mes "Trade ^FF6600100 MVP Coins^000000 for 1x ^0000FF" + getitemname(.@target_id) + "^000000?";
+		next;
+		if (select("Confirm:Cancel") == 2) {
+			mes "[MVP Exchange]";
+			mes "Come back anytime!";
+			close;
+		}
+		delitem 25223, 100;
+		getitem .@target_id, 1;
+		mes "[MVP Exchange]";
+		mes "Done! You received ^0000FF" + getitemname(.@target_id) + "^000000.";
+		close;
+
+	case 3:
+		// Scan inventory for ALL MVP cards and count total
+		.@count = 0;
+		.@total = 0;
+		for (.@i = 0; .@i < getarraysize(.mvp_list); .@i++) {
+			.@qty = countitem(.mvp_list[.@i]);
+			if (.@qty > 0) {
+				.@found_id[.@count] = .mvp_list[.@i];
+				.@found_qty[.@count] = .@qty;
+				.@total += .@qty;
+				.@count++;
+			}
+		}
+		if (.@count == 0) {
+			mes "[MVP Exchange]";
+			mes "You don't have any MVP Cards in your inventory.";
+			close;
+		}
+		mes "[MVP Exchange]";
+		mes "Found ^0000FF" + .@count + " type(s)^000000 of MVP Cards (^FF6600" + .@total + " total^000000):";
+		for (.@i = 0; .@i < .@count; .@i++)
+			mes "  " + getitemname(.@found_id[.@i]) + " x" + .@found_qty[.@i];
+		mes " ";
+		mes "Exchange all ^FF0000" + .@total + " cards^000000 for ^FF6600" + .@total + " MVP Coins^000000?";
+		next;
+		if (select("Confirm:Cancel") == 2) {
+			mes "[MVP Exchange]";
+			mes "Come back anytime!";
+			close;
+		}
+		for (.@i = 0; .@i < .@count; .@i++)
+			delitem .@found_id[.@i], .@found_qty[.@i];
+		getitem 25223, .@total;
+		mes "[MVP Exchange]";
+		mes "Done! You received ^FF6600" + .@total + " MVP Coins^000000.";
+		close;
+
+	case 4:
+		close;
+	}
+
+OnInit:
+	setarray .mvp_list[0],
+		4005, 4074, 4121, 4123, 4127, 4128, 4131, 4132, 4134, 4135,
+		4137, 4142, 4143, 4144, 4145, 4146, 4147, 4148, 4168, 4169,
+		4210, 4236, 4246, 4263, 4276, 4302, 4305, 4318, 4324, 4330,
+		4342, 4352, 4357, 4359, 4361, 4363, 4365, 4367, 4370, 4372,
+		4374, 4376, 4386, 4399, 4403, 4407, 4408, 4410, 4419, 4425,
+		4430, 4441, 4451, 4456, 4507, 4509, 4520, 4525, 4526, 4527,
+		4528, 4529, 4534, 4556, 4560, 4561, 4562, 4563, 4564, 4565,
+		4566, 4574, 4576, 4578, 4580, 4592, 4601, 4603, 4610, 4625,
+		4636, 4647, 4648, 4649, 4650, 4651, 4652, 4662, 4671, 4672,
+		4673, 4674, 4675, 4676, 4677, 4678, 4679, 4680, 4681, 4682,
+		4683, 4697,
+		27020, 27025, 27081, 27104, 27106, 27113, 27119, 27126, 27150,
+		27151, 27152, 27162, 27164, 27180, 27182, 27265, 27294, 27298,
+		27305, 27318, 27319, 27321, 27323, 27326, 27327, 27346, 27362,
+		27363,
+		31023, 31026,
+		300007, 300078, 300079, 300080, 300099, 300100, 300107, 300145,
+		300151, 300217, 300227, 300228, 300239, 300248, 300262, 300281;
+	end;
+}

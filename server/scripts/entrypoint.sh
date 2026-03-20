@@ -308,6 +308,14 @@ if [ -f "/rathena/npc/custom/card_giver.txt" ]; then
     echo "   已啟用卡片給予 NPC"
 fi
 
+# 啟用 MVP 交換 NPC
+if [ -f "/rathena/npc/custom/mvp_exchange.txt" ]; then
+    if ! grep -q 'mvp_exchange.txt' /rathena/npc/scripts_custom.conf; then
+        echo 'npc: npc/custom/mvp_exchange.txt' >> /rathena/npc/scripts_custom.conf
+    fi
+    echo "   已啟用 MVP 交換 NPC"
+fi
+
 # 啟用升階 NPC + Etel 材料商人
 if [ -f "/rathena/npc/custom/grade_enhancer.txt" ]; then
     if ! grep -q 'grade_enhancer.txt' /rathena/npc/scripts_custom.conf; then
