@@ -620,47 +620,47 @@ def _parse_time_ms(text):
 def generate_mob_db_entry(monster_id, data, item_aegis_map):
     """Build YAML string for mob_db.yml entry."""
     lines = []
-    lines.append(f"  - Id: {monster_id}")
-    lines.append(f"    AegisName: {data['aegis_name']}")
-    lines.append(f"    Name: {data['name']}")
-    lines.append(f"    Level: {data['level']}")
-    lines.append(f"    Hp: {data['hp']}")
+    lines.append(f"- Id: {monster_id}")
+    lines.append(f"  AegisName: {data['aegis_name']}")
+    lines.append(f"  Name: {data['name']}")
+    lines.append(f"  Level: {data['level']}")
+    lines.append(f"  Hp: {data['hp']}")
     if data["sp"]:
-        lines.append(f"    Sp: {data['sp']}")
-    lines.append(f"    BaseExp: {data['base_exp']}")
-    lines.append(f"    JobExp: {data['job_exp']}")
-    lines.append(f"    MvpExp: 0")
-    lines.append(f"    Attack: {data['atk_min']}")
-    lines.append(f"    Attack2: {data['atk_max']}")
-    lines.append(f"    Defense: {data['def']}")
-    lines.append(f"    MagicDefense: {data['mdef']}")
-    lines.append(f"    Str: {data['str']}")
-    lines.append(f"    Agi: {data['agi']}")
-    lines.append(f"    Vit: {data['vit']}")
-    lines.append(f"    Int: {data['int']}")
-    lines.append(f"    Dex: {data['dex']}")
-    lines.append(f"    Luk: {data['luk']}")
-    lines.append(f"    AttackRange: {data['attack_range']}")
-    lines.append(f"    SkillRange: 10")
-    lines.append(f"    ChaseRange: 12")
-    lines.append(f"    Size: {data['size']}")
-    lines.append(f"    Race: {data['race']}")
-    lines.append(f"    Element: {data['element']}")
-    lines.append(f"    ElementLevel: {data['element_level']}")
-    lines.append(f"    WalkSpeed: {data['walk_speed']}")
-    lines.append(f"    AttackDelay: {data['atk_delay']}")
-    lines.append(f"    AttackMotion: {data['atk_motion']}")
-    lines.append(f"    DamageMotion: {data['dmg_motion']}")
-    lines.append(f"    DamageTaken: 100")
-    lines.append(f"    Ai: {data['ai']}")
-    lines.append(f"    Class: {data['class_']}")
+        lines.append(f"  Sp: {data['sp']}")
+    lines.append(f"  BaseExp: {data['base_exp']}")
+    lines.append(f"  JobExp: {data['job_exp']}")
+    lines.append(f"  MvpExp: 0")
+    lines.append(f"  Attack: {data['atk_min']}")
+    lines.append(f"  Attack2: {data['atk_max']}")
+    lines.append(f"  Defense: {data['def']}")
+    lines.append(f"  MagicDefense: {data['mdef']}")
+    lines.append(f"  Str: {data['str']}")
+    lines.append(f"  Agi: {data['agi']}")
+    lines.append(f"  Vit: {data['vit']}")
+    lines.append(f"  Int: {data['int']}")
+    lines.append(f"  Dex: {data['dex']}")
+    lines.append(f"  Luk: {data['luk']}")
+    lines.append(f"  AttackRange: {data['attack_range']}")
+    lines.append(f"  SkillRange: 10")
+    lines.append(f"  ChaseRange: 12")
+    lines.append(f"  Size: {data['size']}")
+    lines.append(f"  Race: {data['race']}")
+    lines.append(f"  Element: {data['element']}")
+    lines.append(f"  ElementLevel: {data['element_level']}")
+    lines.append(f"  WalkSpeed: {data['walk_speed']}")
+    lines.append(f"  AttackDelay: {data['atk_delay']}")
+    lines.append(f"  AttackMotion: {data['atk_motion']}")
+    lines.append(f"  DamageMotion: {data['dmg_motion']}")
+    lines.append(f"  DamageTaken: 100")
+    lines.append(f"  Ai: {data['ai']}")
+    lines.append(f"  Class: {data['class_']}")
 
     # Modes
     modes = data["modes"]
     if modes:
-        lines.append("    Modes:")
+        lines.append("  Modes:")
         for mode, val in modes.items():
-            lines.append(f"      {mode}: {'true' if val else 'false'}")
+            lines.append(f"    {mode}: {'true' if val else 'false'}")
 
     # Track unmapped items
     unmapped_items = []
@@ -674,19 +674,19 @@ def generate_mob_db_entry(monster_id, data, item_aegis_map):
 
     # MVP Drops (max 3)
     if data["mvp_drops"]:
-        lines.append("    MvpDrops:")
+        lines.append("  MvpDrops:")
         for drop in data["mvp_drops"][:3]:
             aegis, unknown = resolve_drop(drop)
-            lines.append(f"      - Item: {aegis}")
-            lines.append(f"        Rate: {drop['rate']}")
+            lines.append(f"    - Item: {aegis}")
+            lines.append(f"      Rate: {drop['rate']}")
 
     # Regular Drops (max 9)
     if data["drops"]:
-        lines.append("    Drops:")
+        lines.append("  Drops:")
         for drop in data["drops"][:9]:
             aegis, unknown = resolve_drop(drop)
-            lines.append(f"      - Item: {aegis}")
-            lines.append(f"        Rate: {drop['rate']}")
+            lines.append(f"    - Item: {aegis}")
+            lines.append(f"      Rate: {drop['rate']}")
 
     return "\n".join(lines) + "\n", unmapped_items
 

@@ -2682,35 +2682,35 @@ Body:
       else if (.@i >= PET_INTIMATE_AWKWARD || .@i >= PET_INTIMATE_SHY) {
          bonus bMaxHP,200;
       }
-#  - Mob: KNIGHT_OF_ABYSS2
-#    EggItem: Abyss_Knight_Egg
-#    FoodItem: Pet_Food
-#    Fullness: 2   # unknown
-#    HungryDelay: 120   # unknown
-#    IntimacyFed: 15   # unknown
-#    CaptureRate: 0   # unknown
-#    SpecialPerformance: false   # unknown
-#    AllowAutoFeed: true
-#    Script: >
-#      .@i = getpetinfo(PETINFO_INTIMATE);
-#
-#      if (.@i >= PET_INTIMATE_LOYAL) {
-#         bonus2 bAddClass,Class_Boss,5;
-#         bonus bPAtk,2;
-#         bonus bAtkRate,5;
-#      }
-#      else if (.@i >= PET_INTIMATE_CORDIAL) {
-#         bonus2 bAddClass,Class_Boss,3;
-#         bonus bPAtk,1;
-#         bonus bAtkRate,4;
-#      }
-#      else if (.@i >= PET_INTIMATE_NEUTRAL) {
-#         bonus bAtkRate,3;
-#      }
-#      else if (.@i >= PET_INTIMATE_AWKWARD || .@i >= PET_INTIMATE_SHY) {
-#         bonus bAtkRate,2;
-#      }
-#
+  - Mob: KNIGHT_OF_ABYSS
+    EggItem: Abyss_Knight_Egg
+    FoodItem: Pet_Food
+    Fullness: 2   # unknown
+    HungryDelay: 120   # unknown
+    IntimacyFed: 15   # unknown
+    CaptureRate: 0   # unknown
+    SpecialPerformance: false   # unknown
+    AllowAutoFeed: true
+    Script: >
+      .@i = getpetinfo(PETINFO_INTIMATE);
+
+      if (.@i >= PET_INTIMATE_LOYAL) {
+          bonus2 bAddClass,Class_Boss,5;
+          bonus bPAtk,2;
+          bonus bAtkRate,5;
+      }
+      else if (.@i >= PET_INTIMATE_CORDIAL) {
+          bonus2 bAddClass,Class_Boss,3;
+          bonus bPAtk,1;
+          bonus bAtkRate,4;
+      }
+      else if (.@i >= PET_INTIMATE_NEUTRAL) {
+          bonus bAtkRate,3;
+      }
+      else if (.@i >= PET_INTIMATE_AWKWARD || .@i >= PET_INTIMATE_SHY) {
+          bonus bAtkRate,2;
+      }
+
 #  - Mob: CWHITEKNIGHT
 #    EggItem: Change_W_Knight_Egg
 #    FoodItem: Pet_Food
@@ -2752,35 +2752,35 @@ Body:
 #            Amount: 200
 #          - Item: White_Knightage_Card
 #            Amount: 2
-#  - Mob: GH_WHITEKNIGHT
-#    EggItem: White_Knight_Egg
-#    FoodItem: Pet_Food
-#    Fullness: 2   # unknown
-#    HungryDelay: 120   # unknown
-#    IntimacyFed: 15   # unknown
-#    CaptureRate: 0   # unknown
-#    SpecialPerformance: false   # unknown
-#    AllowAutoFeed: true
-#    Script: >
-#      .@i = getpetinfo(PETINFO_INTIMATE);
-#
-#      if (.@i >= PET_INTIMATE_LOYAL) {
-#         bonus2 bMagicAddClass,Class_Boss,5;
-#         bonus bSMatk,2;
-#         bonus bMatkRate,5;
-#      }
-#      else if (.@i >= PET_INTIMATE_CORDIAL) {
-#         bonus2 bMagicAddClass,Class_Boss,3;
-#         bonus bSMatk,1;
-#         bonus bMatkRate,4;
-#      }
-#      else if (.@i >= PET_INTIMATE_NEUTRAL) {
-#         bonus bMatkRate,3;
-#      }
-#      else if (.@i >= PET_INTIMATE_AWKWARD || .@i >= PET_INTIMATE_SHY) {
-#         bonus bMatkRate,2;
-#      }
-#
+  - Mob: MD_GH_WHITEKNIGHT
+    EggItem: White_Knight_Egg
+    FoodItem: Pet_Food
+    Fullness: 2   # unknown
+    HungryDelay: 120   # unknown
+    IntimacyFed: 15   # unknown
+    CaptureRate: 0   # unknown
+    SpecialPerformance: false   # unknown
+    AllowAutoFeed: true
+    Script: >
+      .@i = getpetinfo(PETINFO_INTIMATE);
+
+      if (.@i >= PET_INTIMATE_LOYAL) {
+         bonus2 bMagicAddClass,Class_Boss,5;
+         bonus bSMatk,2;
+         bonus bMatkRate,5;
+      }
+      else if (.@i >= PET_INTIMATE_CORDIAL) {
+         bonus2 bMagicAddClass,Class_Boss,3;
+         bonus bSMatk,1;
+         bonus bMatkRate,4;
+      }
+      else if (.@i >= PET_INTIMATE_NEUTRAL) {
+         bonus bMatkRate,3;
+      }
+      else if (.@i >= PET_INTIMATE_AWKWARD || .@i >= PET_INTIMATE_SHY) {
+         bonus bMatkRate,2;
+      }
+
   - Mob: BAPHOMET
     EggItem: Baphomet_Egg
     FoodItem: High_Class_Pet_food

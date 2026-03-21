@@ -5219,3 +5219,105 @@ Body:
   DamageTaken: 10
   Ai: 21
   Class: Boss
+
+- Id: 20390
+  AegisName: MD_GH_WHITEKNIGHT
+  Name: White Knight
+  Level: 111
+  Hp: 58650
+  BaseExp: 3014
+  JobExp: 2870
+  MvpExp: 0
+  Attack: 1191
+  Attack2: 1671
+  Defense: 204
+  MagicDefense: 55
+  Str: 120
+  Agi: 100
+  Vit: 55
+  Int: 80
+  Dex: 140
+  Luk: 47
+  AttackRange: 2
+  SkillRange: 10
+  ChaseRange: 12
+  Size: Medium
+  Race: Formless
+  Element: Neutral
+  ElementLevel: 1
+  WalkSpeed: 200
+  AttackDelay: 500
+  AttackMotion: 0
+  DamageMotion: 0
+  DamageTaken: 100
+  Ai: 06
+  Class: Normal
+  Modes:
+    CanMove: true
+    CanAttack: true
+    Aggressive: true
+    ChangeTargetMelee: true
+  Drops:
+    - Item: Patriotism_Marks
+      Rate: 10
+    - Item: Oridecon
+      Rate: 100
+    - Item: Reins
+      Rate: 5000
+    - Item: White_Jewel
+      Rate: 500
+    - Item: GH_Cursed_Crystal
+      Rate: 50
+    - Item: White_Knightage_Card
+      Rate: 1
+
+- Id: 20391
+  AegisName: MD_GH_WHITEKNIGHT_H
+  Name: White Knight
+  Level: 175
+  Hp: 1380000
+  BaseExp: 33100
+  JobExp: 31000
+  MvpExp: 0
+  Attack: 4652
+  Attack2: 6751
+  Defense: 408
+  MagicDefense: 80
+  Str: 280
+  Agi: 200
+  Vit: 70
+  Int: 160
+  Dex: 280
+  Luk: 94
+  AttackRange: 2
+  SkillRange: 10
+  ChaseRange: 12
+  Size: Medium
+  Race: Formless
+  Element: Neutral
+  ElementLevel: 1
+  WalkSpeed: 200
+  AttackDelay: 500
+  AttackMotion: 0
+  DamageMotion: 0
+  DamageTaken: 100
+  Ai: 06
+  Class: Normal
+  Modes:
+    CanMove: true
+    CanAttack: true
+    Aggressive: true
+    ChangeTargetMelee: true
+  Drops:
+    - Item: Patriotism_Marks
+      Rate: 10
+    - Item: Oridecon
+      Rate: 100
+    - Item: Reins
+      Rate: 5000
+    - Item: White_Jewel
+      Rate: 500
+    - Item: GH_Cursed_Crystal
+      Rate: 50
+    - Item: White_Knightage_Card
+      Rate: 1
