@@ -81,6 +81,8 @@ izlude,0,0,0	shop	SET_Mammoth	-1,24679:10000000,24680:10000000,24681:10000000,24
 izlude,0,0,0	shop	SET_AllMighty	-1,24339:10000000,24340:10000000
 izlude,0,0,0	shop	SET_Bearers	-1,24180:10000000,24181:10000000,24182:10000000,24183:10000000,24184:10000000,24185:10000000,24321:10000000,24337:10000000
 izlude,0,0,0	shop	SET_PerfectSize	-1,24425:10000000,24426:10000000
+izlude,0,0,0	shop	SET_MegaBlitz	-1,24768:10000000,24767:10000000
+izlude,0,0,0	shop	SET_ReloadShield	-1,24746 :10000000
 
 // --- FullPene Shop Definitions ---
 izlude,0,0,0	shop	FP_Through	-1,24661:100000000,24662:100000000,24663:100000000,24664:100000000
@@ -103,6 +105,8 @@ izlude,102,155,4	script	Shadow Equipment Shop	411,{
 		"Bearers",
 		"FullPene",
 		"PerfectSize",
+		"MegaBlitz",
+		"SReloadShield",
 		"Leave"
 	) ) {
 	case 1:  goto L_BK_Menu;
@@ -115,7 +119,9 @@ izlude,102,155,4	script	Shadow Equipment Shop	411,{
 	case 8:  callshop "SET_Bearers", 1;      end;
 	case 9:  goto L_FP_Menu;
 	case 10: callshop "SET_PerfectSize", 1;      end;
-	case 11: close;
+	case 11: callshop "SET_MegaBlitz", 1;      end;
+	case 12: callshop "SET_ReloadShield", 1;      end;
+	case 13: close;
 	}
 
 L_BK_Menu:
