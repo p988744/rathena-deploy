@@ -10,10 +10,7 @@
 -	script	WelcomeBroadcast	FAKE_NPC,{
 
 OnPCLoginEvent:
-	if (welcomed) end;
-	welcomed = 1;
-
-	announce "[NEW PLAYER] " + strcharinfo(PC_NAME) + " has joined the adventure for the first time! Welcome!", bc_all, 0x00CCFF;
+	announce strcharinfo(PC_NAME) + " has logged in. Welcome back!", bc_all, 0x00CCFF;
 	end;
 
 }
