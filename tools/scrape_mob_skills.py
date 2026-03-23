@@ -218,7 +218,7 @@ def to_db_line(
     return (
         f"{mob_id},{dummy},{state},{skill_id},{level},"
         f"{rate},{cast_time},{delay},{cancelable},{target},"
-        f"{condition},{cond_value},,,,,,,,"
+        f"{condition},{cond_value},,,,,,,"
     )
 
 
