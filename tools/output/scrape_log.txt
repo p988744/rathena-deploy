@@ -26,3 +26,13 @@ EMPTY 21947 RA_DEADSERA (no skills table found)
 EMPTY 21948 RA_HARDROCK_TITAN (no skills table found)
 EMPTY 21949 RA_DEADWEEN (no skills table found)
 EMPTY 21950 RA_GAIA_POL (no skills table found)
+OK    22252 BIO_DUNEYRR: 13 entries
+OK    22253 BIO_NAGA: 13 entries
+OK    22254 BIO_ANCIENT_TREE: 21 entries
+OK    22255 BIO_DOLLOCARIS: 10 entries
+OK    22256 BIO_ICE_GARGOYLE: 9 entries
+OK    22257 BIO_FLAME_GHOST: 14 entries
+OK    22258 BIO_ACIDUS_: 10 entries
+OK    22259 BIO_MOROCC_1: 13 entries
+OK    22260 BIO_SALAMANDER: 13 entries
+OK    22261 BIO_MOSKILLO: 16 entries

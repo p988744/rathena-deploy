@@ -64,6 +64,17 @@ MONSTERS = {
     21948: "RA_HARDROCK_TITAN",
     21949: "RA_DEADWEEN",
     21950: "RA_GAIA_POL",
+    # bl_depth2
+    22252: "BIO_DUNEYRR",
+    22253: "BIO_NAGA",
+    22254: "BIO_ANCIENT_TREE",
+    22255: "BIO_DOLLOCARIS",
+    22256: "BIO_ICE_GARGOYLE",
+    22257: "BIO_FLAME_GHOST",
+    22258: "BIO_ACIDUS_",
+    22259: "BIO_MOROCC_1",
+    22260: "BIO_SALAMANDER",
+    22261: "BIO_MOSKILLO",
 }
 
 # ── load skill name → ID map from skill_db.yml ──────────────────────────────

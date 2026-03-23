@@ -532,12 +532,14 @@ D54: menu	"Bio Lab Deep (bl_depth1)",SubD54a,
 	         "Mjolnir West (mjo_wst01)",SubD54b,
 	         "Rachel Polar (ra_pol01)",SubD54c,
 	         "Custom Deep 1 (bl_dep1_cus)",SubD54d,
-	         "Custom Deep 2 (bl_dep2_cus)",SubD54e;
+	         "Custom Deep 2 (bl_dep2_cus)",SubD54e,
+	         "Abyss Lab 2 (bl_depth2)",SubD54f;
 	SubD54a: Go("bl_depth1",0,0);
 	SubD54b: Go("mjo_wst01",0,0);
 	SubD54c: Go("ra_pol01",0,0);
 	SubD54d: Go("bl_dep1_cus",0,0);
 	SubD54e: Go("bl_dep2_cus",0,0);
+	SubD54f: Go("bl_depth2",0,0);
 
 // --------------------------------------------------
 	Guild_Dungeons:

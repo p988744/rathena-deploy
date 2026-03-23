@@ -5321,3 +5321,514 @@ Body:
       Rate: 50
     - Item: White_Knightage_Card
       Rate: 1
+
+- Id: 22252
+  AegisName: BIO_DUNEYRR
+  Name: 심연의 두네이르
+  Level: 265
+  Hp: 166986400
+  BaseExp: 6626510
+  JobExp: 4615364
+  MvpExp: 0
+  Attack: 47506
+  Attack2: 70919
+  Defense: 443
+  MagicDefense: 171
+  Str: 414
+  Agi: 274
+  Vit: 329
+  Int: 265
+  Dex: 368
+  Luk: 352
+  AttackRange: 2
+  SkillRange: 10
+  ChaseRange: 12
+  Size: Large
+  Race: DemiHuman
+  Element: Fire
+  ElementLevel: 3
+  WalkSpeed: 130
+  AttackDelay: 420
+  AttackMotion: 0
+  DamageMotion: 0
+  DamageTaken: 100
+  Ai: 06
+  Class: Normal
+  Modes:
+    CanMove: true
+    CanAttack: true
+    Aggressive: true
+  Drops:
+    - Item: Fur
+      Rate: 1500
+    - Item: Etel_Dust
+      Rate: 200
+    - Item: Abyss_Jewel_Fragment
+      Rate: 350
+    - Item: Time_Dim_J_Fragment
+      Rate: 350
+    - Item: Abyss_Magic_Jewel
+      Rate: 75
+    - Item: Time_Dimension_Jewel
+      Rate: 75
+    - Item: Abyss_Rune_Ore
+      Rate: 25
+
+- Id: 22253
+  AegisName: BIO_NAGA
+  Name: 심연의 나가
+  Level: 265
+  Hp: 181266750
+  BaseExp: 6600885
+  JobExp: 4597516
+  MvpExp: 0
+  Attack: 41543
+  Attack2: 61986
+  Defense: 432
+  MagicDefense: 167
+  Str: 393
+  Agi: 261
+  Vit: 312
+  Int: 252
+  Dex: 350
+  Luk: 334
+  AttackRange: 2
+  SkillRange: 10
+  ChaseRange: 12
+  Size: Large
+  Race: Beast
+  Element: Earth
+  ElementLevel: 2
+  WalkSpeed: 150
+  AttackDelay: 862
+  AttackMotion: 0
+  DamageMotion: 0
+  DamageTaken: 100
+  Ai: 06
+  Class: Normal
+  Modes:
+    CanMove: true
+    CanAttack: true
+  Drops:
+    - Item: Scales_Shell
+      Rate: 1500
+    - Item: Etel_Dust
+      Rate: 200
+    - Item: Abyss_Jewel_Fragment
+      Rate: 350
+    - Item: Time_Dim_J_Fragment
+      Rate: 350
+    - Item: Abyss_Magic_Jewel
+      Rate: 75
+    - Item: Time_Dimension_Jewel
+      Rate: 75
+    - Item: Abyss_Rune_Ore
+      Rate: 25
+
+- Id: 22254
+  AegisName: BIO_ANCIENT_TREE
+  Name: 심연의 에인션트 트리
+  Level: 265
+  Hp: 164463460
+  BaseExp: 6498899
+  JobExp: 4526483
+  MvpExp: 0
+  Attack: 45258
+  Attack2: 67500
+  Defense: 492
+  MagicDefense: 190
+  Str: 509
+  Agi: 335
+  Vit: 404
+  Int: 326
+  Dex: 448
+  Luk: 433
+  AttackRange: 1
+  SkillRange: 10
+  ChaseRange: 12
+  Size: Large
+  Race: Plant
+  Element: Earth
+  ElementLevel: 2
+  WalkSpeed: 200
+  AttackDelay: 962
+  AttackMotion: 0
+  DamageMotion: 0
+  DamageTaken: 100
+  Ai: 06
+  Class: Normal
+  Modes:
+    CanMove: true
+    CanAttack: true
+  Drops:
+    - Item: Elder_Branch
+      Rate: 1500
+    - Item: Etel_Dust
+      Rate: 200
+    - Item: Abyss_Jewel_Fragment
+      Rate: 350
+    - Item: Time_Dim_J_Fragment
+      Rate: 350
+    - Item: Abyss_Magic_Jewel
+      Rate: 75
+    - Item: Time_Dimension_Jewel
+      Rate: 75
+    - Item: Abyss_Rune_Ore
+      Rate: 25
+
+- Id: 22255
+  AegisName: BIO_DOLLOCARIS
+  Name: 심연의 돌로카리스
+  Level: 265
+  Hp: 178600800
+  BaseExp: 6549636
+  JobExp: 4561821
+  MvpExp: 0
+  Attack: 41198
+  Attack2: 61456
+  Defense: 444
+  MagicDefense: 172
+  Str: 417
+  Agi: 276
+  Vit: 331
+  Int: 267
+  Dex: 370
+  Luk: 354
+  AttackRange: 1
+  SkillRange: 10
+  ChaseRange: 12
+  Size: Medium
+  Race: Fish
+  Element: Earth
+  ElementLevel: 3
+  WalkSpeed: 200
+  AttackDelay: 1053
+  AttackMotion: 0
+  DamageMotion: 0
+  DamageTaken: 100
+  Ai: 06
+  Class: Normal
+  Modes:
+    CanMove: true
+    CanAttack: true
+  Drops:
+    - Item: Scropion's_Nipper
+      Rate: 1500
+    - Item: Etel_Dust
+      Rate: 200
+    - Item: Abyss_Jewel_Fragment
+      Rate: 350
+    - Item: Time_Dim_J_Fragment
+      Rate: 350
+    - Item: Abyss_Magic_Jewel
+      Rate: 75
+    - Item: Time_Dimension_Jewel
+      Rate: 75
+    - Item: Abyss_Rune_Ore
+      Rate: 25
+
+- Id: 22256
+  AegisName: BIO_ICE_GARGOYLE
+  Name: 심연의 냉동 가고일
+  Level: 265
+  Hp: 162858710
+  BaseExp: 6595389
+  JobExp: 4605247
+  MvpExp: 0
+  Attack: 35500
+  Attack2: 52941
+  Defense: 255
+  MagicDefense: 151
+  Str: 354
+  Agi: 326
+  Vit: 224
+  Int: 298
+  Dex: 443
+  Luk: 364
+  AttackRange: 11
+  SkillRange: 10
+  ChaseRange: 12
+  Size: Medium
+  Race: Demon
+  Element: Water
+  ElementLevel: 3
+  WalkSpeed: 150
+  AttackDelay: 719
+  AttackMotion: 0
+  DamageMotion: 0
+  DamageTaken: 100
+  Ai: 06
+  Class: Normal
+  Modes:
+    CanMove: true
+    CanAttack: true
+  Drops:
+    - Item: Petite_DiablOfs_Wing
+      Rate: 1500
+    - Item: Etel_Dust
+      Rate: 200
+    - Item: Abyss_Jewel_Fragment
+      Rate: 350
+    - Item: Time_Dim_J_Fragment
+      Rate: 350
+    - Item: Abyss_Magic_Jewel
+      Rate: 75
+    - Item: Time_Dimension_Jewel
+      Rate: 75
+    - Item: Abyss_Rune_Ore
+      Rate: 25
+
+- Id: 22257
+  AegisName: BIO_FLAME_GHOST
+  Name: 심연의 플레임 고스트
+  Level: 265
+  Hp: 159779165
+  BaseExp: 6565544
+  JobExp: 4593592
+  MvpExp: 0
+  Attack: 31327
+  Attack2: 46726
+  Defense: 280
+  MagicDefense: 314
+  Str: 264
+  Agi: 263
+  Vit: 298
+  Int: 402
+  Dex: 385
+  Luk: 402
+  AttackRange: 3
+  SkillRange: 10
+  ChaseRange: 12
+  Size: Medium
+  Race: Undead
+  Element: Fire
+  ElementLevel: 2
+  WalkSpeed: 100
+  AttackDelay: 909
+  AttackMotion: 0
+  DamageMotion: 0
+  DamageTaken: 100
+  Ai: 06
+  Class: Normal
+  Modes:
+    CanMove: true
+    CanAttack: true
+  Drops:
+    - Item: Skull
+      Rate: 1500
+    - Item: Etel_Dust
+      Rate: 200
+    - Item: Abyss_Jewel_Fragment
+      Rate: 350
+    - Item: Time_Dim_J_Fragment
+      Rate: 350
+    - Item: Abyss_Magic_Jewel
+      Rate: 75
+    - Item: Time_Dimension_Jewel
+      Rate: 75
+    - Item: Abyss_Rune_Ore
+      Rate: 25
+
+- Id: 22258
+  AegisName: BIO_ACIDUS_
+  Name: 심연의 어시더스
+  Level: 265
+  Hp: 171678990
+  BaseExp: 6690545
+  JobExp: 4655421
+  MvpExp: 0
+  Attack: 34336
+  Attack2: 51209
+  Defense: 592
+  MagicDefense: 259
+  Str: 325
+  Agi: 288
+  Vit: 442
+  Int: 382
+  Dex: 421
+  Luk: 383
+  AttackRange: 2
+  SkillRange: 10
+  ChaseRange: 12
+  Size: Large
+  Race: Dragon
+  Element: Wind
+  ElementLevel: 2
+  WalkSpeed: 200
+  AttackDelay: 769
+  AttackMotion: 0
+  DamageMotion: 0
+  DamageTaken: 100
+  Ai: 06
+  Class: Normal
+  Modes:
+    CanMove: true
+    CanAttack: true
+  Drops:
+    - Item: Dragon_Canine
+      Rate: 1500
+    - Item: Etel_Dust
+      Rate: 200
+    - Item: Abyss_Jewel_Fragment
+      Rate: 350
+    - Item: Time_Dim_J_Fragment
+      Rate: 350
+    - Item: Abyss_Magic_Jewel
+      Rate: 75
+    - Item: Time_Dimension_Jewel
+      Rate: 75
+    - Item: Abyss_Rune_Ore
+      Rate: 25
+
+- Id: 22259
+  AegisName: BIO_MOROCC_1
+  Name: 심연의 모로크의 현신
+  Level: 265
+  Hp: 155392230
+  BaseExp: 6652134
+  JobExp: 4633211
+  MvpExp: 0
+  Attack: 49940
+  Attack2: 74569
+  Defense: 444
+  MagicDefense: 172
+  Str: 417
+  Agi: 276
+  Vit: 331
+  Int: 267
+  Dex: 370
+  Luk: 354
+  AttackRange: 2
+  SkillRange: 10
+  ChaseRange: 12
+  Size: Large
+  Race: Angel
+  Element: Shadow
+  ElementLevel: 1
+  WalkSpeed: 150
+  AttackDelay: 481
+  AttackMotion: 0
+  DamageMotion: 0
+  DamageTaken: 100
+  Ai: 06
+  Class: Normal
+  Modes:
+    CanMove: true
+    CanAttack: true
+  Drops:
+    - Item: Dark_Debris
+      Rate: 1500
+    - Item: Etel_Dust
+      Rate: 200
+    - Item: Abyss_Jewel_Fragment
+      Rate: 350
+    - Item: Time_Dim_J_Fragment
+      Rate: 350
+    - Item: Abyss_Magic_Jewel
+      Rate: 75
+    - Item: Time_Dimension_Jewel
+      Rate: 75
+    - Item: Abyss_Rune_Ore
+      Rate: 25
+
+- Id: 22260
+  AegisName: BIO_SALAMANDER
+  Name: 심연의 살라만다
+  Level: 265
+  Hp: 155742230
+  BaseExp: 6575261
+  JobExp: 4579669
+  MvpExp: 0
+  Attack: 50854
+  Attack2: 75905
+  Defense: 480
+  MagicDefense: 185
+  Str: 487
+  Agi: 321
+  Vit: 387
+  Int: 312
+  Dex: 429
+  Luk: 414
+  AttackRange: 2
+  SkillRange: 10
+  ChaseRange: 12
+  Size: Large
+  Race: Formless
+  Element: Fire
+  ElementLevel: 2
+  WalkSpeed: 130
+  AttackDelay: 300
+  AttackMotion: 0
+  DamageMotion: 0
+  DamageTaken: 100
+  Ai: 06
+  Class: Normal
+  Modes:
+    CanMove: true
+    CanAttack: true
+  Drops:
+    - Item: Burning_Heart
+      Rate: 1500
+    - Item: Etel_Dust
+      Rate: 200
+    - Item: Abyss_Jewel_Fragment
+      Rate: 350
+    - Item: Time_Dim_J_Fragment
+      Rate: 350
+    - Item: Abyss_Magic_Jewel
+      Rate: 75
+    - Item: Time_Dimension_Jewel
+      Rate: 75
+    - Item: Abyss_Rune_Ore
+      Rate: 25
+
+- Id: 22261
+  AegisName: BIO_MOSKILLO
+  Name: 심연의 모스킬로
+  Level: 265
+  Hp: 155812230
+  BaseExp: 6498387
+  JobExp: 4526126
+  MvpExp: 0
+  Attack: 48782
+  Attack2: 72759
+  Defense: 519
+  MagicDefense: 200
+  Str: 563
+  Agi: 369
+  Vit: 447
+  Int: 361
+  Dex: 493
+  Luk: 478
+  AttackRange: 1
+  SkillRange: 10
+  ChaseRange: 12
+  Size: Medium
+  Race: Insect
+  Element: Wind
+  ElementLevel: 3
+  WalkSpeed: 200
+  AttackDelay: 862
+  AttackMotion: 0
+  DamageMotion: 0
+  DamageTaken: 100
+  Ai: 06
+  Class: Normal
+  Modes:
+    CanMove: true
+    CanAttack: true
+  Drops:
+    - Item: Round_Shell
+      Rate: 1500
+    - Item: Etel_Dust
+      Rate: 200
+    - Item: Abyss_Jewel_Fragment
+      Rate: 350
+    - Item: Time_Dim_J_Fragment
+      Rate: 350
+    - Item: Abyss_Magic_Jewel
+      Rate: 75
+    - Item: Time_Dimension_Jewel
+      Rate: 75
+    - Item: Abyss_Rune_Ore
+      Rate: 25
