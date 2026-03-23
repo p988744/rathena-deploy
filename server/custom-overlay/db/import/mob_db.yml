@@ -5409,6 +5409,7 @@ Body:
   Modes:
     CanMove: true
     CanAttack: true
+    Aggressive: true
   Drops:
     - Item: Scales_Shell
       Rate: 1500
@@ -5460,6 +5461,7 @@ Body:
   Modes:
     CanMove: true
     CanAttack: true
+    Aggressive: true
   Drops:
     - Item: Elder_Branch
       Rate: 1500
@@ -5511,6 +5513,7 @@ Body:
   Modes:
     CanMove: true
     CanAttack: true
+    Aggressive: true
   Drops:
     - Item: Scropion's_Nipper
       Rate: 1500
@@ -5562,6 +5565,7 @@ Body:
   Modes:
     CanMove: true
     CanAttack: true
+    Aggressive: true
   Drops:
     - Item: Petite_DiablOfs_Wing
       Rate: 1500
@@ -5613,6 +5617,7 @@ Body:
   Modes:
     CanMove: true
     CanAttack: true
+    Aggressive: true
   Drops:
     - Item: Skull
       Rate: 1500
@@ -5664,6 +5669,7 @@ Body:
   Modes:
     CanMove: true
     CanAttack: true
+    Aggressive: true
   Drops:
     - Item: Dragon_Canine
       Rate: 1500
@@ -5715,6 +5721,7 @@ Body:
   Modes:
     CanMove: true
     CanAttack: true
+    Aggressive: true
   Drops:
     - Item: Dark_Debris
       Rate: 1500
@@ -5766,6 +5773,7 @@ Body:
   Modes:
     CanMove: true
     CanAttack: true
+    Aggressive: true
   Drops:
     - Item: Burning_Heart
       Rate: 1500
@@ -5817,6 +5825,7 @@ Body:
   Modes:
     CanMove: true
     CanAttack: true
+    Aggressive: true
   Drops:
     - Item: Round_Shell
       Rate: 1500
