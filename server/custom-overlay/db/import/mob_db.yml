@@ -5351,9 +5351,9 @@ Body:
   AttackDelay: 420
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 06
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -5403,9 +5403,9 @@ Body:
   AttackDelay: 862
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 06
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -5455,9 +5455,9 @@ Body:
   AttackDelay: 962
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 06
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -5507,9 +5507,9 @@ Body:
   AttackDelay: 1053
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 06
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -5559,9 +5559,9 @@ Body:
   AttackDelay: 719
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 06
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -5611,9 +5611,9 @@ Body:
   AttackDelay: 909
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 06
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -5663,9 +5663,9 @@ Body:
   AttackDelay: 769
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 06
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -5715,9 +5715,9 @@ Body:
   AttackDelay: 481
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 06
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -5767,9 +5767,9 @@ Body:
   AttackDelay: 300
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 06
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -5819,9 +5819,9 @@ Body:
   AttackDelay: 862
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 06
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
