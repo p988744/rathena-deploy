@@ -27,6 +27,20 @@ bl_depth1,0,0	monster	Deep Holy Skogul	22149,25,5000,0
 bl_depth1,0,0	monster	Deep Pom Spider	22153,25,5000,0
 
 //==================================================
+// bl_depth2 — Abyss Lab 2 (深淵研究所2層)
+//==================================================
+bl_depth2,0,0	monster	Bio Ice Gargoyle	22256,30,0,0
+bl_depth2,0,0	monster	Bio Morocc	22259,30,0,0
+bl_depth2,0,0	monster	Bio Flame Ghost	22257,30,0,0
+bl_depth2,0,0	monster	Bio Acidus	22258,30,0,0
+bl_depth2,0,0	monster	Bio Ancient Tree	22254,30,0,0
+bl_depth2,0,0	monster	Bio Duneyrr	22252,30,0,0
+bl_depth2,0,0	monster	Bio Naga	22253,30,0,0
+bl_depth2,0,0	monster	Bio Dollocaris	22255,30,0,0
+bl_depth2,0,0	monster	Bio Moskillo	22261,30,0,0
+bl_depth2,0,0	monster	Bio Salamander	22260,30,0,0
+
+//==================================================
 // mjo_wst01 — Mjolnir West
 //==================================================
 mjo_wst01,0,0	monster	Punch Bug	21951,90,5000,0

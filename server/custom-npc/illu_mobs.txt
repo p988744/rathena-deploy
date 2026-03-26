@@ -165,17 +165,3 @@ iz_d05_i,0,0	monster	Deep Sea Phen	20809,45,5000
 iz_d05_i,0,0	monster	Deep Sea Sedora	20806,45,5000
 iz_d05_i,0,0	monster	Deep Sea King Dramoh	20810,45,5000
 iz_d05_i,0,0,0,0	boss_monster	Deep Sea Witch	20843,1,7200000,600000,1
-
-//==================================================
-// bl_depth2 — Abyss Lab 2 (深淵研究所2層)
-//==================================================
-bl_depth2,0,0	monster	Bio Ice Gargoyle	22256,30,0,0
-bl_depth2,0,0	monster	Bio Morocc	22259,30,0,0
-bl_depth2,0,0	monster	Bio Flame Ghost	22257,30,0,0
-bl_depth2,0,0	monster	Bio Acidus	22258,30,0,0
-bl_depth2,0,0	monster	Bio Ancient Tree	22254,30,0,0
-bl_depth2,0,0	monster	Bio Duneyrr	22252,30,0,0
-bl_depth2,0,0	monster	Bio Naga	22253,30,0,0
-bl_depth2,0,0	monster	Bio Dollocaris	22255,30,0,0
-bl_depth2,0,0	monster	Bio Moskillo	22261,30,0,0
-bl_depth2,0,0	monster	Bio Salamander	22260,30,0,0
