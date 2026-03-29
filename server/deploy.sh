@@ -27,10 +27,19 @@ fi
 SERVER_IP="${SERVER_IP:?請在 .env 中設定 SERVER_IP}"
 SERVER_USER="${SERVER_USER:-ubuntu}"
 SERVER_SSH_PORT="${SERVER_SSH_PORT:-22}"
+SERVER_SSH_KEY="${SERVER_SSH_KEY:-}"
 REMOTE_DIR="${REMOTE_DIR:-/opt/rathena}"
 TAR_FILE="rathena-server.tar"
 IMAGE_NAME="rathena-server"
 IMAGE_TAG="latest"
+
+# SSH/SCP key 參數
+SSH_KEY_OPT=""
+SCP_KEY_OPT=""
+if [ -n "${SERVER_SSH_KEY}" ]; then
+    SSH_KEY_OPT="-i ${SERVER_SSH_KEY}"
+    SCP_KEY_OPT="-i ${SERVER_SSH_KEY}"
+fi
 
 echo "============================================"
 echo "  🚀 部署 rAthena 到 VPS"
@@ -52,7 +61,7 @@ TAR_SIZE=$(du -h "${TAR_FILE}" | cut -f1)
 
 # ------ Step 1: 在 VPS 上建立目錄結構 ------
 echo "📁 Step 1: 在 VPS 上建立目錄結構..."
-ssh -p "${SERVER_SSH_PORT}" "${SERVER_USER}@${SERVER_IP}" \
+ssh ${SSH_KEY_OPT} -p "${SERVER_SSH_PORT}" "${SERVER_USER}@${SERVER_IP}" \
     "sudo mkdir -p ${REMOTE_DIR}/{custom/conf,custom/npc,custom-overlay}"
 echo "✅ 目錄已建立"
 
@@ -61,7 +70,7 @@ echo ""
 echo "📤 Step 2: 上傳映像到 VPS (${TAR_SIZE})..."
 echo "   可能需要幾分鐘，取決於網路速度..."
 
-scp -P "${SERVER_SSH_PORT}" "${TAR_FILE}" \
+scp ${SCP_KEY_OPT} -P "${SERVER_SSH_PORT}" "${TAR_FILE}" \
     "${SERVER_USER}@${SERVER_IP}:/tmp/${TAR_FILE}"
 
 echo "✅ 上傳完成！"
@@ -70,7 +79,7 @@ echo "✅ 上傳完成！"
 echo ""
 echo "📥 Step 3: 在 VPS 上載入 Docker 映像..."
 
-ssh -p "${SERVER_SSH_PORT}" "${SERVER_USER}@${SERVER_IP}" << REMOTE_LOAD
+ssh ${SSH_KEY_OPT} -p "${SERVER_SSH_PORT}" "${SERVER_USER}@${SERVER_IP}" << REMOTE_LOAD
 docker load -i /tmp/${TAR_FILE}
 rm /tmp/${TAR_FILE}
 echo "映像載入完成"
@@ -83,7 +92,7 @@ echo "✅ 映像已載入！"
 echo ""
 echo "📤 Step 4: 上傳部署設定檔..."
 
-scp -P "${SERVER_SSH_PORT}" \
+scp ${SCP_KEY_OPT} -P "${SERVER_SSH_PORT}" \
     docker-compose.yml .env \
     "${SERVER_USER}@${SERVER_IP}:${REMOTE_DIR}/"
 
@@ -93,7 +102,7 @@ echo "✅ 設定檔已上傳"
 echo ""
 echo "📤 Step 4b: 同步 custom-overlay..."
 
-scp -P "${SERVER_SSH_PORT}" -r \
+scp ${SCP_KEY_OPT} -P "${SERVER_SSH_PORT}" -r \
     custom-overlay/ \
     "${SERVER_USER}@${SERVER_IP}:${REMOTE_DIR}/"
 
@@ -103,7 +112,7 @@ echo "✅ custom-overlay 已同步"
 echo ""
 echo "🚀 Step 5: 啟動伺服器..."
 
-ssh -p "${SERVER_SSH_PORT}" "${SERVER_USER}@${SERVER_IP}" << REMOTE_START
+ssh ${SSH_KEY_OPT} -p "${SERVER_SSH_PORT}" "${SERVER_USER}@${SERVER_IP}" << REMOTE_START
 cd ${REMOTE_DIR}
 
 # 如果有舊的容器，先停止

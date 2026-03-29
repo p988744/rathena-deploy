@@ -54,6 +54,7 @@ nemo/*
 # === Server ===
 server/rathena-server.tar
 server/conf/import/
+server/.env
 
 # === Build scripts (not needed in repo) ===
 client/data/convert_to_big5.py

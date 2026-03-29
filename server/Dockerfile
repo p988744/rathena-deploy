@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git make gcc g++ \
     libmariadb-dev libmariadb-dev-compat \
     zlib1g-dev libpcre3-dev ca-certificates \
+    python3 \
     && rm -rf /var/lib/apt/lists/*
 
 # 下載 rAthena 原始碼
@@ -30,6 +31,10 @@ RUN git clone --branch ${RATHENA_BRANCH} \
     fi
 
 WORKDIR /build/rathena
+
+# 實作尚未支援的 Meister 技能：MT_SPARK_BLASTER / MT_TRIPLE_LASER / MT_MIGHTY_SMASH
+COPY patches/ /patches/
+RUN python3 /patches/mt_skills.py src/map/battle.cpp
 
 # 根據 BUILD_MODE 選擇 Pre-Renewal 或 Renewal
 RUN if [ "${BUILD_MODE}" = "pre-re" ]; then \
