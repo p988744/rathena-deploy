@@ -252,6 +252,13 @@ if [ -f "/rathena/npc/custom/mvp_room.txt" ]; then
     echo "   已啟用 MVP 房間"
 fi
 
+# 啟用 生命體S NPC
+if [ -f "/rathena/npc/custom/homun_s.txt" ]; then
+    grep -qF 'npc: npc/custom/homun_s.txt' /rathena/npc/scripts_custom.conf || \
+        echo 'npc: npc/custom/homun_s.txt' >> /rathena/npc/scripts_custom.conf
+    echo "   已啟用 生命體S NPC"
+fi
+
 # 啟用健身房大師
 if [ -f "/rathena/npc/custom/gympass.txt" ]; then
     if ! grep -q 'gympass.txt' /rathena/npc/scripts_custom.conf; then
