@@ -84,7 +84,7 @@ izlude,137,154,5	script	MVP Room	925,{
 		close;
 	}
 	// Only party leaders (or solo players) can open a new room
-	if (getcharid(1) > 0 && getpartyleader(getcharid(1), 1) != getcharid(0)) {
+	if (getcharid(1) > 0 && getpartyleader(getcharid(1), 1) != getcharid(3)) {
 		mes "[Private MVP Room]";
 		mes "Only the ^FF9900party leader^000000 can open a room.";
 		close;
@@ -207,7 +207,7 @@ OnInit:
 		.@nextwavesize = .wave[.@id] + 1;
 		switch (select("Start Wave " + (.wave[.@id] + 1) + " / 10 (" + .@nextwavesize + " MVPs):Full Heal:Leave Room")) {
 		case 1:
-			if ($mvp_room_party[.@id] > 0 && getpartyleader($mvp_room_party[.@id], 1) != getcharid(0)) {
+			if ($mvp_room_party[.@id] > 0 && getpartyleader($mvp_room_party[.@id], 1) != getcharid(3)) {
 				mes "[MVP Challenger]";
 				mes "^CC0000Only the party leader can start the next wave.^000000";
 				close;
@@ -258,7 +258,7 @@ OnInit:
 
 	switch (select("Start Wave " + (.wave[.@id] + 1) + " / 100:Full Heal:Leave Room")) {
 	case 1:
-		if ($mvp_room_party[.@id] > 0 && getpartyleader($mvp_room_party[.@id], 1) != getcharid(0)) {
+		if ($mvp_room_party[.@id] > 0 && getpartyleader($mvp_room_party[.@id], 1) != getcharid(3)) {
 			mes "[MVP Challenger]";
 			mes "^CC0000Only the party leader can start the next wave.^000000";
 			close;
