@@ -5841,3 +5841,43 @@ Body:
       Rate: 75
     - Item: Abyss_Rune_Ore
       Rate: 25
+
+- Id: 20994
+  AegisName: MD_BETELGEUSE
+  Name: Betelgeuse
+  Level: 250
+  Hp: 2000000000
+  BaseExp: 0
+  JobExp: 0
+  MvpExp: 0
+  Attack: 8259
+  Attack2: 12158
+  Defense: 346
+  MagicDefense: 102
+  Str: 211
+  Agi: 211
+  Vit: 132
+  Int: 152
+  Dex: 279
+  Luk: 108
+  AttackRange: 3
+  SkillRange: 10
+  ChaseRange: 12
+  Size: Large
+  Race: Dragon
+  Element: Neutral
+  ElementLevel: 2
+  WalkSpeed: 150
+  AttackDelay: 719
+  AttackMotion: 0
+  DamageMotion: 0
+  DamageTaken: 1
+  Ai: 06
+  Class: BOSS
+  Modes:
+    CanMove: true
+    CanAttack: true
+    Aggressive: true
+    ChangeTargetMelee: true
+    ChangeTargetChase: true
+    Mvp: true

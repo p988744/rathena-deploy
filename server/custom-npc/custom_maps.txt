@@ -1,35 +1,23 @@
-// Custom Maps
-// bl_dep1_cus / bl_dep2_cus are copies of bl_depth1
-
-// Mapflags
-bl_dep1_cus	mapflag	nosave	SavePoint
-bl_dep1_cus	mapflag	nomemo
-bl_dep1_cus	mapflag	noreturn
-
-bl_dep2_cus	mapflag	nosave	SavePoint
-bl_dep2_cus	mapflag	nomemo
-bl_dep2_cus	mapflag	noreturn
-
 // Monster Spawns - bl_dep1_cus
-bl_dep1_cus,0,0	monster	비올렌	22383,60,5000,0
-bl_dep1_cus,0,0	monster	강인한 비올렌	22384,10,5000,0
-bl_dep1_cus,0,0	monster	거밍	22385,105,5000,0
-bl_dep1_cus,0,0	monster	강인한 거밍	22386,17,5000,0
-bl_dep1_cus,0,0	monster	갈링	22387,75,5000,0
-bl_dep1_cus,0,0	monster	강인한 갈링	22388,14,5000,0
-bl_dep1_cus,0,0	monster	잭오네트	22389,105,5000,0
-bl_dep1_cus,0,0	monster	강인한 잭오네트	22390,17,5000,0
-bl_dep1_cus,0,0	monster	리아멧트	22391,105,5000,0
-bl_dep1_cus,0,0	monster	강인한 리아멧트	22392,17,5000,0
-bl_dep1_cus,0,0,0,0	boss_monster	악몽의 피아멧트	22394,1,7200000,600000,1
+nif_fild03,0,0	monster	비올렌	22383,60,5000,0
+nif_fild03,0,0	monster	강인한 비올렌	22384,10,5000,0
+nif_fild03,0,0	monster	거밍	22385,105,5000,0
+nif_fild03,0,0	monster	강인한 거밍	22386,17,5000,0
+nif_fild03,0,0	monster	갈링	22387,75,5000,0
+nif_fild03,0,0	monster	강인한 갈링	22388,14,5000,0
+nif_fild03,0,0	monster	잭오네트	22389,105,5000,0
+nif_fild03,0,0	monster	강인한 잭오네트	22390,17,5000,0
+nif_fild03,0,0	monster	리아멧트	22391,105,5000,0
+nif_fild03,0,0	monster	강인한 리아멧트	22392,17,5000,0
+nif_fild03,0,0,0,0	boss_monster	악몽의 피아멧트	22394,1,7200000,600000,1
 
 // Monster Spawns - bl_dep2_cus
-bl_dep2_cus,0,0	monster	메제드	22395,120,5000,0
-bl_dep2_cus,0,0	monster	강인한 메제드	22396,23,5000,0
-bl_dep2_cus,0,0	monster	헤카	22401,75,5000,0
-bl_dep2_cus,0,0	monster	강인한 헤카	22402,14,5000,0
-bl_dep2_cus,0,0	monster	메자이	22397,120,5000,0
-bl_dep2_cus,0,0	monster	강인한 메자이	22398,23,5000,0
-bl_dep2_cus,0,0	monster	오포이스	22399,105,5000,0
-bl_dep2_cus,0,0	monster	강인한 오포이스	22400,20,5000,0
-bl_dep2_cus,0,0,0,0	boss_monster	사자의 인도자	22404,1,7200000,600000,1
+moc_akhet,0,0	monster	메제드	22395,120,5000,0
+moc_akhet,0,0	monster	강인한 메제드	22396,23,5000,0
+moc_akhet,0,0	monster	헤카	22401,75,5000,0
+moc_akhet,0,0	monster	강인한 헤카	22402,14,5000,0
+moc_akhet,0,0	monster	메자이	22397,120,5000,0
+moc_akhet,0,0	monster	강인한 메자이	22398,23,5000,0
+moc_akhet,0,0	monster	오포이스	22399,105,5000,0
+moc_akhet,0,0	monster	강인한 오포이스	22400,20,5000,0
+moc_akhet,0,0,0,0	boss_monster	사자의 인도자	22404,1,7200000,600000,1

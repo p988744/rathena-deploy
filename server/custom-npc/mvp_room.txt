@@ -1,7 +1,8 @@
 //===== Custom Script =============================================
-//= MVP Challenge Room  (Normal & Challenge Modes)
+//= MVP Challenge Room  (Normal, Challenge & BETELGEUSE Modes)
 //= Normal Mode: up to 100 waves, 1 MVP/wave, 1 card per 10 waves
 //= Challenge Mode: 10 waves, wave N spawns N MVPs, 5 cards on clear
+//= BETELGEUSE Mode: 1 wave, Betelgeuse only, 1 card on clear, free entry
 //= - Enter from izlude 137,154
 //= - Entry fee: Normal 1億 / Challenge 3億
 //=============================================================
@@ -18,11 +19,17 @@ izlude,137,154,5	script	MVP Room	925,{
 	mes " ";
 	mes "^FF9900Challenge Mode^000000 — Wave N spawns N MVPs, 10 waves total.";
 	mes "Clear all 10 waves to earn ^FF99005 random MVP Cards^000000!";
+	mes " ";
+	mes "^CC0000BETELGEUSE Challenger Mode^000000 — Face the great dragon Betelgeuse!";
+	mes "Defeat it to earn ^FF99001 random MVP Card^000000! (^00CC00Free entry^000000)";
 	next;
-	.@mode = select("Normal Mode (100,000,000 Zeny):Challenge Mode (300,000,000 Zeny):Cancel");
-	if (.@mode == 3) close;
+	.@mode = select("Normal Mode (100,000,000 Zeny):Challenge Mode (300,000,000 Zeny):BETELGEUSE Challenger (Free):Cancel");
+	if (.@mode == 4) close;
 
-	.@fee = (.@mode == 1) ? 100000000 : 300000000;
+	if (.@mode == 3)
+		.@fee = 0;
+	else
+		.@fee = (.@mode == 1) ? 100000000 : 300000000;
 
 	mes "[Private MVP Room]";
 	mes "^888888Room Status:^000000";
@@ -33,8 +40,9 @@ izlude,137,154,5	script	MVP Room	925,{
 		// treat occupied-but-empty rooms as available
 		if (.@rt && getmapusers("06guild_0" + .@i) == 0) .@rt = 0;
 		if (.@rt) {
-			.@modestr$ = (.@md == 1) ? " [Challenge]" : " [Normal]";
-			.@maxwave   = (.@md == 1) ? 10 : 100;
+			if (.@md == 2) { .@modestr$ = " [Betelgeuse]"; .@maxwave = 1; }
+			else if (.@md == 1) { .@modestr$ = " [Challenge]"; .@maxwave = 10; }
+			else { .@modestr$ = " [Normal]"; .@maxwave = 100; }
 			if (.@wv > 0)
 				mes "Room #" + .@i + " = ^EE8800In Progress (Wave " + .@wv + "/" + .@maxwave + ")" + .@modestr$ + "^000000";
 			else
@@ -85,15 +93,19 @@ izlude,137,154,5	script	MVP Room	925,{
 	if (.@mode == 1) {
 		mes "^00CC00Normal Mode^000000 selected.";
 		mes "Entry fee: ^FF0000100,000,000 Zeny^000000.";
-	} else {
+		mes "Your Zeny: ^0000FF" + Zeny + "^000000";
+	} else if (.@mode == 2) {
 		mes "^FF9900Challenge Mode^000000 selected.";
 		mes "Entry fee: ^FF0000300,000,000 Zeny^000000.";
 		mes "^888888Complete all 10 waves to earn 5 random MVP Cards!^000000";
+		mes "Your Zeny: ^0000FF" + Zeny + "^000000";
+	} else {
+		mes "^CC0000BETELGEUSE Challenger Mode^000000 selected.";
+		mes "^00CC00Free entry!^000000 Defeat Betelgeuse to earn 1 random MVP Card!";
 	}
-	mes "Your Zeny: ^0000FF" + Zeny + "^000000";
 	next;
-	if (select("Pay and Enter:Cancel") == 2) close;
-	if (Zeny < .@fee) {
+	if (select("Enter:Cancel") == 2) close;
+	if (.@mode != 3 && Zeny < .@fee) {
 		mes "[Private MVP Room]";
 		mes "You don't have enough Zeny.";
 		close;
@@ -108,8 +120,10 @@ izlude,137,154,5	script	MVP Room	925,{
 		warp "06guild_0" + .@room, 49, 53;
 	if (.@mode == 1)
 		donpcevent "MVP Challenger#" + .@room + "::OnEnterMap";
-	else
+	else if (.@mode == 2)
 		donpcevent "MVP Challenger#" + .@room + "::OnEnterChallenge";
+	else
+		donpcevent "MVP Challenger#" + .@room + "::OnEnterBetelgeuse";
 	close;
 OnInit:
 	waitingroom "MVP Room", 0;
@@ -126,6 +140,57 @@ OnInit:
 		mes "[MVP Challenger]";
 		mes "^CC0000An MVP is still alive!^000000";
 		mes "Defeat it before starting the next wave.";
+		close;
+	}
+
+	if (.mode[.@id] == 2) {
+		// ── Betelgeuse Challenger Mode ──
+		mes "[MVP Challenger]";
+		if (.wave[.@id] > 0) {
+			mes "Betelgeuse has already been defeated!";
+			mes "Claim your reward from the Reward NPC.";
+			close;
+		}
+		mes "^CC0000BETELGEUSE Challenger Mode^000000";
+		mes "Face the great dragon and claim your reward!";
+		next;
+		switch (select("Challenge Betelgeuse:Full Heal:Leave Room")) {
+		case 1:
+			if ($mvp_room_party[.@id] > 0 && getpartyleader($mvp_room_party[.@id], 1) != getcharid(0)) {
+				mes "[MVP Challenger]";
+				mes "^CC0000Only the party leader can start the challenge.^000000";
+				close;
+			}
+			hideonnpc strnpcinfo(0);
+			.waveactive[.@id] = 1;
+			monster strnpcinfo(4), 49, 49, "--ja--", 20994, 1, strnpcinfo(3) + "::OnMobDead";
+			mes "[MVP Challenger]";
+			mes "^CC0000Betelgeuse^000000 has appeared!";
+			mes "Defeat it to earn your reward!";
+			close;
+		case 2:
+			sc_end SC_STONE;       sc_end SC_SLOWDOWN;    sc_end SC_FREEZE;
+			sc_end SC_SLEEP;       sc_end SC_CURSE;       sc_end SC_SILENCE;
+			sc_end SC_CONFUSION;   sc_end SC_BLIND;       sc_end SC_BLEEDING;
+			sc_end SC_DECREASEAGI; sc_end SC_POISON;      sc_end SC_HALLUCINATION;
+			sc_end SC_STRIPWEAPON; sc_end SC_STRIPARMOR;
+			sc_end SC_STRIPHELM;   sc_end SC_STRIPSHIELD;
+			sc_end SC_CHANGEUNDEAD; sc_end SC_BERSERK;
+			percentheal 100, 100;
+			specialeffect2 EF_HEAL;
+			mes "[MVP Challenger]";
+			mes "You have been fully healed.";
+			close;
+		case 3:
+			mes "[MVP Challenger]";
+			mes "Leaving will ^CC0000forfeit^000000 your challenge.";
+			next;
+			if (select("Yes, leave:No, stay") == 1) {
+				warp .respawnmap$, .respawnx, .respawny;
+				donpcevent strnpcinfo(0) + "::OnForceReset";
+			}
+			close;
+		}
 		close;
 	}
 
@@ -237,6 +302,11 @@ OnInit:
 	}
 	close;
 
+OnEnterBetelgeuse:
+	.@id = atoi(strnpcinfo(2));
+	.mode[.@id] = 2;
+	goto L_EnterCommon;
+
 OnEnterChallenge:
 	.@id = atoi(strnpcinfo(2));
 	.mode[.@id] = 1;
@@ -281,6 +351,16 @@ L_EnterCommon:
 
 OnMobDead:
 	.@id = atoi(strnpcinfo(2));
+	if (.mode[.@id] == 2) {
+		// Betelgeuse Challenger Mode
+		if (mobcount(strnpcinfo(4), strnpcinfo(3) + "::OnMobDead") > 0) end;
+		.wave[.@id] = 1;
+		.waveactive[.@id] = 0;
+		disablenpc "MVP Challenger#" + .@id;
+		enablenpc "MVP Reward#" + .@id;
+		mapannounce strnpcinfo(4), "Betelgeuse has been defeated! Claim your MVP Card from the Reward NPC!", 0, 0xFFD700;
+		end;
+	}
 	if (.mode[.@id] == 1) {
 		// Challenge Mode: use mobcount so dropped events don't block progression
 		if (mobcount(strnpcinfo(4), strnpcinfo(3) + "::OnMobDead") > 0) end;
@@ -404,6 +484,27 @@ OnInit:
 	.@mode    = getvariableofnpc(.mode[.@id],    "MVP Challenger");
 
 	mes "[MVP Challenge - Reward]";
+
+	if (.@mode == 2) {
+		// ── Betelgeuse Challenger Mode ──
+		mes "^CC0000Incredible!^000000 You've defeated the great dragon ^CC0000Betelgeuse^000000!";
+		mes " ";
+		mes "Claim your ^FF99001 random MVP Card^000000!";
+		next;
+		if (select("Claim 1 Card:Not Right Now") == 2) {
+			mes "[MVP Challenge - Reward]";
+			mes "Come back whenever you are ready.";
+			close;
+		}
+		.@card = .cardid[rand(getarraysize(.cardid))];
+		getitem .@card, 1;
+		announce "[MVP Challenge] " + strcharinfo(PC_NAME) + " defeated Betelgeuse and obtained " + getitemname(.@card) + "!", bc_all, 0xFFD700;
+		disablenpc strnpcinfo(0);
+		enablenpc "MVP Challenger#" + .@id;
+		donpcevent "MVP Challenger#" + .@id + "::OnReset";
+		warp "SavePoint", 0, 0;
+		close;
+	}
 
 	if (.@mode == 1) {
 		// ── Challenge Mode ──
