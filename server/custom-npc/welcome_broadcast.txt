@@ -11,6 +11,12 @@
 
 OnPCLoginEvent:
 	announce strcharinfo(PC_NAME) + " has logged in. Welcome back!", bc_all, 0x00CCFF;
+	dispbottom "=== Available Commands ===";
+	dispbottom "@allskill        - Learn all skills instantly";
+	dispbottom "@autoloot <rate> - Auto loot items (e.g. @autoloot 100)";
+	dispbottom "@load            - Return to your save point";
+	dispbottom "@homfriendly <amount> - Set Homunculus intimacy (max 1000)";
+	dispbottom "==========================";
 	end;
 
 }

@@ -6820,8 +6820,6 @@ Body:
     Name: AM_BIOETHICS
     Description: Bioethics
     MaxLevel: 1
-    Flags:
-      IsQuest: true
   - Id: 243
     Name: AM_CALLHOMUN
     Description: Call Homunculus

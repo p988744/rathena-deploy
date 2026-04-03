@@ -6,7 +6,7 @@ Patches rAthena battle.cpp to add per-hit damage ratios for:
   MT_MIGHTY_SMASH  (6004) - Melee AoE, 5/7 hits (wd.div_ already handled in battle.cpp)
 
 Damage formulas from divine-pride.net:
-  MT_SPARK_BLASTER per hit: Lv1-4=(750+400*lv)%, Lv5-10=(4750+900*(lv-5))%
+  MT_SPARK_BLASTER per hit: (600+1400*lv)%, Lv1=2000% to Lv10=14600%
   MT_TRIPLE_LASER  per hit: (550+900*lv)%
   MT_MIGHTY_SMASH  per hit normal:    {205,345,485,745,925,1095,1280,1465,1645,1825}%
                    per hit AXE_STOMP: {230,370,510,770,950,1120,1305,1490,1670,1850}%
@@ -58,11 +58,8 @@ ANCHORS = [
 
 CODE = """\
 \t\tcase MT_SPARK_BLASTER:
-\t\t\t// Per hit: Lv1-4=(750+400*lv)%, Lv5-10=(4750+900*(lv-5))%
-\t\t\tif (skill_lv <= 4)
-\t\t\t\tskillratio += -100 + 750 + 400 * skill_lv;
-\t\t\telse
-\t\t\t\tskillratio += -100 + 4750 + 900 * (skill_lv - 5);
+\t\t\t// Per hit: (600+1400*lv)%, Lv1=2000% to Lv10=14600%
+\t\t\tskillratio += -100 + 600 + 1400 * skill_lv;
 \t\t\tbreak;
 \t\tcase MT_TRIPLE_LASER:
 \t\t\t// Per hit: (550+900*lv)%
