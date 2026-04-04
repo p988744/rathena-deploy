@@ -193,7 +193,7 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	mes "Welcome! I can enchant your equipment from EP17.2 through EP19.";
 	mes "No quests or prerequisites required.";
 	next;
-	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Costume Garment Slot 2 Enchant", "Illusion Equipment Enchant", "Mad Bunny-LT Enchant", "Miss Memory Record Enchant", "EP20 Crystal Equipment Enchant", "EP20 Dark Crystal Equipment Enchant", "Caesar Series & Asteria Enchant", "Nebula Series Enchant", "Swallow God Shield Enchant", "Gaebolg Series Enchant", "Battle Dead Head Enchant", "Asteria's Dawn Combat Boots Enchant", "Taiwan Special Garment Enchant", "Thanos Helm Enchant", "Schmidt Badge Enchant", "Leave" ) ) {
+	switch( select( "EP17.2 Automatic Equipment Enchant", "EP18 Gray Wolf Equipment Enchant", "EP19 Snowflower Equipment Enchant", "EP19 Glacier Weapon Enchant", "EP19 Dim Glacier Weapon Enchant", "Temporal Circlet Enchant", "LevelUp Weapon Enchant", "Costume Headgear Enchant", "Costume Garment Enchant", "Costume Garment Slot 2 Enchant", "Illusion Equipment Enchant", "Mad Bunny-LT Enchant", "Miss Memory Record Enchant", "EP20 Crystal Equipment Enchant", "EP20 Dark Crystal Equipment Enchant", "Caesar & Asteria & Temporal Armor Enchant", "Nebula Series Enchant", "Swallow God Shield Enchant", "Gaebolg Series Enchant", "Battle Dead Head Enchant", "Asteria's Dawn Combat Boots Enchant", "Taiwan Special Garment Enchant", "Thanos Helm Enchant", "Schmidt Badge Enchant", "Timeless Transcender Boots Enchant", "Timeless Transcender Cloak Enchant", "Leave" ) ) {
 	case 1: callsub L_Auto; end;
 	case 2: callsub L_GrayWolf; end;
 	case 3: callsub L_Snowflower; end;
@@ -296,7 +296,9 @@ izlude,119,150,4	script	Enchant Master	4_TOWER_14,{
 	case 22: callsub L_TaiwanSpecial; end;
 	case 23: callsub L_ThanosHelm; end;
 	case 24: callsub L_SchmidtBadge; end;
-	case 25:
+	case 25: callsub L_TimelessBoots; end;
+	case 26: callsub L_TimelessCloak; end;
+	case 27:
 		mes "[Enchant Master]";
 		mes "Come back anytime!";
 		close;
@@ -2055,7 +2057,8 @@ L_Caesar:
 	setarray .@caesar_ids[0],
 		450293, 450294, 450295, 450296, 450297, 450298,
 		450385,
-		450386, 450387, 450388, 450389, 450390, 450391;
+		450386, 450387, 450388, 450389, 450390, 450391,
+		450299;
 
 	.@part = -1;
 	for (.@i = 0; .@i <= 22; .@i++) {
@@ -3726,6 +3729,187 @@ L_SchmidtBadge:
 		mes "^00CC00Reset successful!^000000 All enchants cleared.";
 		close;
 	}
+
+	return;
+
+// ============================================================
+// L_TimelessBoots — 時光超越者之靴 (Timeless Transcender Boots) Enchant
+// Items: 470183
+// Slot 4 (card[3]): random 1 of 6, equal 16.67% each
+//   Fighting_Spirit7 (4822), Expert_Archer4 (4935), Spell5 (4826),
+//   MHP2 (4862), Attack_Delay_4 (4881), Luck6 (4755)
+// Slot 3 (card[2]): random 1 of 6, equal 16.67% each
+//   Bear's_Power (4875), Runaway_Magic (4876), Speed_Of_Light (4877),
+//   Muscle_Fool (4878), Hawkeye (4879), Lucky_Day (4880)
+// Both slots enchanted at once. Re-enchant overwrites both.
+// Cost: 20,000,000z
+// ============================================================
+L_TimelessBoots:
+	setarray .@eq_ids[0], 470183;
+	.@part = -1;
+	for (.@i = 0; .@i <= 22; .@i++) {
+		if (inarray(.@eq_ids, getequipid(.@i)) != -1) { .@part = .@i; break; }
+	}
+	if (.@part == -1) {
+		mes "[Enchant Master]";
+		mes "Please ^FF0000equip^000000 your ^0000FFTimeless Transcender Boots^000000 first.";
+		close;
+	}
+
+	.@equip_id    = getequipid(.@part);
+	.@equip_name$ = getequipname(.@part);
+	.@refine      = getequiprefinerycnt(.@part);
+	.@grade       = getenchantgrade(.@part);
+	setarray .@card[0],
+		getequipcardid(.@part,0), getequipcardid(.@part,1),
+		getequipcardid(.@part,2), getequipcardid(.@part,3);
+
+	mes "[Enchant Master]";
+	mes "^FFD700== Timeless Transcender Boots Enchant ==^000000";
+	mes "^0000FF" + .@equip_name$ + "^000000";
+	mes "Slot 4: " + (.@card[3] > 0 ? "^0000CD" + getitemname(.@card[3]) + "^000000" : "^808080Empty^000000");
+	mes "Slot 3: " + (.@card[2] > 0 ? "^0000CD" + getitemname(.@card[2]) + "^000000" : "^808080Empty^000000");
+	next;
+
+	mes "[Enchant Master]";
+	mes "^00CC00[Slot 4] — random 1 of 6 (16.67% each)^000000";
+	mes "Fighting Spirit 7 / Expert Archer 4 / Spell 5";
+	mes "Max HP 2 / Attack Delay 4 / Luck 6";
+	mes "";
+	mes "^00CC00[Slot 3] — random 1 of 6 (16.67% each)^000000";
+	mes "Bear's Power / Runaway Magic / Speed Of Light";
+	mes "Muscle Fool / Hawkeye / Lucky Day";
+	next;
+
+	mes "[Enchant Master]";
+	if (.@card[2] > 0 || .@card[3] > 0) {
+		mes "^FF0000This item already has enchants.^000000";
+		mes "Re-enchanting will ^FF0000overwrite BOTH slots^000000 with new random results.";
+	} else {
+		mes "Both Slot 4 and Slot 3 will be enchanted at once.";
+	}
+	mes "Cost: ^FF000020,000,000 Zeny^000000";
+	next;
+	if (select("Yes, enchant!", "Cancel") == 2) { mes "[Enchant Master]"; mes "Cancelled."; close; }
+	if (Zeny < 20000000) {
+		mes "[Enchant Master]";
+		mes "^FF0000Not enough Zeny. Need 20,000,000z.^000000";
+		close;
+	}
+
+	if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+	    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+	    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+		end;
+
+	// === Roll Slot 4 — 6 options, equal probability ===
+	setarray .@s4_ids[0], 4822, 4935, 4826, 4862, 4881, 4755;
+	.@card[3] = .@s4_ids[rand(6)];
+
+	// === Roll Slot 3 — 6 options, equal probability ===
+	setarray .@s3_ids[0], 4875, 4876, 4877, 4878, 4879, 4880;
+	.@card[2] = .@s3_ids[rand(6)];
+
+	Zeny -= 20000000;
+	delequip .@part;
+	getitem4 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3], .@grade, .@roi, .@rov, .@rop;
+	specialeffect2 EF_REPAIRWEAPON;
+
+	mes "[Enchant Master]";
+	mes "^00CC00Enchantment complete!^000000";
+	mes "Slot 4: ^0000CD" + getitemname(.@card[3]) + "^000000";
+	mes "Slot 3: ^0000CD" + getitemname(.@card[2]) + "^000000";
+	close;
+
+	return;
+
+// ============================================================
+// L_TimelessCloak — 時光超越者斗篷 (Timeless Transcender Cloak) Enchant
+// Item: 480312
+// Targeted enchant — player selects which enchant to apply.
+// Slot 4 (card[3]): Physical_Flower_5 (312513) / Magical_Flower_5 (312518)
+// Slot 3 (card[2]): Physical_Fruit 20Lv (312538) / Magical_Fruit 20Lv (312558)
+// Slot 2 (card[1]): Life_of_Spring 20Lv (312578) / Life_of_Winter 20Lv (312638)
+//                   Life_of_Summer 20Lv (312598) / Life_of_Autumn 20Lv (312618)
+// Re-enchant overwrites the chosen slot. Cost: 500,000,000z per slot.
+// ============================================================
+L_TimelessCloak:
+	if (getequipid(EQI_GARMENT) != 480312) {
+		mes "[Enchant Master]";
+		mes "Please ^FF0000equip^000000 your ^0000FFTimeless Transcender Cloak (480312)^000000 first.";
+		close;
+	}
+	.@part = EQI_GARMENT;
+
+	.@equip_id    = getequipid(.@part);
+	.@equip_name$ = getequipname(.@part);
+	.@refine      = getequiprefinerycnt(.@part);
+	.@grade       = getenchantgrade(.@part);
+	setarray .@card[0],
+		getequipcardid(.@part,0), getequipcardid(.@part,1),
+		getequipcardid(.@part,2), getequipcardid(.@part,3);
+
+	mes "[Enchant Master]";
+	mes "^FFD700== Timeless Transcender Cloak Enchant ==^000000";
+	mes "^0000FF" + .@equip_name$ + "^000000";
+	mes "Slot 4: " + (.@card[3] > 0 ? "^0000CD" + getitemname(.@card[3]) + "^000000" : "^808080Empty^000000");
+	mes "Slot 3: " + (.@card[2] > 0 ? "^0000CD" + getitemname(.@card[2]) + "^000000" : "^808080Empty^000000");
+	mes "Slot 2: " + (.@card[1] > 0 ? "^0000CD" + getitemname(.@card[1]) + "^000000" : "^808080Empty^000000");
+	next;
+
+	.@sl = select("Slot 4:Slot 3:Slot 2:Cancel");
+	if (.@sl == 4) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+
+	// --- Slot 4 ---
+	if (.@sl == 1) {
+		.@opt = select("Physical Flower 5 (312513):Magical Flower 5 (312518):Cancel");
+		if (.@opt == 3) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+		setarray .@enc[0], 312513, 312518;
+		.@slot_idx = 3;
+	// --- Slot 3 ---
+	} else if (.@sl == 2) {
+		.@opt = select("Physical Fruit 20Lv (312538):Magical Fruit 20Lv (312558):Cancel");
+		if (.@opt == 3) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+		setarray .@enc[0], 312538, 312558;
+		.@slot_idx = 2;
+	// --- Slot 2 ---
+	} else {
+		.@opt = select("Life of Spring 20Lv (312578):Life of Summer 20Lv (312598):Life of Autumn 20Lv (312618):Life of Winter 20Lv (312638):Cancel");
+		if (.@opt == 5) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+		setarray .@enc[0], 312578, 312598, 312618, 312638;
+		.@slot_idx = 1;
+	}
+	.@new_ench = .@enc[.@opt - 1];
+
+	.@slot_display = (.@slot_idx == 3) ? 4 : (.@slot_idx == 2) ? 3 : 2;
+	mes "[Enchant Master]";
+	mes "Apply ^0000CD" + getitemname(.@new_ench) + "^000000";
+	mes "to ^0000FF" + .@equip_name$ + "^000000 Slot ^FFD700" + .@slot_display + "^000000?";
+	mes "Current Slot " + .@slot_display + ": " + (.@card[.@slot_idx] > 0 ? "^FF0000" + getitemname(.@card[.@slot_idx]) + " (will be overwritten)^000000" : "^808080Empty^000000");
+	mes "Cost: ^FF0000500,000,000z^000000";
+	next;
+	if (select("Yes, apply!:Cancel") == 2) { mes "[Enchant Master]"; mes "Come back anytime!"; close; }
+	if (Zeny < 500000000) {
+		mes "[Enchant Master]";
+		mes "^FF0000Not enough Zeny. Need 500,000,000z.^000000";
+		close;
+	}
+
+	if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+	    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+	    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+		end;
+
+	Zeny -= 500000000;
+	.@card[.@slot_idx] = .@new_ench;
+	delequip .@part;
+	getitem4 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3], .@grade, .@roi, .@rov, .@rop;
+	specialeffect2 EF_REPAIRWEAPON;
+
+	mes "[Enchant Master]";
+	mes "^00CC00Enchantment complete!^000000";
+	mes "Slot " + .@slot_display + ": ^0000CD" + getitemname(.@new_ench) + "^000000";
+	close;
 
 	return;
 }
