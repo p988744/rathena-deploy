@@ -1281,9 +1281,9 @@ Body:
   AttackDelay: 360
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -1328,7 +1328,7 @@ Body:
   AttackDelay: 649
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 1
   Ai: 6
   Class: Boss
   Modes:
@@ -1376,9 +1376,9 @@ Body:
   AttackDelay: 481
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -1423,9 +1423,9 @@ Body:
   AttackDelay: 671
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -1470,9 +1470,9 @@ Body:
   AttackDelay: 481
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -1517,7 +1517,7 @@ Body:
   AttackDelay: 840
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 1
   Ai: 6
   Class: Boss
   Modes:
@@ -1565,9 +1565,9 @@ Body:
   AttackDelay: 625
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -1612,7 +1612,7 @@ Body:
   AttackDelay: 336
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 1
   Ai: 6
   Class: Boss
   Modes:
@@ -1660,9 +1660,9 @@ Body:
   AttackDelay: 433
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -1707,9 +1707,9 @@ Body:
   AttackDelay: 433
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -1754,9 +1754,9 @@ Body:
   AttackDelay: 288
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -1801,9 +1801,9 @@ Body:
   AttackDelay: 420
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -1848,9 +1848,9 @@ Body:
   AttackDelay: 541
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -1895,9 +1895,9 @@ Body:
   AttackDelay: 813
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -1942,9 +1942,9 @@ Body:
   AttackDelay: 481
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -1989,9 +1989,9 @@ Body:
   AttackDelay: 719
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -2036,9 +2036,9 @@ Body:
   AttackDelay: 575
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -2083,7 +2083,7 @@ Body:
   AttackDelay: 1299
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 1
   Ai: 6
   Class: Boss
   Modes:
@@ -2131,9 +2131,9 @@ Body:
   AttackDelay: 769
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -2178,9 +2178,9 @@ Body:
   AttackDelay: 813
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -2225,9 +2225,9 @@ Body:
   AttackDelay: 649
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -2272,9 +2272,9 @@ Body:
   AttackDelay: 794
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -2319,9 +2319,9 @@ Body:
   AttackDelay: 658
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -2366,9 +2366,9 @@ Body:
   AttackDelay: 781
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -2413,9 +2413,9 @@ Body:
   AttackDelay: 658
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -2460,9 +2460,9 @@ Body:
   AttackDelay: 575
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -2507,9 +2507,9 @@ Body:
   AttackDelay: 541
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -2554,9 +2554,9 @@ Body:
   AttackDelay: 758
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -2601,9 +2601,9 @@ Body:
   AttackDelay: 1220
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -2648,9 +2648,9 @@ Body:
   AttackDelay: 962
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -2695,9 +2695,9 @@ Body:
   AttackDelay: 481
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -2742,9 +2742,9 @@ Body:
   AttackDelay: 625
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: Boss
   Modes:
     CanMove: true
     CanAttack: true
@@ -3001,10 +3001,11 @@ Body:
   AttackDelay: 625
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: BOSS
   Modes:
+    Mvp: true
     CanMove: true
     CanAttack: true
     Aggressive: true
@@ -3266,10 +3267,11 @@ Body:
   AttackDelay: 599
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 100
+  DamageTaken: 10
   Ai: 6
-  Class: Normal
+  Class: BOSS
   Modes:
+    Mvp: true
     CanMove: true
     CanAttack: true
     Aggressive: true
@@ -4575,13 +4577,17 @@ Body:
   AttackDelay: 0
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 10
+  DamageTaken: 1
   Ai: 6
-  Class: Normal
+  Class: BOSS
   Modes:
+    Mvp: true
     CanMove: true
     CanAttack: true
     Aggressive: true
+  Drops:
+  - Item: aegis_300560
+    Rate: 1
 - Id: 22395
   AegisName: MEDJED
   Name: 메제드
@@ -4955,13 +4961,17 @@ Body:
   AttackDelay: 1149
   AttackMotion: 0
   DamageMotion: 0
-  DamageTaken: 10
+  DamageTaken: 1
   Ai: 6
-  Class: Normal
+  Class: BOSS
   Modes:
+    Mvp: true
     CanMove: true
     CanAttack: true
     Aggressive: true
+  Drops:
+  - Item: aegis_300565
+    Rate: 1
 - Id: 20423
   AegisName: BACSOJIN2
   Name: White Lady (Evolved)

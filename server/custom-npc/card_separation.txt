@@ -23,12 +23,12 @@
 	if (strnpcinfo(1) == "Jeremy") {
 		set .@Jeremy,1;
 		set .@n$, "[Jeremy]";
-		setarray .@equip_name$[0],  "Armor",  "Shoes",  "Garment", "Upper Hat", "Middle Hat", "Lower Hat";
-		setarray .@equip_slot[0], EQI_ARMOR,EQI_SHOES,EQI_GARMENT,EQI_HEAD_TOP,EQI_HEAD_MID,EQI_HEAD_LOW;
+		setarray .@equip_name$[0],  "Armor",  "Shoes",  "Garment", "Upper Hat", "Middle Hat", "Lower Hat", "Left Accessory", "Right Accessory";
+		setarray .@equip_slot[0], EQI_ARMOR,EQI_SHOES,EQI_GARMENT,EQI_HEAD_TOP,EQI_HEAD_MID,EQI_HEAD_LOW,EQI_ACC_L,EQI_ACC_R;
 
 		mes .@n$;
 		mes "Long time no see~";
-		mes "I can separate cards from Armor, Shoes, Garment and Headgear (Upper/Middle/Lower). ^0000FFAlways succeeds!^000000 Fee: ^FF000010,000,000z^000000 per separation.";
+		mes "I can separate cards from Armor, Shoes, Garment, Headgear (Upper/Middle/Lower) and Accessories. ^0000FFAlways succeeds!^000000 Fee: ^FF000010,000,000z^000000 per separation.";
 	} else {
 		set .@Jeremy,0;
 		set .@n$, "[Richard]";
@@ -164,3 +164,4 @@
 }
 izlude,105,147,4	duplicate(CardSeparation_mal_izlude)	Jeremy#pa0829	553	// Armors :: mal_yong
 izlude,104,148,6	duplicate(CardSeparation_mal_izlude)	Richard#pa0829	559	// Weapons :: soc_weapon
+
