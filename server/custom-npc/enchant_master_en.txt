@@ -3245,14 +3245,14 @@ L_AstarBoots:
 	return;
 
 // ============================================================
-// L_TaiwanSpecial — 台灣特製系列披肩 (480454 / 480482) Enchant
+// L_TaiwanSpecial — 台灣特製系列披肩 (480454 / 480482 / 480650 / 480651) Enchant
 // Slot 4 (card[3]): AtkDelay/Frugality/SkillDelay + 7×Starlight Lv1~5
 // Slot 3 (card[2]): Bhramand Fragment POW/CON/CRT/STA/SPL/WIS Lv1~5
 // Slot 2 (card[1]): Bhramand Power/Curse/Focus/Creation/Wisdom/Endurance Lv1~3
 // Cost: 50,000,000z per roll (all 3 slots at once)
 // ============================================================
 L_TaiwanSpecial:
-	setarray .@eq_ids[0], 480454, 480482;
+	setarray .@eq_ids[0], 480454, 480482, 480650, 480651;
 
 	.@part = -1;
 	for (.@i = 0; .@i <= 22; .@i++) {
@@ -3260,7 +3260,7 @@ L_TaiwanSpecial:
 	}
 	if (.@part == -1) {
 		mes "[Enchant Master]";
-		mes "Please ^FF0000equip^000000 a ^0000FFTaiwan Special Garment (480454 / 480482)^000000 first.";
+		mes "Please ^FF0000equip^000000 a ^0000FFTaiwan Special Garment (480454 / 480482 / 480650 / 480651)^000000 first.";
 		close;
 	}
 
