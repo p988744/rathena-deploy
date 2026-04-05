@@ -5881,3 +5881,46 @@ Body:
     ChangeTargetMelee: true
     ChangeTargetChase: true
     Mvp: true
+
+- Id: 20996
+  AegisName: MD_NAGHT_SIEGER
+  Name: 변종 나흐트 지거
+  Level: 250
+  Hp: 2000000000
+  BaseExp: 0
+  JobExp: 0
+  MvpExp: 0
+  Attack: 7343
+  Attack2: 10764
+  Defense: 410
+  MagicDefense: 80
+  Str: 250
+  Agi: 188
+  Vit: 90
+  Int: 220
+  Dex: 323
+  Luk: 66
+  AttackRange: 3
+  SkillRange: 10
+  ChaseRange: 12
+  Size: Large
+  Race: Demon
+  Element: Ghost
+  ElementLevel: 3
+  WalkSpeed: 100
+  AttackDelay: 433
+  AttackMotion: 0
+  DamageMotion: 0
+  DamageTaken: 100
+  Ai: 06
+  Class: BOSS
+  Modes:
+    Mvp: true
+    CanMove: true
+    CanAttack: true
+    Aggressive: true
+    ChangeTargetMelee: true
+    ChangeTargetChase: true
+  Drops:
+    - Item: Nahtzigger_Card
+      Rate: 1

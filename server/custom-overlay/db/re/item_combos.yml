@@ -59504,3 +59504,21 @@ Body:
          bonus2 bSkillAtk,"MT_MIGHTY_SMASH",10;
          bonus2 bSkillAtk,"BO_EXPLOSIVE_POWDER",10;
       }
+  - Combos:
+      - Combo:
+          - N_Avenger_Cape_TW_LT    # 480650
+          - Nahtzigger_Card         # 4457
+    Script: |
+      bonus bPAtk,10;
+      bonus2 bAddEle,Ele_Neutral,30;
+      bonus2 bAddClass,Class_Boss,40;
+      autobonus "{ bonus2 bIgnoreDefRaceRate,RC_All,20; }",20,10000,BF_WEAPON,"{ active_transform 20996,10000; }";
+  - Combos:
+      - Combo:
+          - N_Spirit_Cape_TW_LT    # 480651
+          - Nahtzigger_Card        # 4457
+    Script: |
+      bonus bSMatk,10;
+      bonus2 bMagicAddEle,Ele_Neutral,30;
+      bonus2 bMagicAddClass,Class_Boss,40;
+      autobonus "{ bonus2 bIgnoreMdefRaceRate,RC_All,20; }",20,10000,BF_MAGIC,"{ active_transform 20996,10000; }";
