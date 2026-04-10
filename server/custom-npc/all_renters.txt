@@ -1,0 +1,170 @@
+// ===================================================
+// Universal Rental NPC - shows available rentals based on job class
+// Location: izlude 127,151
+// ===================================================
+
+izlude,127,151,4	script	Rental Manager	105,{
+	mes "[Rental Manager]";
+	mes "Welcome to the Rental Service!";
+	mes "I can help you rent a mount, falcon, or pushcart.";
+	next;
+
+	// Build dynamic menu based on job class
+	.@menu$ = "";
+
+	// Peco Peco - Knight / Lord Knight (not Rune Knight)
+	if (BaseJob == Job_Knight && (eaclass()&EAJ_THIRDMASK) != EAJ_RUNE_KNIGHT) {
+		.@menu$ += "Rent a Peco Peco (Knight):";
+		.@opt[.@n++] = 1;
+	}
+	// Grand Peco - Crusader / Paladin (not Royal Guard)
+	if (BaseJob == Job_Crusader && (eaclass()&EAJ_THIRDMASK) != EAJ_ROYAL_GUARD) {
+		.@menu$ += "Rent a Peco Peco (Crusader):";
+		.@opt[.@n++] = 2;
+	}
+	// Dragon - Rune Knight
+	if ((eaclass()&EAJ_THIRDMASK) == EAJ_RUNE_KNIGHT) {
+		.@menu$ += "Rent a Dragon:";
+		.@opt[.@n++] = 3;
+	}
+	// Gryphon - Royal Guard
+	if ((eaclass()&EAJ_THIRDMASK) == EAJ_ROYAL_GUARD) {
+		.@menu$ += "Rent a Gryphon:";
+		.@opt[.@n++] = 4;
+	}
+	// Falcon - Hunter / Sniper / Ranger
+	if (BaseJob == Job_Hunter) {
+		.@menu$ += "Rent a Falcon:";
+		.@opt[.@n++] = 5;
+	}
+	// Pushcart - Merchant classes
+	if (BaseJob == Job_Merchant) {
+		.@menu$ += "Rent a Pushcart:";
+		.@opt[.@n++] = 6;
+	}
+	// Mado Gear - Mechanic
+	if ((eaclass()&EAJ_THIRDMASK) == EAJ_MECHANIC) {
+		.@menu$ += "Ride a Mado Gear:";
+		.@opt[.@n++] = 7;
+	}
+
+	if (.@n == 0) {
+		mes "[Rental Manager]";
+		mes "I'm sorry, there are no rentals available for your job class.";
+		close;
+	}
+
+	.@menu$ += "Leave";
+	.@sel = select(.@menu$);
+
+	if (.@sel > .@n) {
+		mes "[Rental Manager]";
+		mes "Alright, come back anytime!";
+		close;
+	}
+
+	mes "[Rental Manager]";
+
+	switch (.@opt[.@sel - 1]) {
+
+	case 1: // Peco Peco for Knight / Lord Knight
+	case 2: // Grand Peco for Crusader / Paladin
+		if (!getskilllv("KN_RIDING")) {
+			mes "You need to learn the Peco Peco Ride skill first.";
+			close;
+		}
+		if (checkriding()) {
+			mes "You're already mounted on a Peco Peco.";
+			close;
+		}
+		if (ismounting()) {
+			mes "Please remove your cash mount first.";
+			close;
+		}
+		setriding;
+		mes "Your Peco Peco is ready. Take good care of it!";
+		close;
+
+	case 3: // Dragon for Rune Knight
+		if (!getskilllv("KN_RIDING")) {
+			mes "You need to learn the Peco Peco Ride skill before riding a Dragon.";
+			close;
+		}
+		if (checkdragon()) {
+			mes "You already have a Dragon.";
+			close;
+		}
+		if (ismounting()) {
+			mes "Please remove your cash mount first.";
+			close;
+		}
+		setdragon;
+		mes "Your Dragon is ready. Ride forth with power!";
+		close;
+
+	case 4: // Gryphon for Royal Guard
+		if (!getskilllv("KN_RIDING")) {
+			mes "You need to learn the Peco Peco Ride skill before riding a Gryphon.";
+			close;
+		}
+		if (checkriding()) {
+			mes "You already have a Gryphon.";
+			close;
+		}
+		if (ismounting()) {
+			mes "Please remove your cash mount first.";
+			close;
+		}
+		setriding;
+		mes "Your Gryphon is ready. Fly with honor!";
+		close;
+
+	case 5: // Falcon for Hunter / Sniper / Ranger
+		if (checkwug()) {
+			mes "Please dismiss your Warg before renting a Falcon.";
+			close;
+		}
+		if (!getskilllv("HT_FALCON")) {
+			mes "You need to learn the Falcon Mastery skill first.";
+			close;
+		}
+		if (checkfalcon()) {
+			mes "You already have a Falcon.";
+			close;
+		}
+		setfalcon;
+		mes "Your Falcon is ready. Treat it well!";
+		close;
+
+	case 6: // Pushcart for Merchant classes
+		if (checkcart()) {
+			mes "You already have a Pushcart.";
+			close;
+		}
+		if (!getskilllv("MC_PUSHCART")) {
+			mes "You need to learn the Pushcart skill first.";
+			close;
+		}
+		setcart;
+		mes "Your Pushcart is ready. Good luck with business!";
+		close;
+
+	case 7: // Mado Gear for Mechanic
+		if (checkmadogear()) {
+			mes "You're already riding a Mado Gear.";
+			close;
+		}
+		if (!getskilllv("NC_MADOLICENCE")) {
+			mes "You need to obtain the Mado Gear License skill first.";
+			close;
+		}
+		if (ismounting()) {
+			mes "Please remove your cash mount first.";
+			close;
+		}
+		setmadogear;
+		mes "Mado Gear activated. Move out!";
+		close;
+	}
+	close;
+}

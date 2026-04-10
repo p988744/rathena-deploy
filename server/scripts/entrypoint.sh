@@ -384,6 +384,12 @@ if [ -f "/rathena/npc/custom/custom_maps.txt" ]; then
     echo "   已啟用自訂地圖 mapflag"
 fi
 
+if [ -f "/rathena/npc/custom/all_renters.txt" ]; then
+    grep -qF 'npc: npc/custom/all_renters.txt' /rathena/npc/scripts_custom.conf || \
+        echo 'npc: npc/custom/all_renters.txt' >> /rathena/npc/scripts_custom.conf
+    echo "   已啟用全能租借管家"
+fi
+
 # ------ 自訂地圖（bl_depth1 複製體）------
 # map_index.txt（char server 用）
 grep -qF 'bl_dep1_cus' /rathena/db/map_index.txt || echo 'bl_dep1_cus' >> /rathena/db/map_index.txt
